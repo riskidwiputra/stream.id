@@ -238,13 +238,13 @@
                                            
                                         <li class="posts__item posts__item--category-1 posts__item--category-4 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="_esports_blog-post-1.html"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="312" alt=""></a>
+                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-1">The Team</span><span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
+                                                    <span class="label posts__cat-label posts__cat-label--category-1"><?= $row['label'] ?></span><span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
                                                 </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html"><?= strtoupper($row['judul']); ?></a></h6>
+                                                <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date"><?= $row['tanggal'] ?></time>
                                             </div>
                                         </li>
@@ -257,66 +257,24 @@
                                 <!-- Commented -->
                                 <div role="tabpanel" class="tab-pane fade" id="widget-tabbed-commented">
                                     <ul class="posts posts--simple-list">
-                                        <li class="posts__item posts__item--category-3 ">
-                                            <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img8-sidebar-xs.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="posts__inner">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-3">Striker GO</span>
-                                                </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">New Teach vehicles will be added in July&#x27;s patch</a></h6>
-                                                <time datetime="2018-09-27" class="posts__date">September 5th, 2018</time>
-                                            </div>
-                                        </li>
-                                        <li class="posts__item posts__item--category-1 posts__item--category-4 ">
-                                            <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img4-sidebar-xs.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="posts__inner">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-1">The Team</span><span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
-                                                </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">The Alchemists reach to the Xenowatch finals</a></h6>
-                                                <time datetime="2018-09-27" class="posts__date">August 14th, 2018</time>
-                                            </div>
-                                        </li>
-                                        <li class="posts__item posts__item--category-1 ">
-                                            <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img6-sidebar-xs.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="posts__inner">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-1">The Team</span>
-                                                </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">The Alchemists welcome &quot;Logan-X&quot; to the team</a></h6>
-                                                <time datetime="2018-09-27" class="posts__date">August 14th, 2018</time>
-                                            </div>
-                                        </li>
-                                        <li class="posts__item posts__item--category-4 ">
-                                            <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img1-sidebar-xs.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="posts__inner">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
-                                                </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">Xenowatch&#x27;s new patch will fix the faces bugs</a></h6>
-                                                <time datetime="2018-09-27" class="posts__date">September 27th, 2018</time>
-                                            </div>
-                                        </li>
+                                        
+                                    <?php if ($data['commented']): ?>
+                                            <?php foreach ($data['commented'] as $row): ?>
                                         <li class="posts__item posts__item--category-2 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="_esports_blog-post-1.html"><img src="assets/images/esports/samples/post-img2-sidebar-xs.jpg" alt=""></a>
+                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-2">L.O. Heroes</span>
+                                                    <span class="label posts__cat-label posts__cat-label--category-2"><?= $row['label'] ?></span>
                                                 </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">A new mage character is coming to the League</a></h6>
-                                                <time datetime="2018-09-27" class="posts__date">August 5th, 2018</time>
+                                                <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
+                                                <time datetime="2018-09-27" class="posts__date"><?= $row['tanggal'] ?></time>
                                             </div>
                                         </li>
+                                     <?php endforeach ?>
+                                            
+                                        <?php endif ?>               
                                     </ul>
                                 </div>
                                 <!-- Popular -->
@@ -329,13 +287,13 @@
                                             <?php foreach ($data['popular'] as $row): ?>
                                         <li class="posts__item posts__item--category-3 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="_esports_blog-post-1.html"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
+                                                <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-3">Striker GO</span>
+                                                    <span class="label posts__cat-label posts__cat-label--category-3"><?= $row['label'] ?>  </span>
                                                 </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html"><?= strtoupper($row['judul']); ?></a></h6>
+                                                <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date">September 5th, 2018</time>
                                             </div>
                                         </li>
@@ -352,94 +310,9 @@
                 </aside>
                 <!-- Widget: Trending News / End -->
 
-                <!-- Widget: Banner -->
-                <aside class="widget card widget--sidebar widget-banner">
-                    <div class="widget__title card__header">
-                        <h4>300x250 Banner</h4>
-                    </div>
-                    <div class="widget__content card__content">
-                        <figure class="widget-banner__img">
-                            <a href="https://themeforest.net/item/the-alchemists-sports-news-html-template/19106722?ref=dan_fisher"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/banner.jpg" alt="Banner"></a>
-                        </figure>
-                    </div>
-                </aside>
-                <!-- Widget: Banner / End -->
+            
 
-                <!-- Widget: Popular News -->
-                <aside class="widget widget--sidebar card widget-popular-posts">
-                    <div class="widget__title card__header">
-                        <h4>Featured News</h4>
-                    </div>
-                    <div class="widget__content card__content">
-                        <ul class="posts posts--simple-list">
-                            <li class="posts__item posts__item--category-1 posts__item--category-3 ">
-                                <figure class="posts__thumb posts__thumb--hover">
-                                    <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img3-sidebar-xs.jpg" alt=""></a>
-                                </figure>
-                                <div class="posts__inner">
-                                    <div class="posts__cat">
-                                        <span class="label posts__cat-label posts__cat-label--category-1">The Team</span><span class="label posts__cat-label posts__cat-label--category-3">Striker GO</span>
-                                    </div>
-                                    <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">The Team defeated the L.A. Pirates 2-1 in the Pro League...</a></h6>
-                                    <time datetime="2018-09-27" class="posts__date">September 27th, 2018</time>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="posts__excerpt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna.
-                                </div>
-                            </li>
-                            <li class="posts__item posts__item--category-4 ">
-                                <figure class="posts__thumb posts__thumb--hover">
-                                    <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img13-sidebar-xs.jpg" alt=""></a>
-                                </figure>
-                                <div class="posts__inner">
-                                    <div class="posts__cat">
-                                        <span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
-                                    </div>
-                                    <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">New modes are coming in the April update</a></h6>
-                                    <time datetime="2018-09-27" class="posts__date">August 5th, 2018</time>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="posts__excerpt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna.
-                                </div>
-                            </li>
-                            <li class="posts__item posts__item--category-2 ">
-                                <figure class="posts__thumb posts__thumb--hover">
-                                    <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img10-sidebar-xs.jpg" alt=""></a>
-                                </figure>
-                                <div class="posts__inner">
-                                    <div class="posts__cat">
-                                        <span class="label posts__cat-label posts__cat-label--category-2">L.O. Heroes</span>
-                                    </div>
-                                    <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">The story behind Rurouni and his Robot Guardian</a></h6>
-                                    <time datetime="2018-09-27" class="posts__date">September 5th, 2018</time>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="posts__excerpt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna.
-                                </div>
-                            </li>
-                            <li class="posts__item posts__item--category-4 ">
-                                <figure class="posts__thumb posts__thumb--hover">
-                                    <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img9-sidebar-xs.jpg" alt=""></a>
-                                </figure>
-                                <div class="posts__inner">
-                                    <div class="posts__cat">
-                                        <span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
-                                    </div>
-                                    <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">Destroy will stream the Mercenaries mission</a></h6>
-                                    <time datetime="2018-09-27" class="posts__date">August 14th, 2018</time>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="posts__excerpt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
-                <!-- Widget: Popular News / End -->
+               
 
             </div>
             <!-- Sidebar / End -->

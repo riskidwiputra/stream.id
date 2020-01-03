@@ -49,32 +49,22 @@
                                             <h4 class="widget__title">Popular News</h4>
                                             <div class="widget__content">
                                                 <ul class="posts posts--simple-list">
-
+                                                <?php if ($data['populared']): ?>
+                                                  <?php foreach ($data['populared'] as $row): ?>
                                                     <li class="posts__item posts__item--category-4 ">
                                                         <figure class="posts__thumb posts__thumb--hover">
-                                                            <a href="#"><img src="<?=asset('assets/images/esports/samples/post-img4-xs.jpg');?>" alt=""></a>
+                                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="90" height="68" alt=""></a>
                                                         </figure>
                                                         <div class="posts__inner">
                                                             <div class="posts__cat">
-                                                                <span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
+                                                                <span class="label posts__cat-label posts__cat-label--category-4"><?= $row['label'] ?></span>
                                                             </div>
-                                                            <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">Xenowatch&#x27;s new patch will fix the faces bugs</a></h6>
-                                                            <time datetime="2017-08-21" class="posts__date">August 27th, 2018</time>
+                                                            <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
+                                                            <time datetime="2018-09-27" class="posts__date"><?= $row['tanggal'] ?></time>
                                                         </div>
                                                     </li>
-                                                    <li class="posts__item posts__item--category-2 ">
-                                                        <figure class="posts__thumb posts__thumb--hover">
-                                                            <a href="#"><img src="<?=asset('assets/images/esports/samples/post-img2-xs.jpg');?>" alt=""></a>
-                                                        </figure>
-                                                        <div class="posts__inner">
-                                                            <div class="posts__cat">
-                                                                <span class="label posts__cat-label posts__cat-label--category-2">L.O. Heroes</span>
-                                                            </div>
-                                                            <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">A new mage character is coming to the League</a></h6>
-                                                            <time datetime="2017-08-21" class="posts__date">July 16th, 2018</time>
-                                                        </div>
-                                                    </li>
-
+                                                    <?php endforeach ?>
+                                                <?php endif ?>
                                                 </ul>
                                             </div>
                                         </div>

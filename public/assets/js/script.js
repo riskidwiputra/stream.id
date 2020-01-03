@@ -2,7 +2,7 @@ $('.berita').on('click', function (e) {
 	e.preventDefault();
 		const view = $(this).data('id');
 		const href = $(this).attr('href');
-		 url = 'http://localhost/stream.id/getnews/' + view;
+		 url = 'http://localhost/Git/stream.id/getnews/' + view;
 	
     $.ajax({
     	url: url,
@@ -13,8 +13,5 @@ $('.berita').on('click', function (e) {
 		
         }
     });
-    console.log(url);
-       console.log(href);
-       console.log(view);
 
 	});
