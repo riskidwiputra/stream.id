@@ -310,93 +310,9 @@
                 </aside>
                 <!-- Widget: Trending News / End -->
 
-                <!-- Widget: Banner -->
-                <aside class="widget card widget--sidebar widget-banner">
-                    <div class="widget__title card__header">
-                        <h4>300x250 Banner</h4>
-                    </div>
-                    <div class="widget__content card__content">
-                        <figure class="widget-banner__img">
-                            <a href="https://themeforest.net/item/the-alchemists-sports-news-html-template/19106722?ref=dan_fisher"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/banner.jpg" alt="Banner"></a>
-                        </figure>
-                    </div>
-                </aside>
-                <!-- Widget: Banner / End -->
+                
 
-                <!-- Widget: Popular News -->
-                <aside class="widget widget--sidebar card widget-popular-posts">
-                    <div class="widget__title card__header">
-                        <h4>Featured News</h4>
-                    </div>
-                    <div class="widget__content card__content">
-                        <ul class="posts posts--simple-list">
-                            <li class="posts__item posts__item--category-1 posts__item--category-3 ">
-                                <figure class="posts__thumb posts__thumb--hover">
-                                    <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img3-sidebar-xs.jpg" alt=""></a>
-                                </figure>
-                                <div class="posts__inner">
-                                    <div class="posts__cat">
-                                        <span class="label posts__cat-label posts__cat-label--category-1">The Team</span><span class="label posts__cat-label posts__cat-label--category-3">Striker GO</span>
-                                    </div>
-                                    <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">The Team defeated the L.A. Pirates 2-1 in the Pro League...</a></h6>
-                                    <time datetime="2018-09-27" class="posts__date">September 27th, 2018</time>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="posts__excerpt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna.
-                                </div>
-                            </li>
-                            <li class="posts__item posts__item--category-4 ">
-                                <figure class="posts__thumb posts__thumb--hover">
-                                    <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img13-sidebar-xs.jpg" alt=""></a>
-                                </figure>
-                                <div class="posts__inner">
-                                    <div class="posts__cat">
-                                        <span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
-                                    </div>
-                                    <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">New modes are coming in the April update</a></h6>
-                                    <time datetime="2018-09-27" class="posts__date">August 5th, 2018</time>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="posts__excerpt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna.
-                                </div>
-                            </li>
-                            <li class="posts__item posts__item--category-2 ">
-                                <figure class="posts__thumb posts__thumb--hover">
-                                    <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img10-sidebar-xs.jpg" alt=""></a>
-                                </figure>
-                                <div class="posts__inner">
-                                    <div class="posts__cat">
-                                        <span class="label posts__cat-label posts__cat-label--category-2">L.O. Heroes</span>
-                                    </div>
-                                    <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">The story behind Rurouni and his Robot Guardian</a></h6>
-                                    <time datetime="2018-09-27" class="posts__date">September 5th, 2018</time>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="posts__excerpt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna.
-                                </div>
-                            </li>
-                            <li class="posts__item posts__item--category-4 ">
-                                <figure class="posts__thumb posts__thumb--hover">
-                                    <a href="_esports_blog-post-1.html"><img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img9-sidebar-xs.jpg" alt=""></a>
-                                </figure>
-                                <div class="posts__inner">
-                                    <div class="posts__cat">
-                                        <span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
-                                    </div>
-                                    <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">Destroy will stream the Mercenaries mission</a></h6>
-                                    <time datetime="2018-09-27" class="posts__date">August 14th, 2018</time>
-                                </div>
-                                <div class="clearfix"></div>
-                                <div class="posts__excerpt">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore magna.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
+               
                 <!-- Widget: Popular News / End -->
 
             </div>
