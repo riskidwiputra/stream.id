@@ -15,9 +15,9 @@
 
     <!-- Favicons
 	================================================== -->
-    <link rel="shortcut icon" href="assets/images/esports/icons/icon-stream-gaming.ico">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/esports/icons/icon-stream-gaming.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/esports/icons/icon-stream-gaming.png">
+    <link rel="shortcut icon" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.ico">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.png">
 
     <!-- Mobile Specific Metas
 	================================================== -->
@@ -179,7 +179,7 @@
                         <li class="info-block__item info-block__item--shopping-cart js-info-block__item--onclick">
                             <a href="_esports_shop-cart.html" class="info-block__link-wrapper">
                                 <svg role="img" class="df-icon df-icon--shopping-cart">
-                                    <use xlink:href="assets/images/esports/icons-esports.svg#cart"/>
+                                    <use xlink:href="<?= BASEURL ?>/public/assets/images/esports/icons-esports.svg#cart"/>
                                 </svg>
                                 <h6 class="info-block__heading">Your Bag (8 items)</h6>
                                 <span class="info-block__cart-sum">$256,30</span>
@@ -195,7 +195,7 @@
                                 <li class="header-cart__item">
                                     <figure class="header-cart__product-thumb">
                                         <a href="_esports_shop-product.html">
-                                            <img src="assets/images/esports/samples/cart-sm-1.jpg" alt="Jaxxy Framed Art Print">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/samples/cart-sm-1.jpg" alt="Jaxxy Framed Art Print">
                                         </a>
                                     </figure>
                                     <div class="header-cart__badges">
@@ -206,7 +206,7 @@
                                 <li class="header-cart__item">
                                     <figure class="header-cart__product-thumb">
                                         <a href="_esports_shop-product.html">
-                                            <img src="assets/images/esports/samples/cart-sm-2.jpg" alt="Tech Warrior Framed Art Print">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/samples/cart-sm-2.jpg" alt="Tech Warrior Framed Art Print">
                                         </a>
                                     </figure>
                                     <div class="header-cart__badges">
@@ -217,7 +217,7 @@
                                 <li class="header-cart__item">
                                     <figure class="header-cart__product-thumb">
                                         <a href="_esports_shop-product.html">
-                                            <img src="assets/images/esports/samples/cart-sm-3.jpg" alt="Alchemists White Mug">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/samples/cart-sm-3.jpg" alt="Alchemists White Mug">
                                         </a>
                                     </figure>
                                     <div class="header-cart__badges">
@@ -227,7 +227,7 @@
                                 <li class="header-cart__item">
                                     <figure class="header-cart__product-thumb">
                                         <a href="_esports_shop-product.html">
-                                            <img src="assets/images/esports/samples/cart-sm-4.jpg" alt="Mercenaries Framed Art Print">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/samples/cart-sm-4.jpg" alt="Mercenaries Framed Art Print">
                                         </a>
                                     </figure>
                                     <div class="header-cart__badges">

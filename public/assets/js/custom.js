@@ -1,4 +1,4 @@
-$(document).ready(function(){
+                $(document).ready(function(){
                     const BASEURL = $('#comment').data('id');
                     const id = $('#display_comment').data('id');
                     $('#form_komen').on('submit', function(event){

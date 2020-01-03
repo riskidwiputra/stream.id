@@ -17,8 +17,8 @@
 			$data['newest'] = $this->db->resultSet();
 			$data['popular'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 5 ");
 			$data['popular'] = $this->db->resultSet();
-			$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
-			$data['populared'] = $this->db->resultSet();
+				$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
+				$data['populared'] = $this->db->resultSet();
 			$data['commented'] = $this->db->query("SELECT * FROM news_game ORDER by komentar DESC LIMIT 5 ");
 			$data['commented'] = $this->db->resultSet();
 			$data['content'] = $this->model('News_Model')->select();

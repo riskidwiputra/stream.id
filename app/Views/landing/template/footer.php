@@ -5,6 +5,7 @@
                 <!-- Sponsors -->
                 <div class="sponsors-wrapper">
                     <div class="container">
+                        <div id="base" data-id="<?= BASEURL ?>"></div>
                         <div class="sponsors">
                             <ul class="sponsors-logos">
                                 <li class="sponsors__item">
@@ -213,10 +214,10 @@
 
             <!-- Vendor JS -->
             <script src="<?=asset('assets/vendor/twitter/jquery.twitter.js');?>"></script>
-           <script src="<?=asset('assets/vendor/jquery-duotone/jquery.duotone.min.js');?>"></script>
+           
 
             <!-- REVEAL ADD-ON FILES -->
-            <script type='text/javascript' src='<?= BASEURL ?>/public/assets/vendor/revolution-addons/reveal/js/revolution.addon.revealer.min.js?ver=1.0.0'></script>
+           
             <!-- TYPEWRITER ADD-ON FILES -->
             <script type='text/javascript' src="<?=asset('assets/vendor/revolution-addons/typewriter/js/revolution.addon.typewriter.min.js');?>"></script>
 
@@ -322,8 +323,7 @@
                             });
                         }; /* END OF revapi call */
 
-                        RsRevealerAddOn(tpj, revapi, "<div class='rsaddon-revealer-spinner rsaddon-revealer-spinner-2'><div class='rsaddon-revealer-2' style='border-top-color: 0.65); border-bottom-color: 0.15); border-left-color: 0.65); border-right-color: 0.15);'></div></div>");
-                        RsTypewriterAddOn(tpj, revapi);
+                        
 
                     }; /* END OF ON LOAD FUNCTION */
                 }()); /* END OF WRAPPING FUNCTION */
