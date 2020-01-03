@@ -22,6 +22,8 @@
                 </div>
                 <!-- Sponsors / End -->
                 <!-- Footer Widgets -->
+
+    
                 <div class="footer-widgets effect-duotone effect-duotone--base">
                     <div class="footer-widgets__inner">
                         <div class="container">
