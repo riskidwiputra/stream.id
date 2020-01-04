@@ -141,14 +141,14 @@
                                         <li class=""><a href="<?= BASEURL ?>/next-matchs">Next Matchs</a></li>
                                     </ul>
                                 </li>
-                                <li class=""><a href="index.php?page=game-list">Games</a>
+                                <li class=""><a href="#">Games</a>
                                     <ul class="main-nav__sub">
                                     <li class=""><a href="<?= BASEURL ?>/dota">Dota</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/mobile-legend">Mobile Legends</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/pubg-mobile">PUBG Mobile</a></li>
                                     </ul>
                                 </li>
-                                <li class=""><a href="index.php?page=contact">About Me</a>
+                                <li class=""><a href="#">About Me</a>
                                     <ul class="main-nav__sub">
                                         <li class=""><a href="<?= BASEURL ?>/contact">Contact</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/faqs">FAQs</a></li>
@@ -177,7 +177,7 @@
 						<ul class="info-block info-block--header">
 						
                         <li class="info-block__item info-block__item--shopping-cart js-info-block__item--onclick">
-                            <a href="_esports_shop-cart.html" class="info-block__link-wrapper">
+                            <a href="#" class="info-block__link-wrapper">
                                 <svg role="img" class="df-icon df-icon--shopping-cart">
                                     <use xlink:href="<?= BASEURL ?>/public/assets/images/esports/icons-esports.svg#cart"/>
                                 </svg>
