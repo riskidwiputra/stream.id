@@ -74,7 +74,7 @@
         <!-- Header Mobile -->
         <div class="header-mobile clearfix" id="header-mobile">
             <div class="header-mobile__logo">
-                <a href="index.php"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" width="250" srcset="assets/images/esports/streamgaming.png 2x" alt="Alchemists" class="header-mobile__logo-img"></a>
+                <a href="<?= BASEURL ?>/"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" width="250" srcset="assets/images/esports/streamgaming.png 2x" alt="Alchemists" class="header-mobile__logo-img"></a>
             </div>
             <div class="header-mobile__inner">
                 <a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>
@@ -110,9 +110,9 @@
 
                         <!-- Account Navigation -->
                         <ul class="nav-account">
-                        <li class="nav-account__item"><a href="index.php?page=account">My Account</a></li>
-                            <li class="nav-account__item"><a href="index.php?page=login">Login</a></li>
-                            <li class="nav-account__item nav-account__item--logout"><a href="#">Logout</a></li>
+                        <li class="nav-account__item"><a href="<?= BASEURL ?>/account">My Account</a></li>
+                            <li class="nav-account__item"><a href="<?= BASEURL ?>/login">Login</a></li>
+                            <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/logout">Logout</a></li>
                         </ul>
                         <!-- Account Navigation / End -->
                     </div>
@@ -127,7 +127,7 @@
 
                         <!-- Header Logo -->
                         <div class="header-logo">
-                            <a href="index.php"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" width="250" srcset="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png 2x" alt="Alchemists" class="header-logo__img"></a>
+                            <a href="<?= BASEURL ?>/"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" width="250" srcset="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png 2x" alt="Alchemists" class="header-logo__img"></a>
                         </div>
                         <!-- Header Logo / End -->
 
@@ -150,12 +150,12 @@
                                 </li>
                                 <li class=""><a href="index.php?page=contact">About Me</a>
                                     <ul class="main-nav__sub">
-                                        <li class=""><a href="index.php?page=contact">Contact</a></li>
-                                        <li class=""><a href="index.php?page=faqs">FAQs</a></li>
-                                        <li class=""><a href="index.php?page=sponsors">Sponsors</a></li>
-                                        <li><a href="index.php?page=galery">Gallery</a></li>
-                                        <li><a href="index.php?page=videos-list">Videos</a></li>
-                                        <li><a href="index.php?page=marchandise">Merchandise</a></li>
+                                        <li class=""><a href="<?= BASEURL ?>/contact">Contact</a></li>
+                                        <li class=""><a href="<?= BASEURL ?>/faqs">FAQs</a></li>
+                                        <li class=""><a href="<?= BASEURL ?>/sponsors">Sponsors</a></li>
+                                        <li><a href="<?= BASEURL ?>/galery">Gallery</a></li>
+                                        <li><a href="<?= BASEURL ?>/videos-list">Videos</a></li>
+                                        <li><a href="<?= BASEURL ?>/marchandise">Merchandise</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -256,10 +256,10 @@
                                     <span class="header-cart__subtotal-sum">$256.30</span>
                                 </li>
                                 <li class="header-cart__item header-cart__item--action">
-                                    <a href="index.php?page=shop" class="btn btn-primary btn-block">Go to Shopping</a>
-                                    <a href="index.php?page=wishlist" class="btn btn-primary-inverse btn-block">See Wishlist</a>
-                                    <a href="index.php?page=cart" class="btn btn-primary btn-block">Go to Cart</a>
-                                    <a href="index.php?page=checkout" class="btn btn-primary-inverse btn-block">Proceed to Checkout</a>
+                                    <a href="<?= BASEURL ?>/shop" class="btn btn-primary btn-block">Go to Shopping</a>
+                                    <a href="<?= BASEURL ?>/wishlist" class="btn btn-primary-inverse btn-block">See Wishlist</a>
+                                    <a href="<?= BASEURL ?>/cart" class="btn btn-primary btn-block">Go to Cart</a>
+                                    <a href="<?= BASEURL ?>/checkout" class="btn btn-primary-inverse btn-block">Proceed to Checkout</a>
                                 </li>
                             </ul>
                             <!-- Dropdown Shopping Cart / End -->
