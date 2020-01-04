@@ -138,14 +138,14 @@
                                 <li class=""><a href="#">News</a>
                                     <ul class="main-nav__sub">
                                         <li class=""><a href="<?= BASEURL ?>/news">News</a></li>
-                                        <li class=""><a href="index.php?page=next-matchs">Next Matchs</a></li>
+                                        <li class=""><a href="<?= BASEURL ?>/next-matchs">Next Matchs</a></li>
                                     </ul>
                                 </li>
                                 <li class=""><a href="index.php?page=game-list">Games</a>
                                     <ul class="main-nav__sub">
-                                    <li class=""><a href="index.php?page=dota">Dota</a></li>
-                                        <li class=""><a href="index.php?page=mobile-legend">Mobile Legends</a></li>
-                                        <li class=""><a href="index.php?page=pubgm">PUBG Mobile</a></li>
+                                    <li class=""><a href="<?= BASEURL ?>/dota">Dota</a></li>
+                                        <li class=""><a href="<?= BASEURL ?>/mobile-legend">Mobile Legends</a></li>
+                                        <li class=""><a href="<?= BASEURL ?>/pubg-mobile">PUBG Mobile</a></li>
                                     </ul>
                                 </li>
                                 <li class=""><a href="index.php?page=contact">About Me</a>
