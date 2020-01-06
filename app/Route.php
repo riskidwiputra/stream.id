@@ -7,6 +7,7 @@
 	// News Game
 	Route::get('/news', 					'NewsController@Index');
 	Route::get('/news/{id}', 				'NewsController@SingleNews');
+	Route::get('/news-page/{id}', 			'NewsController@Pagination');
 	Route::get('/getnews/{id}', 			'NewsController@GetNews');
 
 	// GAMES

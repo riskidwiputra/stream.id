@@ -4,11 +4,20 @@
 	{ 
 	    public function select()
 		{	
-			 $this->db->table('news_game')->query("SELECT * FROM news_game  ORDER BY id_news_game DESC ");
+			 $this->db->table('news_game')->query("SELECT * FROM news_game  ORDER BY id_news_game DESC LIMIT 0, 6");
 
-	 		return $this->db->resultSet();
+			return $this->db->resultSet();
 		
 		}
+		public function selectpagination($id)
+		{	
+			$limit			= 6;
+			$limit_start 	= ($id - 1) * $limit;
+			 $this->db->table('news_game')->query("SELECT * FROM news_game  ORDER BY id_news_game DESC LIMIT ".$limit_start.",".$limit);
+
+			return $this->db->resultSet();
+		}
+		
 		public function getData($id)
 		{	
 			$sql = $this->db->table('news_game')->where('id_news_game', $id);
@@ -50,8 +59,14 @@
 		public function getkomen($id_news)
 		{
 			$output='';
+			$parent_komentar = $this->db->table('komentar')->query("SELECT * FROM komentar WHERE id_news_game = '$id_news' AND parent_komentar_id > 0");
+			$parent_komentar = $this->db->execute();
+			$parent_komentar = $this->db->resultSet();
+			// $parent_komentar = $this->db->rowCount();
+			// foreach ($parent_komentar as $row2 ) {
+			// 	echo $row2['komentar_id'];
+			// }
 			
-
 			// // $tampil = $this->db->query("SELECT * FROM komentar WHERE parent_komentar_id = '0' AND id_news_game = '$id_news' ORDER BY komentar_id DESC");
 			// // $tampil = $this->db->resultSet();
 			// // var_dump($tampil);
@@ -72,59 +87,61 @@
                         <time class="comment__post-date" datetime="2017-08-23">'.$row["date"].'</time>
                     </div>
                     <div class="comment__body">
-                       '.$row["komentar"].'
+					'.$row["komentar"].'
                     </div>
-                    <div class="comment__reply">
+                    <div class="comment__reply" style="font-size:12px;">
 						<a href="javascript:void(0);" class="comment__reply-link reply" id="'.$row["komentar_id"].'">Reply</a>
+						|
+						<a href="" class="comment__reply-link reply">Lihat Balasan  (0) </a>
 					</div>
                 </div>
             </div>
             ';
-			 $output .= $this->ambil_reply($row["komentar_id"], $id_news);
+			$output .= $this->ambil_reply($row["komentar_id"], $id_news);
 			}
 			return $output;
 		}
 		function ambil_reply($komentar_id, $id_news)
 			{
-			 $output      ='';
+			$output      ='';
 			  $query      = mysqli_query($this->db->connection(), "SELECT * FROM komentar WHERE parent_komentar_id ='$komentar_id' AND id_news_game = '$id_news'");
-			  $count      = mysqli_num_rows($query);
+				$count      = mysqli_num_rows($query);
 
-			  if($count > 0){
-			    while ($row =  mysqli_fetch_assoc($query)) {
+			if($count > 0){
+				while ($row =  mysqli_fetch_assoc($query)) {
 
-			      $output .= '
-			      <ul class="comments--children">
-			      <li class="comments__item">
-			      <div class="comments__inner">
-			      <header class="comment__header">
-			      <div class="comment__author">
-			      <figure class="comment__author-avatar comment__author-avatar--md">
-			      <img src="'.BASEURL.'/public/assets/images/samples/avatar-2.jpg" alt="">
-			      </figure>
-			      </div>
-			      </header>
-			      <div class="comment__inner-wrap">
-			      <div class="comment__author-info">
-			      <h5 class="comment__author-name">'.$row["nama_pengirim"].'</h5>
-			      <time class="comment__post-date" datetime="2017-08-23">'.$row["date"].'</time>
-			      </div>
-			      <div class="comment__body">
-			      '.$row["komentar"].'
-			      </div>
-			      <div class="comment__reply">
-			      <a href="javascript:void(0);" class="comment__reply-link reply" id="'.$row["komentar_id"].'">Reply</a>
-			      </div>
-			      </div>
-			      </div>
-			      </li>
-			      </ul>
-			      ';
+					$output .= '
+					<ul class="comments--children">
+					<li class="comments__item">
+					<div class="comments__inner">
+					<header class="comment__header">
+					<div class="comment__author">
+					<figure class="comment__author-avatar comment__author-avatar--md">
+					<img src="'.BASEURL.'/public/assets/images/samples/avatar-2.jpg" alt="">
+					</figure>
+					</div>
+					</header>
+					<div class="comment__inner-wrap">
+					<div class="comment__author-info">
+					<h5 class="comment__author-name">'.$row["nama_pengirim"].'</h5>
+					<time class="comment__post-date" datetime="2017-08-23">'.$row["date"].'</time>
+					</div>
+					<div class="comment__body">
+					'.$row["komentar"].'
+					</div>
+					<div class="comment__reply">
+					<a href="javascript:void(0);" class="comment__reply-link reply" id="'.$row["komentar_id"].'">Reply</a>
+					</div>
+					</div>
+					</div>
+					</li>
+					</ul>
+					';
 
-			      $output .= $this->ambil_reply($row["komentar_id"], $id_news);
-			    }
-			  }
-			  return $output;
+					$output .= $this->ambil_reply($row["komentar_id"], $id_news);
+				}
+				}
+			return $output;
 			}
 
 

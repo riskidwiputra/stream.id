@@ -2,9 +2,7 @@
 ================================================== -->
 <div class="site-content">
     <div class="container">
-
         <div class="row">
-
             <!-- Content -->
             <div class="content col-lg-8">
 
@@ -26,7 +24,6 @@
                                 <time datetime="2018-08-23" class="posts__date"><?= $row['tanggal'] ?></time>
                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                 <div class="posts__excerpt">
-                                   
                                 </div>
                             </div>
                             <footer class="posts__footer card__footer">
@@ -54,13 +51,57 @@
                 <!-- Post Pagination -->
                 <nav class="post-pagination" aria-label="Blog navigation">
                     <ul class="pagination pagination--circle justify-content-center">
-                        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><span class="page-link">...</span></li>
-                        <li class="page-item"><a class="page-link" href="#">9</a></li>
-                        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+                        <?php if (isset($data['page'])) {
+                        if ($data['page'] == 1) { ?>
+                            <li class="page-item"><a class="page-link" ><i class="fa fa-angle-left"></i></a></li>
+                        <?php  
+                        }else {
+                            $link_prev = ($data['page'] > 1)? $data['page'] - 1 : 1;
+                        ?>
+                        <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-page/<?= $link_prev ?>"><i class="fa fa-angle-left"></i></a></li>
+                        <?php
+                        }
+                        for ($i= $data['start_number']; $i <= $data['end_number']; $i++) { 
+                            $link_active = ($data['page'] == $i)? 'active' : '';
+                        ?>
+                        <li class="page-item <?= $link_active ?>"><a class="page-link" href="<?= BASEURL ?>/news-page/<?= $i ?>"><?= $i ?></a></li>
+                        <?php
+                        }
+                        if ($data['page'] == $data['jumlahHalaman']) {
+                        ?>
+                        
+                        <li class="page-item"><a class="page-link"><i class="fa fa-angle-right"></i></a></li>
+                        <?php
+                        }else{
+                            $link_next = ($data['page'] < $data['jumlahHalaman'])? $data['page'] + 1 : $data['jumlahHalaman'];
+                        ?>
+                        <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-page/<?= $link_next ?>""><i class="fa fa-angle-right"></i></a></li>
+                        <?php
+                        }
+                        }else{?>
+                        <li class="page-item"><a class="page-link"><i class="fa fa-angle-left"></i></a></li>
+                        <?php
+                        for ($i=1; $i <= $data['jumlahHalaman']; $i++) { 
+                        ?>
+                        <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-page/<?= $i ?>"><?= $i ?></a></li>
+                        <?php    
+                        }
+                        ?>
+                        <?php
+                        if ($data['jumlahHalaman'] == 1) {
+                        ?>
+                        <li class="page-item"><a class="page-link"><i class="fa fa-angle-right"></i></a></li>
+                        <?php
+                        }else{
+                        ?>
+                        <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-page/2"><i class="fa fa-angle-right"></i></a></li>
+
+                    
+                        <?php
+                        }
+                        }
+                        ?>
+                        
                     </ul>
                 </nav>
                 <!-- Post Pagination / End -->

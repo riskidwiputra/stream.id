@@ -24,7 +24,6 @@
                                 </li>
                                 <li class="meta__item meta__item--views"><?= $data['content']['views']; ?></li>
                             </ul>
-                           
                         </header>
 
                         <figure class="post__thumbnail post__thumbnail--square">

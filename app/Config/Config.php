@@ -20,7 +20,7 @@ class Config
 		// define('DB_PASS', '');
 		// define('DB_NAME', 'stream');
  
-		define('CONTROLLER', 'home');
+		define('CONTROLLER', 'Home');
 		define('METHOD', 'error');	
 		define('__CONFIG', 'portal'); 
 	}

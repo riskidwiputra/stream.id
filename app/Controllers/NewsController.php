@@ -13,18 +13,49 @@
 		
 		public function Index()
 		{ 
-			$data['newest'] = $this->db->query("SELECT * FROM news_game ORDER by id_news_game DESC LIMIT 5 ");
-			$data['newest'] = $this->db->resultSet();
-			$data['popular'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 5 ");
-			$data['popular'] = $this->db->resultSet();
-				$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
-				$data['populared'] = $this->db->resultSet();
-			$data['commented'] = $this->db->query("SELECT * FROM news_game ORDER by komentar DESC LIMIT 5 ");
-			$data['commented'] = $this->db->resultSet();
-			$data['content'] = $this->model('News_Model')->select();
+			$data['newest'] 		= $this->db->query("SELECT * FROM news_game ORDER by id_news_game DESC LIMIT 5 ");
+			$data['newest'] 		= $this->db->resultSet();
+			$data['popular'] 		= $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 5 ");
+			$data['popular'] 		= $this->db->resultSet();
+			$data['populared'] 		= $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
+			$data['populared'] 		= $this->db->resultSet();
+			$data['commented'] 		= $this->db->query("SELECT * FROM news_game ORDER by komentar DESC LIMIT 5 ");
+			$data['commented'] 		= $this->db->resultSet();
+			$jumlahData 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news_game");
+			$jumlahData 			= $this->db->single();
+			$limit					= 6;
+			$data['jumlahHalaman'] 	= ceil($jumlahData['jumlah'] / $limit);
+			$data['content'] 		= $this->model('News_Model')->select();
 			$this->view('landing/template/header');
 			$this->view('news/news', $data);	
 			$this->view('landing/template/footer', $data);			
+		}
+		public function Pagination($id)
+		{
+			$data['content'] 		= $this->model('News_Model')->selectpagination($id);
+			$data['newest'] 		= $this->db->query("SELECT * FROM news_game ORDER by id_news_game DESC LIMIT 5 ");
+			$data['newest'] 		= $this->db->resultSet();
+			$data['popular'] 		= $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 5 ");
+			$data['popular'] 		= $this->db->resultSet();
+			$data['populared'] 		= $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
+			$data['populared'] 		= $this->db->resultSet();
+			$data['commented'] 		= $this->db->query("SELECT * FROM news_game ORDER by komentar DESC LIMIT 5 ");
+			$data['commented'] 		= $this->db->resultSet();
+			$jumlahData 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news_game");
+			$jumlahData 			= $this->db->single();
+			// batas news yang ingin di tampilkan 
+			$limit					= 6;
+			// mengambil angka page 
+			$data['page']			= $id; 
+			// membuat jumlah link number sebelum dan sesudah page yang aktif
+			$jumlah_number 			= 2;
+			$data['jumlahHalaman'] 	= ceil($jumlahData['jumlah'] / $limit);
+			$data['start_number']	= ($data['page'] > $jumlah_number)? $data['page'] - $jumlah_number : 1;
+			$data['end_number']		= ($data['page'] < ($data['jumlahHalaman'] - $jumlah_number))? $data['page'] + $jumlah_number :$data['jumlahHalaman'];
+
+			$this->view('landing/template/header');
+			$this->view('news/news', $data);	
+			$this->view('landing/template/footer', $data);
 		}
 
 		public function SingleNews($id)
