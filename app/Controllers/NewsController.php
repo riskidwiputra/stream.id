@@ -74,7 +74,7 @@
 			$data['content'] = $this->db->table('news_game')->where('id_news_game', $data['single']['id_news_game']);
 			$data['content'] = $this->db->single();
 			$this->view('landing/template/header');
-			$this->view('SingleNews/SingleNews' ,$data);	
+			$this->view('singleNews/singleNews' ,$data);	
 			$this->view('landing/template/footer', $data);			
 		}
 
