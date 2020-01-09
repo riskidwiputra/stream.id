@@ -42,11 +42,15 @@
 	Route::get('/account', 					'AccountController@account');
 
 	// LOGIN
-	Route::get('/login', 					'AuthController@login');
-	
+	Route::get('/login', 					'AuthController@Login');
+	// register
+	Route::post('/register', 				'AuthController@Register');
 	// Komentar
 	Route::post('/ambil-komen/{id}', 		'NewsController@GetKomen');
 	Route::post('/tambah-komen/{id}', 		'NewsController@AddKomen'); 
+
+	// 
+	Route::post('/komen/{id}',				'NewsController@LoadMore');
 
 
 	

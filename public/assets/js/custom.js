@@ -9,13 +9,13 @@
                         var email = $('#email_pengirim').val().length;     
                         var komen = $('#komen').val().length;   
                         if (name == 0) {                
-                           $('#nama_pengirim').focus();
+                        $('#nama_pengirim').focus();
                             return false;
                         }else if (email == 0) {                
-                           $('#email_pengirim').focus();
+                            $('#email_pengirim').focus();
                             return false;
                         }else if (komen == 0) {                
-                           $('#komen').focus();
+                            $('#komen').focus();
                             return false;
                         }    
                         $.ajax({

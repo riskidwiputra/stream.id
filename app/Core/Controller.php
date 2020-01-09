@@ -58,6 +58,26 @@
                     break;
             } 
         }
+        public function buatKode($tabel, $inisial, $field){
+            $qry    = mysqli_query($this->db->connection(),"SELECT MAX(".$field.") FROM ".$tabel);
+            $row    = mysqli_fetch_array($qry); 
+        
+    
+                if ($row['0']=="") {
+                    $inisials         = $inisial."0001";
+                    return $hasilkode = $inisials;
+                }else{
+                    $nilaikode    = substr($row[0], strlen($inisial));
+                
+                    $kode         = (int) $nilaikode;
+            
+                    $kode         = $kode + 1;
+            
+                    return $hasilkode = $inisial . str_pad($kode, 4, "0", STR_PAD_LEFT);
+            
+                }
+            
+        }
 
         public function sendMail($type, $data)
         { 

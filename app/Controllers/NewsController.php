@@ -94,11 +94,17 @@
 
 		public function GetKomen($id)
 		{
-			
 			$data['single'] = $this->db->table('news_game')->where('url', $id);
 			$data['single'] = $this->db->single();
 			$id_news = $data['single']['id_news_game'];
 			echo $this->model('News_Model')->getkomen($id_news);
+		}
+		public function LoadMore($id)
+		{
+			$data['single'] = $this->db->table('news_game')->where('url', $id);
+			$data['single'] = $this->db->single();
+			$id_news = $data['single']['id_news_game'];
+			echo $this->model('News_Model')->getloadmore($id_news);
 		}
 		
 	}

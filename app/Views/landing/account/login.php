@@ -6,9 +6,10 @@
         <div class="row">
 
             <div class="col-lg-6">
-
+            
                 <!-- Login -->
                 <div class="card">
+                
                     <div class="card__header">
                         <h4>Login to your Account</h4>
                     </div>
@@ -51,30 +52,35 @@
             </div>
 
             <div class="col-lg-6">
-
+            
                 <!-- Register -->
                 <div class="card">
                     <div class="card__header">
                         <h4>Register Now</h4>
                     </div>
-                    <div class="card__content">
 
+                    <div class="card__content">
+                    <div class="col-lg-12">
+							<?php Flasher::flash();?>
+						</div>
                         <!-- Register Form -->
-                        <form action="#">
+                        <form action="<?= url('register');?>" method="post">
                             <div class="form-group">
                                 <label for="register-name">Your Email</label>
-                                <input type="email" name="register-name" id="register-name" class="form-control" placeholder="Enter your email address...">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address..." require="">
                             </div>
                             <div class="form-group">
                                 <label for="register-password">Your Password</label>
-                                <input type="password" name="register-password" id="register-password" class="form-control" placeholder="Enter your password...">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password..." require="">
                             </div>
                             <div class="form-group">
                                 <label for="repeat-password">Repeat Password</label>
-                                <input type="password" name="repeat-password" id="repeat-password" class="form-control" placeholder="Repeat your password...">
+                                <input type="password" name="repassword" id="repeat-repassword" class="form-control" placeholder="Repeat your password..." require="">
                             </div>
                             <div class="form-group">
-                                <a href="_esports_shop-account.html" class="btn btn-default btn-lg btn-block">Create Your Account</a>
+                                <button type="submit" class="btn btn-default btn-lg btn-block" >
+								Create Your Account
+							</button>
                             </div>
                         </form>
                         <!-- Register Form / End -->

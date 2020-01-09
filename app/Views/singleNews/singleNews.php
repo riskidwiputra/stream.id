@@ -145,8 +145,7 @@
                             <!-- / -->
                             <li class="comments__item">
                                 <div id="comment" data-id="<?= BASEURL ?>"></div>
-                                <div id="display_comment" data-id="<?= $data['content']['url'];?>">
-                               
+                                <div  id="display_comment" data-id="<?= $data['content']['url'];?>">
                                 <!-- comment -->
 
                                 </div>
@@ -159,7 +158,7 @@
                     <footer class="card__footer post__comments-load-more">
                         <div class="row justify-content-center">
                             <div class="col-md-6">
-                                <button class="btn btn-primary btn-block">Load More Comments (0)</button>
+                                <button class="btn btn-primary btn-block" id="komentar">Load More Comments</button>
                             </div>
                         </div>
                     </footer>
@@ -311,8 +310,7 @@
 
                 
 
-               
-                 
+ 
 
             </div>
             <!-- Sidebar / End -->
