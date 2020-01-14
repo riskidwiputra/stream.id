@@ -9,7 +9,7 @@
                 <div class="card sponsor-card">
                     <header class="card__header sponsor-card__header">
                         <figure class="sponsor-card__logo">
-                            <a href="https://www.indihome.co.id/"><img src="<?=asset('assets/images/mitra/indihome.png');?>" alt="Indihome"></a>
+                            <a href="https://www.indihome.co.id/"><img src="<?=asset('assets/images/mitra/indihome1.png');?>" alt="Indihome"></a>
                         </figure>
                     </header>
                     <div class="card__content sponsor-card__content">
