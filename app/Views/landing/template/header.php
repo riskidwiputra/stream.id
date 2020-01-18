@@ -156,15 +156,12 @@
                                         <li class="dropdown-submenu">
                                             <a class="test" tabindex="-1" href="#">Game List &nbsp;&nbsp;&nbsp;<i class="fas fa-angle-right"></i></a>
                                             <ul class="dropdown-menu main-nav__sub">
-                                            <li><a tabindex="-1" href="<?= BASEURL ?>/dota"">Dota</a></li>
+                                            <li><a tabindex="-1" href="<?= BASEURL ?>/dota">Dota</a></li>
                                             <li><a tabindex="-1" href="<?= BASEURL ?>/mobile-legend">Mobile Legends</a></li>
                                             <li><a tabindex="-1" href="<?= BASEURL ?>/pubg-mobile">PUBG Mobile</a></li>
                                             </ul>
                                         </li>
                                         <li class=""><a href="<?= BASEURL ?>/tournament">Tournament</a></li>
-                                        <li class=""><a href="<?= BASEURL ?>/dota">Dota</a></li>
-                                        <li class=""><a href="<?= BASEURL ?>/mobile-legend">Mobile Legends</a></li>
-                                        <li class=""><a href="<?= BASEURL ?>/pubg-mobile">PUBG Mobile</a></li>
                                     </ul>
                                 </li>
                                 <li class=""><a href="#">About Me</a>
