@@ -270,7 +270,7 @@
                                                 <time datetime="2018-09-27" class="posts__date"><?= $row['tanggal'] ?></time>
                                             </div>
                                         </li>
-                                     <?php endforeach ?>
+                                    <?php endforeach ?>
                                             
                                         <?php endif ?>               
                                     </ul>

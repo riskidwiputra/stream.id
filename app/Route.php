@@ -15,6 +15,10 @@
 	Route::get('/mobile-legend', 			'GamesController@mobile_legend');
 	Route::get('/pubg-mobile', 				'GamesController@pubg');
 
+	// Games // Tournament
+	Route::get('/tournament', 				'TournamentController@tournament');
+
+
 	// Matchs
 	Route::get('/next-matchs', 				'MatchsController@matchs');
 

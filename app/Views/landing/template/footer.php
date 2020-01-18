@@ -1,4 +1,4 @@
-  <!-- Footer
+   <!-- Footer
 		================================================ -->
             <footer id="footer" class="footer">
 
@@ -53,7 +53,7 @@
                                             <div class="widget__content">
                                                 <ul class="posts posts--simple-list">
                                                 <?php if ($data['populared']): ?>
-                                                  <?php foreach ($data['populared'] as $row): ?>
+                                                <?php foreach ($data['populared'] as $row): ?>
                                                     <li class="posts__item posts__item--category-4 ">
                                                         <figure class="posts__thumb posts__thumb--hover">
                                                             <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="90" height="68" alt=""></a>
@@ -197,7 +197,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> 
                     <!-- Footer Social Links / End -->
             </footer>
             <!-- Footer / End -->
@@ -217,7 +217,6 @@
            
 
             <!-- REVEAL ADD-ON FILES -->
-           
             <!-- TYPEWRITER ADD-ON FILES -->
             <script type='text/javascript' src="<?=asset('assets/vendor/revolution-addons/typewriter/js/revolution.addon.typewriter.min.js');?>"></script>
 
@@ -333,12 +332,15 @@
             <script src="<?=asset('assets/js/init.js');?>"></script>
             <script src="<?=asset('assets/js/custom.js');?>"></script>
             <script src="<?=asset('assets/js/script.js');?>"></script>
-            <script>    
-            
-            </script>
             <script>
-           
+            $(document).ready(function(){
+            $('.dropdown-submenu a.test').on("click", function(e){
+                $(this).next('ul').toggle();
+        
+            });
+            });
             </script>
+            
             
 
 </body>
