@@ -84,7 +84,7 @@
         <!-- Header Mobile -->
         <div class="header-mobile clearfix" id="header-mobile">
             <div class="header-mobile__logo">
-                <a href="<?= BASEURL ?>/"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" width="250" srcset="assets/images/esports/streamgaming.png 2x" alt="Alchemists" class="header-mobile__logo-img"></a>
+                <a href="<?= BASEURL ?>/"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" width="300" srcset="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" alt="Alchemists" class="header-mobile__logo-img"></a>
             </div>
             <div class="header-mobile__inner">
                 <a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>

@@ -9,7 +9,7 @@
                         <div class="sponsors">
                             <ul class="sponsors-logos">
                                 <li class="sponsors__item">
-                                    <a href="#" target="_blank"><img src="<?=asset('assets/images/mitra/indihome.png');?>" alt="Indihome"></a>
+                                    <a href="#" target="_blank"><img src="<?=asset('assets/images/mitra/indihome1.png');?>" alt="Indihome"></a>
                                 </li>
                                 <li class="sponsors__item">
                                     <a href="#" target="_blank"><img src="<?=asset('assets/images/mitra/stream-universe.png');?>" alt="Stream Universe"></a>

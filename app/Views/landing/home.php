@@ -201,6 +201,9 @@
                                     <!-- Post Meta - Top -->
                                     <div class="post__meta-block post__meta-block--top posts__item--category-2">
 
+                                        <figure class="posts__thumb posts__thumb--video">
+								<a href="https://www.youtube.com/watch?v=ZH7UGx7Ey1o" class="mp_iframe"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" alt=""></a>
+							</figure>
                                         <!-- Post Title -->
                                         <h1 class="page-heading__title">Streamgaming Is Gaming Platform</h1>
                                         <!-- Post Title / End -->
@@ -285,9 +288,9 @@
                                 <div class="posts__inner">
                                     <div class="posts__cat">
                                     </div>
-                                    <h6 class="posts__title"><a href="_esports_blog-post-2.html">You trust us so we will give more</a></h6>
+                                    <h6 class="posts__title"><a href="_esports_blog-post-2.html">GROWING POTENTIAL OF GAMERS</a></h6>
                                     <div class="posts__excerpt">
-                                    relax and stay happy playing the game.
+                                    Fair Play & enjoy while playing the game.
                                     </div>
                                     <div class="posts__more">
                                     </div>
