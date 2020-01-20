@@ -5,7 +5,7 @@
 		<div class="col-lg-4">
                             <aside class="widget widget--sidebar card widget-preview">
                                     <div class="widget__title card__header">
-                                     <h4>TOURNAMENT PUBG MOBILE</h4>
+                                     <h4>TOURNAMENT PUBG MOBILE <span class="badge badge-danger float-right">ONGOiNG...</span></h4>
 							        </div>
                                     
 							<div class="widget__content card__content">
@@ -51,8 +51,8 @@
                                             </div>
                                         </li>
                                         </ul>
-										</div>
-				
+                                        </div>
+                                
 									<div class="countdown__content text-center">
                                     
 										<div class="countdown-counter match-preview__action--ticket text-center" data-date="July 17, 2019 21:00:00"></div>
