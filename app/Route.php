@@ -17,6 +17,7 @@
 
 	// Games // Tournament
 	Route::get('/tournament', 				'TournamentController@tournament');
+	Route::get('/tournament/{id}', 			'TournamentController@matchs');
 
 
 	// Matchs
