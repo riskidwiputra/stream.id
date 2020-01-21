@@ -6,14 +6,14 @@
                 
             <div class="col-lg-4">
                 <aside class="widget widget--sidebar card widget-preview">
-                    <div class="widget__title card__header">
+                    <div class="widget__title card__header" style="height: 5rem;">
                         <h4><?= $rows['tournament_name'] ?></h4>
 					</div>            
 					<div class="widget__content card__content">	
-								<!-- Match Preview -->
+								<!-- Match Preview --> 
 						<div class="match-preview">		
 							<div class="match-preview__match-info match-preview__match-info--header">
-								<div class="image" style="height: 11rem;"><img src="<?=asset(paths('path_home_Kompetisi_0'));?><?= $rows['gambar'];?>" class="card-img-top" alt="..."></div>
+								<div class="image" ><img src="<?=asset(paths('path_home_Kompetisi_0'));?><?= $rows['gambar'];?>" style="height: 11rem;" class="card-img-top" alt="..."></div>
                             </div>
 							<div class="match-preview__content" style="height: 11rem;" >
                                 <ul class="list-unstyled">
@@ -64,7 +64,7 @@
             <?php } ?>
             <div class="col-lg-4">
                             <aside class="widget widget--sidebar card widget-preview">
-                                    <div class="widget__title card__header">
+                                    <div class="widget__title card__header" style="height: 5rem;">
                                      <h4>TOURNAMENT PUBG MOBILE</h4>
 							        </div>
                                     
@@ -74,7 +74,7 @@
 								<div class="match-preview">
 								
 										<div class="match-preview__match-info match-preview__match-info--header">
-											<div class="image" style="height: 11rem;"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" class="card-img-top" alt="..."></div>
+											<div class="image" style="height: 11rem;"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" style="height: 11rem;" class="card-img-top" alt="..."></div>
                                         </div>
                                        
 						
@@ -129,7 +129,7 @@
             </div>
 			<div class="col-lg-4">
                             <aside class="widget widget--sidebar card widget-preview">
-                                    <div class="widget__title card__header">
+                                    <div class="widget__title card__header" style="height: 5rem;">
                                      <h4>TOURNAMENT PUBG MOBILE</h4>
 							        </div>
                                     
@@ -139,7 +139,7 @@
 								<div class="match-preview">
 								
 										<div class="match-preview__match-info match-preview__match-info--header">
-											<div class="image" style="height: 11rem;"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" class="card-img-top" alt="..."></div>
+											<div class="image" style="height: 11rem;"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" style="height: 11rem;" class="card-img-top" alt="..."></div>
                                         </div>
                                        
 						
