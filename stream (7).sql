@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2020 at 10:17 AM
+-- Generation Time: Jan 22, 2020 at 10:05 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -7891,7 +7891,8 @@ INSERT INTO `portal` (`id`, `name`, `content`) VALUES
 (13, 'path_home_LogoTeam', '../stream.id/public/assets/img/tournament/logo_team/'),
 (14, 'path_portal_Kompetisi', 'public/assets/img/tournament/Kompetisi/'),
 (15, 'path_home_Kompetisi', '../stream.id/public/assets/img/tournament/Kompetisi/'),
-(16, 'path_home_Kompetisi_0', 'assets/img/tournament/Kompetisi/');
+(16, 'path_home_Kompetisi_0', 'assets/img/tournament/Kompetisi/'),
+(17, 'path_home_LogoTeam_0', 'assets/img/tournament/logo_team/');
 
 -- --------------------------------------------------------
 
@@ -7954,6 +7955,7 @@ CREATE TABLE `tournament` (
   `id_tournament` char(128) NOT NULL,
   `tournament_name` varchar(128) NOT NULL,
   `date` varchar(128) NOT NULL,
+  `created_at` varchar(128) NOT NULL,
   `kompetisi` char(128) NOT NULL,
   `nama_kota` varchar(128) NOT NULL,
   `alamat` text NOT NULL,
@@ -7970,8 +7972,8 @@ CREATE TABLE `tournament` (
 -- Dumping data for table `tournament`
 --
 
-INSERT INTO `tournament` (`id_tournament`, `tournament_name`, `date`, `kompetisi`, `nama_kota`, `alamat`, `tourname_type`, `id_group`, `total_team`, `random`, `status`, `is_random`, `url`) VALUES
-('abdc57327638fc0720949ffaa6391b788748e829', 'Turnamen Mobile Legends - STREAM GAMING SEASON 1', '21-01-2020 01:02', 'KPT0001', 'medan', 'Jl.sutrisno', 'singgle', 'b1b685a15b508e25f84f4e8eebabfcd18ea0490a', '32', 1, 'pending', 0, 'turnamen-mobile-legends---stream-gaming-season-1');
+INSERT INTO `tournament` (`id_tournament`, `tournament_name`, `date`, `created_at`, `kompetisi`, `nama_kota`, `alamat`, `tourname_type`, `id_group`, `total_team`, `random`, `status`, `is_random`, `url`) VALUES
+('4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Turnamen Mobile Legends - STREAM GAMING SEASON 13%###!', '21-01-2020 19:20', 'Tuesday, 21 January 2020 23:02', 'KPT0001', 'medan, sumatra utara', 'Jl.karya kasih', 'singgle', '97132a032509c00b3886b1f672068726d1a50fc5', '32', 1, 'starting', 1, 'Turnamen-Mobile-Legends--STREAM-GAMING-SEASON-13');
 
 -- --------------------------------------------------------
 
@@ -7989,6 +7991,13 @@ CREATE TABLE `tournament_final` (
   `winner` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tournament_final`
+--
+
+INSERT INTO `tournament_final` (`id_final`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
+('FINAL0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'SMF0001', 'SMF0002', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -8002,6 +8011,44 @@ CREATE TABLE `tournament_group` (
   `logo_team` varchar(128) NOT NULL,
   `nama_kota` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tournament_group`
+--
+
+INSERT INTO `tournament_group` (`id_team`, `id_group`, `nama_team`, `logo_team`, `nama_kota`) VALUES
+('TEAM0001', '97132a032509c00b3886b1f672068726d1a50fc5', 'team1', '5e272bcb0bbe8.jpg', 'medan'),
+('TEAM0002', '97132a032509c00b3886b1f672068726d1a50fc5', 'team2', '5e27495ae0b88.png', 'Medan'),
+('TEAM0003', '97132a032509c00b3886b1f672068726d1a50fc5', 'team3', '5e274d15245ef.png', 'medan'),
+('TEAM0004', '97132a032509c00b3886b1f672068726d1a50fc5', 'team4', '5e274d2221589.jpg', 'medan'),
+('TEAM0005', '97132a032509c00b3886b1f672068726d1a50fc5', 'team5', '5e274d2e9ad45.jpeg', 'medan'),
+('TEAM0006', '97132a032509c00b3886b1f672068726d1a50fc5', 'team6', '5e274d3a6550a.jpeg', 'medan'),
+('TEAM0007', '97132a032509c00b3886b1f672068726d1a50fc5', 'team7', '5e274d486f5a4.jpeg', 'medan'),
+('TEAM0008', '97132a032509c00b3886b1f672068726d1a50fc5', 'team8', '5e274d54e697c.jpeg', 'medan'),
+('TEAM0009', '97132a032509c00b3886b1f672068726d1a50fc5', 'team9', '5e274d6117ac2.jpg', 'medan'),
+('TEAM0010', '97132a032509c00b3886b1f672068726d1a50fc5', 'team10', '5e2750b756d29.jpg', 'medan'),
+('TEAM0011', '97132a032509c00b3886b1f672068726d1a50fc5', 'team11', '5e2750c63e6c2.jpeg', 'Medan'),
+('TEAM0012', '97132a032509c00b3886b1f672068726d1a50fc5', 'team12', '5e2750df115ba.jpg', 'jakarta'),
+('TEAM0013', '97132a032509c00b3886b1f672068726d1a50fc5', 'team13', '5e2750eb3d0fa.jpg', 'aceh'),
+('TEAM0014', '97132a032509c00b3886b1f672068726d1a50fc5', 'team14', '5e275104284c6.jpg', 'riau'),
+('TEAM0015', '97132a032509c00b3886b1f672068726d1a50fc5', 'team15', '5e275110b7e8d.jpg', 'pekanbaru'),
+('TEAM0016', '97132a032509c00b3886b1f672068726d1a50fc5', 'team16', '5e27511e660fe.jpg', 'yogyakarta'),
+('TEAM0017', '97132a032509c00b3886b1f672068726d1a50fc5', 'team17', '5e275130cca34.jpeg', 'palembang'),
+('TEAM0018', '97132a032509c00b3886b1f672068726d1a50fc5', 'team18', '5e27513c314b4.jpg', 'padang'),
+('TEAM0019', '97132a032509c00b3886b1f672068726d1a50fc5', 'team19', '5e27514c6014c.jpg', 'bandung'),
+('TEAM0020', '97132a032509c00b3886b1f672068726d1a50fc5', 'team20', '5e2754f21776e.jpg', 'yogyakarta'),
+('TEAM0021', '97132a032509c00b3886b1f672068726d1a50fc5', 'team21', '5e2755712dabe.jpeg', 'jakarta'),
+('TEAM0022', '97132a032509c00b3886b1f672068726d1a50fc5', 'team22', '5e2755803e5b2.jpeg', 'bali'),
+('TEAM0023', '97132a032509c00b3886b1f672068726d1a50fc5', 'team23', '5e2755999ef0b.jpeg', 'samarinda'),
+('TEAM0024', '97132a032509c00b3886b1f672068726d1a50fc5', 'team24', '5e2755a71aa82.jpg', 'papua'),
+('TEAM0025', '97132a032509c00b3886b1f672068726d1a50fc5', 'team25', '5e2755b60a0d4.jpg', 'manokwari'),
+('TEAM0026', '97132a032509c00b3886b1f672068726d1a50fc5', 'team26', '5e2755c82c04f.jpeg', 'semarang'),
+('TEAM0027', '97132a032509c00b3886b1f672068726d1a50fc5', 'team27', '5e2755d51606b.jpg', 'medan'),
+('TEAM0028', '97132a032509c00b3886b1f672068726d1a50fc5', 'team28', '5e2755e2478e9.jpg', 'medan'),
+('TEAM0029', '97132a032509c00b3886b1f672068726d1a50fc5', 'team29', '5e275a64e8ae6.jpg', 'Medan'),
+('TEAM0030', '97132a032509c00b3886b1f672068726d1a50fc5', 'team30', '5e275a771fe46.jpg', 'medan'),
+('TEAM0031', '97132a032509c00b3886b1f672068726d1a50fc5', 'team31', '5e275a855f57c.jpg', 'medan'),
+('TEAM0032', '97132a032509c00b3886b1f672068726d1a50fc5', 'team32', '5e275a91337ba.png', 'medan');
 
 -- --------------------------------------------------------
 
@@ -8019,6 +8066,16 @@ CREATE TABLE `tournament_quarter_finals` (
   `winner` char(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tournament_quarter_finals`
+--
+
+INSERT INTO `tournament_quarter_finals` (`id_quarter_finals`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
+('QTF0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160001', 'Round160002', NULL, NULL, NULL),
+('QTF0002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160003', 'Round160004', NULL, NULL, NULL),
+('QTF0003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160005', 'Round160006', NULL, NULL, NULL),
+('QTF0004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160007', 'Round160008', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -8034,6 +8091,20 @@ CREATE TABLE `tournament_round16` (
   `score2` int(11) DEFAULT NULL,
   `winner` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tournament_round16`
+--
+
+INSERT INTO `tournament_round16` (`id_round16`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
+('Round160001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320001', 'Round320002', NULL, NULL, NULL),
+('Round160002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320003', 'Round320004', NULL, NULL, NULL),
+('Round160003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320005', 'Round320006', NULL, NULL, NULL),
+('Round160004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320007', 'Round320008', NULL, NULL, NULL),
+('Round160005', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320009', 'Round320010', NULL, NULL, NULL),
+('Round160006', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320011', 'Round320012', NULL, NULL, NULL),
+('Round160007', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320013', 'Round320014', NULL, NULL, NULL),
+('Round160008', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320015', 'Round320016', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8051,6 +8122,28 @@ CREATE TABLE `tournament_round32` (
   `winner` char(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tournament_round32`
+--
+
+INSERT INTO `tournament_round32` (`id_round32`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
+('Round320001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0025', 'TEAM0026', NULL, NULL, NULL),
+('Round320002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0007', 'TEAM0001', NULL, NULL, NULL),
+('Round320003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0023', 'TEAM0027', NULL, NULL, NULL),
+('Round320004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0002', 'TEAM0022', NULL, NULL, NULL),
+('Round320005', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0004', 'TEAM0009', NULL, NULL, NULL),
+('Round320006', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0006', 'TEAM0013', NULL, NULL, NULL),
+('Round320007', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0003', 'TEAM0019', NULL, NULL, NULL),
+('Round320008', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0010', 'TEAM0008', NULL, NULL, NULL),
+('Round320009', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0011', 'TEAM0018', NULL, NULL, NULL),
+('Round320010', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0028', 'TEAM0030', NULL, NULL, NULL),
+('Round320011', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0012', 'TEAM0015', NULL, NULL, NULL),
+('Round320012', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0017', 'TEAM0031', NULL, NULL, NULL),
+('Round320013', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0024', 'TEAM0005', NULL, NULL, NULL),
+('Round320014', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0032', 'TEAM0016', NULL, NULL, NULL),
+('Round320015', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0014', 'TEAM0020', NULL, NULL, NULL),
+('Round320016', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0029', 'TEAM0021', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -8066,6 +8159,14 @@ CREATE TABLE `tournament_semi_finals` (
   `score2` int(11) DEFAULT NULL,
   `winner` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tournament_semi_finals`
+--
+
+INSERT INTO `tournament_semi_finals` (`id_semi_finals`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
+('SMF0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'QTF0001', 'QTF0002', NULL, NULL, NULL),
+('SMF0002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'QTF0003', 'QTF0004', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -8227,7 +8328,7 @@ ALTER TABLE `news_game`
 -- AUTO_INCREMENT for table `portal`
 --
 ALTER TABLE `portal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
