@@ -23,6 +23,7 @@
 			$data['tournament'] = $this->db->table('tournament')->where('url', $id);
 			$id_group2 = $data['tournament']['id_group'];
 			$id_tournament = $data['tournament']['id_tournament'];
+			
 			$data['group']	= $this->db->query("SELECT * FROM tournament_group WHERE id_group = '$id_group2'");
 			$data['group']	= $this->db->resultSet();
 			
@@ -47,7 +48,81 @@
 				-- JOIN tournament_group AS team_3 ON tournament_round32.winner=team_3.id_team
 				");
 			$data['round32'] = $this->db->resultSet();
-			$data['round16'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
+			$data['round16'] = $this->db->table('tournament_round16')->query(
+				"SELECT
+				c.nama_team AS team_1,
+				d.nama_team AS team_2,
+				c.logo_team AS logo_1,
+				d.logo_team AS logo_2,
+				c.nama_kota AS nama_kota_1,
+				d.nama_kota AS nama_kota_2
+				FROM tournament_round16
+				INNER JOIN tournament_round32 as A ON tournament_round16.team1=A.id_round32
+				INNER JOIN tournament_round32 as B ON tournament_round16.team2=B.id_round32
+				INNER JOIN tournament_group as C ON A.winner=C.id_team
+				INNER JOIN tournament_group as D ON B.winner=D.id_team
+				-- JOIN tournament_group AS group ON team_1.winner=group.id_team
+				
+				-- JOIN tournament_group AS team_3 ON tournament_round32.winner=team_3.id_team
+				");
+			$data['round16'] = $this->db->resultSet();
+			$data['qtf'] = $this->db->table('tournament_quarter_finals')->query(
+				"SELECT
+				c.nama_team AS team_1,
+				d.nama_team AS team_2,
+				c.logo_team AS logo_1,
+				d.logo_team AS logo_2,
+				c.nama_kota AS nama_kota_1,
+				d.nama_kota AS nama_kota_2
+				FROM tournament_quarter_finals
+				INNER JOIN tournament_round16 as A ON tournament_quarter_finals.team1=A.id_round16
+				INNER JOIN tournament_round16 as B ON tournament_quarter_finals.team2=B.id_round16
+				INNER JOIN tournament_group as C ON A.winner=C.id_team
+				INNER JOIN tournament_group as D ON B.winner=D.id_team
+				-- JOIN tournament_group AS group ON team_1.winner=group.id_team
+				
+				-- JOIN tournament_group AS team_3 ON tournament_round32.winner=team_3.id_team
+				");
+			$data['qtf'] = $this->db->resultSet();
+			$data['smf'] = $this->db->table('tournament_semi_finals')->query(
+				"SELECT
+				c.nama_team AS team_1,
+				d.nama_team AS team_2,
+				c.logo_team AS logo_1,
+				d.logo_team AS logo_2,
+				c.nama_kota AS nama_kota_1,
+				d.nama_kota AS nama_kota_2
+				FROM tournament_semi_finals
+				INNER JOIN tournament_quarter_finals as A ON tournament_semi_finals.team1=A.id_quarter_finals
+				INNER JOIN tournament_quarter_finals as B ON tournament_semi_finals.team2=B.id_quarter_finals
+				INNER JOIN tournament_group as C ON A.winner=C.id_team
+				INNER JOIN tournament_group as D ON B.winner=D.id_team
+				-- JOIN tournament_group AS group ON team_1.winner=group.id_team
+				
+				-- JOIN tournament_group AS team_3 ON tournament_round32.winner=team_3.id_team
+				");
+			$data['smf'] = $this->db->resultSet();
+			$data['final'] = $this->db->table('tournament_final')->query(
+				"SELECT
+				c.nama_team AS team_1,
+				d.nama_team AS team_2,
+				c.logo_team AS logo_1,
+				d.logo_team AS logo_2,
+				c.nama_kota AS nama_kota_1,
+				d.nama_kota AS nama_kota_2
+				FROM tournament_final
+				INNER JOIN tournament_semi_finals as A ON tournament_final.team1=A.id_semi_finals
+				INNER JOIN tournament_semi_finals as B ON tournament_final.team2=B.id_semi_finals
+				INNER JOIN tournament_group as C ON A.winner=C.id_team
+				INNER JOIN tournament_group as D ON B.winner=D.id_team
+				-- JOIN tournament_group AS group ON team_1.winner=group.id_team
+				
+				-- JOIN tournament_group AS team_3 ON tournament_round32.winner=team_3.id_team
+				");
+			$data['final'] = $this->db->resultSet();
+			
+			
+			// $data['round16'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
 			$this->view('landing/template/header');
             $this->view('landing/games/tournament/matchs', $data);
 			$this->view('landing/template/footer' , $data);			

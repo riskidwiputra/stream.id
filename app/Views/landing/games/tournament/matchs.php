@@ -32,12 +32,12 @@
                             <section class="match-preview__body">
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
-                                    <div class="match-preview__match-place">Xenowatch</div>
+                                    <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
                                     <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
                                 </div>
 
                                 <header class="match-preview__header">
-                                    <div class="match-preview__date">Xeno League</div>
+                                    <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
                                     <h3 class="match-preview__title match-preview__title--lg">Round Of 32</h3>
                                 </header>
                                 <div class="match-preview__content">
@@ -56,14 +56,14 @@
                                         <div class="match-preview__conj">VS</div>
                                         <div class="match-preview__match-info">
                                             <time class="match-preview__match-time" datetime="2017-08-12 09:00">9:00 PM</time>
-                                            <div class="match-preview__match-place">Madison Cube Stadium</div>
+                                            <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
                                         </div>
                                     </div>
 
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" height="100%""; alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"  alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
@@ -90,12 +90,14 @@
 
         <div class="spacer"></div>
         <?php }else{} ?>  
+        <?php if ($data['round16']) {?>
         <div class="card card--clean">
             <header class="card__header">
                 <h4>Round Of 16</h4>
             </header>
 		</div>
         <div class="row">
+        <?php foreach ($data['round16'] as $rows) { ?>
             <div class="col-lg-4">
                 <!-- Widget: Match Announcement -->
                 <aside class="widget widget--sidebar card widget-preview">
@@ -109,23 +111,23 @@
                             <section class="match-preview__body">
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
-                                    <div class="match-preview__match-place">Xenowatch</div>
+                                    <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
                                     <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
                                 </div>
 
                                 <header class="match-preview__header">
-                                    <div class="match-preview__date">Xeno League</div>
-                                    <h3 class="match-preview__title match-preview__title--lg">Semifinals</h3>
+                                    <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
+                                    <h3 class="match-preview__title match-preview__title--lg">Round Of 16</h3>
                                 </header>
                                 <div class="match-preview__content">
 
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset('assets/images/esports/logos/alchemists-86x98.png');?>" alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Alchemists</h5>
-                                        <div class="match-preview__team-info">United States</div>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
+                                        <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
                                     </div>
                                     <!-- 1st Team / End -->
 
@@ -133,17 +135,17 @@
                                         <div class="match-preview__conj">VS</div>
                                         <div class="match-preview__match-info">
                                             <time class="match-preview__match-time" datetime="2017-08-12 09:00">9:00 PM</time>
-                                            <div class="match-preview__match-place">Madison Cube Stadium</div>
+                                            <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
                                         </div>
                                     </div>
 
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset('assets/images/samples/logo-sharks--sm.png');?>" alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Sharks</h5>
-                                        <div class="match-preview__team-info">South Korea</div>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
+                                        <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
                                     </div>
                                     <!-- 2nd Team / End -->
 
@@ -163,15 +165,18 @@
                 <!-- Widget: Match Announcement / End -->
             </div>
     
+        <?php } ?>
         </div>
-
         <div class="spacer"></div>
+        <?php }else{} ?>
+        <?php if ($data['qtf']) {?>
         <div class="card card--clean">
             <header class="card__header">
                 <h4>Quarter finals</h4>
             </header>
 		</div>
         <div class="row">
+        <?php foreach ($data['qtf'] as $rows) { ?>
             <div class="col-lg-4">
                 <!-- Widget: Match Announcement -->
                 <aside class="widget widget--sidebar card widget-preview">
@@ -185,23 +190,23 @@
                             <section class="match-preview__body">
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
-                                    <div class="match-preview__match-place">Xenowatch</div>
+                                    <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
                                     <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
                                 </div>
 
                                 <header class="match-preview__header">
-                                    <div class="match-preview__date">Xeno League</div>
-                                    <h3 class="match-preview__title match-preview__title--lg">Semifinals</h3>
+                                    <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
+                                    <h3 class="match-preview__title match-preview__title--lg">Quarter finals</h3>
                                 </header>
                                 <div class="match-preview__content">
 
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset('assets/images/esports/logos/alchemists-86x98.png');?>" alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Alchemists</h5>
-                                        <div class="match-preview__team-info">United States</div>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
+                                        <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
                                     </div>
                                     <!-- 1st Team / End -->
 
@@ -209,17 +214,17 @@
                                         <div class="match-preview__conj">VS</div>
                                         <div class="match-preview__match-info">
                                             <time class="match-preview__match-time" datetime="2017-08-12 09:00">9:00 PM</time>
-                                            <div class="match-preview__match-place">Madison Cube Stadium</div>
+                                            <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
                                         </div>
                                     </div>
 
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset('assets/images/samples/logo-sharks--sm.png');?>" alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Sharks</h5>
-                                        <div class="match-preview__team-info">South Korea</div>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
+                                        <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
                                     </div>
                                     <!-- 2nd Team / End -->
 
@@ -238,16 +243,19 @@
                 </aside>
                 <!-- Widget: Match Announcement / End -->
             </div>
-    
+        <?php } ?>
         </div>
 
         <div class="spacer"></div>
+        <?php }else{} ?>
+        <?php if ($data['smf']) {?>
         <div class="card card--clean">
             <header class="card__header">
                 <h4>Semi Finals</h4>
             </header>
 		</div>
         <div class="row">
+        <?php foreach ($data['smf'] as $rows) { ?>
             <div class="col-lg-4">
                 <!-- Widget: Match Announcement -->
                 <aside class="widget widget--sidebar card widget-preview">
@@ -261,12 +269,12 @@
                             <section class="match-preview__body">
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
-                                    <div class="match-preview__match-place">Xenowatch</div>
+                                    <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
                                     <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
                                 </div>
 
                                 <header class="match-preview__header">
-                                    <div class="match-preview__date">Xeno League</div>
+                                    <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
                                     <h3 class="match-preview__title match-preview__title--lg">Semifinals</h3>
                                 </header>
                                 <div class="match-preview__content">
@@ -274,9 +282,9 @@
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset('assets/images/esports/logos/alchemists-86x98.png');?>" alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Alchemists</h5>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info">United States</div>
                                     </div>
                                     <!-- 1st Team / End -->
@@ -292,10 +300,10 @@
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset('assets/images/samples/logo-sharks--sm.png');?>" alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Sharks</h5>
-                                        <div class="match-preview__team-info">South Korea</div>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
+                                        <div class="match-preview__team-info"></div>
                                     </div>
                                     <!-- 2nd Team / End -->
 
@@ -314,16 +322,19 @@
                 </aside>
                 <!-- Widget: Match Announcement / End -->
             </div>
-    
+            <?php } ?>
         </div>
 
         <div class="spacer"></div>
+        <?php }else{} ?>
+        <?php if ($data['final']) {?>
         <div class="card card--clean">
             <header class="card__header">
                 <h4>Finals</h4>
             </header>
 		</div>
         <div class="row">
+        <?php foreach ($data['final'] as $rows) { ?>
             <div class="col-lg-4">
                 <!-- Widget: Match Announcement -->
                 <aside class="widget widget--sidebar card widget-preview">
@@ -337,12 +348,12 @@
                             <section class="match-preview__body">
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
-                                    <div class="match-preview__match-place">Xenowatch</div>
+                                    <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
                                     <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
                                 </div>
 
                                 <header class="match-preview__header">
-                                    <div class="match-preview__date">Xeno League</div>
+                                    <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
                                     <h3 class="match-preview__title match-preview__title--lg">Semifinals</h3>
                                 </header>
                                 <div class="match-preview__content">
@@ -350,9 +361,9 @@
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset('assets/images/esports/logos/alchemists-86x98.png');?>" alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Alchemists</h5>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info">United States</div>
                                     </div>
                                     <!-- 1st Team / End -->
@@ -368,10 +379,10 @@
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset('assets/images/samples/logo-sharks--sm.png');?>" alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Sharks</h5>
-                                        <div class="match-preview__team-info">South Korea</div>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
+                                        <div class="match-preview__team-info"></div>
                                     </div>
                                     <!-- 2nd Team / End -->
 
@@ -390,11 +401,11 @@
                 </aside>
                 <!-- Widget: Match Announcement / End -->
             </div>
-    
+        <?php } ?>
         </div>
 
         <div class="spacer"></div>
-
+        <?php }else{} ?>
         
 						
     </div>
