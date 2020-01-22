@@ -47,7 +47,7 @@
 				-- JOIN tournament_group AS team_3 ON tournament_round32.winner=team_3.id_team
 				");
 			$data['round32'] = $this->db->resultSet();
-			$data['round16'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
+			
 			$this->view('landing/template/header');
             $this->view('landing/games/tournament/matchs', $data);
 			$this->view('landing/template/footer' , $data);			

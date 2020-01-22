@@ -44,6 +44,7 @@
 
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
+
                                         <figure class="match-preview__team-logo">
                                             <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
                                         </figure>
@@ -63,7 +64,7 @@
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" height="100%""; alt="">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" height="100%;" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
@@ -72,8 +73,9 @@
 
                                 </div>
                             </section>
-                            <div class="countdown__content">
-                                <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div>
+                            <div class="countdown__content text-center">
+                            <span class="badge badge-danger" style="font-size:15px; line-height:100%; margin-top:3px;">ONGOING..</span>
+                                <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
                                 <a href="#" class="btn btn-primary-inverse">See Bracket</a>
@@ -139,8 +141,10 @@
 
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
+                                        
                                         <figure class="match-preview__team-logo">
                                             <img src="<?=asset('assets/images/samples/logo-sharks--sm.png');?>" alt="">
+                                            <p></p>
                                         </figure>
                                         <h5 class="match-preview__team-name">Sharks</h5>
                                         <div class="match-preview__team-info">South Korea</div>
