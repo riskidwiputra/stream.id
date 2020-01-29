@@ -32,8 +32,6 @@
 			
 			var_dump($data['group']);
 		
-			
-			// // var_dump($id_tournament);
 			// // $data['round32'] = $this->db->query(
 			// // 	"SELECT
 			// // 		team_1.nama_team AS team_1,
@@ -199,12 +197,12 @@
 			// // 	");
 			// // $data['final'] = $this->db->resultSet();
 				
-			// $this->view('landing/template/header');
-			// // if ($id != $url_tournament) {
-			// // 	$this->view('landing/404/error');	
-			// // }else{
-			// $this->view('landing/games/tournament/matchs';
-			// // }
-			// $this->view('landing/template/footer', $data);			
+			$this->view('landing/template/header');
+			if ($id != $url_tournament) {
+				$this->view('landing/404/error');	
+			}else{
+			$this->view('landing/games/tournament/matchs');
+			}
+			$this->view('landing/template/footer', $data);			
         }
     }
