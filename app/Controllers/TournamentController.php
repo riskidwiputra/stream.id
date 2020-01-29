@@ -196,11 +196,11 @@
 			// $data['final'] = $this->db->resultSet();
 				
 			$this->view('landing/template/header');
-			if ($id != $url_tournament) {
-				$this->view('landing/404/error');	
-			}else{
+			// if ($id != $url_tournament) {
+			// 	$this->view('landing/404/error');	
+			// }else{
 			$this->view('landing/games/tournament/matchs';
-			}
+			// }
 			$this->view('landing/template/footer', $data);			
         }
     }
