@@ -21,11 +21,11 @@
 		{ 	
 			$data['populared']	= $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
 			$data['populared']	= $this->db->resultSet();
-			var_dump($id);
-			// $data['tournament'] = $this->db->table('tournament')->where('url', $id);
-			// $url_tournament 	= $data['tournament']['url'];
-			// $id_group2 			= $data['tournament']['id_group'];
-			// $id_tournament 		= $data['tournament']['id_tournament'];
+			$data['tournament'] = $this->db->table('tournament')->where('url', $id);
+			$url_tournament 	= $data['tournament']['url'];
+			$id_group2 			= $data['tournament']['id_group'];
+			$id_tournament 		= $data['tournament']['id_tournament'];
+			var_dump($data['tournament']);
 			
 			// $data['group']	= $this->db->query("SELECT * FROM tournament_group WHERE id_group = '$id_group2'");
 			// $data['group']	= $this->db->resultSet();
