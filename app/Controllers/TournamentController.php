@@ -27,10 +27,11 @@
 			$id_group2 			= $data['tournament']['id_group'];
 			$id_tournament 		= $data['tournament']['id_tournament'];
 
-			var_dump($id_tournament);
+			$data['group']	= $this->db->query("SELECT * FROM tournament_group WHERE id_group = '$id_group2'");
+			$data['group']	= $this->db->resultSet();
+			
+			var_dump($data['group']);
 		
-			// // $data['group']	= $this->db->query("SELECT * FROM tournament_group WHERE id_group = '$id_group2'");
-			// // $data['group']	= $this->db->resultSet();
 			
 			// // var_dump($id_tournament);
 			// // $data['round32'] = $this->db->query(
