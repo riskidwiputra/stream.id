@@ -28,7 +28,7 @@
 		
 			$data['group']	= $this->db->query("SELECT * FROM tournament_group WHERE id_group = '$id_group2'");
 			$data['group']	= $this->db->resultSet();
-			var_dump($data['group']);
+			
 			
 			$data['round32'] = $this->db->query(
 				"SELECT
@@ -196,11 +196,11 @@
 			$data['final'] = $this->db->resultSet();
 				
 			$this->view('landing/template/header');
-			// if ($id != $url_tournament) {
-			// 	$this->view('landing/404/error');	
-			// }else{
-			$this->view('landing/games/tournament/matchs', $data);
-			// }
+			if ($id != $url_tournament) {
+				$this->view('landing/404/error');	
+			}else{
+			$this->view('landing/games/tournament/matchs';
+			}
 			$this->view('landing/template/footer', $data);			
         }
     }
