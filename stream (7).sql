@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2020 at 10:05 AM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Waktu pembuatan: 29 Jan 2020 pada 11.46
+-- Versi server: 10.4.10-MariaDB
+-- Versi PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_management`
+-- Struktur dari tabel `data_management`
 --
 
 CREATE TABLE `data_management` (
@@ -34,7 +34,7 @@ CREATE TABLE `data_management` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_management`
+-- Dumping data untuk tabel `data_management`
 --
 
 INSERT INTO `data_management` (`kode_stream`, `nama`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `data_management` (`kode_stream`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis`
+-- Struktur dari tabel `jenis`
 --
 
 CREATE TABLE `jenis` (
@@ -57,7 +57,7 @@ CREATE TABLE `jenis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `jenis`
+-- Dumping data untuk tabel `jenis`
 --
 
 INSERT INTO `jenis` (`id_jenis`, `nama`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `jenis` (`id_jenis`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kabupaten`
+-- Struktur dari tabel `kabupaten`
 --
 
 CREATE TABLE `kabupaten` (
@@ -80,7 +80,7 @@ CREATE TABLE `kabupaten` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kabupaten`
+-- Dumping data untuk tabel `kabupaten`
 --
 
 INSERT INTO `kabupaten` (`id_kab`, `id_prov`, `nama`, `id_jenis`) VALUES
@@ -602,7 +602,7 @@ INSERT INTO `kabupaten` (`id_kab`, `id_prov`, `nama`, `id_jenis`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -612,7 +612,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `gambar_kategori`) VALUES
@@ -621,7 +621,7 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `gambar_kategori`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kecamatan`
+-- Struktur dari tabel `kecamatan`
 --
 
 CREATE TABLE `kecamatan` (
@@ -631,7 +631,7 @@ CREATE TABLE `kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kecamatan`
+-- Dumping data untuk tabel `kecamatan`
 --
 
 INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
@@ -7737,7 +7737,7 @@ INSERT INTO `kecamatan` (`id_kec`, `id_kab`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelurahan`
+-- Struktur dari tabel `kelurahan`
 --
 
 CREATE TABLE `kelurahan` (
@@ -7750,7 +7750,7 @@ CREATE TABLE `kelurahan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar`
+-- Struktur dari tabel `komentar`
 --
 
 CREATE TABLE `komentar` (
@@ -7764,7 +7764,7 @@ CREATE TABLE `komentar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `komentar`
+-- Dumping data untuk tabel `komentar`
 --
 
 INSERT INTO `komentar` (`komentar_id`, `parent_komentar_id`, `komentar`, `nama_pengirim`, `email_pengirim`, `date`, `id_news_game`) VALUES
@@ -7787,7 +7787,7 @@ INSERT INTO `komentar` (`komentar_id`, `parent_komentar_id`, `komentar`, `nama_p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kompetisi`
+-- Struktur dari tabel `kompetisi`
 --
 
 CREATE TABLE `kompetisi` (
@@ -7798,7 +7798,7 @@ CREATE TABLE `kompetisi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kompetisi`
+-- Dumping data untuk tabel `kompetisi`
 --
 
 INSERT INTO `kompetisi` (`id_kompetisi`, `nama_kompetisi`, `gambar`, `sistem`) VALUES
@@ -7807,7 +7807,7 @@ INSERT INTO `kompetisi` (`id_kompetisi`, `nama_kompetisi`, `gambar`, `sistem`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Struktur dari tabel `member`
 --
 
 CREATE TABLE `member` (
@@ -7817,7 +7817,7 @@ CREATE TABLE `member` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `member`
+-- Dumping data untuk tabel `member`
 --
 
 INSERT INTO `member` (`kode_member`, `email`, `password`) VALUES
@@ -7826,7 +7826,7 @@ INSERT INTO `member` (`kode_member`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `news_game`
+-- Struktur dari tabel `news_game`
 --
 
 CREATE TABLE `news_game` (
@@ -7844,7 +7844,7 @@ CREATE TABLE `news_game` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `news_game`
+-- Dumping data untuk tabel `news_game`
 --
 
 INSERT INTO `news_game` (`id_news_game`, `judul`, `penulis`, `label`, `tanggal`, `gambar`, `isi`, `tag`, `url`, `views`, `komentar`) VALUES
@@ -7860,12 +7860,12 @@ INSERT INTO `news_game` (`id_news_game`, `judul`, `penulis`, `label`, `tanggal`,
 (10, 'AyamJAGO Resmi Berpisah dari RRQ Hoshi', 'Eric Soejatno', 'pubg mobile', '2020-01-03', '5e0eccfa85b73.jpg', '&lt;p&gt;Perubahan di&amp;nbsp;&lt;strong&gt;RRQ Hoshi&lt;/strong&gt;&amp;nbsp;yang juga divisi MLBB tidak hanya dari pelatih, namun juga pemain. Melalui pengumuman dari&amp;nbsp;&lt;em&gt;official fanpage&lt;/em&gt;&amp;nbsp;RRQ, mereka memutuskan untuk melepas&lt;strong&gt;&amp;nbsp;Try &amp;quot;AyamJAGO&amp;quot; Widyanto&lt;/strong&gt;&amp;nbsp;dari skuadnya. Berposisi sebagai midlaner, AyamJAGO sudah cukup lama membela tim ini, sejak Juli 2018.&lt;/p&gt;\r\n\r\n&lt;p&gt;Diboyong dari&amp;nbsp;&lt;strong&gt;XCN&lt;/strong&gt;, debut AyamJAGO bersama RRQ berjalan manis dengan sukses meraih juara&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/mobile-legends/news/2018/07/856fc81623da2150ba2210ba1b51d241/taklukkan-dua-musuh-abadi-rrq-rebut-gelar-bekraf-game-prime-2018&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;BEKRAF Game Prime 2018&lt;/a&gt;&lt;/strong&gt;, dan akhirnya mampu membawa RRQ raih juara MPL Season 2, usai mengalahkan musuh bebuyutannya, EVOS.&lt;/p&gt;\r\n\r\n&lt;p&gt;Memakai roster yang sama saat menjuarai MPL Season 2, RRQ berada di peringkat 5 regular season&amp;nbsp;&lt;strong&gt;MPL Season 3&lt;/strong&gt;. Raihan tersebut membuat RRQ harus berjuang dari&lt;em&gt;&amp;nbsp;lower bracket&lt;/em&gt;&amp;nbsp;menghadapi Bigetron Esports. Secara mengejutkan, RRQ harus angkat koper lebih awal usai takluk melawan Bigetron.&lt;/p&gt;\r\n\r\n&lt;p&gt;Masih dipertahankan di RRQ, AyamJAGO hanya dimainkan dua kali saat MPL Season 4 regular season. Dia juga tidak dimainkan saat RRQ Hoshi hanya mampu raih juara kedua&lt;strong&gt;&amp;nbsp;MPL Season 4&lt;/strong&gt;. Menariknya, dia menjadi salah satu dari 6 pemain yang ikut dalam roster RRQ di Mobile Legends World Championships M1.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/801820191220162235.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sukses membawa RRQ menjadi&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/67606d48e361ce176ca71fd54fcf4286/kuasai-grup-a-rrq-hoshi-dipastikan-lolos-playoff-m1&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;juara grup&lt;/a&gt;&amp;nbsp;&lt;/strong&gt;dan mengalahkan&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/c254e7753095807e1cca159e48eceb21/tundukkan-todak-rrq-siap-ladeni-evos-legends&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Todak&lt;/strong&gt;&amp;nbsp;&lt;/a&gt;di&amp;nbsp;&lt;em&gt;upper bracket&lt;/em&gt;, AyamJAGO tidak dimainkan pada hari terakhir M1, usai kekalahan RRQ menghadapi EVOS Legends. Posisinya digantikan oleh&lt;strong&gt;&amp;nbsp;Diky &amp;quot;TUTURU&amp;quot;&lt;/strong&gt;. Tanpa AyamJAGO, RRQ Hoshi akhirnya harus puas berada di peringkat kedua usai kembali takluk dari EVOS Legends dengan skor sengit 3-4.&lt;/p&gt;\r\n\r\n&lt;p&gt;MPL Season 5 memang belum diumumkan kapan akan dimulai namun dengan&amp;nbsp; keluarnya AyamJAGO, RRQ Hoshi masih menyisakan 10 pemain, termasuk&amp;nbsp;&lt;strong&gt;I Gusti &amp;quot;Rocket&amp;quot; Ngurah Agung Duva&lt;/strong&gt;&amp;nbsp;yang sebelumnya bermain di RRQ Capcorn.&lt;/p&gt;\r\n\r\n&lt;p&gt;Belum diketahui apakah 10 pemain tadi akan tetap di dalam roster RRQ Hoshi, ataukah masih ada pergantian pemain kembali? Sobat Esports, bagaimana pendapatmu mengenai berpisahnya AyamJAGO dari RRQ Hoshi?&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n', 'RRQ Hoshi, AyamJAGO, RRQ MLBB, MPL Season 5, AyamJAGO RRQ, Lemon RRQ, Tuturu, MPL, Rex Regum Qeon', 'ayamjago-resmi-berpisah-dari-rrq-hoshi', 0, 0);
 INSERT INTO `news_game` (`id_news_game`, `judul`, `penulis`, `label`, `tanggal`, `gambar`, `isi`, `tag`, `url`, `views`, `komentar`) VALUES
 (11, 'Mau Cepat Panjat Rank di Season Baru Mobile Legends, Pelajari Ini!', 'Rendy Anwar', 'Mobile legends', '2020-01-03', '5e0ecd6b6ffb5.jpg', '&lt;p&gt;&lt;strong&gt;Mobile Legends&lt;/strong&gt;&amp;nbsp;baru saja memasuki musim baru yakni&amp;nbsp;&lt;strong&gt;Season 15&lt;/strong&gt;&amp;nbsp;dimana ini merupakan kesempatan untuk kamu menerapkan pelajaran dari berbagai pengalaman sebelumnya dan mengincar prestasi yang lebih tinggi. Namun, impian untuk bisa tampil lebih baik di season terbaru ini hanya bisa dicapai jika kamu mau menurunkan ego dan belajar bermain sebagai sebuah tim.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Kali ini, tim&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Esports.ID&amp;nbsp;&lt;/a&gt;&lt;/strong&gt;akan memberikan beberapa tips yang dapat kamu terapkan supaya bisa tampil maksimal dan lebih baik, terutama pada awal season baru seperti ini. Yuk kita simak bersama apa saja hal-hal yang mungkin belum kamu terapkan saat ini?&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Kuasai hero-hero untuk setiap role&lt;/strong&gt;&lt;br /&gt;\r\nTidak dipungkiri bahwa jika kamu bisa menguasai setiap&amp;nbsp;&lt;em&gt;role&lt;/em&gt;&amp;nbsp;hero, match akan terasa lebih nyaman karena dapat mengisi posisi yang kosong. Terutama pada&amp;nbsp;&lt;em&gt;solo rank&lt;/em&gt;&amp;nbsp;dimana cukup sering ditemukan tim yang memiliki dua&amp;nbsp;&lt;em&gt;mage, assassin,&lt;/em&gt;&amp;nbsp;ataupun&amp;nbsp;&lt;em&gt;marksman&lt;/em&gt;&amp;nbsp;tanpa ada&amp;nbsp;&lt;em&gt;backup&lt;/em&gt;&amp;nbsp;dari&amp;nbsp;&lt;em&gt;tank.&lt;/em&gt;&amp;nbsp;Hasilnya tentu bisa ditebak yakni tim tersebut tidak dapat tampil maksimal saat&amp;nbsp;&lt;em&gt;teamfight&lt;/em&gt;&amp;nbsp;dan berujung pada kekalahan.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Setidaknya, jika kamu bisa fleksibel untuk mengisi role yang diperlukan, kemungkinan untuk menang di&amp;nbsp;&lt;em&gt;match&lt;/em&gt;&amp;nbsp;tersebut dapat meningkat serta memberikan perlawanan yang maksimal dalam&amp;nbsp;&lt;em&gt;teamfight.&lt;/em&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/907020191227042426.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Pelajari counter untuk hero-hero meta&lt;/strong&gt;&lt;br /&gt;\r\nBisa dikatakan ini adalah poin paling krusial untuk memenangkan sebuah match. Secara garis besar, penentuan kemenanganmu dalam pertandingan bergantung pada fase&amp;nbsp;&lt;em&gt;pick&lt;/em&gt;&amp;nbsp;and&amp;nbsp;&lt;em&gt;banned.&lt;/em&gt;&amp;nbsp;Memilih hero yang hanya kamu kuasai tidak dapat terus menerus menjamin kemenanganmu. Namun, jika dapat menggunakan hero&amp;nbsp;&lt;em&gt;counter&lt;/em&gt;&amp;nbsp;untuk melawan musuh, kamu dipastikan dapat menghentikan strategi mereka dan menguasai pertandingan.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Kamu bisa menggunakan&amp;nbsp;&lt;strong&gt;Khufra&lt;/strong&gt;&amp;nbsp;untuk menghentikan mobilitas hero gesit seperti&amp;nbsp;&lt;strong&gt;Gusion&lt;/strong&gt;&amp;nbsp;hingga memilih&amp;nbsp;&lt;strong&gt;Lolita&lt;/strong&gt;&amp;nbsp;agar dapat mengurangi dampak dari&amp;nbsp;&lt;em&gt;marksman&lt;/em&gt;&amp;nbsp;yang memiliki&amp;nbsp;&lt;em&gt;attack speed&lt;/em&gt;&amp;nbsp;cepat ataupun&amp;nbsp;&lt;em&gt;ultimate&lt;/em&gt;&amp;nbsp;dari&amp;nbsp;&lt;strong&gt;Chang&amp;#39;e.&lt;/strong&gt;&amp;nbsp;Apa saja nih&amp;nbsp;&lt;em&gt;counter&lt;/em&gt;&amp;nbsp;hero yang kamu ketahui Sobat Esports?&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/254420191227042444.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Hindari sikap egois saat bermain&lt;/strong&gt;&lt;br /&gt;\r\nBerbagi&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;mungkin hal yang masih cukup sulit ditemukan oleh para pemain&amp;nbsp;&lt;strong&gt;Mobile Legends&lt;/strong&gt;&amp;nbsp;hingga saat ini, terutama saat bermain&amp;nbsp;&lt;em&gt;solo.&lt;/em&gt;&amp;nbsp;Meskipun kegunaan dari&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/12/20885c72ca35d75619d6a378edea9f76/kenali-khasiat-baru-buff-monster-di-mobile-legends&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;berbeda&amp;nbsp;&lt;/a&gt;&lt;/strong&gt;untuk setiap&amp;nbsp;&lt;em&gt;role&lt;/em&gt;&amp;nbsp;hero, pastinya kamu masih sering menemukan anggota tim yang menghabiskan semua&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;namun tidak berkontribusi banyak dalam&amp;nbsp;&lt;em&gt;teamfight&lt;/em&gt;&amp;nbsp;ataupun melakukan&amp;nbsp;&lt;em&gt;push objective.&lt;/em&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Padahal&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;tersebut sangat penting untuk beberapa&amp;nbsp;&lt;em&gt;role&lt;/em&gt;&amp;nbsp;hero, terutama di&amp;nbsp;&lt;em&gt;early&lt;/em&gt;&amp;nbsp;gim. Nah, sebisa mungkin biasakan untuk hindari mengambil&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;untuk seorang diri dan lebih memprioritaskan mereka yang menjadi&amp;nbsp;&lt;em&gt;main attacker&lt;/em&gt;&amp;nbsp;di timmu yah Sobat Esports.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/334820191227042452.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Bermain bersama teman untuk mencegah masalah yang tidak diinginkan&lt;/strong&gt;&lt;br /&gt;\r\nKalibrasi ulang rank membuat mereka yang berada di rank&amp;nbsp;&lt;strong&gt;Mythic&lt;/strong&gt;&amp;nbsp;juga turun ke&amp;nbsp;&lt;strong&gt;Epic.&lt;/strong&gt;&amp;nbsp;Hal ini tentu menjadi kabar cukup buruk untuk kalian yang masih bergulat di rank&amp;nbsp;&lt;strong&gt;Epic&lt;/strong&gt;&amp;nbsp;saat ini, karena besar kemungkinan kamu bisa saja berhadapan dengan &amp;#39;bekas&amp;#39;&amp;nbsp;&lt;strong&gt;Mythic,&lt;/strong&gt;&amp;nbsp;namun dipasangkan dengan anggota yang baru menanjak ke&amp;nbsp;&lt;strong&gt;Epic.&lt;/strong&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Bermain bersama teman di&amp;nbsp;&lt;em&gt;ranked&lt;/em&gt;&amp;nbsp;match mungkin bisa sedikit mengatasi masalah ini. Selain bisa menghindari mereka yang kurang dapat diajak bekerjasama, kamu bisa membagi role dengan setiap temanmu agar dapat tampil maksimal di&amp;nbsp;&lt;em&gt;match&lt;/em&gt;&amp;nbsp;tersebut. Kamu lebih senang bermain&amp;nbsp;&lt;em&gt;solo&lt;/em&gt;&amp;nbsp;atau tim nih Sobat Esports di awal musim baru seperti saat ini?&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/793120191227042356.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Terakhir, percaya atau tidak, tim yang saling memahami satu sama lain mulai dari saat&amp;nbsp;&lt;strong&gt;&lt;em&gt;drafting&lt;/em&gt;&lt;/strong&gt;&amp;nbsp;akan menampilkan permainan lebih baik dari mereka yang bertengkar sejak awal pertandingan. Bagaimana pendapatmu Sobat Esports, apakah kamu masih terjebak di&amp;nbsp;&lt;em&gt;rank&lt;/em&gt;&amp;nbsp;&amp;#39;neraka&amp;#39;?&lt;/p&gt;\r\n', 'MLBBS15, MobileLegends, MLBBIndonesia, MobileLegends, Season15, EsportsID, EsportsIndonesia', 'mau-cepat-panjat-rank-di-season-baru-mobile-legends,-pelajari-ini!', 4, 0),
-(12, 'MLBB Campus Championship, Ini Kesempatan Mahasiswa untuk Jadi Pro!', 'Michael', 'Mobile legends', '2020-01-03', '5e0ecdc94f5b6.jpg', '&lt;p&gt;&lt;strong&gt;Moonton&lt;/strong&gt;, developer dan publisher game&amp;nbsp;&lt;strong&gt;Mobile Legends : Bang Bang (MLBB)&lt;/strong&gt;&amp;nbsp;nampaknya antusias menyambut Tahun 2020. Game &amp;ldquo;sejuta umat&amp;rdquo; ini sudah menyiapkan beberapa turnamen di awal tahun 2020:&amp;nbsp;&lt;strong&gt;Campus Championship&lt;/strong&gt;&amp;nbsp;dan&amp;nbsp;&lt;strong&gt;MPL Season 5&lt;/strong&gt;. Dua turnamen bergengsi ini merupakan komitmen Moonton untuk menjangkau semua kalangan dan menjawab kebutuhan peminat esports di Indonesia.&lt;/p&gt;\r\n\r\n&lt;p&gt;Didukung oleh&amp;nbsp;&lt;strong&gt;GoPay&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Mobile Legends: Bang Bang Campus Championship (GoPay MLCC)&lt;/strong&gt;&amp;nbsp;akan menjadi turnamen amatir resmi pertama yang diadakan oleh MLBB khusus untuk mahasiswa di Indonesia. Mengunjungi 10 kota besar di Indonesia:&amp;nbsp;&lt;em&gt;Jabodetabek, Bandung, Semarang, Yogyakarta, Surabaya, Bali, Medan, Palembang, Pontianak,&lt;/em&gt;&amp;nbsp;dan&amp;nbsp;&lt;em&gt;Makassar&lt;/em&gt;. GoPay MLCC akan mengadakan offline qualifier terbuka di 32 universitas pilihan yang dapat dilihat di&amp;nbsp;&lt;a href=&quot;https://bit.ly/GOPAYMLCC2020&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;GOPAYMLCC2020&lt;/a&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Aswin Atonie&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Brand Director Moonton Indonesia&lt;/strong&gt;, menyatakan bahwa pihaknya telah menyiapkan tidak kurang dari Rp350juta sebagai total hadiah untuk GOPAY MLCC. &amp;ldquo;MLCC adalah turnamen amatir yang dibuat secara profesional, kami akan memastikan semua elemennya serupa dengan turnamen tingkat profesional&amp;rdquo;, ujar Aswin.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/974720191227040707.png&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Tidak hanya itu, delapan tim eSport Professional Mobile Legends yang tergabung dalam Franchis League&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/6add07cf50424b14fdf649da87843d01/akhiri-final-dramatis-evos-legends-juara-m1-2019&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Mobile Legends: Bang Bang Professional League (MPL)&lt;/a&gt;&amp;nbsp;sudah bersiap-siap untuk melakukan talent scouting selama GoPay MLCC.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;ldquo;Mereka (Pro tim) sudah pasti akan memperhatikan. Jadi tidak menutup kemungkinan peserta GoPay MLCC yang berpotensi bisa mendapatkan kesempatan kontrak dari pro team yang sudah ada&amp;rdquo;, kata Aswin. &amp;ldquo;Kami membuat GoPay MLCC dengan sebuah misi: untuk memperkenalkan industri game dan esport di kancah pendidikan tinggi di Indonesia. Kami ingin mahasiswa memahami kesempatan apa yang ada menunggu di industri game. Dibutuhkan banyak sekali tenaga dengan kemampuan pemasaran, management, broadcasting, event organizing, dan masih banyak lagi. Bahwa dunia game tidak selalu soal bermain&amp;rdquo;, tutup Aswin.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/839820191227034401.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;br /&gt;\r\n&lt;em&gt;Bersinar di MLCC, Tim MPL Siap Melirikmu!&lt;/em&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sebagai salah satu mobile game yang memiliki ekosistem komunitas yang sudah terintegrasi di Indonesia mulai dari&amp;nbsp;&lt;strong&gt;MP&lt;/strong&gt;L,&amp;nbsp;&lt;strong&gt;World Championship&lt;/strong&gt;, bahkan menjadi cabang olahraga dalam&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/12/2ad9e5e943e43cad612a7996c12a8796/timnas-mlbb-raih-perak-medali-pertama-di-esports-sea-games-2019&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;SEA Games 2019&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;di Filipina kemarin, MLBB menjadi salah satu pendobrak serta pelopor industri eSport di Indonesia.&amp;nbsp;&lt;strong&gt;Reza Putranta, Senior Marketing Manager GoPay&lt;/strong&gt;&amp;nbsp;mengatakan &amp;ldquo;Dengan semakin pesatnya perkembangan dunia eSport, Mobile Legends: Bang Bang Campus Championship memberikan kesempatan bagi para gamers mahasiswa agar berkompetisi lebih profesional. Kami pun selalu terbuka kepada setiap kesempatan kolaborasi dengan berbagai pihak yang memiliki kesamaan misi untuk memajukan industri game di Indonesia. Kolaborasi ini sekaligus menjadi bukti komitmen kami untuk terus mendukung talenta anak bangsa.&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;Ayo segera daftarkan tim kamu di&amp;nbsp;&lt;a href=&quot;https://bit.ly/GOPAYMLCC2020&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;GOPAYMLCC2020&lt;/a&gt;.&lt;/p&gt;\r\n', 'MLCC2020, Campus Championship, Event MLBB, Event Mobile Legends, GOPAYMLCC, GOPAYMLCC2020', 'mlbb-campus-championship,-ini-kesempatan-mahasiswa-untuk-jadi-pro!', 8, 0);
+(12, 'MLBB Campus Championship, Ini Kesempatan Mahasiswa untuk Jadi Pro!', 'Michael', 'Mobile legends', '2020-01-03', '5e0ecdc94f5b6.jpg', '&lt;p&gt;&lt;strong&gt;Moonton&lt;/strong&gt;, developer dan publisher game&amp;nbsp;&lt;strong&gt;Mobile Legends : Bang Bang (MLBB)&lt;/strong&gt;&amp;nbsp;nampaknya antusias menyambut Tahun 2020. Game &amp;ldquo;sejuta umat&amp;rdquo; ini sudah menyiapkan beberapa turnamen di awal tahun 2020:&amp;nbsp;&lt;strong&gt;Campus Championship&lt;/strong&gt;&amp;nbsp;dan&amp;nbsp;&lt;strong&gt;MPL Season 5&lt;/strong&gt;. Dua turnamen bergengsi ini merupakan komitmen Moonton untuk menjangkau semua kalangan dan menjawab kebutuhan peminat esports di Indonesia.&lt;/p&gt;\r\n\r\n&lt;p&gt;Didukung oleh&amp;nbsp;&lt;strong&gt;GoPay&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Mobile Legends: Bang Bang Campus Championship (GoPay MLCC)&lt;/strong&gt;&amp;nbsp;akan menjadi turnamen amatir resmi pertama yang diadakan oleh MLBB khusus untuk mahasiswa di Indonesia. Mengunjungi 10 kota besar di Indonesia:&amp;nbsp;&lt;em&gt;Jabodetabek, Bandung, Semarang, Yogyakarta, Surabaya, Bali, Medan, Palembang, Pontianak,&lt;/em&gt;&amp;nbsp;dan&amp;nbsp;&lt;em&gt;Makassar&lt;/em&gt;. GoPay MLCC akan mengadakan offline qualifier terbuka di 32 universitas pilihan yang dapat dilihat di&amp;nbsp;&lt;a href=&quot;https://bit.ly/GOPAYMLCC2020&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;GOPAYMLCC2020&lt;/a&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Aswin Atonie&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Brand Director Moonton Indonesia&lt;/strong&gt;, menyatakan bahwa pihaknya telah menyiapkan tidak kurang dari Rp350juta sebagai total hadiah untuk GOPAY MLCC. &amp;ldquo;MLCC adalah turnamen amatir yang dibuat secara profesional, kami akan memastikan semua elemennya serupa dengan turnamen tingkat profesional&amp;rdquo;, ujar Aswin.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/974720191227040707.png&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Tidak hanya itu, delapan tim eSport Professional Mobile Legends yang tergabung dalam Franchis League&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/6add07cf50424b14fdf649da87843d01/akhiri-final-dramatis-evos-legends-juara-m1-2019&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Mobile Legends: Bang Bang Professional League (MPL)&lt;/a&gt;&amp;nbsp;sudah bersiap-siap untuk melakukan talent scouting selama GoPay MLCC.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;ldquo;Mereka (Pro tim) sudah pasti akan memperhatikan. Jadi tidak menutup kemungkinan peserta GoPay MLCC yang berpotensi bisa mendapatkan kesempatan kontrak dari pro team yang sudah ada&amp;rdquo;, kata Aswin. &amp;ldquo;Kami membuat GoPay MLCC dengan sebuah misi: untuk memperkenalkan industri game dan esport di kancah pendidikan tinggi di Indonesia. Kami ingin mahasiswa memahami kesempatan apa yang ada menunggu di industri game. Dibutuhkan banyak sekali tenaga dengan kemampuan pemasaran, management, broadcasting, event organizing, dan masih banyak lagi. Bahwa dunia game tidak selalu soal bermain&amp;rdquo;, tutup Aswin.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/839820191227034401.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;br /&gt;\r\n&lt;em&gt;Bersinar di MLCC, Tim MPL Siap Melirikmu!&lt;/em&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sebagai salah satu mobile game yang memiliki ekosistem komunitas yang sudah terintegrasi di Indonesia mulai dari&amp;nbsp;&lt;strong&gt;MP&lt;/strong&gt;L,&amp;nbsp;&lt;strong&gt;World Championship&lt;/strong&gt;, bahkan menjadi cabang olahraga dalam&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/12/2ad9e5e943e43cad612a7996c12a8796/timnas-mlbb-raih-perak-medali-pertama-di-esports-sea-games-2019&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;SEA Games 2019&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;di Filipina kemarin, MLBB menjadi salah satu pendobrak serta pelopor industri eSport di Indonesia.&amp;nbsp;&lt;strong&gt;Reza Putranta, Senior Marketing Manager GoPay&lt;/strong&gt;&amp;nbsp;mengatakan &amp;ldquo;Dengan semakin pesatnya perkembangan dunia eSport, Mobile Legends: Bang Bang Campus Championship memberikan kesempatan bagi para gamers mahasiswa agar berkompetisi lebih profesional. Kami pun selalu terbuka kepada setiap kesempatan kolaborasi dengan berbagai pihak yang memiliki kesamaan misi untuk memajukan industri game di Indonesia. Kolaborasi ini sekaligus menjadi bukti komitmen kami untuk terus mendukung talenta anak bangsa.&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;Ayo segera daftarkan tim kamu di&amp;nbsp;&lt;a href=&quot;https://bit.ly/GOPAYMLCC2020&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;GOPAYMLCC2020&lt;/a&gt;.&lt;/p&gt;\r\n', 'MLCC2020, Campus Championship, Event MLBB, Event Mobile Legends, GOPAYMLCC, GOPAYMLCC2020', 'mlbb-campus-championship,-ini-kesempatan-mahasiswa-untuk-jadi-pro!', 9, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `portal`
+-- Struktur dari tabel `portal`
 --
 
 CREATE TABLE `portal` (
@@ -7875,7 +7875,7 @@ CREATE TABLE `portal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `portal`
+-- Dumping data untuk tabel `portal`
 --
 
 INSERT INTO `portal` (`id`, `name`, `content`) VALUES
@@ -7897,7 +7897,7 @@ INSERT INTO `portal` (`id`, `name`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `provinsi`
+-- Struktur dari tabel `provinsi`
 --
 
 CREATE TABLE `provinsi` (
@@ -7906,7 +7906,7 @@ CREATE TABLE `provinsi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `provinsi`
+-- Dumping data untuk tabel `provinsi`
 --
 
 INSERT INTO `provinsi` (`id_prov`, `nama`) VALUES
@@ -7948,7 +7948,7 @@ INSERT INTO `provinsi` (`id_prov`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tournament`
+-- Struktur dari tabel `tournament`
 --
 
 CREATE TABLE `tournament` (
@@ -7969,16 +7969,20 @@ CREATE TABLE `tournament` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tournament`
+-- Dumping data untuk tabel `tournament`
 --
 
 INSERT INTO `tournament` (`id_tournament`, `tournament_name`, `date`, `created_at`, `kompetisi`, `nama_kota`, `alamat`, `tourname_type`, `id_group`, `total_team`, `random`, `status`, `is_random`, `url`) VALUES
-('4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Turnamen Mobile Legends - STREAM GAMING SEASON 13%###!', '21-01-2020 19:20', 'Tuesday, 21 January 2020 23:02', 'KPT0001', 'medan, sumatra utara', 'Jl.karya kasih', 'singgle', '97132a032509c00b3886b1f672068726d1a50fc5', '32', 1, 'starting', 1, 'Turnamen-Mobile-Legends--STREAM-GAMING-SEASON-13');
+('0ba1d704cc75696773462da42107a5685afccdcc', 'tournament mobile legends unutuk 8orang ', '26-01-2020 08:04', 'Sunday, 26 January 2020 18:13', 'KPT0001', 'medan, sumatra utara', 'Jl, sasad', 'singgle', '3f2061f74fda0f336465c63e046189076fe0aaec', '8', 1, 'starting', 1, 'tournament-mobile-legends-unutuk-8orang'),
+('4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Turnamen Mobile Legends - STREAM GAMING SEASON 13%###!', '21-01-2020 19:20', 'Tuesday, 21 January 2020 23:02', 'KPT0001', 'medan, sumatra utara', 'Jl.karya kasih', 'singgle', '97132a032509c00b3886b1f672068726d1a50fc5', '32', 1, 'complete', 1, 'Turnamen-Mobile-Legends--STREAM-GAMING-SEASON-13'),
+('554215443b64582722e5036add77909df49b766f', 'Turnamen Mobile Legends - STREAM GAMING SEASON 13%###! 16 orang', '26-01-2020 07:06', 'Sunday, 26 January 2020 16:48', 'KPT0001', 'medan, sumatra utara', 'jln,jalan', 'singgle', '7908148d5d4de54a725425effbaf05e4d4128234', '16', 1, 'starting', 1, 'Turnamen-Mobile-Legends--STREAM-GAMING-SEASON-13-16-orang'),
+('92af6ec380dddd2de1614381dc0f151076d12cca', 'Turnamen Mobile Legends - STREAM GAMING SEASON 1 Untul 32 orang', '29-01-2020 15:13', 'Wednesday, 29 January 2020 15:12', 'KPT0001', 'medan, sumatra utara', 'jln.kampung baru', 'singgle', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', '32', 1, 'starting', 1, 'Turnamen-Mobile-Legends--STREAM-GAMING-SEASON-1-Untul-32-orang'),
+('e0439ada53311022b7871fc2edff65bd51fb58e8', 'tournament mobile legends unutuk 4 orang', '26-01-2020 09:03', 'Sunday, 26 January 2020 19:22', 'KPT0001', 'Medan', 'a', 'singgle', '8937bb38c142ea48e636848599adbdd338a6d20d', '4', 1, 'starting', 1, 'tournament-mobile-legends-unutuk-4-orang');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tournament_final`
+-- Struktur dari tabel `tournament_final`
 --
 
 CREATE TABLE `tournament_final` (
@@ -7988,20 +7992,25 @@ CREATE TABLE `tournament_final` (
   `team2` varchar(128) NOT NULL,
   `score1` int(11) DEFAULT NULL,
   `score2` int(11) DEFAULT NULL,
-  `winner` varchar(128) DEFAULT NULL
+  `winner` varchar(128) DEFAULT NULL,
+  `date` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tournament_final`
+-- Dumping data untuk tabel `tournament_final`
 --
 
-INSERT INTO `tournament_final` (`id_final`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
-('FINAL0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'SMF0001', 'SMF0002', NULL, NULL, NULL);
+INSERT INTO `tournament_final` (`id_final`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
+('FINAL0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'SMF0001', 'SMF0002', 2, 4, 'TEAM0005', '31-01-2020 12:00'),
+('FINAL0002', '554215443b64582722e5036add77909df49b766f', 'SMF0003', 'SMF0004', 1, 0, 'TEAM0039', '31-01-2020 06:00'),
+('FINAL0003', '0ba1d704cc75696773462da42107a5685afccdcc', 'SMF0005', 'SMF0006', 1, 4, 'TEAM0053', '01-02-2020 06:00'),
+('FINAL0004', 'e0439ada53311022b7871fc2edff65bd51fb58e8', 'SMF0007', 'SMF0008', 1, 2, 'TEAM0060', '31-01-2020 02:00'),
+('FINAL0005', '92af6ec380dddd2de1614381dc0f151076d12cca', 'SMF0009', 'SMF0010', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tournament_group`
+-- Struktur dari tabel `tournament_group`
 --
 
 CREATE TABLE `tournament_group` (
@@ -8013,7 +8022,7 @@ CREATE TABLE `tournament_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tournament_group`
+-- Dumping data untuk tabel `tournament_group`
 --
 
 INSERT INTO `tournament_group` (`id_team`, `id_group`, `nama_team`, `logo_team`, `nama_kota`) VALUES
@@ -8048,12 +8057,72 @@ INSERT INTO `tournament_group` (`id_team`, `id_group`, `nama_team`, `logo_team`,
 ('TEAM0029', '97132a032509c00b3886b1f672068726d1a50fc5', 'team29', '5e275a64e8ae6.jpg', 'Medan'),
 ('TEAM0030', '97132a032509c00b3886b1f672068726d1a50fc5', 'team30', '5e275a771fe46.jpg', 'medan'),
 ('TEAM0031', '97132a032509c00b3886b1f672068726d1a50fc5', 'team31', '5e275a855f57c.jpg', 'medan'),
-('TEAM0032', '97132a032509c00b3886b1f672068726d1a50fc5', 'team32', '5e275a91337ba.png', 'medan');
+('TEAM0032', '97132a032509c00b3886b1f672068726d1a50fc5', 'team32', '5e275a91337ba.png', 'medan'),
+('TEAM0033', '7908148d5d4de54a725425effbaf05e4d4128234', 'team1', '5e2d60848083c.jpg', 'medan'),
+('TEAM0034', '7908148d5d4de54a725425effbaf05e4d4128234', 'team2', '5e2d608d97b4a.png', 'aceh'),
+('TEAM0035', '7908148d5d4de54a725425effbaf05e4d4128234', 'team3', '5e2d609728e04.png', 'padang'),
+('TEAM0036', '7908148d5d4de54a725425effbaf05e4d4128234', 'team4', '5e2d609fc3a37.jpg', 'Riau'),
+('TEAM0037', '7908148d5d4de54a725425effbaf05e4d4128234', 'team5', '5e2d60e7b5868.jpeg', 'palembang'),
+('TEAM0038', '7908148d5d4de54a725425effbaf05e4d4128234', 'team6', '5e2d60fea4f99.jpeg', 'Bengkulu'),
+('TEAM0039', '7908148d5d4de54a725425effbaf05e4d4128234', 'team7', '5e2d6110d7081.jpeg', 'lampung'),
+('TEAM0040', '7908148d5d4de54a725425effbaf05e4d4128234', 'team8', '5e2d6138cfea0.jpeg', 'jawa barat'),
+('TEAM0041', '7908148d5d4de54a725425effbaf05e4d4128234', 'team9', '5e2d614d26ea5.jpg', 'jawa tengah'),
+('TEAM0042', '7908148d5d4de54a725425effbaf05e4d4128234', 'team10', '5e2d615e6402a.jpeg', 'banten'),
+('TEAM0043', '7908148d5d4de54a725425effbaf05e4d4128234', 'team11', '5e2d616c13e0f.jpg', 'bali'),
+('TEAM0044', '7908148d5d4de54a725425effbaf05e4d4128234', 'team11', '5e2d616c6b2a4.jpg', 'bali'),
+('TEAM0045', '7908148d5d4de54a725425effbaf05e4d4128234', 'team12', '5e2d6176f19bc.jpg', 'yogyakarta'),
+('TEAM0046', '7908148d5d4de54a725425effbaf05e4d4128234', 'team13', '5e2d6188bfcc5.jpg', 'semarang'),
+('TEAM0047', '7908148d5d4de54a725425effbaf05e4d4128234', 'team15', '5e2d61af19022.jpg', 'Samarinda'),
+('TEAM0048', '7908148d5d4de54a725425effbaf05e4d4128234', 'team16', '5e2d61bb4c730.jpg', 'bandung'),
+('TEAM0049', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team1', '5e2d747fb643e.jpg', 'medan'),
+('TEAM0050', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team2', '5e2d748b3edb4.png', 'aceh'),
+('TEAM0051', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team3', '5e2d749bef143.png', 'padang'),
+('TEAM0052', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team4', '5e2d74b05caca.jpg', 'palembang'),
+('TEAM0053', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team5', '5e2d74bee1313.jpeg', 'riau'),
+('TEAM0054', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team6', '5e2d74d44222f.jpeg', 'Samarinda'),
+('TEAM0055', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team7', '5e2d74e8ca92b.jpeg', 'jakarta'),
+('TEAM0056', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team8', '5e2d74ffce2e2.jpeg', 'ntt'),
+('TEAM0057', '8937bb38c142ea48e636848599adbdd338a6d20d', 'team1', '5e2d87bed72e5.jpg', 'Medan'),
+('TEAM0058', '8937bb38c142ea48e636848599adbdd338a6d20d', 'team2', '5e2d87c76f56d.png', 'medan'),
+('TEAM0059', '8937bb38c142ea48e636848599adbdd338a6d20d', 'team3', '5e2d87d020a06.png', 'medan'),
+('TEAM0060', '8937bb38c142ea48e636848599adbdd338a6d20d', 'team4', '5e2d87d94628a.jpg', 'medan'),
+('TEAM0061', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team1', '5e313e9fac76e.jpg', 'medan'),
+('TEAM0062', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team2', '5e313eab0784d.png', 'medan'),
+('TEAM0063', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team3', '5e313fff2bd6d.png', 'bandah aceh'),
+('TEAM0064', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team4', '5e31400ccbd32.jpg', 'padang'),
+('TEAM0065', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team5', '5e31401880af9.jpeg', 'Riau'),
+('TEAM0066', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team6', '5e31402842023.jpeg', 'jambi'),
+('TEAM0067', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team7', '5e31403bbf053.jpeg', 'palembang'),
+('TEAM0068', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team8', '5e314046be160.jpeg', 'Bengkulu'),
+('TEAM0069', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team9', '5e31406455576.jpeg', 'lampung'),
+('TEAM0070', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team10', '5e31408048e31.jpg', 'jakarta'),
+('TEAM0071', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team11', '5e31408d0fc8a.jpeg', 'bandung'),
+('TEAM0072', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team12', '5e3141d946d14.jpg', 'bandung'),
+('TEAM0073', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team13', '5e3141ebcb3ae.jpg', 'semarang'),
+('TEAM0074', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team14', '5e3142025c404.jpg', 'yogyakarta'),
+('TEAM0075', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team15', '5e31423e1fd8f.jpg', 'surabaya'),
+('TEAM0076', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team16', '5e31424e5b7a7.jpg', 'serang'),
+('TEAM0077', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team17', '5e31425cb0a2a.jpg', 'Denpasar'),
+('TEAM0078', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team18', '5e314274efde7.jpeg', 'mataram'),
+('TEAM0079', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team19', '5e3142874fcbe.jpg', 'kupang'),
+('TEAM0080', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team20', '5e3142960686c.jpg', 'pontianak'),
+('TEAM0081', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team21', '5e3142aa4284e.jpeg', 'palangkaraya'),
+('TEAM0082', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team22', '5e3142bc3f319.jpeg', 'banjarmasin'),
+('TEAM0083', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team23', '5e3142d0a9bb1.jpeg', 'Samarinda'),
+('TEAM0084', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team24', '5e3142e029389.jpg', 'manado'),
+('TEAM0085', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team25', '5e3142f176e84.jpg', 'palu'),
+('TEAM0086', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team26', '5e31433fb7780.jpeg', 'makassar'),
+('TEAM0087', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team27', '5e31434e5ab23.jpg', 'kendari'),
+('TEAM0088', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team28', '5e31435fe2691.jpg', 'gorontalo'),
+('TEAM0089', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team29', '5e314376345ab.jpg', 'mamuju'),
+('TEAM0090', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team30', '5e314388a6e5c.jpg', 'ambon'),
+('TEAM0091', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team31', '5e3143a17c5f1.jpg', 'jayapura'),
+('TEAM0092', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team32', '5e3143ad88311.jpg', 'manokwari');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tournament_quarter_finals`
+-- Struktur dari tabel `tournament_quarter_finals`
 --
 
 CREATE TABLE `tournament_quarter_finals` (
@@ -8063,23 +8132,36 @@ CREATE TABLE `tournament_quarter_finals` (
   `team2` varchar(128) NOT NULL,
   `score1` int(11) DEFAULT NULL,
   `score2` int(11) DEFAULT NULL,
-  `winner` char(128) DEFAULT NULL
+  `winner` char(128) DEFAULT NULL,
+  `date` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tournament_quarter_finals`
+-- Dumping data untuk tabel `tournament_quarter_finals`
 --
 
-INSERT INTO `tournament_quarter_finals` (`id_quarter_finals`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
-('QTF0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160001', 'Round160002', NULL, NULL, NULL),
-('QTF0002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160003', 'Round160004', NULL, NULL, NULL),
-('QTF0003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160005', 'Round160006', NULL, NULL, NULL),
-('QTF0004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160007', 'Round160008', NULL, NULL, NULL);
+INSERT INTO `tournament_quarter_finals` (`id_quarter_finals`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
+('QTF0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160001', 'Round160002', 5, 1, 'TEAM0001', '29-01-2020 10:04'),
+('QTF0002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160003', 'Round160004', 3, 1, 'TEAM0009', '28-01-2020 05:57'),
+('QTF0003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160005', 'Round160006', 4, 1, 'TEAM0018', '29-01-2020 05:00'),
+('QTF0004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160007', 'Round160008', 5, 4, 'TEAM0005', '29-01-2020 05:02'),
+('QTF0005', '554215443b64582722e5036add77909df49b766f', 'Round160009', 'Round160010', 3, 1, 'TEAM0043', '30-01-2020 07:06'),
+('QTF0006', '554215443b64582722e5036add77909df49b766f', 'Round160011', 'Round160012', 3, 4, 'TEAM0039', ''),
+('QTF0007', '554215443b64582722e5036add77909df49b766f', 'Round160013', 'Round160014', 4, 3, 'TEAM0041', ''),
+('QTF0008', '554215443b64582722e5036add77909df49b766f', 'Round160015', 'Round160016', 4, 1, 'TEAM0036', ''),
+('QTF0009', '0ba1d704cc75696773462da42107a5685afccdcc', 'TEAM0051', 'TEAM0056', 5, 2, 'TEAM0051', '30-01-2020 19:00'),
+('QTF0010', '0ba1d704cc75696773462da42107a5685afccdcc', 'TEAM0055', 'TEAM0049', 3, 1, 'TEAM0055', ''),
+('QTF0011', '0ba1d704cc75696773462da42107a5685afccdcc', 'TEAM0053', 'TEAM0050', 2, 1, 'TEAM0053', ''),
+('QTF0012', '0ba1d704cc75696773462da42107a5685afccdcc', 'TEAM0054', 'TEAM0052', 4, 3, 'TEAM0054', ''),
+('QTF0013', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round160017', 'Round160018', NULL, NULL, NULL, ''),
+('QTF0014', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round160019', 'Round160020', NULL, NULL, NULL, ''),
+('QTF0015', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round160021', 'Round160022', NULL, NULL, NULL, ''),
+('QTF0016', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round160023', 'Round160024', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tournament_round16`
+-- Struktur dari tabel `tournament_round16`
 --
 
 CREATE TABLE `tournament_round16` (
@@ -8089,27 +8171,44 @@ CREATE TABLE `tournament_round16` (
   `team2` varchar(128) NOT NULL,
   `score1` int(11) DEFAULT NULL,
   `score2` int(11) DEFAULT NULL,
-  `winner` varchar(128) DEFAULT NULL
+  `winner` varchar(128) DEFAULT NULL,
+  `date` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tournament_round16`
+-- Dumping data untuk tabel `tournament_round16`
 --
 
-INSERT INTO `tournament_round16` (`id_round16`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
-('Round160001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320001', 'Round320002', NULL, NULL, NULL),
-('Round160002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320003', 'Round320004', NULL, NULL, NULL),
-('Round160003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320005', 'Round320006', NULL, NULL, NULL),
-('Round160004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320007', 'Round320008', NULL, NULL, NULL),
-('Round160005', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320009', 'Round320010', NULL, NULL, NULL),
-('Round160006', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320011', 'Round320012', NULL, NULL, NULL),
-('Round160007', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320013', 'Round320014', NULL, NULL, NULL),
-('Round160008', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320015', 'Round320016', NULL, NULL, NULL);
+INSERT INTO `tournament_round16` (`id_round16`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
+('Round160001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320001', 'Round320002', 1, 4, 'TEAM0001', '28-01-2020 13:11'),
+('Round160002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320003', 'Round320004', 5, 3, 'TEAM0027', '28-01-2020 06:04'),
+('Round160003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320005', 'Round320006', 4, 2, 'TEAM0009', '28-01-2020 05:03'),
+('Round160004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320007', 'Round320008', 4, 5, 'TEAM0010', '28-01-2020 09:04'),
+('Round160005', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320009', 'Round320010', 4, 2, 'TEAM0018', '29-01-2020 06:05'),
+('Round160006', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320011', 'Round320012', 2, 3, 'TEAM0031', '28-01-2020 04:06'),
+('Round160007', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320013', 'Round320014', 3, 2, 'TEAM0005', '28-01-2020 04:04'),
+('Round160008', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320015', 'Round320016', 1, 2, 'TEAM0029', '14-01-2020 05:03'),
+('Round160009', '554215443b64582722e5036add77909df49b766f', 'TEAM0042', 'TEAM0043', 2, 3, 'TEAM0043', '28-01-2020 04:01'),
+('Round160010', '554215443b64582722e5036add77909df49b766f', 'TEAM0035', 'TEAM0044', 3, 2, 'TEAM0035', '28-01-2020 07:03'),
+('Round160011', '554215443b64582722e5036add77909df49b766f', 'TEAM0040', 'TEAM0048', 3, 4, 'TEAM0048', '29-01-2020 05:02'),
+('Round160012', '554215443b64582722e5036add77909df49b766f', 'TEAM0039', 'TEAM0046', 2, 1, 'TEAM0039', ''),
+('Round160013', '554215443b64582722e5036add77909df49b766f', 'TEAM0041', 'TEAM0047', 2, 1, 'TEAM0041', ''),
+('Round160014', '554215443b64582722e5036add77909df49b766f', 'TEAM0037', 'TEAM0045', 1, 2, 'TEAM0045', ''),
+('Round160015', '554215443b64582722e5036add77909df49b766f', 'TEAM0034', 'TEAM0036', 1, 5, 'TEAM0036', ''),
+('Round160016', '554215443b64582722e5036add77909df49b766f', 'TEAM0033', 'TEAM0038', 1, 4, 'TEAM0038', ''),
+('Round160017', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320017', 'Round320018', NULL, NULL, NULL, ''),
+('Round160018', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320019', 'Round320020', NULL, NULL, NULL, ''),
+('Round160019', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320021', 'Round320022', NULL, NULL, NULL, ''),
+('Round160020', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320023', 'Round320024', NULL, NULL, NULL, ''),
+('Round160021', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320025', 'Round320026', NULL, NULL, NULL, ''),
+('Round160022', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320027', 'Round320028', NULL, NULL, NULL, ''),
+('Round160023', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320029', 'Round320030', NULL, NULL, NULL, ''),
+('Round160024', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320031', 'Round320032', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tournament_round32`
+-- Struktur dari tabel `tournament_round32`
 --
 
 CREATE TABLE `tournament_round32` (
@@ -8119,35 +8218,52 @@ CREATE TABLE `tournament_round32` (
   `team2` varchar(128) NOT NULL,
   `score1` int(11) DEFAULT NULL,
   `score2` int(11) DEFAULT NULL,
-  `winner` char(128) DEFAULT NULL
+  `winner` char(128) DEFAULT NULL,
+  `date` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tournament_round32`
+-- Dumping data untuk tabel `tournament_round32`
 --
 
-INSERT INTO `tournament_round32` (`id_round32`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
-('Round320001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0025', 'TEAM0026', NULL, NULL, NULL),
-('Round320002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0007', 'TEAM0001', NULL, NULL, NULL),
-('Round320003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0023', 'TEAM0027', NULL, NULL, NULL),
-('Round320004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0002', 'TEAM0022', NULL, NULL, NULL),
-('Round320005', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0004', 'TEAM0009', NULL, NULL, NULL),
-('Round320006', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0006', 'TEAM0013', NULL, NULL, NULL),
-('Round320007', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0003', 'TEAM0019', NULL, NULL, NULL),
-('Round320008', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0010', 'TEAM0008', NULL, NULL, NULL),
-('Round320009', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0011', 'TEAM0018', NULL, NULL, NULL),
-('Round320010', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0028', 'TEAM0030', NULL, NULL, NULL),
-('Round320011', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0012', 'TEAM0015', NULL, NULL, NULL),
-('Round320012', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0017', 'TEAM0031', NULL, NULL, NULL),
-('Round320013', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0024', 'TEAM0005', NULL, NULL, NULL),
-('Round320014', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0032', 'TEAM0016', NULL, NULL, NULL),
-('Round320015', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0014', 'TEAM0020', NULL, NULL, NULL),
-('Round320016', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0029', 'TEAM0021', NULL, NULL, NULL);
+INSERT INTO `tournament_round32` (`id_round32`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
+('Round320001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0025', 'TEAM0026', 6, 1, 'TEAM0025', '27-01-2020 23:08'),
+('Round320002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0007', 'TEAM0001', 1, 7, 'TEAM0001', '27-01-2020 08:07'),
+('Round320003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0023', 'TEAM0027', 4, 5, 'TEAM0027', '27-01-2020 08:04'),
+('Round320004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0002', 'TEAM0022', 3, 2, 'TEAM0002', '27-01-2020 04:04'),
+('Round320005', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0004', 'TEAM0009', 4, 5, 'TEAM0009', '12-01-2020 02:03'),
+('Round320006', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0006', 'TEAM0013', 3, 5, 'TEAM0013', '27-01-2020 09:00'),
+('Round320007', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0003', 'TEAM0019', 5, 3, 'TEAM0003', '28-01-2020 12:12'),
+('Round320008', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0010', 'TEAM0008', 7, 1, 'TEAM0010', '28-01-2020 06:06'),
+('Round320009', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0011', 'TEAM0018', 3, 4, 'TEAM0018', '27-01-2020 08:08'),
+('Round320010', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0028', 'TEAM0030', 3, 1, 'TEAM0028', '27-01-2020 08:04'),
+('Round320011', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0012', 'TEAM0015', 2, 1, 'TEAM0012', '09-01-2020 06:00'),
+('Round320012', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0017', 'TEAM0031', 3, 5, 'TEAM0031', '28-01-2020 05:03'),
+('Round320013', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0024', 'TEAM0005', 3, 4, 'TEAM0005', '28-01-2020 04:01'),
+('Round320014', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0032', 'TEAM0016', 3, 1, 'TEAM0032', '22-01-2020 02:02'),
+('Round320015', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0014', 'TEAM0020', 3, 2, 'TEAM0014', '27-01-2020 08:04'),
+('Round320016', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0029', 'TEAM0021', 3, 1, 'TEAM0029', '15-01-2020 06:06'),
+('Round320017', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0085', 'TEAM0080', 2, 1, 'TEAM0085', ''),
+('Round320018', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0076', 'TEAM0069', 2, 1, 'TEAM0076', ''),
+('Round320019', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0086', 'TEAM0083', 5, 1, 'TEAM0086', ''),
+('Round320020', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0078', 'TEAM0077', 2, 1, 'TEAM0078', ''),
+('Round320021', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0088', 'TEAM0091', 4, 1, 'TEAM0088', ''),
+('Round320022', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0062', 'TEAM0090', 4, 1, 'TEAM0062', ''),
+('Round320023', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0064', 'TEAM0061', 2, 1, 'TEAM0064', ''),
+('Round320024', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0081', 'TEAM0082', 4, 0, 'TEAM0081', ''),
+('Round320025', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0072', 'TEAM0092', 5, 1, 'TEAM0072', ''),
+('Round320026', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0087', 'TEAM0063', 5, 6, 'TEAM0063', ''),
+('Round320027', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0075', 'TEAM0070', 3, 4, 'TEAM0070', ''),
+('Round320028', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0074', 'TEAM0067', 5, 8, 'TEAM0067', ''),
+('Round320029', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0079', 'TEAM0065', 2, 1, 'TEAM0079', ''),
+('Round320030', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0089', 'TEAM0073', 4, 1, 'TEAM0089', ''),
+('Round320031', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0071', 'TEAM0068', 1, 2, 'TEAM0068', ''),
+('Round320032', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0084', 'TEAM0066', 1, 0, 'TEAM0084', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tournament_semi_finals`
+-- Struktur dari tabel `tournament_semi_finals`
 --
 
 CREATE TABLE `tournament_semi_finals` (
@@ -8157,21 +8273,30 @@ CREATE TABLE `tournament_semi_finals` (
   `team2` varchar(128) NOT NULL,
   `score1` int(11) DEFAULT NULL,
   `score2` int(11) DEFAULT NULL,
-  `winner` varchar(128) DEFAULT NULL
+  `winner` varchar(128) DEFAULT NULL,
+  `date` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tournament_semi_finals`
+-- Dumping data untuk tabel `tournament_semi_finals`
 --
 
-INSERT INTO `tournament_semi_finals` (`id_semi_finals`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`) VALUES
-('SMF0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'QTF0001', 'QTF0002', NULL, NULL, NULL),
-('SMF0002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'QTF0003', 'QTF0004', NULL, NULL, NULL);
+INSERT INTO `tournament_semi_finals` (`id_semi_finals`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
+('SMF0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'QTF0001', 'QTF0002', 5, 3, 'TEAM0001', '30-01-2020 05:03'),
+('SMF0002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'QTF0003', 'QTF0004', 3, 4, 'TEAM0005', '30-01-2020 06:04'),
+('SMF0003', '554215443b64582722e5036add77909df49b766f', 'QTF0005', 'QTF0006', 2, 3, 'TEAM0039', '30-01-2020 08:00'),
+('SMF0004', '554215443b64582722e5036add77909df49b766f', 'QTF0007', 'QTF0008', 4, 2, 'TEAM0041', ''),
+('SMF0005', '0ba1d704cc75696773462da42107a5685afccdcc', 'QTF0009', 'QTF0010', 1, 3, 'TEAM0055', '31-01-2020 07:00'),
+('SMF0006', '0ba1d704cc75696773462da42107a5685afccdcc', 'QTF0011', 'QTF0012', 3, 1, 'TEAM0053', ''),
+('SMF0007', 'e0439ada53311022b7871fc2edff65bd51fb58e8', 'TEAM0059', 'TEAM0058', 2, 1, 'TEAM0059', '31-01-2020 02:00'),
+('SMF0008', 'e0439ada53311022b7871fc2edff65bd51fb58e8', 'TEAM0060', 'TEAM0057', 3, 1, 'TEAM0060', ''),
+('SMF0009', '92af6ec380dddd2de1614381dc0f151076d12cca', 'QTF0013', 'QTF0014', NULL, NULL, NULL, ''),
+('SMF0010', '92af6ec380dddd2de1614381dc0f151076d12cca', 'QTF0015', 'QTF0016', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tournament_winner`
+-- Struktur dari tabel `tournament_winner`
 --
 
 CREATE TABLE `tournament_winner` (
@@ -8189,143 +8314,143 @@ CREATE TABLE `tournament_winner` (
 --
 
 --
--- Indexes for table `data_management`
+-- Indeks untuk tabel `data_management`
 --
 ALTER TABLE `data_management`
   ADD PRIMARY KEY (`kode_stream`);
 
 --
--- Indexes for table `kabupaten`
+-- Indeks untuk tabel `kabupaten`
 --
 ALTER TABLE `kabupaten`
   ADD PRIMARY KEY (`id_kab`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
--- Indexes for table `kecamatan`
+-- Indeks untuk tabel `kecamatan`
 --
 ALTER TABLE `kecamatan`
   ADD PRIMARY KEY (`id_kec`);
 
 --
--- Indexes for table `kelurahan`
+-- Indeks untuk tabel `kelurahan`
 --
 ALTER TABLE `kelurahan`
   ADD PRIMARY KEY (`id_kel`);
 
 --
--- Indexes for table `komentar`
+-- Indeks untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
   ADD PRIMARY KEY (`komentar_id`);
 
 --
--- Indexes for table `kompetisi`
+-- Indeks untuk tabel `kompetisi`
 --
 ALTER TABLE `kompetisi`
   ADD PRIMARY KEY (`id_kompetisi`);
 
 --
--- Indexes for table `member`
+-- Indeks untuk tabel `member`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`kode_member`);
 
 --
--- Indexes for table `news_game`
+-- Indeks untuk tabel `news_game`
 --
 ALTER TABLE `news_game`
   ADD PRIMARY KEY (`id_news_game`);
 
 --
--- Indexes for table `portal`
+-- Indeks untuk tabel `portal`
 --
 ALTER TABLE `portal`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `provinsi`
+-- Indeks untuk tabel `provinsi`
 --
 ALTER TABLE `provinsi`
   ADD PRIMARY KEY (`id_prov`);
 
 --
--- Indexes for table `tournament`
+-- Indeks untuk tabel `tournament`
 --
 ALTER TABLE `tournament`
   ADD PRIMARY KEY (`id_tournament`);
 
 --
--- Indexes for table `tournament_final`
+-- Indeks untuk tabel `tournament_final`
 --
 ALTER TABLE `tournament_final`
   ADD PRIMARY KEY (`id_final`);
 
 --
--- Indexes for table `tournament_group`
+-- Indeks untuk tabel `tournament_group`
 --
 ALTER TABLE `tournament_group`
   ADD PRIMARY KEY (`id_team`);
 
 --
--- Indexes for table `tournament_quarter_finals`
+-- Indeks untuk tabel `tournament_quarter_finals`
 --
 ALTER TABLE `tournament_quarter_finals`
   ADD PRIMARY KEY (`id_quarter_finals`);
 
 --
--- Indexes for table `tournament_round16`
+-- Indeks untuk tabel `tournament_round16`
 --
 ALTER TABLE `tournament_round16`
   ADD PRIMARY KEY (`id_round16`);
 
 --
--- Indexes for table `tournament_round32`
+-- Indeks untuk tabel `tournament_round32`
 --
 ALTER TABLE `tournament_round32`
   ADD PRIMARY KEY (`id_round32`);
 
 --
--- Indexes for table `tournament_semi_finals`
+-- Indeks untuk tabel `tournament_semi_finals`
 --
 ALTER TABLE `tournament_semi_finals`
   ADD PRIMARY KEY (`id_semi_finals`);
 
 --
--- Indexes for table `tournament_winner`
+-- Indeks untuk tabel `tournament_winner`
 --
 ALTER TABLE `tournament_winner`
   ADD PRIMARY KEY (`id_winner`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `komentar`
+-- AUTO_INCREMENT untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
   MODIFY `komentar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `news_game`
+-- AUTO_INCREMENT untuk tabel `news_game`
 --
 ALTER TABLE `news_game`
   MODIFY `id_news_game` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `portal`
+-- AUTO_INCREMENT untuk tabel `portal`
 --
 ALTER TABLE `portal`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;

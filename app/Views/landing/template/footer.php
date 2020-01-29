@@ -340,6 +340,19 @@
             });
             });
             </script>
+            <script>
+            $('.detail').on("click", function () {
+            
+            var logo        = $(this).data('logo');
+
+            var nama_team   = $(this).data('nama');
+            var nama_kota   = $(this).data('nama_kota'); 
+                
+            $("#image_preview").attr("src",logo);
+            $("#nama_team").html(nama_team);
+            $("#nama_kota").html(nama_kota);
+            });
+            </script>
             
             
 

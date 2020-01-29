@@ -2,6 +2,7 @@
 
 	
 	Route::get('/', 						'HomeController@index');
+
 	
 
 	// News Game
@@ -18,6 +19,9 @@
 	// Games // Tournament
 	Route::get('/tournament', 				'TournamentController@tournament');
 	Route::get('/tournament/{id}', 			'TournamentController@matchs');
+
+	// Bracket
+	Route::get('/bracket/{id}', 			'BracketController@Bracket');
 
 
 	// Matchs

@@ -33,7 +33,8 @@
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
                                     <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
-                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
+                                    <?php $date = date("l, d F Y",strtotime($rows['date'])); ?>
+                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $date ?></time>
                                 </div>
 
                                 <header class="match-preview__header">
@@ -56,7 +57,8 @@
                                     <div class="match-preview__vs">
                                         <div class="match-preview__conj">VS</div>
                                         <div class="match-preview__match-info">
-                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00">9:00 PM</time>
+                                        <?php $time = date("H:i",strtotime($rows['date'])); ?>
+                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time ?> WIB</time>
                                             <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
                                         </div>
                                     </div>
@@ -64,11 +66,10 @@
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-<<<<<<< HEAD
+
                                             <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"  alt="">
-=======
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" height="100%;" alt="">
->>>>>>> cfee0d1efd10f10b0321f841ce5edfd8258f4517
+
+
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
@@ -77,12 +78,25 @@
 
                                 </div>
                             </section>
-                            <div class="countdown__content text-center">
-                            <span class="badge badge-danger" style="font-size:15px; line-height:100%; margin-top:3px;">ONGOING..</span>
+                            <div class="countdown__content text-center" >
+                            <h3>Verify The Winner</h3>
+                            <table width="80%" class="table table-bordered  table-striped table-hover" style="margin-top:-15px;" >
+                            <tr>
+                        
+                            <th class="text-center <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_1'] ?></th>
+                            <th class="text-center <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_2'] ?></th>
+                            </tr>
+                            
+                            </table>
+                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                                <a href="#" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                                <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php }else{ ?>
+                                <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
+                            <?php } ?>
                             </div>
                         </div>
                         <!-- Match Preview / End -->
@@ -118,7 +132,8 @@
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
                                     <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
-                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
+                                    <?php $date16 = date("l, d F Y",strtotime($rows['date'])); ?>
+                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $date16 ?></time>
                                 </div>
 
                                 <header class="match-preview__header">
@@ -140,7 +155,8 @@
                                     <div class="match-preview__vs">
                                         <div class="match-preview__conj">VS</div>
                                         <div class="match-preview__match-info">
-                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00">9:00 PM</time>
+                                        <?php $time16 = date("H:i",strtotime($rows['date'])); ?>
+                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time16 ?> WIB</time>
                                             <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
                                         </div>
                                     </div>
@@ -149,12 +165,10 @@
                                     <div class="match-preview__team match-preview__team--second">
                                         
                                         <figure class="match-preview__team-logo">
-<<<<<<< HEAD
+
                                             <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
-=======
-                                            <img src="<?=asset('assets/images/samples/logo-sharks--sm.png');?>" alt="">
-                                            <p></p>
->>>>>>> cfee0d1efd10f10b0321f841ce5edfd8258f4517
+
+        
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
@@ -163,11 +177,123 @@
 
                                 </div>
                             </section>
-                            <div class="countdown__content">
-                                <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div>
+                            <div class="countdown__content text-center">
+                            <h3>Verify The Winner</h3>
+                            <table width="80%" class="table table-bordered  table-striped table-hover" style="margin-top:-15px;" >
+                            <tr>
+                            <th class="text-center <?php if($rows['id_team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_1'] ?></th>
+                            <th class="text-center <?php if($rows['id_team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_2'] ?></th>
+                            </tr>
+                            
+                            </table>
+                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                                <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                                <a href="#" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                                <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php }else{ ?>
+                                <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
+                            <?php } ?>
+                            </div>
+                        </div>
+                        <!-- Match Preview / End -->
+
+                    </div>
+                </aside>
+                <!-- Widget: Match Announcement / End -->
+            </div>
+    
+        <?php } ?>
+        </div>
+        <div class="spacer"></div>
+        <?php }else if ($data['round16_1']){ ?>
+            <div class="card card--clean">
+            <header class="card__header">
+                <h4>Round Of 16</h4>
+            </header>
+		</div>
+        <div class="row">   
+        <?php foreach ($data['round16_1'] as $rows) { ?>
+            <div class="col-lg-4">
+                <!-- Widget: Match Announcement -->
+                <aside class="widget widget--sidebar card widget-preview">
+                    <div class="widget__title card__header">
+                        <h4>Next Match</h4>
+                    </div>
+                    <div class="widget__content card__content">
+
+                        <!-- Match Preview -->
+                        <div class="match-preview">
+                            <section class="match-preview__body">
+
+                                <div class="match-preview__match-info match-preview__match-info--header">
+                                    <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
+                                    <?php if(empty($rows['date'])){ }else{ ?>
+                                    <?php $date16 = date("l, d F Y",strtotime($rows['date'])); ?>
+                                    <?php }?>
+                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $date16 ?></time>
+                                </div>
+                                <?= $rows['date'] ?>
+                                <header class="match-preview__header">
+                                    <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
+                                    <h3 class="match-preview__title match-preview__title--lg">Round Of 16</h3>
+                                </header>
+                                <div class="match-preview__content">
+
+                                    <!-- 1st Team -->
+                                    <div class="match-preview__team match-preview__team--first">
+                                        <figure class="match-preview__team-logo">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                        </figure>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
+                                        <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
+                                    </div>
+                                    <!-- 1st Team / End -->
+
+                                    <div class="match-preview__vs">
+                                        <div class="match-preview__conj">VS</div>
+                                        <div class="match-preview__match-info">
+                                        <?php $time16 = date("H:i",strtotime($rows['date'])); ?>
+                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time16 ?> WIB</time>
+                                            <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2nd Team -->
+                                    <div class="match-preview__team match-preview__team--second">
+                                        
+                                        <figure class="match-preview__team-logo">
+
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+
+        
+                                        </figure>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
+                                        <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
+                                    </div>
+                                    <!-- 2nd Team / End -->
+
+                                </div>
+                            </section>
+                            <div class="countdown__content text-center">
+                            <h3>Verify The Winner</h3>
+                            <table width="80%" class="table table-bordered  table-striped table-hover" style="margin-top:-15px;" >
+                            <tr>
+                            <th class="text-center <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_1'] ?></th>
+                            <th class="text-center <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_2'] ?></th>
+                            </tr>
+                            
+                            </table>
+                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                                <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
+                            </div>
+                            <div class="match-preview__action match-preview__action--ticket text-center">
+                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                                <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php }else{ ?>
+                                <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
+                            <?php } ?>
                             </div>
                         </div>
                         <!-- Match Preview / End -->
@@ -203,7 +329,8 @@
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
                                     <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
-                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
+                                    <?php $date8 = date("l, d F Y",strtotime($rows['date'])); ?>
+                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $date8 ?></time>
                                 </div>
 
                                 <header class="match-preview__header">
@@ -225,7 +352,8 @@
                                     <div class="match-preview__vs">
                                         <div class="match-preview__conj">VS</div>
                                         <div class="match-preview__match-info">
-                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00">9:00 PM</time>
+                                        <?php $time8 = date("H:i",strtotime($rows['date'])); ?>
+                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time8 ?> WIB</time>
                                             <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
                                         </div>
                                     </div>
@@ -242,11 +370,117 @@
 
                                 </div>
                             </section>
-                            <div class="countdown__content">
-                                <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div>
+                            <div class="countdown__content text-center">
+                            <h3>Verify The Winner</h3>
+                            <table width="80%" class="table table-bordered  table-striped table-hover" style="margin-top:-15px;" >
+                            <tr>
+                            <th class="text-center <?php if($rows['id_team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_1'] ?></th>
+                            <th class="text-center <?php if($rows['id_team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_2'] ?></th>
+                            </tr>
+                            
+                            </table>
+                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                                <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                                <a href="#" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                                <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php }else{ ?>
+                                <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
+                            <?php } ?>
+                            </div>
+                        </div>
+                        <!-- Match Preview / End -->
+
+                    </div>
+                </aside>
+                <!-- Widget: Match Announcement / End -->
+            </div>
+        <?php } ?>
+        </div>
+
+        <div class="spacer"></div>
+        <?php }else if($data['qtf_1']){?>
+            <div class="card card--clean">
+            <header class="card__header">
+                <h4>Quarter finals</h4>
+            </header>
+		</div>
+        <div class="row">
+        <?php foreach ($data['qtf_1'] as $rows) { ?>
+            <div class="col-lg-4">
+                <!-- Widget: Match Announcement -->
+                <aside class="widget widget--sidebar card widget-preview">
+                    <div class="widget__title card__header">
+                        <h4>Next Match</h4>
+                    </div>
+                    <div class="widget__content card__content">
+
+                        <!-- Match Preview -->
+                        <div class="match-preview">
+                            <section class="match-preview__body">
+
+                                <div class="match-preview__match-info match-preview__match-info--header">
+                                    <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
+                                    <?php $date8 = date("l, d F Y",strtotime($rows['date'])); ?>
+                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $date8 ?></time>
+                                </div>
+
+                                <header class="match-preview__header">
+                                    <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
+                                    <h3 class="match-preview__title match-preview__title--lg">Quarter finals</h3>
+                                </header>
+                                <div class="match-preview__content">
+
+                                    <!-- 1st Team -->
+                                    <div class="match-preview__team match-preview__team--first">
+                                        <figure class="match-preview__team-logo">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                        </figure>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
+                                        <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
+                                    </div>
+                                    <!-- 1st Team / End -->
+
+                                    <div class="match-preview__vs">
+                                        <div class="match-preview__conj">VS</div>
+                                        <div class="match-preview__match-info">
+                                        <?php $time8 = date("H:i",strtotime($rows['date'])); ?>
+                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time8 ?> WIB</time>
+                                            <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2nd Team -->
+                                    <div class="match-preview__team match-preview__team--second">
+                                        <figure class="match-preview__team-logo">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+                                        </figure>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
+                                        <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
+                                    </div>
+                                    <!-- 2nd Team / End -->
+
+                                </div>
+                            </section>
+                            <div class="countdown__content text-center">
+                            <h3>Verify The Winner</h3>
+                            <table width="80%" class="table table-bordered  table-striped table-hover" style="margin-top:-15px;" >
+                            <tr>
+                            <th class="text-center <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_1'] ?></th>
+                            <th class="text-center <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_2'] ?></th>
+                            </tr>
+                            
+                            </table>
+                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                                <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
+                            </div>
+                            <div class="match-preview__action match-preview__action--ticket text-center">
+                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                                <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php }else{ ?>
+                                <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
+                            <?php } ?>
                             </div>
                         </div>
                         <!-- Match Preview / End -->
@@ -282,7 +516,8 @@
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
                                     <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
-                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
+                                    <?php $date4 = date("l, d F Y",strtotime($rows['date'])); ?>
+                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $date4 ?></time>
                                 </div>
 
                                 <header class="match-preview__header">
@@ -304,8 +539,9 @@
                                     <div class="match-preview__vs">
                                         <div class="match-preview__conj">VS</div>
                                         <div class="match-preview__match-info">
-                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00">9:00 PM</time>
-                                            <div class="match-preview__match-place">Madison Cube Stadium</div>
+                                        <?php $time4 = date("H:i",strtotime($rows['date'])); ?>
+                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time4 ?> WIB</time>
+                                            <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
                                         </div>
                                     </div>
 
@@ -321,11 +557,118 @@
 
                                 </div>
                             </section>
-                            <div class="countdown__content">
-                                <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div>
+                            <div class="countdown__content text-center">
+                            <h3>Verify The Winner</h3>
+                            <table width="80%" class="table table-bordered  table-striped table-hover" style="margin-top:-15px;" >
+                            <tr>
+                            <th class="text-center <?php if($rows['id_team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_1'] ?></th>
+                            <th class="text-center <?php if($rows['id_team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_2'] ?></th>
+                            </tr>
+                            
+                            </table>
+                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                                <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                                <a href="#" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                                <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php }else{ ?>
+                                <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
+                            <?php } ?>
+                            </div>
+                        </div>
+                        <!-- Match Preview / End -->
+
+                    </div>
+                </aside>
+                <!-- Widget: Match Announcement / End -->
+            </div>
+            <?php } ?>
+        </div>
+
+        <div class="spacer"></div>
+        <?php }else if ($data['smf_1']) { ?>
+            <div class="card card--clean">
+            <header class="card__header">
+                <h4>Semi Finals</h4>
+            </header>
+		</div>
+        <div class="row">
+        <?php foreach ($data['smf_1'] as $rows) { ?>
+            <div class="col-lg-4">
+                <!-- Widget: Match Announcement -->
+                <aside class="widget widget--sidebar card widget-preview">
+                    <div class="widget__title card__header">
+                        <h4>Next Match</h4>
+                    </div>
+                    <div class="widget__content card__content">
+
+                        <!-- Match Preview -->
+                        <div class="match-preview">
+                            <section class="match-preview__body">
+
+                                <div class="match-preview__match-info match-preview__match-info--header">
+                                    <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
+                                    
+                                    <?php $date4 = date("l, d F Y",strtotime($rows['date'])); ?>
+                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $date4 ?></time>
+                                </div>
+
+                                <header class="match-preview__header">
+                                    <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
+                                    <h3 class="match-preview__title match-preview__title--lg">Semifinals</h3>
+                                </header>
+                                <div class="match-preview__content">
+
+                                    <!-- 1st Team -->
+                                    <div class="match-preview__team match-preview__team--first">
+                                        <figure class="match-preview__team-logo">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                        </figure>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
+                                        <div class="match-preview__team-info">United States</div>
+                                    </div>
+                                    <!-- 1st Team / End -->
+
+                                    <div class="match-preview__vs">
+                                        <div class="match-preview__conj">VS</div>
+                                        <div class="match-preview__match-info">
+                                        <?php $time4 = date("H:i",strtotime($rows['date'])); ?>
+                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time4 ?> WIB</time>
+                                            <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 2nd Team -->
+                                    <div class="match-preview__team match-preview__team--second">
+                                        <figure class="match-preview__team-logo">
+                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+                                        </figure>
+                                        <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
+                                        <div class="match-preview__team-info"></div>
+                                    </div>
+                                    <!-- 2nd Team / End -->
+
+                                </div>
+                            </section>
+                            <div class="countdown__content text-center">
+                            <h3>Verify The Winner</h3>
+                            <table width="80%" class="table table-bordered  table-striped table-hover" style="margin-top:-15px;" >
+                            <tr>
+                            <th class="text-center <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_1'] ?></th>
+                            <th class="text-center <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_2'] ?></th>
+                            </tr>
+                            
+                            </table>
+                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                                <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
+                            </div>
+                            <div class="match-preview__action match-preview__action--ticket text-center">
+                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                                <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php }else{ ?>
+                                <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
+                            <?php } ?>
                             </div>
                         </div>
                         <!-- Match Preview / End -->
@@ -347,7 +690,7 @@
 		</div>
         <div class="row">
         <?php foreach ($data['final'] as $rows) { ?>
-            <div class="col-lg-4">
+            <div class="col-lg-4 " style="align-center">
                 <!-- Widget: Match Announcement -->
                 <aside class="widget widget--sidebar card widget-preview">
                     <div class="widget__title card__header">
@@ -361,12 +704,13 @@
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
                                     <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
-                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00">Sunday, May 4th</time>
+                                    <?php $date2 = date("l, d F Y",strtotime($rows['date'])); ?>
+                                    <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $date2  ?></time>
                                 </div>
 
                                 <header class="match-preview__header">
                                     <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
-                                    <h3 class="match-preview__title match-preview__title--lg">Semifinals</h3>
+                                    <h3 class="match-preview__title match-preview__title--lg">Final</h3>
                                 </header>
                                 <div class="match-preview__content">
 
@@ -383,8 +727,9 @@
                                     <div class="match-preview__vs">
                                         <div class="match-preview__conj">VS</div>
                                         <div class="match-preview__match-info">
-                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00">9:00 PM</time>
-                                            <div class="match-preview__match-place">Madison Cube Stadium</div>
+                                        <?php $time2 = date("H:i",strtotime($rows['date'])); ?>
+                                            <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time2 ?> WIB</time>
+                                            <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
                                         </div>
                                     </div>
 
@@ -400,11 +745,24 @@
 
                                 </div>
                             </section>
-                            <div class="countdown__content">
-                                <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div>
+                            <div class="countdown__content text-center">
+                            <h3>Verify The Winner</h3>
+                            <table width="80%" class="table table-bordered  table-striped table-hover" style="margin-top:-15px;" >
+                            <tr>
+                            <th class="text-center <?php if($rows['id_team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_1'] ?></th>
+                            <th class="text-center <?php if($rows['id_team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_2'] ?></th>
+                            </tr>
+                            
+                            </table>
+                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                                <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                                <a href="#" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                                <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
+                            <?php }else{ ?>
+                                <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
+                            <?php } ?>
                             </div>
                         </div>
                         <!-- Match Preview / End -->

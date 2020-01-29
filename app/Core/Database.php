@@ -144,6 +144,30 @@
 			return $this->single();
 
 		}
+		public function whereAll($where1, $where2 = null)
+		{ 
+			// var_dump($_SERVER);die;
+			$sql = "SELECT * FROM ";
+			$sql .= $this->table. ' WHERE';
+			if (is_array($where1)) {
+				foreach ($where1 as $field => $value) {
+					$sql .= " ".$field." = '".$value."' AND";
+				}
+				$sql = rtrim($sql, 'AND');
+			} else {
+				$sql .= " ".$where1." = '".$where2."'";
+			}
+			$this->query($sql);
+			if (is_array($where1)) {
+				foreach ($where1 as $field => $value) {
+					$this->bind($field, $value);
+				}
+			} else {
+				$this->bind($where1 ,$where2);
+			}
+			return $this->resultSet();
+
+		}
 
 		public function countRows($data, $data2 = null)
 		{

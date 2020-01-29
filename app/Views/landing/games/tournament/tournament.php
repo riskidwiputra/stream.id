@@ -52,10 +52,11 @@
                             </div>
 							<div class="countdown__content text-center">        
                             <?php $waktu = date("F d Y H:i",strtotime($rows['date'])); ?>
+                            
 								<div class="countdown-counter match-preview__action--ticket text-center" data-date="<?= $waktu ?>"></div>	
                                     <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
                                         <?php if ($rows['status'] == "pending") {?>
-                                            <a  class="btn btn-primary-inverse text-center" data-toggle="tooltip" data-placement="top" title="on comming" ">View</a>
+                                            <a  class="btn btn-primary-inverse text-center" data-toggle="tooltip" data-placement="top" title="ONCOMING" ">View</a>
                                         <?php } else if ($rows['status'] == "starting"){?>
                                             <a href="<?= BASEURL ?>/tournament/<?= $rows['url'] ?>"class="btn btn-primary-inverse text-center">View</a>
                                         <?php }else if ($rows['status'] == "complete") {?>
@@ -63,14 +64,14 @@
                                         <?php } ?>
                                 
                                     <?php }else{?>  
-                                    <a href="#" class="btn btn-primary-inverse text-center" data-toggle="tooltip" data-placement="top" title="Tooltip on top" ">View</a>
+                                    <a href="#" class="btn btn-primary-inverse text-center" data-toggle="tooltip" data-placement="top" title="ONCOMING">View</a>
                                     <?php } ?>
                                 </div>
                     
 							</div>
                         </div>
                         <div class="card-footer">
-                            <small class="text-muted">Created at <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $rows['created_at'] ?></time> <span class="badge <?php if ($rows['status'] == "pending") {?> badge-danger <?php } else if ($rows['status'] == "starting"){?>badge-warning <?php }else if ($rows['status'] == "complete") {?>badge-success <?php } ?>  float-right" style="font-size:15px; line-height:100%; margin-top:3px;"><?= strtoupper($rows['status']) ?></span></small>
+                            <small class="text-muted">Created at <time class="match-preview__match-time" datetime="2019-05-04 09:00"><?= $rows['created_at'] ?></time> <span class="badge <?php if ($rows['status'] == "pending") {?> badge-danger <?php } else if ($rows['status'] == "starting"){?>badge-warning <?php }else if ($rows['status'] == "complete") {?>badge-success <?php } ?>  float-right" style="font-size:15px; line-height:100%; margin-top:3px;"><?php if ($rows['status'] == "pending") {?> ONCOMING <?php } else if ($rows['status'] == "starting"){?> ONGOING <?php }else if ($rows['status'] == "complete") {?> FINISH <?php } ?>  </span></small>
                         </div>
                     </aside>
                 </div>
