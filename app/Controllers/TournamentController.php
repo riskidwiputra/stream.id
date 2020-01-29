@@ -52,7 +52,7 @@
 				WHERE id_tournament = '$id_tournament'
 				");
 			$data['round32'] = $this->db->resultSet();
-				var_dump($data['round32']);
+				
 			$data['round16'] = $this->db->query(
 				"SELECT
 				c.nama_team AS team_1,
@@ -76,7 +76,7 @@
 				WHERE tournament_round16.id_tournament = '$id_tournament'
 				");
 			$data['round16'] = $this->db->resultSet();
-			var_dump($data['round16']);
+			
 			// $data['round16_1']	= $this->db->query(
 			// 	"SELECT
 			// 	c.nama_team AS team_1,
