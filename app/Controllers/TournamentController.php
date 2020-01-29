@@ -52,7 +52,8 @@
 				WHERE id_tournament = '$id_tournament'
 				");
 			$data['round32'] = $this->db->resultSet();
-				
+			$data['round16_empty'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
+			var_dump($data['round16_empty']);die;
 			// $data['round16'] = $this->db->query(
 			// 	"SELECT
 			// 	c.nama_team AS team_1,
@@ -78,26 +79,26 @@
 			// $data['round16'] = $this->db->resultSet();
 			// var_dump($data['round16']);die;
 			
-			$data['round16_1']	= $this->db->query(
-				"SELECT
-				c.nama_team AS team_1,
-				d.nama_team AS team_2,
-				c.logo_team AS logo_1,
-				d.logo_team AS logo_2,
-				c.nama_kota AS nama_kota_1,
-				d.nama_kota AS nama_kota_2,
+			// $data['round16_1']	= $this->db->query(
+			// 	"SELECT
+			// 	c.nama_team AS team_1,
+			// 	d.nama_team AS team_2,
+			// 	c.logo_team AS logo_1,
+			// 	d.logo_team AS logo_2,
+			// 	c.nama_kota AS nama_kota_1,
+			// 	d.nama_kota AS nama_kota_2,
 				
-				tournament_round16.team1,
-				tournament_round16.team2,
-				tournament_round16.winner,
-				tournament_round16.date
-				FROM tournament_round16
-				INNER JOIN tournament_group as C ON tournament_round16.team1=C.id_team
-				INNER JOIN tournament_group as D ON tournament_round16.team2=D.id_team
-				WHERE tournament_round16.id_tournament = '$id_tournament'
-				");
-			$data['round16_1'] = $this->db->resultSet();
-			var_dump($data['round16_1']);
+			// 	tournament_round16.team1,
+			// 	tournament_round16.team2,
+			// 	tournament_round16.winner,
+			// 	tournament_round16.date
+			// 	FROM tournament_round16
+			// 	INNER JOIN tournament_group as C ON tournament_round16.team1=C.id_team
+			// 	INNER JOIN tournament_group as D ON tournament_round16.team2=D.id_team
+			// 	WHERE tournament_round16.id_tournament = '$id_tournament'
+			// 	");
+			// $data['round16_1'] = $this->db->resultSet();
+			// var_dump($data['round16_1']);
 			// $data['round16_empty'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
 			// $data['qtf'] = $this->db->query(
 			// 	"SELECT
