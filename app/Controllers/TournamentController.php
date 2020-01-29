@@ -73,9 +73,10 @@
 				JOIN tournament_round32 as B ON tournament_round16.team2=B.id_round32
 				JOIN tournament_group as C ON A.winner=C.id_team
 				JOIN tournament_group as D ON B.winner=D.id_team
-				WHERE tournament_round16.id_tournament = '$id_tournament'
+				WHERE tournament_round16.id_tournament = '".$id_tournament."'
 				");
 			$data['round16'] = $this->db->resultSet();
+			var_dump($data['round16']);die;
 			
 			// $data['round16_1']	= $this->db->query(
 			// 	"SELECT
@@ -198,11 +199,11 @@
 			// $data['final'] = $this->db->resultSet();
 				
 			$this->view('landing/template/header');
-			if ($id != $url_tournament) {
-				$this->view('landing/404/error');	
-			}else{
-			$this->view('landing/games/tournament/matchs');
-			}
+			// if ($id != $url_tournament) {
+			// 	$this->view('landing/404/error');	
+			// }else{
+			// $this->view('landing/games/tournament/matchs');
+			// }
 			$this->view('landing/template/footer', $data);			
         }
     }
