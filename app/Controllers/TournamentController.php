@@ -21,10 +21,10 @@
 		{ 	
 			$data['populared']	= $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
 			$data['populared']	= $this->db->resultSet();
-			$data['tournament'] = $this->db->table('tournament')->where('url', $id);
+			$data['tournament'] = $this->db->table('tournament')->where('url', $id);die;
 			$url_tournament 	= $data['tournament']['url'];
 			$id_group2 			= $data['tournament']['id_group'];
-			$id_tournament 	= $data['tournament']['id_tournament'];
+			$id_tournament 		= $data['tournament']['id_tournament'];
 			
 			$data['group']	= $this->db->query("SELECT * FROM tournament_group WHERE id_group = '$id_group2'");
 			$data['group']	= $this->db->resultSet();
@@ -193,15 +193,13 @@
 				WHERE tournament_final.id_tournament = '$id_tournament'
 				");
 			$data['final'] = $this->db->resultSet();
-			
-			
-
+				
 			$this->view('landing/template/header');
-			// if ($id != $url_tournament) {
-			// 	$this->view('landing/404/error');	
-			// }else{
-			// $this->view('landing/games/tournament/matchs', $data);
-			// }
+			if ($id != $url_tournament) {
+				$this->view('landing/404/error');	
+			}else{
+			$this->view('landing/games/tournament/matchs', $data);
+			}
 			$this->view('landing/template/footer', $data);			
         }
     }
