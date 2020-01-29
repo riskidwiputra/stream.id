@@ -52,50 +52,50 @@
 				WHERE id_tournament = '$id_tournament'
 				");
 			$data['round32'] = $this->db->resultSet();
-			
-			$data['round16'] = $this->db->query(
-				"SELECT
-				c.nama_team AS team_1,
-				d.nama_team AS team_2,
-				c.logo_team AS logo_1,
-				d.logo_team AS logo_2,
-				c.nama_kota AS nama_kota_1,
-				d.nama_kota AS nama_kota_2, 
-				c.id_team AS id_team1,
-				d.id_team AS id_team2,
-					
-				tournament_round16.team1,
-				tournament_round16.team2,
-				tournament_round16.winner,
-				tournament_round16.date
-				FROM tournament_round16
-				INNER JOIN tournament_round32 as A ON tournament_round16.team1=A.id_round32
-				INNER JOIN tournament_round32 as B ON tournament_round16.team2=B.id_round32
-				INNER JOIN tournament_group as C ON A.winner=C.id_team
-				INNER JOIN tournament_group as D ON B.winner=D.id_team
-				WHERE tournament_round16.id_tournament = '$id_tournament'
-				");
-			$data['round16'] = $this->db->resultSet();
-			// $data['round16_1']	= $this->db->query(
+				var_dump($data['round32']);
+			// $data['round16'] = $this->db->query(
 			// 	"SELECT
 			// 	c.nama_team AS team_1,
 			// 	d.nama_team AS team_2,
 			// 	c.logo_team AS logo_1,
 			// 	d.logo_team AS logo_2,
 			// 	c.nama_kota AS nama_kota_1,
-			// 	d.nama_kota AS nama_kota_2,
-				
+			// 	d.nama_kota AS nama_kota_2, 
+			// 	c.id_team AS id_team1,
+			// 	d.id_team AS id_team2,
+					
 			// 	tournament_round16.team1,
 			// 	tournament_round16.team2,
 			// 	tournament_round16.winner,
 			// 	tournament_round16.date
 			// 	FROM tournament_round16
-			// 	INNER JOIN tournament_group as C ON tournament_round16.team1=C.id_team
-			// 	INNER JOIN tournament_group as D ON tournament_round16.team2=D.id_team
+			// 	INNER JOIN tournament_round32 as A ON tournament_round16.team1=A.id_round32
+			// 	INNER JOIN tournament_round32 as B ON tournament_round16.team2=B.id_round32
+			// 	INNER JOIN tournament_group as C ON A.winner=C.id_team
+			// 	INNER JOIN tournament_group as D ON B.winner=D.id_team
 			// 	WHERE tournament_round16.id_tournament = '$id_tournament'
-			// 	"
-			// );
-			// $data['round16_1'] = $this->db->resultSet();
+			// 	");
+			// $data['round16'] = $this->db->resultSet();
+			$data['round16_1']	= $this->db->query(
+				"SELECT
+				c.nama_team AS team_1,
+				d.nama_team AS team_2,
+				c.logo_team AS logo_1,
+				d.logo_team AS logo_2,
+				c.nama_kota AS nama_kota_1,
+				d.nama_kota AS nama_kota_2,
+				
+				tournament_round16.team1,
+				tournament_round16.team2,
+				tournament_round16.winner,
+				tournament_round16.date
+				FROM tournament_round16
+				INNER JOIN tournament_group as C ON tournament_round16.team1=C.id_team
+				INNER JOIN tournament_group as D ON tournament_round16.team2=D.id_team
+				WHERE tournament_round16.id_tournament = '$id_tournament'
+				"
+			);
+			$data['round16_1'] = $this->db->resultSet();
 			// $data['round16_empty'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
 			// $data['qtf'] = $this->db->query(
 			// 	"SELECT
