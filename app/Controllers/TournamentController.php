@@ -55,7 +55,14 @@
 
 			$data['round16'] = $this->db->query(
 				"SELECT
-				 * 
+				c.nama_team AS team_1,
+				d.nama_team AS team_2,
+				c.logo_team AS logo_1,
+				d.logo_team AS logo_2,
+				c.nama_kota AS nama_kota_1,
+				d.nama_kota AS nama_kota_2, 
+				c.id_team AS id_team1,
+				d.id_team AS id_team2
 				FROM tournament_round16
 				JOIN tournament_round32 as A ON tournament_round16.team1=A.id_round32
 				JOIN tournament_round32 as B ON tournament_round16.team2=B.id_round32
