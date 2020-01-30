@@ -64,10 +64,10 @@
 				c.id_team AS id_team1,
 				d.id_team AS id_team2
 				FROM tournament_round16
-				JOIN tournament_round32 as A ON tournament_round16.team1=A.id_round32
-				JOIN tournament_round32 as B ON tournament_round16.team2=B.id_round32
-				JOIN tournament_group as C ON A.winner=C.id_team
-				JOIN tournament_group as D ON B.winner=D.id_team
+				JOIN tournament_round32 AS A ON tournament_round16.team1=A.id_round32
+				JOIN tournament_round32 AS B ON tournament_round16.team2=B.id_round32
+				JOIN tournament_group AS C ON A.winner=C.id_team
+				JOIN tournament_group AS D ON B.winner=D.id_team
 				WHERE tournament_round16.id_tournament = '$id_tournament'"
 			);
 			$data['round16'] = $this->db->resultSet();
