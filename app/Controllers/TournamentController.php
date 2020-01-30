@@ -55,21 +55,25 @@
 
 			$data['round16'] = $this->db->query(
 				"SELECT
-				c.nama_team AS team_1,
-				d.nama_team AS team_2,
-				c.logo_team AS logo_1,
-				d.logo_team AS logo_2,
-				c.nama_kota AS nama_kota_1,
-				d.nama_kota AS nama_kota_2, 
-				c.id_team AS id_team1,
-				d.id_team AS id_team2
-				FROM tournament_round16
-				JOIN tournament_round32 AS A ON tournament_round16.team1=A.id_round32
-				JOIN tournament_round32 AS B ON tournament_round16.team2=B.id_round32
-				JOIN tournament_group AS C ON A.winner=C.id_team
-				JOIN tournament_group AS D ON B.winner=D.id_team
-				WHERE tournament_round16.id_tournament = '$id_tournament'"
-			);
+					team_1.nama_team AS team_1,
+					team_2.nama_team AS team_2,
+					team_1.logo_team AS logo_1,
+					team_2.logo_team AS logo_2,
+					team_1.nama_kota AS nama_kota_1,
+					team_2.nama_kota AS nama_kota_2,
+					
+
+					tournament_round32.team1,
+					tournament_round32.team2,
+					tournament_round32.id_round32,
+					tournament_round32.winner,
+					tournament_round32.date
+	
+				FROM tournament_round32
+				JOIN tournament_group AS team_1 ON tournament_round32.team1=team_1.id_team
+				JOIN tournament_group AS team_2 ON tournament_round32.team2=team_2.id_team
+				WHERE id_tournament = '$id_tournament'
+				");
 			$data['round16'] = $this->db->resultSet();
 			var_dump($data['round16']);
 			// $data['round16_empty'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
