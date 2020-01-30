@@ -54,7 +54,7 @@
 			$data['round32'] = $this->db->resultSet();
 
 			$data['round16'] = $this->db->query(
-				"SELECT * FROM tournament_round16"
+				"SELECT * FROM tournament_round16 WHERE id_tournament = '$id_tournament'"
 			);
 			$data['round16'] = $this->db->resultSet();
 			var_dump($data['round16']);
