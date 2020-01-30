@@ -56,6 +56,7 @@
 			$data['round16'] = $this->db->query(
 				"SELECT * FROM tournament_round16 WHERE id_tournament = '$id_tournament'"
 			);
+			$data['round16'] = $this->db->resultSet();
 			var_dump($data['round16']);
 			// $data['round16_empty'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
 			// var_dump($data['round16_empty']);die;
@@ -205,11 +206,7 @@
 			// $data['final'] = $this->db->resultSet();
 				
 			$this->view('landing/template/header');
-			// if ($id != $url_tournament) {
-			// 	$this->view('landing/404/error');	
-			// }else{
-			// $this->view('landing/games/tournament/matchs', $data);
-			// }
+			1
 			$this->view('landing/template/footer', $data);			
         }
     }
