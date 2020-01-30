@@ -39,14 +39,14 @@ class BracketController extends Controller
         $data['round32'] = $this->db->resultSet(); 
         $data['round16'] = $this->db->query(
             "SELECT
-            c.nama_team AS team_1,
-            d.nama_team AS team_2,
-            c.logo_team AS logo_1,
-            d.logo_team AS logo_2,
-            c.nama_kota AS nama_kota_1,
-            d.nama_kota AS nama_kota_2, 
-            c.id_team AS id_team1,
-            d.id_team AS id_team2,
+            C.nama_team AS team_1,
+            D.nama_team AS team_2,
+            C.logo_team AS logo_1,
+            D.logo_team AS logo_2,
+            C.nama_kota AS nama_kota_1,
+            D.nama_kota AS nama_kota_2, 
+            C.id_team AS id_team1,
+            D.id_team AS id_team2,
                 
             tournament_round16.team1,
             tournament_round16.team2,
@@ -64,14 +64,14 @@ class BracketController extends Controller
         $data['round16'] = $this->db->resultSet();
         $data['qtf'] = $this->db->query(
             "SELECT
-            c.nama_team AS team_1,
-            d.nama_team AS team_2,
-            c.logo_team AS logo_1,
-            d.logo_team AS logo_2,
-            c.nama_kota AS nama_kota_1,
-            d.nama_kota AS nama_kota_2,
-            c.id_team AS id_team1,
-            d.id_team AS id_team2,
+            C.nama_team AS team_1,
+            D.nama_team AS team_2,
+            C.logo_team AS logo_1,
+            D.logo_team AS logo_2,
+            C.nama_kota AS nama_kota_1,
+            D.nama_kota AS nama_kota_2,
+            C.id_team AS id_team1,
+            D.id_team AS id_team2,
             tournament_quarter_finals.winner,
             tournament_quarter_finals.score1,
             tournament_quarter_finals.score2,
@@ -86,14 +86,14 @@ class BracketController extends Controller
         $data['qtf'] = $this->db->resultSet();
         $data['smf'] = $this->db->query(
             "SELECT
-            c.nama_team AS team_1,
-            d.nama_team AS team_2,
-            c.logo_team AS logo_1,
-            d.logo_team AS logo_2,
-            c.nama_kota AS nama_kota_1,
-            d.nama_kota AS nama_kota_2,
-            c.id_team AS id_team1,
-            d.id_team AS id_team2,
+            C.nama_team AS team_1,
+            D.nama_team AS team_2,
+            C.logo_team AS logo_1,
+            D.logo_team AS logo_2,
+            C.nama_kota AS nama_kota_1,
+            D.nama_kota AS nama_kota_2,
+            C.id_team AS id_team1,
+            D.id_team AS id_team2,
             tournament_semi_finals.winner,
             tournament_semi_finals.score1,
             tournament_semi_finals.score2,
@@ -108,14 +108,14 @@ class BracketController extends Controller
         $data['smf'] = $this->db->resultSet();
         $data['final'] = $this->db->query(
             "SELECT
-            c.nama_team AS team_1,
-            d.nama_team AS team_2,
-            c.logo_team AS logo_1,
-            d.logo_team AS logo_2,
-            c.nama_kota AS nama_kota_1,
-            d.nama_kota AS nama_kota_2,
-            c.id_team AS id_team1,
-            d.id_team AS id_team2,
+            C.nama_team AS team_1,
+            D.nama_team AS team_2,
+            C.logo_team AS logo_1,
+            D.logo_team AS logo_2,
+            C.nama_kota AS nama_kota_1,
+            D.nama_kota AS nama_kota_2,
+            C.id_team AS id_team1,
+            D.id_team AS id_team2,
             tournament_final.winner,
             tournament_final.score1,
             tournament_final.score2,
@@ -130,10 +130,10 @@ class BracketController extends Controller
         $data['final'] = $this->db->resultSet();
         $data['winner'] =  $this->db->query(
             "SELECT
-            c.nama_team AS team_1,
-            c.logo_team AS logo_1,
-            c.nama_kota AS nama_kota_1,
-            c.id_team AS id_team1,
+            C.nama_team AS team_1,
+            C.logo_team AS logo_1,
+            C.nama_kota AS nama_kota_1,
+            C.id_team AS id_team1,
             tournament_final.date
             FROM tournament_final
             INNER JOIN tournament_group as C ON tournament_final.winner=C.id_team
@@ -143,12 +143,12 @@ class BracketController extends Controller
         $data['winner'] = $this->db->resultSet();
         $data['round16_1']	= $this->db->query(
             "SELECT
-            c.nama_team AS team_1,
-            d.nama_team AS team_2,
-            c.logo_team AS logo_1,
-            d.logo_team AS logo_2,
-            c.nama_kota AS nama_kota_1,
-            d.nama_kota AS nama_kota_2,
+            C.nama_team AS team_1,
+            D.nama_team AS team_2,
+            C.logo_team AS logo_1,
+            D.logo_team AS logo_2,
+            C.nama_kota AS nama_kota_1,
+            D.nama_kota AS nama_kota_2,
             tournament_round16.team1,
             tournament_round16.team2,
             tournament_round16.score1,
@@ -165,12 +165,12 @@ class BracketController extends Controller
         $data['round16_empty'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
         $data['qtf_1']	= $this->db->query(
             "SELECT
-            c.nama_team AS team_1,
-            d.nama_team AS team_2,
-            c.logo_team AS logo_1,
-            d.logo_team AS logo_2,
-            c.nama_kota AS nama_kota_1,
-            d.nama_kota AS nama_kota_2,
+            C.nama_team AS team_1,
+            D.nama_team AS team_2,
+            C.logo_team AS logo_1,
+            D.logo_team AS logo_2,
+            C.nama_kota AS nama_kota_1,
+            D.nama_kota AS nama_kota_2,
             tournament_quarter_finals.team1,
             tournament_quarter_finals.team2,
             tournament_quarter_finals.score1,
@@ -187,12 +187,12 @@ class BracketController extends Controller
         $data['qtf_empty'] = $this->db->table('tournament_quarter_finals')->whereAll('id_tournament', $id_tournament);
         $data['smf_1']	= $this->db->query(
             "SELECT
-            c.nama_team AS team_1,
-            d.nama_team AS team_2,
-            c.logo_team AS logo_1,
-            d.logo_team AS logo_2,
-            c.nama_kota AS nama_kota_1,
-            d.nama_kota AS nama_kota_2,
+            C.nama_team AS team_1,
+            D.nama_team AS team_2,
+            C.logo_team AS logo_1,
+            D.logo_team AS logo_2,
+            C.nama_kota AS nama_kota_1,
+            D.nama_kota AS nama_kota_2,
             tournament_semi_finals.team1,
             tournament_semi_finals.team2,
             tournament_semi_finals.score1,
