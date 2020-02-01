@@ -47,7 +47,7 @@
                                     <div class="match-preview__team match-preview__team--first">
 
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
@@ -67,7 +67,7 @@
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
 
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"  alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"  alt="">
 
 
                                         </figure>
@@ -88,11 +88,11 @@
                             </tr>
                             
                             </table>
-                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                            <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if( strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                            <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?>
                                 <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
                             <?php }else{ ?>
                                 <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
@@ -145,7 +145,7 @@
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
@@ -166,7 +166,7 @@
                                         
                                         <figure class="match-preview__team-logo">
 
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
 
         
                                         </figure>
@@ -186,11 +186,11 @@
                             </tr>
                             
                             </table>
-                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                            <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                            <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?>
                                 <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
                             <?php }else{ ?>
                                 <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
@@ -244,7 +244,7 @@
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
@@ -265,7 +265,7 @@
                                         
                                         <figure class="match-preview__team-logo">
 
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
 
         
                                         </figure>
@@ -285,11 +285,11 @@
                             </tr>
                             
                             </table>
-                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                            <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                            <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?>
                                 <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
                             <?php }else{ ?>
                                 <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
@@ -342,7 +342,7 @@
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
@@ -361,7 +361,7 @@
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
@@ -379,11 +379,11 @@
                             </tr>
                             
                             </table>
-                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                            <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                            <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?>
                                 <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
                             <?php }else{ ?>
                                 <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
@@ -435,7 +435,7 @@
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
@@ -454,7 +454,7 @@
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
@@ -472,11 +472,11 @@
                             </tr>
                             
                             </table>
-                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                            <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                            <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?>
                                 <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
                             <?php }else{ ?>
                                 <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
@@ -529,7 +529,7 @@
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info">United States</div>
@@ -548,7 +548,7 @@
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"></div>
@@ -566,11 +566,11 @@
                             </tr>
                             
                             </table>
-                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                            <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                            <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?>
                                 <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
                             <?php }else{ ?>
                                 <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
@@ -623,7 +623,7 @@
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info">United States</div>
@@ -642,7 +642,7 @@
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"></div>
@@ -660,11 +660,11 @@
                             </tr>
                             
                             </table>
-                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                            <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                            <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?>
                                 <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
                             <?php }else{ ?>
                                 <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
@@ -717,7 +717,7 @@
                                     <!-- 1st Team -->
                                     <div class="match-preview__team match-preview__team--first">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info">United States</div>
@@ -736,7 +736,7 @@
                                     <!-- 2nd Team -->
                                     <div class="match-preview__team match-preview__team--second">
                                         <figure class="match-preview__team-logo">
-                                            <img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
                                         </figure>
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"></div>
@@ -754,11 +754,11 @@
                             </tr>
                             
                             </table>
-                            <span class="badge <?php if(date('d-m-Y H:i') >= $rows['date']){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(date('d-m-Y H:i') >= $rows['date']){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
+                            <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>
                             <div class="match-preview__action match-preview__action--ticket text-center">
-                            <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                            <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?>
                                 <a href="<?= BASEURL ?>/bracket/<?= $data['tournament']['url'] ?>" class="btn btn-primary-inverse">See Bracket</a>
                             <?php }else{ ?>
                                 <a href="#" class="btn btn-primary-inverse " data-toggle="tooltip" data-placement="top" title="ONCOMING">See Bracket</a>
