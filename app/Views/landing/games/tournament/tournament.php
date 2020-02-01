@@ -44,7 +44,7 @@
                                     <li class="media mb-2">
                                         <i class="fas fa-map-marker" style="font-size: 26px;"></i>
                                         <div class="media-body">
-                                            <h5 class="mt-0 mb-1 ml-3">Jl. Veteran No. 34</h5>
+                                            <h5 class="mt-0 mb-1 ml-3"><?= $rows['alamat'] ?></h5>
                                         </div>
                                     </li>
                                 </ul>
@@ -52,9 +52,9 @@
                             </div>
 							<div class="countdown__content text-center">        
                             <?php $waktu = date("F d Y H:i",strtotime($rows['date'])); ?>
-                            
+
 								<div class="countdown-counter match-preview__action--ticket text-center" data-date="<?= $waktu ?>"></div>	
-                                    <?php if(date('d-m-Y H:i') >= $rows['date']){ ?>
+                                    <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?>
                                         <?php if ($rows['status'] == "pending") {?>
                                             <a  class="btn btn-primary-inverse text-center" data-toggle="tooltip" data-placement="top" title="ONCOMING" ">View</a>
                                         <?php } else if ($rows['status'] == "starting"){?>
