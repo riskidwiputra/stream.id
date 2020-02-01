@@ -1,3 +1,16 @@
+<!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <img src="<?= BASEURL ?>/public/assets/images/team-roster-slider-bg.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+    <img src="<?= BASEURL ?>/public/assets/images/837552698.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+    <img src="<?= BASEURL ?>/public/assets/images/header_bg.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div> -->
 <!-- Content
 		================================================== -->
 <div class="site-content">
@@ -41,22 +54,19 @@
                                     <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
                                     <h3 class="match-preview__title match-preview__title--lg">Round Of 32</h3>
                                 </header>
-                                <div class="match-preview__content">
+                                <div class="row justify-content-md-center mb-2 text-center">
 
                                     <!-- 1st Team -->
-                                    <div class="match-preview__team match-preview__team--first">
-
-                                        <figure class="match-preview__team-logo">
-                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
-                                        </figure>
+                                    <div class="col col-lg-4 match-preview__team match-preview__team--first">
+                                            <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"  alt="">
                                         <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
                                     </div>
                                     <!-- 1st Team / End -->
 
-                                    <div class="match-preview__vs">
-                                        <div class="match-preview__conj">VS</div>
-                                        <div class="match-preview__match-info">
+                                    <div class="col col-lg-4 match-preview__vs">
+                                        <div class="col match-preview__conj">VS</div>
+                                        <div class="col match-preview__match-info">
                                         <?php $time = date("H:i",strtotime($rows['date'])); ?>
                                             <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time ?> WIB</time>
                                             <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
@@ -64,13 +74,10 @@
                                     </div>
 
                                     <!-- 2nd Team -->
-                                    <div class="match-preview__team match-preview__team--second">
-                                        <figure class="match-preview__team-logo">
-
+                                    <div class="col col-lg-4 match-preview__team match-preview__team--second">
+                                     
                                             <img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"  alt="">
-
-
-                                        </figure>
+                                       
                                         <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
                                         <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
                                     </div>
@@ -80,14 +87,16 @@
                             </section>
                             <div class="countdown__content text-center" >
                             <h3>Verify The Winner</h3>
-                            <table width="80%" class="table table-bordered  table-striped table-hover" style="margin-top:-15px;" >
-                            <tr>
-                        
-                            <th class="text-center <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_1'] ?></th>
-                            <th class="text-center <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>"><?= $rows['team_2'] ?></th>
-                            </tr>
                             
-                            </table>
+                            <div class="row justify-content-md-center mb-2">
+                                <div class="col col-lg-6 pt-2 border border-success <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                <h5><?= $rows['team_1'] ?></h5><h7>WIN</h7>
+                                </div>
+                                <div class="col col-lg-6 pt-2 border border-success <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                <H5><?= $rows['team_2'] ?></H5><h7 class="text-danger">LOSS</h7>
+                                </div>
+                            </div>
+                            
                             <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if( strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
                                 <!-- <div class="countdown-counter" data-date="July 17, 2019 21:00:00"></div> -->
                             </div>

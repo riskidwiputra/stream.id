@@ -24,11 +24,11 @@
 													<tr class="tournament-bracket__team<?php if($rows['team1'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?> ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>"
 														data-nama="<?= $rows['team_1'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_1'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" id="image" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" id="image" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_1'] ?></h6>
@@ -42,11 +42,11 @@
 													<tr class="tournament-bracket__team<?php if($rows['team2'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>  ">
 														<td class="tournament-bracket__inner">
 														<a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"
 														data-nama="<?= $rows['team_2'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_2'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" id="image" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" id="image" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_2'] ?></h6>
@@ -78,11 +78,11 @@
 													<tr class="tournament-bracket__team <?php if($rows['id_team1'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?> ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>"
 														data-nama="<?= $rows['team_1'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_1'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_1'] ?></h6>
@@ -96,11 +96,11 @@
 													<tr class="tournament-bracket__team <?php if($rows['id_team2'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?> ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"
 														data-nama="<?= $rows['team_2'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_2'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_2'] ?></h6>
@@ -131,11 +131,11 @@
 													<tr class="tournament-bracket__team <?php if($rows['team1'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?> ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>"
 														data-nama="<?= $rows['team_1'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_1'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_1'] ?></h6>
@@ -149,11 +149,11 @@
 													<tr class="tournament-bracket__team <?php if($rows['team2'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?> ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"
 														data-nama="<?= $rows['team_2'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_2'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_2'] ?></h6>
@@ -231,11 +231,11 @@
 													<tr class="tournament-bracket__team <?php if($rows['id_team1'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>   ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>"
 														data-nama="<?= $rows['team_1'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_1'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_1'] ?></h6>
@@ -249,11 +249,11 @@
 													<tr class="tournament-bracket__team <?php if($rows['id_team2'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>   ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"
 														data-nama="<?= $rows['team_2'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_2'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_2'] ?></h6>
@@ -283,11 +283,11 @@
 													<tr class="tournament-bracket__team <?php if($rows['team1'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>   ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>"
 														data-nama="<?= $rows['team_1'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_1'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_1'] ?></h6>
@@ -301,11 +301,11 @@
 													<tr class="tournament-bracket__team <?php if($rows['team2'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>   ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"
 														data-nama="<?= $rows['team_2'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_2'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_2'] ?></h6>
@@ -382,11 +382,11 @@
 													<tr class="tournament-bracket__team<?php if($rows['id_team1'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>"
 														data-nama="<?= $rows['team_1'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_1'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_1'] ?></h6>
@@ -400,11 +400,11 @@
 													<tr class="tournament-bracket__team<?php if($rows['id_team2'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"
 														data-nama="<?= $rows['team_2'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_2'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_2'] ?></h6>
@@ -435,11 +435,11 @@
 													<tr class="tournament-bracket__team<?php if($rows['team1'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>"
 														data-nama="<?= $rows['team_1'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_1'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_1'] ?></h6>
@@ -453,11 +453,11 @@
 													<tr class="tournament-bracket__team<?php if($rows['team2'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"
 														data-nama="<?= $rows['team_2'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_2'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_2'] ?></h6>
@@ -537,11 +537,11 @@
 													<tr class="tournament-bracket__team<?php if($rows['id_team1'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>"
 														data-nama="<?= $rows['team_1'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_1'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_1'] ?></h6>
@@ -555,11 +555,11 @@
 													<tr class="tournament-bracket__team<?php if($rows['id_team2'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?>">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png"
+														data-logo="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>"
 														data-nama="<?= $rows['team_2'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_2'] ?>"
 														><figure class="tournament-bracket__team-thumb">
-																<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+																<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_2'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
 																<h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_2'] ?></h6>
@@ -627,7 +627,7 @@
 							<?php } ?>
 							<?php if($data['winner']){ ?>
                             <div class="tournament-bracket__round">
-								<h6 class="tournament-bracket__round-title d-block d-lg-none d-xl-none">Champion</h6>
+								<h6 class="tournament-bracket__round-title d-block d-lg-none d-xl-none">Finals</h6>
 								<ul class="tournament-bracket__list">
 								<?php foreach ($data['winner'] as $rows) { ?>
 									<li class="tournament-bracket__item">
@@ -638,7 +638,7 @@
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
 														><figure class="tournament-bracket__team-thumb">
-														<img src="<?= BASEURL ?>/public/assets/images/esports/logos/alchemists-86x98.png" alt="">
+														<img src="<?=asset(paths('path_home_LogoTeam_0'));?><?= $rows['logo_1'];?>" alt="">
 															</figure>
 															<div class="tournament-bracket__team-info text-truncate">
                                                             <h6 class="tournament-bracket__team-name text-truncate"><?= $rows['team_1'] ?></h6>
