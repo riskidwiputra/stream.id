@@ -76,7 +76,9 @@
 				WHERE tournament_round16.id_tournament = '$id_tournament'
 				");
 			$data['round16'] = $this->db->resultSet();
-			
+
+			$data['rows16'] = $data['round16'] = $this->db->execute();
+			$data['rows16'] = $this->db->rowCount();
 			
 			$data['round16_1']	= $this->db->query(
 				"SELECT
@@ -137,8 +139,10 @@
 				WHERE tournament_quarter_finals.id_tournament = '$id_tournament'
 				"
 			);
-			$data['qtf_1'] = $this->db->resultSet();
+			$data['qtf_1'] =  $this->db->resultSet();
 			
+		
+		
 			$data['smf'] = $this->db->query(
 				"SELECT
 				C.nama_team AS team_1,
