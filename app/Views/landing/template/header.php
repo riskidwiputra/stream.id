@@ -148,7 +148,7 @@
                                 <li class=""><a href="#">News</a>
                                     <ul class="main-nav__sub">
                                         <li class=""><a href="<?= BASEURL ?>/news">News</a></li>
-                                        <li class=""><a href="<?= BASEURL ?>/next-matchs">Next Matchs</a></li>
+                                        
                                     </ul>
                                 </li>
                                 <li class=""><a href="#">Games</a>
