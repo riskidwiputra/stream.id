@@ -73,6 +73,41 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Jenis Kelamin</label><br>
+                                        <label class="radio radio-inline mr-2">
+                                            <input type="radio" name="jenis_kelamin" id="inlineRadio1" value="laki-laki" checked required=""> Laki-laki
+                                            <span class="radio-indicator"></span>
+                                        </label>
+                                        <label class="radio radio-inline mr-2">
+                                            <input type="radio" name="jenis_kelamin" id="inlineRadio2" value="perempuan" required=""> Perempuan
+                                            <span class="radio-indicator"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="register-name">Your Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address..." required="">
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account-first-name">First Name</label>
+                                        <input type="text" class="form-control" value="" name="account-first-name" id="account-first-name" placeholder="Your first name...">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="account-last-name">Last Name</label>
+                                        <input type="text" class="form-control" value="" name="account-last-name" id="account-last-name" placeholder="Your last name...">
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="form-group--submit text-center">
                                 <button type="submit" class="btn btn-primary-inverse">Save all changes</button>
