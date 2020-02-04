@@ -51,9 +51,17 @@
 	Route::get('/account', 					'AccountController@account');
 
 	// LOGIN
-	Route::get('/login', 					'AuthController@Login');
+	Route::get('/login', 					'AuthController@IndexLogin');
+	Route::get('/register', 				'AuthController@IndexRegister');
+
+	// Provinsi 
+	Route::post('/provinsi', 				'AccountController@Provinsi');
+	// Provinsi 
+	Route::post('/kabupaten/{id}', 				'AccountController@Kabupaten');
+
 	// register
 	Route::post('/register', 				'AuthController@Register');
+	Route::post('/login', 					'AuthController@Login');
 	// Komentar
 	Route::post('/ambil-komen/{id}', 		'NewsController@GetKomen');
 	Route::post('/tambah-komen/{id}', 		'NewsController@AddKomen'); 

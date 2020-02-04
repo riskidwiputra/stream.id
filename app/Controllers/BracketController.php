@@ -37,6 +37,7 @@ class BracketController extends Controller
             WHERE id_tournament = '$id_tournament'
             ");
         $data['round32'] = $this->db->resultSet(); 
+        
         $data['round16'] = $this->db->query(
             "SELECT
             C.nama_team AS team_1,
@@ -62,6 +63,9 @@ class BracketController extends Controller
             WHERE tournament_round16.id_tournament = '$id_tournament'
             ");
         $data['round16'] = $this->db->resultSet();
+        $data['round16_not'] = $this->db->rowCount();
+        
+    
         $data['qtf'] = $this->db->query(
             "SELECT
             C.nama_team AS team_1,
@@ -84,6 +88,7 @@ class BracketController extends Controller
             WHERE tournament_quarter_finals.id_tournament = '$id_tournament'
             ");
         $data['qtf'] = $this->db->resultSet();
+        $data['qtf_not'] = $this->db->rowCount();
         $data['smf'] = $this->db->query(
             "SELECT
             C.nama_team AS team_1,
@@ -106,6 +111,7 @@ class BracketController extends Controller
             WHERE tournament_semi_finals.id_tournament = '$id_tournament'
             ");
         $data['smf'] = $this->db->resultSet();
+        $data['smf_not'] = $this->db->rowCount();
         $data['final'] = $this->db->query(
             "SELECT
             C.nama_team AS team_1,
@@ -162,7 +168,6 @@ class BracketController extends Controller
             "
         );
         $data['round16_1'] = $this->db->resultSet();
-        $data['round16_empty'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
         $data['qtf_1']	= $this->db->query(
             "SELECT
             C.nama_team AS team_1,
@@ -184,7 +189,7 @@ class BracketController extends Controller
             "
         );
         $data['qtf_1'] = $this->db->resultSet();
-        $data['qtf_empty'] = $this->db->table('tournament_quarter_finals')->whereAll('id_tournament', $id_tournament);
+        
         $data['smf_1']	= $this->db->query(
             "SELECT
             C.nama_team AS team_1,
@@ -205,6 +210,8 @@ class BracketController extends Controller
             WHERE tournament_semi_finals.id_tournament = '$id_tournament'
             ");
         $data['smf_1'] = $this->db->resultSet();
+        $data['round16_empty'] = $this->db->table('tournament_round16')->whereAll('id_tournament', $id_tournament);
+        $data['qtf_empty'] = $this->db->table('tournament_quarter_finals')->whereAll('id_tournament', $id_tournament);
         $data['smf_empty'] = $this->db->table('tournament_semi_finals')->whereAll('id_tournament', $id_tournament);
         $data['final_empty'] = $this->db->table('tournament_final')->whereAll('id_tournament', $id_tournament);
 

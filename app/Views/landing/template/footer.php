@@ -331,6 +331,7 @@
             <!-- Template JS -->
             <script src="<?=asset('assets/js/init.js');?>"></script>
             <script src="<?=asset('assets/js/custom.js');?>"></script>
+            <script src="<?=asset('assets/js/maps.js');?>"></script>
             <script src="<?=asset('assets/js/script.js');?>"></script>
             <script>
             $(document).ready(function(){

@@ -7,7 +7,7 @@
 	{
 		
 
-		public function Login()
+		public function IndexLogin()
 		{ 
 			$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
 			$data['populared'] = $this->db->resultSet();
@@ -15,6 +15,19 @@
 			$this->view('landing/account/login');	
 			$this->view('landing/template/footer' , $data);			
 		}
+
+		public function Login()
+		{   
+			
+			if ($this->model('Login_Model')->login($_POST) > 0) { 
+			redirect('/account');	
+			exit;
+			}else{ 
+			redirect('/login');
+			exit;
+			}    
+		} 
+
 		public function Register()
         { 
             if ( $this->model('Register_Model')->insert($_POST) ) {
