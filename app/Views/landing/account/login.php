@@ -82,13 +82,13 @@
                                 <input type="password" name="repassword" id="repeat-repassword" class="form-control" placeholder="Repeat your password..." required="">
                             </div>
                             <div class="form-group">
-                            <label for=""> Jenis Kelamin</label><br>
+                            <label for=""> Gender</label><br>
 							<label class="radio radio-inline mr-2">
-								<input type="radio" name="jenis_kelamin" id="inlineRadio1" value="laki-laki" checked required=""> Laki-laki
+								<input type="radio" name="jenis_kelamin" id="inlineRadio1" value="laki-laki" checked required=""> Male
 								<span class="radio-indicator"></span>
 							</label>
 							<label class="radio radio-inline mr-2">
-								<input type="radio" name="jenis_kelamin" id="inlineRadio2" value="perempuan" required=""> Perempuan
+								<input type="radio" name="jenis_kelamin" id="inlineRadio2" value="perempuan" required=""> Female
 								<span class="radio-indicator"></span>
 							</label>
                             </div>
@@ -97,10 +97,15 @@
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address..." required="">
                             </div>
                             <div class="form-group">
-							<label class="control-label" for="select-default">Tanggal Lahir</label>
+							<label class="control-label" for="select-default">Date of birth</label>
                             <div class="input-group ">
+
+							<select id="select-default" name="tanggal" class="form-control col-lg-3" required="">
+                            <option readonly=""  value="" hidden="">Date</option>
+
 							<select  name="tanggal" class="form-control col-lg-3" required="">
                             <option readonly=""  value="" hidden="">Tanggal</option>
+
                             <?php   for ($i=01; $i <= 31 ; $i++) { ?>
                                 <?php if ($i <= 9){ ?>
                                 <option value="0<?= $i ?>">0<?= $i ?></option>
@@ -109,15 +114,25 @@
                                 <?php } ?>
                             <?php } ?>
 							</select>
+
+							<select  id="select-default" name="bulan" class="form-control col-lg-3" required="">
+                            <option readonly=""  value="" hidden="">Month</option>
+
 							<select   name="bulan" class="form-control col-lg-3" required="">
                             <option readonly=""  value="" hidden="">Bulan</option>
+
                             <?php $bulan=array("","Januari","Pebruari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"); ?>
                                 <?php  for ($i=1;$i<=12;$i++){ ?>
 								<option value="<?= $i ?>"><?= $bulan[$i] ?></option>
 								<?php } ?>
 							</select>
+
+							<select  id="select-default" name="tahun" class="form-control col-lg-3" required="">
+                            <option readonly=""  value="" hidden="">Year</option>
+
 							<select   name="tahun" class="form-control col-lg-3" required="">
                             <option readonly=""  value="" hidden="">Tahun</option>
+
                             <?php for ($i=2020; $i>=1945 ; $i--) { ?> 
 								<option value="<?= $i ?>"><?= $i ?></option>
                             <?php } ?>
@@ -126,9 +141,19 @@
                             </div>
                             </div>
                             <div class="form-group">
-                                <label for="register-name">Alamat</label>
-                                <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Enter your Alamat..." required="">
+                                <label for="register-name">Address</label>
+                                <textarea class="form-control" name="alamat" id="alamat" placeholder="Enter your Address..." required="" rows="5"></textarea>
                             </div>
+
+                            <div class="form-group">
+                                <label for="register-name">Province</label>
+                                <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your province..." required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-name">City</label>
+                                <input type="text" name="kota" id="kota" class="form-control" placeholder="Enter your City..." required="">
+                            </div>
+
                             <div class="form-group" style="position: static;"> 
                                 <label for="Provinsi">Provinsi</label> 
                                 <select class="form-control" name="provinsi" id="provinsi">
@@ -141,10 +166,36 @@
                                 <option readonly=""  value="" hidden="">Kabupaten</option>
                                 </select> 
                             </div> 
+
                             <div class="form-group">
-                                <label for="register-name">Nomor Hp (Boleh Kosong / Opsional)</label>
-                                <input type="number" name="nomor" id="nomor" class="form-control" placeholder="Enter your nomor telepon...">
+                                <label for="register-name">Phone Number (May be Empty / Optional)</label>
+                                <input type="number" name="nomor" id="nomor" class="form-control" placeholder="Enter your phone number...">
                             </div>
+                            <div class="form-group">
+                                <label for="register-name">Input ID Card / Family Card (May be Empty / Optional)</label><br>
+                                <img src="" id="ktp" name="ktp"><br>
+                                <input type="file" name="ktp" id="ktp">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-name">Your Photo (May be Empty / Optional)</label><br>
+                                <img src="" id="foto" name="foto"><br>
+                                <input type="file" name="foto" id="foto">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-name">Phone Number (May be Empty / Optional)</label>
+                                <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your phone number...">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-name">ID Number (May be Empty / Optional)</label>
+                                <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your ID number...">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-name">Username Game (May be Empty / Optional)</label>
+                                <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your username game...">
+                            </div>
+
+
+
                             <div class="form-group">
                                 <button type="submit" class="btn btn-default btn-lg btn-block" >
 								Create Your Account
