@@ -164,7 +164,7 @@
                                         <li class=""><a href="<?= BASEURL ?>/tournament">Tournament</a></li>
                                     </ul>
                                 </li>
-                                <li class=""><a href="#">About Me</a>
+                                <li class=""><a href="#">About Us</a>
                                     <ul class="main-nav__sub">
                                         <li class=""><a href="<?= BASEURL ?>/contact">Contact</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/faqs">FAQs</a></li>

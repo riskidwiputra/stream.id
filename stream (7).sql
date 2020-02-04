@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Feb 2020 pada 08.55
+-- Waktu pembuatan: 04 Feb 2020 pada 11.31
 -- Versi server: 10.4.10-MariaDB
 -- Versi PHP: 7.3.12
 
@@ -21,6 +21,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `stream`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `access_logs_users`
+--
+
+CREATE TABLE `access_logs_users` (
+  `user_id` char(128) NOT NULL,
+  `time` varchar(30) NOT NULL,
+  `device` varchar(30) NOT NULL,
+  `ip` varchar(30) NOT NULL,
+  `os` varchar(30) NOT NULL,
+  `browser` varchar(30) NOT NULL,
+  `brand` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `access_logs_users`
+--
+
+INSERT INTO `access_logs_users` (`user_id`, `time`, `device`, `ip`, `os`, `browser`, `brand`) VALUES
+('USER0001', '03-02-2020 17:59:34', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
+('USER0001', '03-02-2020 18:00:06', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand');
 
 -- --------------------------------------------------------
 
@@ -7802,7 +7826,7 @@ CREATE TABLE `kompetisi` (
 --
 
 INSERT INTO `kompetisi` (`id_kompetisi`, `nama_kompetisi`, `gambar`, `sistem`) VALUES
-('KPT0001', 'Mobile Legends', '5e347286c7b9a.png', 'Bracket');
+('KPT0001', 'Mobile Legends', '5e371f793d409.jpg', 'Bracket');
 
 -- --------------------------------------------------------
 
@@ -7884,15 +7908,18 @@ INSERT INTO `portal` (`id`, `name`, `content`) VALUES
 (3, 'portal', 'http://localhost/Git/portal_stream.id'),
 (4, 'path_portal_NewsGame', 'public/assets/img/NewsGame/'),
 (5, 'path_portal_Kategori', 'public/assets/img/Kategori/'),
-(9, 'path_home_NewsGame', 'http://localhost/Git/stream.id/public/assets/img/NewsGame/'),
-(10, 'path_home_Kategori', 'http://localhost/Git/stream.id/public/assets/img/Kategori/'),
+(9, 'path_home_NewsGame', '../stream.id/public/assets/img/NewsGame/'),
+(10, 'path_home_Kategori', '../stream.id/public/assets/img/Kategori/'),
 (11, 'path_home_NewsGame_0', 'assets/img/NewsGame/'),
 (12, 'path_portal_LogoTeam', 'public/assets/img/tournament/logo_team/'),
-(13, 'path_home_LogoTeam', 'http://localhost/Git/stream.id/public/assets/img/tournament/logo_team/'),
+(13, 'path_home_LogoTeam', '../stream.id/public/assets/img/tournament/logo_team/'),
 (14, 'path_portal_Kompetisi', 'public/assets/img/tournament/Kompetisi/'),
 (15, 'path_home_Kompetisi', '../stream.id/public/assets/img/tournament/Kompetisi/'),
 (16, 'path_home_Kompetisi_0', 'assets/img/tournament/Kompetisi/'),
-(17, 'path_home_LogoTeam_0', 'assets/img/tournament/logo_team/');
+(17, 'path_home_LogoTeam_0', 'assets/img/tournament/logo_team/'),
+(18, 'path_portal_Banner', 'public/assets/img/tournament/banner_tournament/'),
+(19, 'path_home_Banner', '../stream.id/public/assets/img/tournament/banner_tournament/'),
+(20, 'path_home_Banner_0', 'assets/img/tournament/banner_tournament/');
 
 -- --------------------------------------------------------
 
@@ -7960,6 +7987,7 @@ CREATE TABLE `tournament` (
   `nama_kota` varchar(128) NOT NULL,
   `alamat` text NOT NULL,
   `tourname_type` enum('singgle','double') NOT NULL,
+  `banner` varchar(128) NOT NULL,
   `id_group` char(128) NOT NULL,
   `total_team` varchar(128) NOT NULL,
   `random` int(11) NOT NULL DEFAULT 0,
@@ -7972,13 +8000,9 @@ CREATE TABLE `tournament` (
 -- Dumping data untuk tabel `tournament`
 --
 
-INSERT INTO `tournament` (`id_tournament`, `tournament_name`, `date`, `created_at`, `kompetisi`, `nama_kota`, `alamat`, `tourname_type`, `id_group`, `total_team`, `random`, `status`, `is_random`, `url`) VALUES
-('0ba1d704cc75696773462da42107a5685afccdcc', 'tournament mobile legends unutuk 8orang ', '26-01-2020 08:04', 'Sunday, 26 January 2020 18:13', 'KPT0001', 'medan, sumatra utara', 'Jl, sasad', 'singgle', '3f2061f74fda0f336465c63e046189076fe0aaec', '8', 1, 'starting', 1, 'tournament-mobile-legends-unutuk-8orang'),
-('1b2324bbd3a95a4b45da615124a9e6b44390c21e', 'tournament mobile legends', '19-02-2020 23:01', 'Saturday, 01 February 2020 01:32', 'KPT0001', 'Samarinda', 'asd', 'singgle', 'f2d903606be63fa3e84e41be66fcbe38eee98573', '4', 1, 'pending', 0, 'tournament-mobile-legends'),
-('4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Turnamen Mobile Legends - STREAM GAMING SEASON 13%###!', '21-01-2020 19:20', 'Tuesday, 21 January 2020 23:02', 'KPT0001', 'medan, sumatra utara', 'Jl.karya kasih', 'singgle', '97132a032509c00b3886b1f672068726d1a50fc5', '32', 1, 'complete', 1, 'Turnamen-Mobile-Legends--STREAM-GAMING-SEASON-13'),
-('554215443b64582722e5036add77909df49b766f', 'Turnamen Mobile Legends - STREAM GAMING SEASON 13%###! 16 orang', '26-01-2020 07:06', 'Sunday, 26 January 2020 16:48', 'KPT0001', 'medan, sumatra utara', 'jln,jalan', 'singgle', '7908148d5d4de54a725425effbaf05e4d4128234', '16', 1, 'starting', 1, 'Turnamen-Mobile-Legends--STREAM-GAMING-SEASON-13-16-orang'),
-('92af6ec380dddd2de1614381dc0f151076d12cca', 'Turnamen Mobile Legends - STREAM GAMING SEASON 1 Untul 32 orang', '29-01-2020 15:13', 'Wednesday, 29 January 2020 15:12', 'KPT0001', 'medan, sumatra utara', 'jln.kampung baru', 'singgle', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', '32', 1, 'starting', 1, 'Turnamen-Mobile-Legends--STREAM-GAMING-SEASON-1-Untul-32-orang'),
-('e0439ada53311022b7871fc2edff65bd51fb58e8', 'tournament mobile legends unutuk 4 orang', '26-01-2020 09:03', 'Sunday, 26 January 2020 19:22', 'KPT0001', 'Medan', 'a', 'singgle', '8937bb38c142ea48e636848599adbdd338a6d20d', '4', 1, 'starting', 1, 'tournament-mobile-legends-unutuk-4-orang');
+INSERT INTO `tournament` (`id_tournament`, `tournament_name`, `date`, `created_at`, `kompetisi`, `nama_kota`, `alamat`, `tourname_type`, `banner`, `id_group`, `total_team`, `random`, `status`, `is_random`, `url`) VALUES
+('1adbb511859249853e4c01fcb27e043cadf89bf3', 'Turnamen Mobile Legends - NEVER DIE SEASON 12', '03-02-2020 01:01', 'Monday, 03 February 2020 15:08', 'KPT0001', 'medan', 'Jl. Gatot Subroto No. 1 A', 'singgle', '5e37d5148107a.jpg', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', '16', 1, 'starting', 1, 'Turnamen-Mobile-Legends--NEVER-DIE-SEASON-12'),
+('50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Turnamen Mobile Legends - Rave Organizer Season 21', '02-02-2020 12:00', 'Monday, 03 February 2020 02:41', 'KPT0001', 'Medan', 'Jl. Iskandar Muda No.35 A', 'singgle', '5e3725e8b801d.jpg', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', '32', 1, 'starting', 1, 'Turnamen-Mobile-Legends--Rave-Organizer-Season-21');
 
 -- --------------------------------------------------------
 
@@ -8002,11 +8026,8 @@ CREATE TABLE `tournament_final` (
 --
 
 INSERT INTO `tournament_final` (`id_final`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
-('FINAL0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'SMF0001', 'SMF0002', 2, 4, 'TEAM0005', '31-01-2020 12:00'),
-('FINAL0002', '554215443b64582722e5036add77909df49b766f', 'SMF0003', 'SMF0004', 1, 0, 'TEAM0039', '31-01-2020 06:00'),
-('FINAL0003', '0ba1d704cc75696773462da42107a5685afccdcc', 'SMF0005', 'SMF0006', 1, 4, 'TEAM0053', '01-02-2020 06:00'),
-('FINAL0004', 'e0439ada53311022b7871fc2edff65bd51fb58e8', 'SMF0007', 'SMF0008', 1, 2, 'TEAM0060', '31-01-2020 02:00'),
-('FINAL0005', '92af6ec380dddd2de1614381dc0f151076d12cca', 'SMF0009', 'SMF0010', NULL, NULL, NULL, '');
+('FINAL0001', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'SMF0001', 'SMF0002', 3, 5, 'TEAM0002', ''),
+('FINAL0002', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'SMF0003', 'SMF0004', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -8027,99 +8048,54 @@ CREATE TABLE `tournament_group` (
 --
 
 INSERT INTO `tournament_group` (`id_team`, `id_group`, `nama_team`, `logo_team`, `nama_kota`) VALUES
-('TEAM0001', '97132a032509c00b3886b1f672068726d1a50fc5', 'team1', '5e272bcb0bbe8.jpg', 'medan'),
-('TEAM0002', '97132a032509c00b3886b1f672068726d1a50fc5', 'team2', '5e27495ae0b88.png', 'Medan'),
-('TEAM0003', '97132a032509c00b3886b1f672068726d1a50fc5', 'team3', '5e274d15245ef.png', 'medan'),
-('TEAM0004', '97132a032509c00b3886b1f672068726d1a50fc5', 'team4', '5e274d2221589.jpg', 'medan'),
-('TEAM0005', '97132a032509c00b3886b1f672068726d1a50fc5', 'team5', '5e274d2e9ad45.jpeg', 'medan'),
-('TEAM0006', '97132a032509c00b3886b1f672068726d1a50fc5', 'team6', '5e274d3a6550a.jpeg', 'medan'),
-('TEAM0007', '97132a032509c00b3886b1f672068726d1a50fc5', 'team7', '5e274d486f5a4.jpeg', 'medan'),
-('TEAM0008', '97132a032509c00b3886b1f672068726d1a50fc5', 'team8', '5e274d54e697c.jpeg', 'medan'),
-('TEAM0009', '97132a032509c00b3886b1f672068726d1a50fc5', 'team9', '5e274d6117ac2.jpg', 'medan'),
-('TEAM0010', '97132a032509c00b3886b1f672068726d1a50fc5', 'team10', '5e2750b756d29.jpg', 'medan'),
-('TEAM0011', '97132a032509c00b3886b1f672068726d1a50fc5', 'team11', '5e2750c63e6c2.jpeg', 'Medan'),
-('TEAM0012', '97132a032509c00b3886b1f672068726d1a50fc5', 'team12', '5e2750df115ba.jpg', 'jakarta'),
-('TEAM0013', '97132a032509c00b3886b1f672068726d1a50fc5', 'team13', '5e2750eb3d0fa.jpg', 'aceh'),
-('TEAM0014', '97132a032509c00b3886b1f672068726d1a50fc5', 'team14', '5e275104284c6.jpg', 'riau'),
-('TEAM0015', '97132a032509c00b3886b1f672068726d1a50fc5', 'team15', '5e275110b7e8d.jpg', 'pekanbaru'),
-('TEAM0016', '97132a032509c00b3886b1f672068726d1a50fc5', 'team16', '5e27511e660fe.jpg', 'yogyakarta'),
-('TEAM0017', '97132a032509c00b3886b1f672068726d1a50fc5', 'team17', '5e275130cca34.jpeg', 'palembang'),
-('TEAM0018', '97132a032509c00b3886b1f672068726d1a50fc5', 'team18', '5e27513c314b4.jpg', 'padang'),
-('TEAM0019', '97132a032509c00b3886b1f672068726d1a50fc5', 'team19', '5e27514c6014c.jpg', 'bandung'),
-('TEAM0020', '97132a032509c00b3886b1f672068726d1a50fc5', 'team20', '5e2754f21776e.jpg', 'yogyakarta'),
-('TEAM0021', '97132a032509c00b3886b1f672068726d1a50fc5', 'team21', '5e2755712dabe.jpeg', 'jakarta'),
-('TEAM0022', '97132a032509c00b3886b1f672068726d1a50fc5', 'team22', '5e2755803e5b2.jpeg', 'bali'),
-('TEAM0023', '97132a032509c00b3886b1f672068726d1a50fc5', 'team23', '5e2755999ef0b.jpeg', 'samarinda'),
-('TEAM0024', '97132a032509c00b3886b1f672068726d1a50fc5', 'team24', '5e2755a71aa82.jpg', 'papua'),
-('TEAM0025', '97132a032509c00b3886b1f672068726d1a50fc5', 'team25', '5e2755b60a0d4.jpg', 'manokwari'),
-('TEAM0026', '97132a032509c00b3886b1f672068726d1a50fc5', 'team26', '5e2755c82c04f.jpeg', 'semarang'),
-('TEAM0027', '97132a032509c00b3886b1f672068726d1a50fc5', 'team27', '5e2755d51606b.jpg', 'medan'),
-('TEAM0028', '97132a032509c00b3886b1f672068726d1a50fc5', 'team28', '5e2755e2478e9.jpg', 'medan'),
-('TEAM0029', '97132a032509c00b3886b1f672068726d1a50fc5', 'team29', '5e275a64e8ae6.jpg', 'Medan'),
-('TEAM0030', '97132a032509c00b3886b1f672068726d1a50fc5', 'team30', '5e275a771fe46.jpg', 'medan'),
-('TEAM0031', '97132a032509c00b3886b1f672068726d1a50fc5', 'team31', '5e275a855f57c.jpg', 'medan'),
-('TEAM0032', '97132a032509c00b3886b1f672068726d1a50fc5', 'team32', '5e275a91337ba.png', 'medan'),
-('TEAM0033', '7908148d5d4de54a725425effbaf05e4d4128234', 'team1', '5e2d60848083c.jpg', 'medan'),
-('TEAM0034', '7908148d5d4de54a725425effbaf05e4d4128234', 'team2', '5e2d608d97b4a.png', 'aceh'),
-('TEAM0035', '7908148d5d4de54a725425effbaf05e4d4128234', 'team3', '5e2d609728e04.png', 'padang'),
-('TEAM0036', '7908148d5d4de54a725425effbaf05e4d4128234', 'team4', '5e2d609fc3a37.jpg', 'Riau'),
-('TEAM0037', '7908148d5d4de54a725425effbaf05e4d4128234', 'team5', '5e2d60e7b5868.jpeg', 'palembang'),
-('TEAM0038', '7908148d5d4de54a725425effbaf05e4d4128234', 'team6', '5e2d60fea4f99.jpeg', 'Bengkulu'),
-('TEAM0039', '7908148d5d4de54a725425effbaf05e4d4128234', 'team7', '5e2d6110d7081.jpeg', 'lampung'),
-('TEAM0040', '7908148d5d4de54a725425effbaf05e4d4128234', 'team8', '5e2d6138cfea0.jpeg', 'jawa barat'),
-('TEAM0041', '7908148d5d4de54a725425effbaf05e4d4128234', 'team9', '5e2d614d26ea5.jpg', 'jawa tengah'),
-('TEAM0042', '7908148d5d4de54a725425effbaf05e4d4128234', 'team10', '5e2d615e6402a.jpeg', 'banten'),
-('TEAM0043', '7908148d5d4de54a725425effbaf05e4d4128234', 'team11', '5e2d616c13e0f.jpg', 'bali'),
-('TEAM0044', '7908148d5d4de54a725425effbaf05e4d4128234', 'team11', '5e2d616c6b2a4.jpg', 'bali'),
-('TEAM0045', '7908148d5d4de54a725425effbaf05e4d4128234', 'team12', '5e2d6176f19bc.jpg', 'yogyakarta'),
-('TEAM0046', '7908148d5d4de54a725425effbaf05e4d4128234', 'team13', '5e2d6188bfcc5.jpg', 'semarang'),
-('TEAM0047', '7908148d5d4de54a725425effbaf05e4d4128234', 'team15', '5e2d61af19022.jpg', 'Samarinda'),
-('TEAM0048', '7908148d5d4de54a725425effbaf05e4d4128234', 'team16', '5e2d61bb4c730.jpg', 'bandung'),
-('TEAM0049', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team1', '5e2d747fb643e.jpg', 'medan'),
-('TEAM0050', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team2', '5e2d748b3edb4.png', 'aceh'),
-('TEAM0051', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team3', '5e2d749bef143.png', 'padang'),
-('TEAM0052', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team4', '5e2d74b05caca.jpg', 'palembang'),
-('TEAM0053', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team5', '5e2d74bee1313.jpeg', 'riau'),
-('TEAM0054', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team6', '5e2d74d44222f.jpeg', 'Samarinda'),
-('TEAM0055', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team7', '5e2d74e8ca92b.jpeg', 'jakarta'),
-('TEAM0056', '3f2061f74fda0f336465c63e046189076fe0aaec', 'team8', '5e2d74ffce2e2.jpeg', 'ntt'),
-('TEAM0057', '8937bb38c142ea48e636848599adbdd338a6d20d', 'team1', '5e2d87bed72e5.jpg', 'Medan'),
-('TEAM0058', '8937bb38c142ea48e636848599adbdd338a6d20d', 'team2', '5e2d87c76f56d.png', 'medan'),
-('TEAM0059', '8937bb38c142ea48e636848599adbdd338a6d20d', 'team3', '5e2d87d020a06.png', 'medan'),
-('TEAM0060', '8937bb38c142ea48e636848599adbdd338a6d20d', 'team4', '5e2d87d94628a.jpg', 'medan'),
-('TEAM0061', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team1', '5e313e9fac76e.jpg', 'medan'),
-('TEAM0062', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team2', '5e313eab0784d.png', 'medan'),
-('TEAM0063', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team3', '5e313fff2bd6d.png', 'bandah aceh'),
-('TEAM0064', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team4', '5e31400ccbd32.jpg', 'padang'),
-('TEAM0065', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team5', '5e31401880af9.jpeg', 'Riau'),
-('TEAM0066', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team6', '5e31402842023.jpeg', 'jambi'),
-('TEAM0067', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team7', '5e31403bbf053.jpeg', 'palembang'),
-('TEAM0068', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team8', '5e314046be160.jpeg', 'Bengkulu'),
-('TEAM0069', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team9', '5e31406455576.jpeg', 'lampung'),
-('TEAM0070', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team10', '5e31408048e31.jpg', 'jakarta'),
-('TEAM0071', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team11', '5e31408d0fc8a.jpeg', 'bandung'),
-('TEAM0072', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team12', '5e3141d946d14.jpg', 'bandung'),
-('TEAM0073', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team13', '5e3141ebcb3ae.jpg', 'semarang'),
-('TEAM0074', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team14', '5e3142025c404.jpg', 'yogyakarta'),
-('TEAM0075', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team15', '5e31423e1fd8f.jpg', 'surabaya'),
-('TEAM0076', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team16', '5e31424e5b7a7.jpg', 'serang'),
-('TEAM0077', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team17', '5e31425cb0a2a.jpg', 'Denpasar'),
-('TEAM0078', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team18', '5e314274efde7.jpeg', 'mataram'),
-('TEAM0079', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team19', '5e3142874fcbe.jpg', 'kupang'),
-('TEAM0080', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team20', '5e3142960686c.jpg', 'pontianak'),
-('TEAM0081', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team21', '5e3142aa4284e.jpeg', 'palangkaraya'),
-('TEAM0082', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team22', '5e3142bc3f319.jpeg', 'banjarmasin'),
-('TEAM0083', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team23', '5e3142d0a9bb1.jpeg', 'Samarinda'),
-('TEAM0084', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team24', '5e3142e029389.jpg', 'manado'),
-('TEAM0085', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team25', '5e3142f176e84.jpg', 'palu'),
-('TEAM0086', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team26', '5e31433fb7780.jpeg', 'makassar'),
-('TEAM0087', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team27', '5e31434e5ab23.jpg', 'kendari'),
-('TEAM0088', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team28', '5e31435fe2691.jpg', 'gorontalo'),
-('TEAM0089', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team29', '5e314376345ab.jpg', 'mamuju'),
-('TEAM0090', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team30', '5e314388a6e5c.jpg', 'ambon'),
-('TEAM0091', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team31', '5e3143a17c5f1.jpg', 'jayapura'),
-('TEAM0092', 'f2bd1b875f09446dd850142c53a08d52f441c8f0', 'team32', '5e3143ad88311.jpg', 'manokwari'),
-('TEAM0093', 'f2d903606be63fa3e84e41be66fcbe38eee98573', 'ead', '5e3472c4aac11.jpg', 'asda');
+('TEAM0001', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Golden Wolf', '5e372c5049de7.png', 'Banda Aceh'),
+('TEAM0002', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Geek Rider', '5e372cf9de5f8.png', 'Medan'),
+('TEAM0003', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Senor Diablo', '5e372d1e2e215.png', 'Padang'),
+('TEAM0004', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Howling Wolf', '5e372d4cae638.png', 'Pekanbaru'),
+('TEAM0005', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Dragon Squad', '5e372d93702cf.png', 'Bengkulu'),
+('TEAM0006', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Ninjutsu Games X', '5e372dbee896a.png', 'Jambi'),
+('TEAM0007', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Indieisland Gamer', '5e372dd0e11c7.png', 'Pangkalpinang'),
+('TEAM0008', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Ninja Finger', '5e372df5b9fc2.png', 'Palembang'),
+('TEAM0009', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Viking HOG', '5e372e279e3f4.png', 'Bandar Lampung'),
+('TEAM0010', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Cool Skull', '5e372e49849a6.png', 'Serang'),
+('TEAM0011', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Viking Squad', '5e372e7743812.png', 'Jakarta'),
+('TEAM0012', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Pirate Game Club', '5e372e96cf7fa.png', 'Bandung'),
+('TEAM0013', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Black Pantera', '5e372eb6a7acc.png', 'Semarang'),
+('TEAM0014', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Doragon', '5e372ed5631fd.png', 'surabaya'),
+('TEAM0015', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Grim Reaper', '5e372eef95789.png', 'yogyakarta'),
+('TEAM0016', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Red Moon Beast', '5e372f05d4221.png', 'Denpasar'),
+('TEAM0017', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Arkaios Golden Lion', '5e372f1d257c0.png', 'Mataram'),
+('TEAM0018', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Red Minos', '5e372f346d090.png', 'kupang'),
+('TEAM0019', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Wifi Hunters', '5e372f5360334.png', 'Pontianak'),
+('TEAM0020', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Helios', '5e372f6ca6fd0.png', 'Tanjungselor'),
+('TEAM0021', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Barbarian KIller', '5e372f86b157f.png', 'Palangkaraya'),
+('TEAM0022', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Death Skull Flag', '5e372f9ced26b.png', 'Samarinda'),
+('TEAM0023', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Immortal Dragon', '5e372fb65deeb.png', 'banjarmasin'),
+('TEAM0024', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Battle For Brothers', '5e372fd327dc0.png', 'mamuju'),
+('TEAM0025', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Red Owl TEAM', '5e372fec1ab51.png', 'makassar'),
+('TEAM0026', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Knight Warfare', '5e373009b9d21.png', 'palu'),
+('TEAM0027', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'J Tigers', '5e373021982cc.png', 'Kendari'),
+('TEAM0028', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Yin Yang Horse', '5e37304aec88b.png', 'Manado'),
+('TEAM0029', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Abysal Shaman', '5e3730631acc4.png', 'Gorontalo'),
+('TEAM0030', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Knight Cowboy', '5e37307b959d0.png', 'ambon'),
+('TEAM0031', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'Raging Bull', '5e37309c46fb3.png', 'Jayapura'),
+('TEAM0032', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', 'The TIgers', '5e3730c0681f5.png', 'Manokwari'),
+('TEAM0033', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'Wolf Team Hunter', '5e37d60d16db0.png', 'bandah aceh'),
+('TEAM0034', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'Indra The FLaming', '5e37d63a0427d.png', 'medan'),
+('TEAM0035', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'Joker Team', '5e37d6555eebb.png', 'jakarta'),
+('TEAM0036', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'Black Bear', '5e37d6710fc44.png', 'padang'),
+('TEAM0037', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'One God Eyes', '5e37d68ea5caa.png', 'Bandung'),
+('TEAM0038', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'The Spartacus', '5e37d6aba66da.png', 'Semarang'),
+('TEAM0039', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'Falcon Strike', '5e37d6cd41984.png', 'Surabaya'),
+('TEAM0040', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'Detroit Chargers', '5e37d70236aa2.png', 'Bali'),
+('TEAM0041', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'Holly Squad', '5e37d7253e642.png', 'Yogyakarta'),
+('TEAM0042', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'The Legends', '5e37d740104f2.png', 'Denpasar'),
+('TEAM0043', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'The Musketter', '5e37d75a22f09.png', 'Bengkulu'),
+('TEAM0044', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'Dash Tekk Warriors', '5e37d7769bb39.png', 'Jambi'),
+('TEAM0045', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'River Royals', '5e37d79ac7909.png', 'Palembang'),
+('TEAM0046', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'Rage Tiger', '5e37d7bf5a5b3.png', 'serang'),
+('TEAM0047', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'R Squad', '5e37d7df68d64.png', 'Jayapura'),
+('TEAM0048', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', 'SXC Gaming', '5e37d7fb77c88.png', 'manokwari');
 
 -- --------------------------------------------------------
 
@@ -8143,22 +8119,14 @@ CREATE TABLE `tournament_quarter_finals` (
 --
 
 INSERT INTO `tournament_quarter_finals` (`id_quarter_finals`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
-('QTF0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160001', 'Round160002', 5, 1, 'TEAM0001', '29-01-2020 10:04'),
-('QTF0002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160003', 'Round160004', 3, 1, 'TEAM0009', '28-01-2020 05:57'),
-('QTF0003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160005', 'Round160006', 4, 1, 'TEAM0018', '29-01-2020 05:00'),
-('QTF0004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round160007', 'Round160008', 5, 4, 'TEAM0005', '29-01-2020 05:02'),
-('QTF0005', '554215443b64582722e5036add77909df49b766f', 'Round160009', 'Round160010', 3, 1, 'TEAM0043', '30-01-2020 07:06'),
-('QTF0006', '554215443b64582722e5036add77909df49b766f', 'Round160011', 'Round160012', 3, 4, 'TEAM0039', '30-01-2020 08:06'),
-('QTF0007', '554215443b64582722e5036add77909df49b766f', 'Round160013', 'Round160014', 4, 3, 'TEAM0041', '30-01-2020 08:06'),
-('QTF0008', '554215443b64582722e5036add77909df49b766f', 'Round160015', 'Round160016', 4, 1, 'TEAM0036', '30-01-2020 08:06'),
-('QTF0009', '0ba1d704cc75696773462da42107a5685afccdcc', 'TEAM0051', 'TEAM0056', 5, 2, 'TEAM0051', '30-01-2020 19:00'),
-('QTF0010', '0ba1d704cc75696773462da42107a5685afccdcc', 'TEAM0055', 'TEAM0049', 3, 1, 'TEAM0055', '30-01-2020 09:06'),
-('QTF0011', '0ba1d704cc75696773462da42107a5685afccdcc', 'TEAM0053', 'TEAM0050', 2, 1, 'TEAM0053', '30-01-2020 10:06'),
-('QTF0012', '0ba1d704cc75696773462da42107a5685afccdcc', 'TEAM0054', 'TEAM0052', 4, 3, 'TEAM0054', '30-01-2020 12:06'),
-('QTF0013', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round160017', 'Round160018', NULL, NULL, NULL, ''),
-('QTF0014', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round160019', 'Round160020', NULL, NULL, NULL, ''),
-('QTF0015', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round160021', 'Round160022', NULL, NULL, NULL, ''),
-('QTF0016', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round160023', 'Round160024', NULL, NULL, NULL, '');
+('QTF0001', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round160001', 'Round160002', 6, 7, 'TEAM0026', ''),
+('QTF0002', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round160003', 'Round160004', 5, 4, 'TEAM0010', ''),
+('QTF0003', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round160005', 'Round160006', 2, 3, 'TEAM0019', ''),
+('QTF0004', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round160007', 'Round160008', 1, 7, 'TEAM0002', ''),
+('QTF0005', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'Round160009', 'Round160010', 2, 1, 'TEAM0046', ''),
+('QTF0006', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'Round160011', 'Round160012', 1, 3, 'TEAM0037', ''),
+('QTF0007', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'Round160013', 'Round160014', NULL, NULL, NULL, ''),
+('QTF0008', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'Round160015', 'Round160016', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -8182,30 +8150,22 @@ CREATE TABLE `tournament_round16` (
 --
 
 INSERT INTO `tournament_round16` (`id_round16`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
-('Round160001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320001', 'Round320002', 1, 4, 'TEAM0001', '28-01-2020 13:11'),
-('Round160002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320003', 'Round320004', 5, 3, 'TEAM0027', '28-01-2020 06:04'),
-('Round160003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320005', 'Round320006', 4, 2, 'TEAM0009', '28-01-2020 05:03'),
-('Round160004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320007', 'Round320008', 4, 5, 'TEAM0010', '28-01-2020 09:04'),
-('Round160005', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320009', 'Round320010', 4, 2, 'TEAM0018', '29-01-2020 06:05'),
-('Round160006', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320011', 'Round320012', 2, 3, 'TEAM0031', '28-01-2020 04:06'),
-('Round160007', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320013', 'Round320014', 3, 2, 'TEAM0005', '28-01-2020 04:04'),
-('Round160008', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'Round320015', 'Round320016', 1, 2, 'TEAM0029', '14-01-2020 05:03'),
-('Round160009', '554215443b64582722e5036add77909df49b766f', 'TEAM0042', 'TEAM0043', 2, 3, 'TEAM0043', '28-01-2020 04:01'),
-('Round160010', '554215443b64582722e5036add77909df49b766f', 'TEAM0035', 'TEAM0044', 3, 2, 'TEAM0035', '28-01-2020 07:03'),
-('Round160011', '554215443b64582722e5036add77909df49b766f', 'TEAM0040', 'TEAM0048', 3, 4, 'TEAM0048', '29-01-2020 05:02'),
-('Round160012', '554215443b64582722e5036add77909df49b766f', 'TEAM0039', 'TEAM0046', 2, 1, 'TEAM0039', '29-01-2020 06:02'),
-('Round160013', '554215443b64582722e5036add77909df49b766f', 'TEAM0041', 'TEAM0047', 2, 1, 'TEAM0041', '29-01-2020 07:02'),
-('Round160014', '554215443b64582722e5036add77909df49b766f', 'TEAM0037', 'TEAM0045', 1, 2, 'TEAM0045', '29-01-2020 08:02'),
-('Round160015', '554215443b64582722e5036add77909df49b766f', 'TEAM0034', 'TEAM0036', 1, 5, 'TEAM0036', '29-01-2020 09:02'),
-('Round160016', '554215443b64582722e5036add77909df49b766f', 'TEAM0033', 'TEAM0038', 1, 4, 'TEAM0038', '29-01-2020 10:02'),
-('Round160017', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320017', 'Round320018', NULL, NULL, NULL, ''),
-('Round160018', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320019', 'Round320020', NULL, NULL, NULL, ''),
-('Round160019', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320021', 'Round320022', NULL, NULL, NULL, ''),
-('Round160020', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320023', 'Round320024', NULL, NULL, NULL, ''),
-('Round160021', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320025', 'Round320026', NULL, NULL, NULL, ''),
-('Round160022', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320027', 'Round320028', NULL, NULL, NULL, ''),
-('Round160023', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320029', 'Round320030', NULL, NULL, NULL, ''),
-('Round160024', '92af6ec380dddd2de1614381dc0f151076d12cca', 'Round320031', 'Round320032', NULL, NULL, NULL, '');
+('Round160001', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round320001', 'Round320002', 2, 1, 'TEAM0024', ''),
+('Round160002', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round320003', 'Round320004', 5, 6, 'TEAM0026', ''),
+('Round160003', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round320005', 'Round320006', 3, 1, 'TEAM0010', ''),
+('Round160004', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round320007', 'Round320008', 4, 2, 'TEAM0001', ''),
+('Round160005', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round320009', 'Round320010', 6, 3, 'TEAM0023', ''),
+('Round160006', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round320011', 'Round320012', 6, 7, 'TEAM0019', ''),
+('Round160007', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round320013', 'Round320014', 3, 1, 'TEAM0028', ''),
+('Round160008', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Round320015', 'Round320016', 9, 5, 'TEAM0002', ''),
+('Round160009', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0048', 'TEAM0046', 1, 2, 'TEAM0046', ''),
+('Round160010', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0039', 'TEAM0033', 1, 2, 'TEAM0033', ''),
+('Round160011', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0035', 'TEAM0045', 1, 2, 'TEAM0045', ''),
+('Round160012', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0040', 'TEAM0037', 1, 2, 'TEAM0037', ''),
+('Round160013', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0044', 'TEAM0043', NULL, NULL, NULL, ''),
+('Round160014', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0047', 'TEAM0034', NULL, NULL, NULL, ''),
+('Round160015', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0041', 'TEAM0038', NULL, NULL, NULL, ''),
+('Round160016', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0036', 'TEAM0042', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -8229,38 +8189,22 @@ CREATE TABLE `tournament_round32` (
 --
 
 INSERT INTO `tournament_round32` (`id_round32`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
-('Round320001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0025', 'TEAM0026', 6, 1, 'TEAM0025', '27-01-2020 23:08'),
-('Round320002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0007', 'TEAM0001', 1, 7, 'TEAM0001', '27-01-2020 08:07'),
-('Round320003', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0023', 'TEAM0027', 4, 5, 'TEAM0027', '27-01-2020 08:04'),
-('Round320004', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0002', 'TEAM0022', 3, 2, 'TEAM0002', '27-01-2020 04:04'),
-('Round320005', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0004', 'TEAM0009', 4, 5, 'TEAM0009', '12-01-2020 02:03'),
-('Round320006', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0006', 'TEAM0013', 3, 5, 'TEAM0013', '27-01-2020 09:00'),
-('Round320007', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0003', 'TEAM0019', 5, 3, 'TEAM0003', '28-01-2020 12:12'),
-('Round320008', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0010', 'TEAM0008', 7, 1, 'TEAM0010', '28-01-2020 06:06'),
-('Round320009', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0011', 'TEAM0018', 3, 4, 'TEAM0018', '27-01-2020 08:08'),
-('Round320010', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0028', 'TEAM0030', 3, 1, 'TEAM0028', '27-01-2020 08:04'),
-('Round320011', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0012', 'TEAM0015', 2, 1, 'TEAM0012', '09-01-2020 06:00'),
-('Round320012', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0017', 'TEAM0031', 3, 5, 'TEAM0031', '28-01-2020 05:03'),
-('Round320013', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0024', 'TEAM0005', 3, 4, 'TEAM0005', '28-01-2020 04:01'),
-('Round320014', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0032', 'TEAM0016', 3, 1, 'TEAM0032', '22-01-2020 02:02'),
-('Round320015', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0014', 'TEAM0020', 3, 2, 'TEAM0014', '27-01-2020 08:04'),
-('Round320016', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'TEAM0029', 'TEAM0021', 3, 1, 'TEAM0029', '15-01-2020 06:06'),
-('Round320017', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0085', 'TEAM0080', 2, 1, 'TEAM0085', '29-01-2020 12:04'),
-('Round320018', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0076', 'TEAM0069', 2, 1, 'TEAM0076', '29-01-2020 13:04'),
-('Round320019', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0086', 'TEAM0083', 5, 1, 'TEAM0086', '29-01-2020 13:04'),
-('Round320020', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0078', 'TEAM0077', 2, 1, 'TEAM0078', '29-01-2020 14:04'),
-('Round320021', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0088', 'TEAM0091', 4, 1, 'TEAM0088', '29-01-2020 15:04'),
-('Round320022', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0062', 'TEAM0090', 4, 1, 'TEAM0062', '29-01-2020 16:04'),
-('Round320023', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0064', 'TEAM0061', 2, 1, 'TEAM0064', '29-01-2020 17:04'),
-('Round320024', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0081', 'TEAM0082', 4, 0, 'TEAM0081', '29-01-2020 18:04'),
-('Round320025', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0072', 'TEAM0092', 5, 1, 'TEAM0072', '29-01-2020 18:04'),
-('Round320026', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0087', 'TEAM0063', 5, 6, 'TEAM0063', '29-01-2020 18:04'),
-('Round320027', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0075', 'TEAM0070', 3, 4, 'TEAM0070', '29-01-2020 19:04'),
-('Round320028', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0074', 'TEAM0067', 5, 8, 'TEAM0067', '29-01-2020 19:04'),
-('Round320029', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0079', 'TEAM0065', 2, 1, 'TEAM0079', '29-01-2020 19:04'),
-('Round320030', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0089', 'TEAM0073', 4, 1, 'TEAM0089', '29-01-2020 19:04'),
-('Round320031', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0071', 'TEAM0068', 1, 2, 'TEAM0068', '29-01-2020 19:04'),
-('Round320032', '92af6ec380dddd2de1614381dc0f151076d12cca', 'TEAM0084', 'TEAM0066', 1, 0, 'TEAM0084', '29-01-2020 19:04');
+('Round320001', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0017', 'TEAM0024', 1, 4, 'TEAM0024', '02-02-2020 06:00'),
+('Round320002', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0029', 'TEAM0009', 2, 1, 'TEAM0029', '02-02-2020 05:00'),
+('Round320003', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0032', 'TEAM0022', 2, 1, 'TEAM0032', ''),
+('Round320004', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0006', 'TEAM0026', 1, 3, 'TEAM0026', ''),
+('Round320005', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0010', 'TEAM0007', 4, 3, 'TEAM0010', ''),
+('Round320006', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0014', 'TEAM0012', 4, 3, 'TEAM0014', ''),
+('Round320007', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0001', 'TEAM0004', 6, 3, 'TEAM0001', ''),
+('Round320008', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0016', 'TEAM0021', 5, 2, 'TEAM0016', ''),
+('Round320009', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0023', 'TEAM0031', 5, 4, 'TEAM0023', ''),
+('Round320010', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0013', 'TEAM0030', 6, 7, 'TEAM0030', ''),
+('Round320011', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0025', 'TEAM0005', 3, 4, 'TEAM0005', ''),
+('Round320012', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0019', 'TEAM0015', 5, 2, 'TEAM0019', ''),
+('Round320013', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0028', 'TEAM0008', 6, 5, 'TEAM0028', ''),
+('Round320014', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0018', 'TEAM0011', 5, 4, 'TEAM0018', ''),
+('Round320015', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0002', 'TEAM0020', 10, 1, 'TEAM0002', ''),
+('Round320016', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'TEAM0003', 'TEAM0027', 1, 7, 'TEAM0027', '');
 
 -- --------------------------------------------------------
 
@@ -8284,16 +8228,10 @@ CREATE TABLE `tournament_semi_finals` (
 --
 
 INSERT INTO `tournament_semi_finals` (`id_semi_finals`, `id_tournament`, `team1`, `team2`, `score1`, `score2`, `winner`, `date`) VALUES
-('SMF0001', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'QTF0001', 'QTF0002', 5, 3, 'TEAM0001', '30-01-2020 05:03'),
-('SMF0002', '4ddcaba134fc204cc0a0706d39baafe5b4cb0642', 'QTF0003', 'QTF0004', 3, 4, 'TEAM0005', '30-01-2020 06:04'),
-('SMF0003', '554215443b64582722e5036add77909df49b766f', 'QTF0005', 'QTF0006', 2, 3, 'TEAM0039', '30-01-2020 08:00'),
-('SMF0004', '554215443b64582722e5036add77909df49b766f', 'QTF0007', 'QTF0008', 4, 2, 'TEAM0041', '30-01-2020 08:00'),
-('SMF0005', '0ba1d704cc75696773462da42107a5685afccdcc', 'QTF0009', 'QTF0010', 1, 3, 'TEAM0055', '31-01-2020 07:00'),
-('SMF0006', '0ba1d704cc75696773462da42107a5685afccdcc', 'QTF0011', 'QTF0012', 3, 1, 'TEAM0053', '30-01-2020 08:00'),
-('SMF0007', 'e0439ada53311022b7871fc2edff65bd51fb58e8', 'TEAM0059', 'TEAM0058', 2, 1, 'TEAM0059', '31-01-2020 02:00'),
-('SMF0008', 'e0439ada53311022b7871fc2edff65bd51fb58e8', 'TEAM0060', 'TEAM0057', 3, 1, 'TEAM0060', '30-01-2020 08:00'),
-('SMF0009', '92af6ec380dddd2de1614381dc0f151076d12cca', 'QTF0013', 'QTF0014', NULL, NULL, NULL, ''),
-('SMF0010', '92af6ec380dddd2de1614381dc0f151076d12cca', 'QTF0015', 'QTF0016', NULL, NULL, NULL, '');
+('SMF0001', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'QTF0001', 'QTF0002', 2, 4, 'TEAM0010', ''),
+('SMF0002', '50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'QTF0003', 'QTF0004', 1, 6, 'TEAM0002', ''),
+('SMF0003', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'QTF0005', 'QTF0006', 4, 1, 'TEAM0046', ''),
+('SMF0004', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'QTF0007', 'QTF0008', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -8314,10 +8252,10 @@ CREATE TABLE `tournament_winner` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Struktur dari tabel `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `user_id` char(128) NOT NULL,
   `username` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
@@ -8333,11 +8271,11 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `password`, `jenis_kelamin`, `email`, `tgl_lahir`, `alamat`, `provinsi`, `kota`, `nomor_hp`, `status`, `is_verified`) VALUES
-('USER0001', 'admin', '$2y$10$EeLSrP.bDd9LAbM2kOZu6.UqoD9EQgtE6we8QpGlJAjJXL1WAaXrC', 'laki-laki', 'asdASD@sad', 18, 'asd', 'asda', 'daasda', 2147483647, 'guest', 0);
+INSERT INTO `users` (`user_id`, `username`, `password`, `jenis_kelamin`, `email`, `tgl_lahir`, `alamat`, `provinsi`, `kota`, `nomor_hp`, `status`, `is_verified`) VALUES
+('USER0001', 'riski', '$2y$10$.dGSLKcXnuheEEgRpEXDbeNo7u3JTDKs2q5zCKKD9KNt7V8j/AZpm', 'laki-laki', 'riskidwiputra1250@gmail.com', 16, 'alamat', 'provinsi', 'kota', 2147483647, 'guest', 1);
 
 --
 -- Indexes for dumped tables
@@ -8458,9 +8396,9 @@ ALTER TABLE `tournament_winner`
   ADD PRIMARY KEY (`id_winner`);
 
 --
--- Indeks untuk tabel `user`
+-- Indeks untuk tabel `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -8489,7 +8427,7 @@ ALTER TABLE `news_game`
 -- AUTO_INCREMENT untuk tabel `portal`
 --
 ALTER TABLE `portal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
