@@ -95,19 +95,69 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="account-first-name">First Name</label>
-                                        <input type="text" class="form-control" value="" name="account-first-name" id="account-first-name" placeholder="Your first name...">
+                                <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="select-default">Tanggal Lahir</label>
+                                    <div class="input-group ">
+                                    <select id="select-default" name="tanggal" class="form-control col-lg-3" required="">
+                                    <option readonly=""  value="" hidden="">Tanggal</option>
+                                    <?php   for ($i=01; $i <= 31 ; $i++) { ?>
+                                        <?php if ($i <= 9){ ?>
+                                        <option value="0<?= $i ?>">0<?= $i ?></option>
+                                        <?php }else{ ?>
+                                        <option value="<?= $i ?>"><?= $i ?></option>
+                                        <?php } ?>
+                                    <?php } ?>
+                                    </select>
+                                    <select  id="select-default" name="bulan" class="form-control col-lg-3" required="">
+                                    <option readonly=""  value="" hidden="">Bulan</option>
+                                    <?php $bulan=array("","Januari","Pebruari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"); ?>
+                                        <?php  for ($i=1;$i<=12;$i++){ ?>
+                                        <option value="<?= $i ?>"><?= $bulan[$i] ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <select  id="select-default" name="tahun" class="form-control col-lg-3" required="">
+                                    <option readonly=""  value="" hidden="">Tahun</option>
+                                    <?php for ($i=2020; $i>=1945 ; $i--) { ?> 
+                                        <option value="<?= $i ?>"><?= $i ?></option>
+                                    <?php } ?>
+                                    
+                                    </select>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="account-last-name">Last Name</label>
-                                        <input type="text" class="form-control" value="" name="account-last-name" id="account-last-name" placeholder="Your last name...">
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="register-name">Provinsi</label>
+                                        <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your provinsi..." required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="register-name">Kota</label>
+                                        <input type="text" name="kota" id="kota" class="form-control" placeholder="Enter your Kota..." required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="register-name">Nomor Hp (Boleh Kosong / Opsional)</label>
+                                        <input type="number" name="nomor" id="nomor" class="form-control" placeholder="Enter your nomor telepon...">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="register-name">Alamat</label>
+                                        <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Enter your Alamat..." required="">
+                                    </div>
+                                </div>  
+                            </div>
+
+
+
 
                             <div class="form-group--submit text-center">
                                 <button type="submit" class="btn btn-primary-inverse">Save all changes</button>
