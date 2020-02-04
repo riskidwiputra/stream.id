@@ -76,9 +76,6 @@
 				WHERE tournament_round16.id_tournament = '$id_tournament'
 				");
 			$data['round16'] = $this->db->resultSet();
-
-			$data['rows16'] = $data['round16'] = $this->db->execute();
-			$data['rows16'] = $this->db->rowCount();
 			
 			$data['round16_1']	= $this->db->query(
 				"SELECT

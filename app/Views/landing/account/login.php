@@ -14,16 +14,18 @@
                         <h4>Login to your Account</h4>
                     </div>
                     <div class="card__content">
-
+                    <div class="col-lg-12">
+							<?php Flasher::flash();?>
+						</div>
                         <!-- Login Form -->
-                        <form action="#">
+                        <form action="<?= BASEURL ?>/login" method="post">
                             <div class="form-group">
                                 <label for="login-name">Your Email</label>
-                                <input type="email" name="login-name" id="login-name" class="form-control" placeholder="Enter your email address...">
+                                <input type="email" name="email" id="login-name" class="form-control" placeholder="Enter your email address..." require="">
                             </div>
                             <div class="form-group">
                                 <label for="login-password">Your Password</label>
-                                <input type="password" name="login-password" id="login-password" class="form-control" placeholder="Enter your password...">
+                                <input type="password" name="password" id="login-password" class="form-control" placeholder="Enter your password..."  require="">
                             </div>
                             <div class="form-group form-group--password-forgot">
                                 <label class="checkbox checkbox-inline">
@@ -33,7 +35,9 @@
                                 <span class="password-reminder">Forgot your password? <a href="#">Click Here</a></span>
                             </div>
                             <div class="form-group form-group--sm">
-                                <a href="_esports_shop-account.html" class="btn btn-primary-inverse btn-lg btn-block">Sign in to your account</a>
+                            <button type="submit" class="btn btn-primary-inverse btn-lg btn-block" >
+                            Sign in to your account
+                            </button>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -59,7 +63,7 @@
                         <h4>Register Now</h4>
                     </div>
 
-                    <div class="card__content">
+                    <div class="card__content" id="data" data-id="<?= BASEURL ?>">
                     <div class="col-lg-12">
 							<?php Flasher::flash();?>
 						</div>
@@ -95,7 +99,7 @@
                             <div class="form-group">
 							<label class="control-label" for="select-default">Tanggal Lahir</label>
                             <div class="input-group ">
-							<select id="select-default" name="tanggal" class="form-control col-lg-3" required="">
+							<select  name="tanggal" class="form-control col-lg-3" required="">
                             <option readonly=""  value="" hidden="">Tanggal</option>
                             <?php   for ($i=01; $i <= 31 ; $i++) { ?>
                                 <?php if ($i <= 9){ ?>
@@ -105,14 +109,14 @@
                                 <?php } ?>
                             <?php } ?>
 							</select>
-							<select  id="select-default" name="bulan" class="form-control col-lg-3" required="">
+							<select   name="bulan" class="form-control col-lg-3" required="">
                             <option readonly=""  value="" hidden="">Bulan</option>
                             <?php $bulan=array("","Januari","Pebruari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"); ?>
                                 <?php  for ($i=1;$i<=12;$i++){ ?>
 								<option value="<?= $i ?>"><?= $bulan[$i] ?></option>
 								<?php } ?>
 							</select>
-							<select  id="select-default" name="tahun" class="form-control col-lg-3" required="">
+							<select   name="tahun" class="form-control col-lg-3" required="">
                             <option readonly=""  value="" hidden="">Tahun</option>
                             <?php for ($i=2020; $i>=1945 ; $i--) { ?> 
 								<option value="<?= $i ?>"><?= $i ?></option>
@@ -125,14 +129,18 @@
                                 <label for="register-name">Alamat</label>
                                 <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Enter your Alamat..." required="">
                             </div>
-                            <div class="form-group">
-                                <label for="register-name">Provinsi</label>
-                                <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your provinsi..." required="">
+                            <div class="form-group" style="position: static;"> 
+                                <label for="Provinsi">Provinsi</label> 
+                                <select class="form-control" name="provinsi" id="provinsi">
+                                <option readonly=""  value="" hidden="">Provinsi</option>
+                                </select> 
                             </div>
-                            <div class="form-group">
-                                <label for="register-name">Kota</label>
-                                <input type="text" name="kota" id="kota" class="form-control" placeholder="Enter your Kota..." required="">
-                            </div>
+                            <div class="form-group" style="position: static;"> 
+                                <label for="Kabupaten">Kabupaten</label> 
+                                <select class="form-control" name="kabupaten" id="kabupaten">
+                                <option readonly=""  value="" hidden="">Kabupaten</option>
+                                </select> 
+                            </div> 
                             <div class="form-group">
                                 <label for="register-name">Nomor Hp (Boleh Kosong / Opsional)</label>
                                 <input type="number" name="nomor" id="nomor" class="form-control" placeholder="Enter your nomor telepon...">

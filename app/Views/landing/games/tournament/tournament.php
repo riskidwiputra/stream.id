@@ -13,7 +13,7 @@
 								<!-- Match Preview --> 
 						<div class="match-preview">		
 							<div class="match-preview__match-info match-preview__match-info--header">
-								<div class="image" ><img src="<?= BASEURL ?>/public/assets/img/tournament/Kompetisi/Mobile-Legend.jpg" style="height: 11rem;" class="card-img-top" alt="..."></div>
+								<div class="image" ><img src="<?= asset(paths('path_home_Kompetisi_0')).$rows['gambar']; ?>" style="height: 11rem;" class="card-img-top" alt="..."></div>
                             </div>
 							<div class="match-preview__content" style="height: 11rem;" >
                                 <ul class="list-unstyled">
@@ -64,7 +64,7 @@
                                         <?php } ?>
                                 
                                     <?php }else{?>  
-                                    <a href="#" class="btn btn-primary-inverse text-center" data-toggle="tooltip" data-placement="top" title="ONCOMING">View</a>
+                                    <a class="btn btn-primary-inverse text-center" data-toggle="tooltip" data-placement="top" title="ONCOMING">View</a>
                                     <?php } ?>
                                 </div>
                     
