@@ -100,12 +100,8 @@
 							<label class="control-label" for="select-default">Date of birth</label>
                             <div class="input-group ">
 
-							<select id="select-default" name="tanggal" class="form-control col-lg-3" required="">
-                            <option readonly=""  value="" hidden="">Date</option>
-
 							<select  name="tanggal" class="form-control col-lg-3" required="">
-                            <option readonly=""  value="" hidden="">Tanggal</option>
-
+                            <option readonly=""  value="" hidden="">Date</option>
                             <?php   for ($i=01; $i <= 31 ; $i++) { ?>
                                 <?php if ($i <= 9){ ?>
                                 <option value="0<?= $i ?>">0<?= $i ?></option>
@@ -114,12 +110,8 @@
                                 <?php } ?>
                             <?php } ?>
 							</select>
-
-							<select  id="select-default" name="bulan" class="form-control col-lg-3" required="">
+							<select name="bulan" class="form-control col-lg-3" required="">
                             <option readonly=""  value="" hidden="">Month</option>
-
-							<select   name="bulan" class="form-control col-lg-3" required="">
-                            <option readonly=""  value="" hidden="">Bulan</option>
 
                             <?php $bulan=array("","Januari","Pebruari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"); ?>
                                 <?php  for ($i=1;$i<=12;$i++){ ?>
@@ -127,12 +119,8 @@
 								<?php } ?>
 							</select>
 
-							<select  id="select-default" name="tahun" class="form-control col-lg-3" required="">
-                            <option readonly=""  value="" hidden="">Year</option>
-
 							<select   name="tahun" class="form-control col-lg-3" required="">
-                            <option readonly=""  value="" hidden="">Tahun</option>
-
+                            <option readonly=""  value="" hidden="">Year</option>
                             <?php for ($i=2020; $i>=1945 ; $i--) { ?> 
 								<option value="<?= $i ?>"><?= $i ?></option>
                             <?php } ?>
@@ -143,15 +131,6 @@
                             <div class="form-group">
                                 <label for="register-name">Address</label>
                                 <textarea class="form-control" name="alamat" id="alamat" placeholder="Enter your Address..." required="" rows="5"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="register-name">Province</label>
-                                <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your province..." required="">
-                            </div>
-                            <div class="form-group">
-                                <label for="register-name">City</label>
-                                <input type="text" name="kota" id="kota" class="form-control" placeholder="Enter your City..." required="">
                             </div>
 
                             <div class="form-group" style="position: static;"> 
