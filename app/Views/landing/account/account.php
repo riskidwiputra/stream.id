@@ -73,6 +73,91 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Jenis Kelamin</label><br>
+                                        <label class="radio radio-inline mr-2">
+                                            <input type="radio" name="jenis_kelamin" id="inlineRadio1" value="laki-laki" checked required=""> Laki-laki
+                                            <span class="radio-indicator"></span>
+                                        </label>
+                                        <label class="radio radio-inline mr-2">
+                                            <input type="radio" name="jenis_kelamin" id="inlineRadio2" value="perempuan" required=""> Perempuan
+                                            <span class="radio-indicator"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="register-name">Your Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address..." required="">
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="select-default">Tanggal Lahir</label>
+                                    <div class="input-group ">
+                                    <select id="select-default" name="tanggal" class="form-control col-lg-3" required="">
+                                    <option readonly=""  value="" hidden="">Tanggal</option>
+                                    <?php   for ($i=01; $i <= 31 ; $i++) { ?>
+                                        <?php if ($i <= 9){ ?>
+                                        <option value="0<?= $i ?>">0<?= $i ?></option>
+                                        <?php }else{ ?>
+                                        <option value="<?= $i ?>"><?= $i ?></option>
+                                        <?php } ?>
+                                    <?php } ?>
+                                    </select>
+                                    <select  id="select-default" name="bulan" class="form-control col-lg-3" required="">
+                                    <option readonly=""  value="" hidden="">Bulan</option>
+                                    <?php $bulan=array("","Januari","Pebruari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"); ?>
+                                        <?php  for ($i=1;$i<=12;$i++){ ?>
+                                        <option value="<?= $i ?>"><?= $bulan[$i] ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <select  id="select-default" name="tahun" class="form-control col-lg-3" required="">
+                                    <option readonly=""  value="" hidden="">Tahun</option>
+                                    <?php for ($i=2020; $i>=1945 ; $i--) { ?> 
+                                        <option value="<?= $i ?>"><?= $i ?></option>
+                                    <?php } ?>
+                                    
+                                    </select>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="register-name">Provinsi</label>
+                                        <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your provinsi..." required="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="register-name">Kota</label>
+                                        <input type="text" name="kota" id="kota" class="form-control" placeholder="Enter your Kota..." required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="register-name">Nomor Hp (Boleh Kosong / Opsional)</label>
+                                        <input type="number" name="nomor" id="nomor" class="form-control" placeholder="Enter your nomor telepon...">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="register-name">Alamat</label>
+                                        <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Enter your Alamat..." required="">
+                                    </div>
+                                </div>  
+                            </div>
+
+
+
 
                             <div class="form-group--submit text-center">
                                 <button type="submit" class="btn btn-primary-inverse">Save all changes</button>
