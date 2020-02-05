@@ -10,6 +10,7 @@ class BracketController extends Controller
 
     public function Bracket($url)
     { 
+        if(Session::check('users') == true ){ 
         $data['tournament'] = $this->db->table('tournament')->where('url', $url);
         $url_tournament = $data['tournament']['url'];
         $id_tournament = $data['tournament']['id_tournament'];
@@ -224,6 +225,10 @@ class BracketController extends Controller
         $this->view('landing/games/tournament/bracket', $data);
         }	
         $this->view('landing/template/footer' , $data);	
+        }else{
+        redirect('/login');
+        exit;
+        }   
 
     }
 }
