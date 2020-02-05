@@ -46,15 +46,15 @@
         {
             switch ($type) {
                 case FALSE:
-                    return addslashes( $_POST[$name] );
+                    return htmlspecialchars(addslashes( $_POST[$name] ));
                     break;
                 
                 case TRUE:
-                    return htmlentities(trim($_POST[$name]), ENT_QUOTES, 'UTF-8'); 
+                    return htmlspecialchars(htmlentities(trim($_POST[$name]), ENT_QUOTES, 'UTF-8')); 
                     break;
 
                 default: 
-                    return htmlentities(trim($_POST[$name]), ENT_QUOTES, 'UTF-8'); 
+                    return htmlspecialchars(htmlentities(trim($_POST[$name]), ENT_QUOTES, 'UTF-8')); 
                     break;
             } 
         }

@@ -3,8 +3,6 @@
 	
 	Route::get('/', 						'HomeController@index');
 
-	
-
 	// News Game
 	Route::get('/news', 					'NewsController@Index');
 	Route::get('/news/{id}', 				'NewsController@SingleNews');
@@ -52,12 +50,13 @@
 
 	// LOGIN
 	Route::get('/login', 					'AuthController@IndexLogin');
-	Route::get('/register', 				'AuthController@IndexRegister');
+	Route::get('/registrasi', 				'AuthController@IndexRegistrasi');
+	Route::get('/logout', 					'AuthController@Logout');
 
 	// Provinsi 
 	Route::post('/provinsi', 				'AccountController@Provinsi');
 	// Provinsi 
-	Route::post('/kabupaten/{id}', 				'AccountController@Kabupaten');
+	Route::post('/kabupaten/{id}', 			'AccountController@Kabupaten');
 
 	// register
 	Route::post('/register', 				'AuthController@Register');

@@ -5,7 +5,10 @@
 	 */
 	class AuthController extends Controller
 	{
-		
+		public function __construct()
+		{
+			parent::__construct();
+		}
 
 		public function IndexLogin()
 		{ 
@@ -27,6 +30,14 @@
 			exit;
 			}    
 		} 
+		public function IndexRegistrasi()
+		{  
+			$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
+			$data['populared'] = $this->db->resultSet();
+			$this->view('landing/template/header');
+			$this->view('landing/account/registrasi');	
+			$this->view('landing/template/footer' , $data);
+		}
 
 		public function Register()
         { 
@@ -39,5 +50,10 @@
                 exit;
 			}   
 		
-        }
+		}
+		public function Logout()
+		{
+			Session::unset();
+			redirect('/');
+		}
     }
