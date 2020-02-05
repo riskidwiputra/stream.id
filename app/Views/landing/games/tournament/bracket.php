@@ -24,7 +24,7 @@
 													<tr class="tournament-bracket__team<?php if($rows['team1'] == $rows['winner']){ ?> tournament-bracket__team--winner<?php }else{}?> ">
 														<td class="tournament-bracket__inner">
                                                         <a href=""  data-toggle="modal" data-target="#staticBackdrop" class="detail" 
-														data-logo="<?= asset(paths('path_home_LogoTeam_0')).$rows['logo_1']; ?>
+														data-logo="<?= asset(paths('path_home_LogoTeam_0')).$rows['logo_1']; ?>"
 														data-nama="<?= $rows['team_1'] ?>"
 														data-nama_kota="<?= $rows['nama_kota_1'] ?>"
 														><figure class="tournament-bracket__team-thumb">
