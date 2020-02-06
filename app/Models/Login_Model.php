@@ -11,7 +11,7 @@
 		
             
 			if (empty($email) || empty($password)) {
-				Flasher::setFlash('<b>Form</b> must be filled', 'danger');
+				Flasher::setFlashLogin('<b>Form</b> must be filled', 'danger');
 				return false;
 			} else { 
 				
@@ -20,14 +20,14 @@
 				];
 					
 				if (date('d-m-Y H:i:s') < Session::get('_login_again')) {
-					Flasher::setFlash('Please login in <span id="timer" style="font-weight:bold;"></span>', 'danger');
+					Flasher::setFlashLogin('Please login in <span id="timer" style="font-weight:bold;"></span>', 'danger');
 					return false;
 				} else {
 					
 					if (Session::get('_fail_login') >= 3) {
 						Session::set('_login_again', date('d-m-Y H:i:s', time() + (60*10) ));
 						Session::unset('_fail_login');
-						Flasher::setFlash('Please login in <span id="timer" style="font-weight:bold;"></span>', 'danger');
+						Flasher::setFlashLogin('Please login in <span id="timer" style="font-weight:bold;"></span>', 'danger');
 						return false;
 					} else {
 						
@@ -49,17 +49,17 @@
 									$this->save_device($dataUsers['user_id']);			
 									return $this->db->rowCount(); 
 								} else {
-									Flasher::setFlash('Your <b>email</b> has not been verified. Please verify your <b>email</b> first', 'danger');
+									Flasher::setFlashLogin('Your <b>email</b> has not been verified. Please verify your <b>email</b> first', 'danger');
 									return false;
 								}
 							} else {
-								Flasher::setFlash('Your <b>password</b> is incorrect', 'danger');
+								Flasher::setFlashLogin('Your <b>password</b> is incorrect', 'danger');
 								Session::set('_fail_login', Session::get('_fail_login')+1);
 								return false;
 							}
 							
 						} else {
-                            Flasher::setFlash('Your <b>account</b> has not been registered', 'danger');
+                            Flasher::setFlashLogin('Your <b>account</b> has not been registered', 'danger');
 							Session::set('_fail_login', Session::get('_fail_login')+1);
 							return false; 
 						}	

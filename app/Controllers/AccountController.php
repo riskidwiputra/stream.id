@@ -13,10 +13,12 @@
 
 		public function account()
 		{ 
+			$id = session::get('users');
 			$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
 			$data['populared'] = $this->db->resultSet();
+			$data['content']   = $this->model('Account_Model')->select($id);
 			$this->view('landing/template/header');
-			$this->view('landing/account/account');	
+			$this->view('landing/account/account', $data);	
 			$this->view('landing/template/footer' , $data);			
 		}
 

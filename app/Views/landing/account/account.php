@@ -12,7 +12,7 @@
                     <div class="card__header">
                         <h4>Personal Information</h4>
                     </div>
-                    <div class="card__content">
+                    <div class="card__content" id="data" data-id="<?= BASEURL ?>">
                         <form action="#" class="df-personal-info">
 
                             <div class="form-group form-group--upload">
@@ -22,7 +22,7 @@
                                             <img src="<?=asset('assets/images/esports/avatar-placeholder-80x80.jpg');?>" alt="">
                                         </figure>
                                         <div class="form-group__label">
-                                            <h6>Name</h6>
+                                            <h6><?= $data['content']['username'] ?></h6>
                                             <span>Min size 80x80px</span>
                                         </div>
                                         <input type="file" style="display: none;">
@@ -33,13 +33,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="account-email">Email <abbr class="required" title="required">*</abbr></label>
-                                        <input type="email" class="form-control" value="" name="account-email" id="account-email" placeholder="lagerthadax@yourmail.com">
+                                        <input type="email" class="form-control" value="<?= $data['content']['email'] ?>" name="account-email" id="account-email" placeholder="lagerthadax@yourmail.com" required="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="account-username">Username</label>
-                                        <input type="text" class="form-control" value="" name="account-username" id="account-username" placeholder="Lagertha Dax">
+                                        <input type="text" class="form-control" value="<?= $data['content']['username'] ?>" name="account-username" id="account-username" placeholder="Lagertha Dax" required="">
                                     </div>
                                 </div>
                             </div>
@@ -61,28 +61,14 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="account-first-name">First Name</label>
-                                        <input type="text" class="form-control" value="" name="account-first-name" id="account-first-name" placeholder="Your first name...">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="account-last-name">Last Name</label>
-                                        <input type="text" class="form-control" value="" name="account-last-name" id="account-last-name" placeholder="Your last name...">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
                                 <div class="form-group">
                                     <label for=""> Gender</label><br>
                                     <label class="radio radio-inline mr-2">
-                                        <input type="radio" name="jenis_kelamin" id="inlineRadio1" value="laki-laki" checked required=""> Male
+                                        <input type="radio" name="jenis_kelamin" id="inlineRadio1" value="laki-laki"<?php if($data['content']['jenis_kelamin'] == 'laki-laki'){?>checked <?php } ?>  required=""> Male
                                         <span class="radio-indicator"></span>
                                     </label>
                                     <label class="radio radio-inline mr-2">
-                                        <input type="radio" name="jenis_kelamin" id="inlineRadio2" value="perempuan" required=""> Female
+                                        <input type="radio" name="jenis_kelamin" id="inlineRadio2" value="perempuan" <?php if($data['content']['jenis_kelamin'] == 'perempuan'){?>checked <?php } ?> required=""> Female
                                         <span class="radio-indicator"></span>
                                     </label>
                                 </div>
@@ -90,7 +76,7 @@
                                 <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="register-name">Your Email</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address..." required="">
+                                    <input type="email" name="email" value="<?= $data['content']['email'] ?>" id="email" class="form-control" placeholder="Enter your email address..." required="">
                                 </div>
                                 </div>
                             </div>
@@ -100,7 +86,9 @@
                                     <label class="control-label" for="select-default">Date of birth</label>
                                     <div class="input-group ">
                                     <select id="select-default" name="tanggal" class="form-control col-lg-3" required="">
-                                    <option readonly=""  value="" hidden="">Date</option>
+                                    <?php $tanggal = date("d",strtotime($data['content']['tgl_lahir'])); ?>
+                                    
+                                    <option readonly=""  value="" hidden=""><?= $tanggal ?></option>
                                     <?php   for ($i=01; $i <= 31 ; $i++) { ?>
                                         <?php if ($i <= 9){ ?>
                                         <option value="0<?= $i ?>">0<?= $i ?></option>
@@ -110,14 +98,16 @@
                                     <?php } ?>
                                     </select>
                                     <select  id="select-default" name="bulan" class="form-control col-lg-3" required="">
-                                    <option readonly=""  value="" hidden="">Month</option>
+                                    <?php $bulan = date("m",strtotime($data['content']['tgl_lahir'])); ?>
+                                    <option readonly=""  value="" hidden=""><?= $bulan ?></option>
                                     <?php $bulan=array("","Januari","Pebruari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"); ?>
                                         <?php  for ($i=1;$i<=12;$i++){ ?>
                                         <option value="<?= $i ?>"><?= $bulan[$i] ?></option>
                                         <?php } ?>
                                     </select>
                                     <select  id="select-default" name="tahun" class="form-control col-lg-3" required="">
-                                    <option readonly=""  value="" hidden="">Year</option>
+                                    <?php $tahun = date("Y",strtotime($data['content']['tgl_lahir'])); ?>
+                                    <option readonly=""  value="" hidden=""><?= $tahun ?></option>
                                     <?php for ($i=2020; $i>=1945 ; $i--) { ?> 
                                         <option value="<?= $i ?>"><?= $i ?></option>
                                     <?php } ?>
@@ -131,38 +121,29 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                     <label for="register-name">Address</label>
-                                <textarea class="form-control" name="alamat" id="alamat" placeholder="Enter your Address..." required="" rows="3"></textarea>
+                                <textarea class="form-control" name="alamat" id="alamat" placeholder="Enter your Address..." required="" rows="3"><?= $data['content']['alamat'] ?></textarea>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="register-name">Province</label>
-                                        <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your province..." required="">
+                                    <div class="form-group" style="position: static;"> 
+                                        <label for="Provinsi">PROVINCE</label> 
+                                        <select class="form-control" name="provinsi" id="provinsi" required="">
+                                        <option  readonly="" value="" hidden=""><?= $data['content']['nama_p'] ?></option>
+
+                                        </select> 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="register-name">Kota</label>
-                                        <input type="text" name="kota" id="kota" class="form-control" placeholder="Enter your city..." required="">
-                                    </div>
+                                    <div class="form-group" style="position: static;"> 
+                                        <label for="Kabupaten">DISTRICT / CITY</label> 
+                                        <select class="form-control" name="kabupaten" id="kabupaten" required="">
+                                        </select> 
+                                    </div> 
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="register-name">Phone Number (May be Empty / Optional)</label>
-                                        <input type="number" name="nomor" id="nomor" class="form-control" placeholder="Enter your phone number...">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="register-name">Address</label>
-                                        <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Enter your address..." required="">
-                                    </div>
-                                </div>  
-                            </div>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -183,13 +164,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                     <label for="register-name">Phone Number (May be Empty / Optional)</label>
-                                    <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your phone number...">
+                                    <input type="text" name="provinsi" value="<?= $data['content']['nomor_hp'] ?>" id="provinsi" class="form-control" placeholder="Enter your phone number...">
                                     </div>
                                 </div> 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                     <label for="register-name">ID Number (May be Empty / Optional)</label>
-                                    <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your ID number...">
+                                    <input type="text" name="provinsi" value="<?= $data['content']['id_number'] ?>"  id="provinsi" class="form-control" placeholder="Enter your ID number...">
                                 </div>
                                 </div>  
                             </div>
@@ -197,7 +178,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="register-name">Username Game (May be Empty / Optional)</label>
-                                        <input type="text" name="provinsi" id="provinsi" class="form-control" placeholder="Enter your username game...">
+                                        <input type="text" name="provinsi" value="<?= $data['content']['username_game'] ?>" id="provinsi" class="form-control" placeholder="Enter your username game...">
                                     </div>
                                 </div> 
                                  
