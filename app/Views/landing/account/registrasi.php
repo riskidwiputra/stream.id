@@ -113,7 +113,7 @@
 							<select name="bulan" class="form-control col-lg-3" required="">
                             <option readonly=""  value="" hidden="">Month</option>
 
-                            <?php $bulan=array("","Januari","Pebruari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"); ?>
+                            <?php $bulan=array("","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"); ?>
                                 <?php  for ($i=1;$i<=12;$i++){ ?>
 								<option value="<?= $i ?>"><?= $bulan[$i] ?></option>
 								<?php } ?>
