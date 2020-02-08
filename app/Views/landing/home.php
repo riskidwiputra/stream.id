@@ -34,7 +34,7 @@
                     </div>
 
                     <!-- LAYER NR. 5 -->
-                    <div class="tp-caption tp-resizeme alc-hero-slider__text rs-parallaxlevel-11" id="slide1-layer5" data-x="['left','left','left','left']" data-hoffset="['780','525','435','320']" data-y="['top','top','top','top']" data-voffset="['385','290','250','210']" data-fontsize="['14','12','11','10']" data-lineheight="['21','18','56','15']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":1000,"frame":"0","from":"rX:90deg;sX:1;sY:1;opacity:0;","to":"o:1;tO:50% 0%;","ease":"Power4.easeOut"},{"delay":"wait","speed":500,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9;">
+                    <div class="tp-caption tp-resizeme alc-hero-slider__text rs-parallaxlevel-11 text-white " id="slide1-layer5" data-x="['left','left','left','left']" data-hoffset="['780','525','435','320']" data-y="['top','top','top','top']" data-voffset="['385','290','250','210']" data-fontsize="['14','12','11','10']" data-lineheight="['21','18','56','15']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":1000,"frame":"0","from":"rX:90deg;sX:1;sY:1;opacity:0;","to":"o:1;tO:50% 0%;","ease":"Power4.easeOut"},{"delay":"wait","speed":500,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9;">
                         The Best Platfom for Gamer
                     </div>
 
@@ -80,7 +80,7 @@
                     </div>
 
                     <!-- LAYER NR. 6 -->
-                    <div class="tp-caption tp-resizeme alc-hero-slider__text rs-parallaxlevel-11" id="slide2-layer6" data-x="['left','left','left','left']" data-hoffset="['120','40','30','20']" data-y="['top','top','top','top']" data-voffset="['315','290','250','175']" data-fontsize="['14','12','11','10']" data-lineheight="['21','18','56','15']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":1000,"frame":"0","from":"rX:90deg;sX:1;sY:1;opacity:0;","to":"o:1;tO:50% 0%;","ease":"Power4.easeOut"},{"delay":"wait","speed":500,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9;">
+                    <div class="tp-caption tp-resizeme alc-hero-slider__text rs-parallaxlevel-11  text-white" id="slide2-layer6" data-x="['left','left','left','left']" data-hoffset="['120','40','30','20']" data-y="['top','top','top','top']" data-voffset="['315','290','250','175']" data-fontsize="['14','12','11','10']" data-lineheight="['21','18','56','15']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":1000,"speed":1000,"frame":"0","from":"rX:90deg;sX:1;sY:1;opacity:0;","to":"o:1;tO:50% 0%;","ease":"Power4.easeOut"},{"delay":"wait","speed":500,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"200","ease":"Power1.easeInOut","to":"o:1;rX:0;rY:0;rZ:0;z:0;"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9;">
                     The Best Platfom for Gamer
                     </div>
 
@@ -779,124 +779,7 @@
                 </aside>
                 <!-- Widget: Latest Results / End -->
 
-                <!-- Widget: Events Calendar -->
-                <aside class="widget card card--no-paddings widget--sidebar widget-event-calendar">
-                    <div class="widget__title card__header">
-                        <h4>Events Calendar</h4>
-                    </div>
-                    <div class="widget__content card__content">
-
-                        <!-- Events Calendar -->
-                        <div class="alc-event-calendar">
-                            <table class="table">
-                                <caption>
-                                    <span class="alc-event-calendar__caption-inner">
-					 <span class="alc-event-calendar__caption-nav alc-event-calendar__caption-nav--prev">
-						 <a href="#" class="alc-event-calendar__caption-nav-link"></a>
-					 </span>
-                                    <span class="alc-event-calendar__caption-title">November 2018</span>
-                                    <span class="alc-event-calendar__caption-nav alc-event-calendar__caption-nav--next">
-						 <a href="#" class="alc-event-calendar__caption-nav-link"></a>
-					 </span>
-                                    </span>
-                                </caption>
-                                <thead>
-                                    <tr>
-                                        <th data-weekday-abbr="Mon"><span class="weekday">Mo</span></th>
-                                        <th data-weekday-abbr="Tue"><span class="weekday">Tu</span></th>
-                                        <th data-weekday-abbr="Wed"><span class="weekday">We</span></th>
-                                        <th data-weekday-abbr="Thu"><span class="weekday">Th</span></th>
-                                        <th data-weekday-abbr="Fri"><span class="weekday">Fr</span></th>
-                                        <th data-weekday-abbr="Sat"><span class="weekday">Sa</span></th>
-                                        <th data-weekday-abbr="Sun"><span class="weekday">Su</span></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><span class="day day--muted">28</span></td>
-                                        <td><span class="day day--muted">29</span></td>
-                                        <td><span class="day day--muted">30</span></td>
-                                        <td><span class="day day--muted">31</span></td>
-                                        <td><span class="day">1</span></td>
-                                        <td><span class="day">2</span></td>
-                                        <td><span class="day">3</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="day">4</span></td>
-                                        <td><span class="day">5</span></td>
-                                        <td><span class="day">6</span></td>
-                                        <td><span class="day">7</span></td>
-                                        <td><span class="day">8</span></td>
-                                        <td>
-                                            <span class="day day--active day--type-1">9</span>
-                                        </td>
-                                        <td><span class="day">10</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="day">11</span></td>
-                                        <td><span class="day">12</span></td>
-                                        <td><span class="day">13</span></td>
-                                        <td><span class="day">14</span></td>
-                                        <td><span class="day">15</span></td>
-                                        <td><span class="day">16</span></td>
-                                        <td><span class="day">17</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="day">18</span></td>
-                                        <td><span class="day">19</span></td>
-                                        <td>
-                                            <span class="day day--active day--type-4">20</span>
-                                        </td>
-                                        <td><span class="day">21</span></td>
-                                        <td><span class="day">22</span></td>
-                                        <td><span class="day">23</span></td>
-                                        <td><span class="day">24</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="day">25</span></td>
-                                        <td><span class="day">26</span></td>
-                                        <td><span class="day">27</span></td>
-                                        <td><span class="day">28</span></td>
-                                        <td><span class="day">29</span></td>
-                                        <td><span class="day">30</span></td>
-                                        <td><span class="day day--muted">1</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- Events Calendar / End -->
-
-                        <!-- Events List -->
-                        <ul class="alc-event-list list-unstyled">
-                            <li class="alc-event-list__item alc-event-list-item alc-event-list-item--type-1">
-                                <div class="alc-event-list-item__header">
-                                    <time class="alc-event-list-item__date">Friday, September 9th</time>
-                                </div>
-                                <div class="alc-event-list-item__body">
-                                    <div class="alc-event-list-item__time">09:00 PM</div>
-                                    <div class="alc-event-list-item__info">
-                                        <h6 class="alc-event-list-item__title"><a href="_esports_event-overview-1a.html">Game Huntress "Inktoon 2" Stream</a></h6>
-                                        <p class="alc-event-list-item__desc">Join me to play the multiplayer</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="alc-event-list__item alc-event-list-item alc-event-list-item--type-4">
-                                <div class="alc-event-list-item__header">
-                                    <time class="alc-event-list-item__date">Tuesday, September 20th</time>
-                                </div>
-                                <div class="alc-event-list-item__body">
-                                    <div class="alc-event-list-item__time">11:00 PM</div>
-                                    <div class="alc-event-list-item__info">
-                                        <h6 class="alc-event-list-item__title"><a href="_esports_event-overview-1b.html">Xenowatch Patch 5.6 Update Release</a></h6>
-                                        <p class="alc-event-list-item__desc">Bug fixes and a new character!</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <!-- Events List / End -->
-                    </div>
-                </aside>
-                <!-- Widget: Events Calendar / End -->
+                
 
             </div>
             <!-- Sidebar / End -->

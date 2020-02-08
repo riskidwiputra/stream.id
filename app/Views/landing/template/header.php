@@ -201,11 +201,13 @@
 						
                         <li class="info-block__item info-block__item--shopping-cart js-info-block__item--onclick">
                             <a href="#" class="info-block__link-wrapper">
-                                <svg role="img" class="df-icon df-icon--shopping-cart">
-                                    <use xlink:href="<?= BASEURL ?>/public/assets/images/esports/icons-esports.svg#cart"/>
-                                </svg>
-                                <h6 class="info-block__heading">Your Bag (8 items)</h6>
-                                <span class="info-block__cart-sum">$256,30</span>
+                                <div role="img" class="df-icon">
+                                    <img  src="<?=asset('assets/images/mitra/stream-cash2.png');?>"/>
+                                </div>
+                                
+                                <h6 class="info-block__heading pl-2">Your Bag (8 items)</h6>
+                                <span class="info-block__cart-sum pl-2">IDR 256,30 | P 1000</span>
+                                
                             </a>
                         
                             <!-- Dropdown Shopping Cart -->
