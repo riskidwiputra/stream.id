@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Feb 2020 pada 12.39
+-- Waktu pembuatan: 06 Feb 2020 pada 13.42
 -- Versi server: 10.4.10-MariaDB
 -- Versi PHP: 7.3.12
 
@@ -46,7 +46,9 @@ INSERT INTO `access_logs_users` (`user_id`, `time`, `device`, `ip`, `os`, `brows
 ('USER0001', '03-02-2020 17:59:34', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
 ('USER0001', '03-02-2020 18:00:06', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
 ('USER0001', '05-02-2020 15:27:01', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
-('USER0001', '05-02-2020 17:39:20', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand');
+('USER0001', '05-02-2020 17:39:20', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
+('USER0001', '06-02-2020 15:50:50', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
+('USER0001', '06-02-2020 15:51:06', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand');
 
 -- --------------------------------------------------------
 
@@ -7924,7 +7926,7 @@ INSERT INTO `portal` (`id`, `name`, `content`) VALUES
 (20, 'path_home_Banner_0', 'assets/img/tournament/banner_tournament/'),
 (21, 'path_portal_Users', '../portal_stream.id/public/assets/img/DataUsers/'),
 (22, 'path_home_Users', 'public/assets/img/DataUsers/'),
-(23, 'portal', 'http://localhost/Git/wallet_stream.id');
+(23, 'portal_wallet', 'http://localhost/Git/wallet_stream.id');
 
 -- --------------------------------------------------------
 
@@ -8280,7 +8282,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `jenis_kelamin`, `email`, `tgl_lahir`, `alamat`, `provinsi`, `kota`, `nomor_hp`, `status`, `is_verified`) VALUES
-('USER0001', 'riski', '$2y$10$q1XWp22jVxYPJTe0Z8It9OUUp/xbLKnLjEafU4sdj489vMEfwnmky', 'laki-laki', 'rizkydwiputra1250@gmail.com', '16-2-1999', 'Jl.Karya Kasih', '12', '1271', 2147483647, 'guest', 1);
+('USER0001', 'riski', '$2y$10$CuGZgH261G6/lIAsBuI/Q.3w.z1r4cSV7SaCSE/gV6XvXltQFAvVC', 'laki-laki', 'rizkydwiputra1250@gmail.com', '17-8-2003', 'Jl. Karya Jaya', '12', '1271', 1231413, 'guest', 1),
+('USER0002', 'customer', '$2y$10$CSTPRvBDoocNoE5jiUSdgevw5tudDC/cK7GSw/oz9BGU19.sVqC12', 'laki-laki', 'customer@gmail.com', '15-3-2000', 'Jl. Kampung Jaya', '12', '1271', 0, 'guest', 1),
+('USER0003', 'asdadad', '$2y$10$tPwLUvjYWhVCCOP0AVzpY.Fqgfoy7cMIMUR701K.JLtKy6YETIRiC', 'laki-laki', 'asd@sad', '17-11-2002', 'asdasd', '36', '3602', 0, 'guest', 1);
 
 -- --------------------------------------------------------
 
@@ -8301,7 +8305,8 @@ CREATE TABLE `users_docs` (
 --
 
 INSERT INTO `users_docs` (`user_id`, `id_card`, `image`, `id_number`, `username_game`) VALUES
-('USER0001', '5e3a7bf997b94.jpg', '5e3a7bf998425.jpg', 2147483647, 'rizkydlbs_');
+('USER0001', '5e3bd0b21ea12.jpg', '5e3bd0b21f0a6.jpg', 123143, 'Rizkydlbs'),
+('USER0003', '', '', 0, '');
 
 --
 -- Indexes for dumped tables

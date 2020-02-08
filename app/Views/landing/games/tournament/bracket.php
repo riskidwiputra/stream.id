@@ -252,7 +252,7 @@
 															</div>
 														</td>
 														<td class="tournament-bracket__score">
-															<span class="tournament-bracket__number"><?php if(empty($rows['score1'])){echo " -- ";}else{ echo $rows['score1']; } ?></span>
+															<span class="tournament-bracket__number"><?php if(empty($rows['score2'])){echo " -- ";}else{ echo $rows['score2']; } ?></span>
 														</td>
 													</tr>
 												</tbody>
