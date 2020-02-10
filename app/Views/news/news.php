@@ -20,7 +20,7 @@
                                 </div>
                                 <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" alt=""></a>
                             </figure>
-                            <div class="posts__inner card__content">
+                            <div class="posts__inner card__content" style="height: 13rem;">
                                 <time datetime="2018-08-23" class="posts__date"><?= $row['tanggal'] ?></time>
                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                 <div class="posts__excerpt">

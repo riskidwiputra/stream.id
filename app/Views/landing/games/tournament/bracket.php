@@ -2,11 +2,64 @@
 		================================================== -->
         <div class="site-content">
     <div class="container">
-        
+	<div class="card card--clean">
+					<header class="card__header">
+					<h4>Total Prize Pool = IDR 500.000.000 
+						<button type="button" class="btn btn-info ml-2" data-toggle="modal" data-target=".exampleModalCenter">
+							Detail
+						</button></h4>
+					</header>
+		</div>
         <div class="card card--clean">
 					<header class="card__header">
-						<h4>Tournament Bracket</h4>
+					<h4>Tournament Bracket</h4>
 					</header>
+		</div>
+		
+					<div class="modal fade exampleModalCenter" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content" style="background-color: rgba(97, 205, 255, 0.3);">
+										<div class="modal-header bg-info">
+											<h5 class="modal-title">Prize Pool </h5>
+										</div>
+										<div class="modal-body text-center">
+											<div class="row justify-content-md-center mb-2">
+												<div class="col-6">
+													<div class="input-group">
+														<div class="input-group-prepend">
+														<div class="input-group-text border-0 bg-info text-white" style="font-size: 18px">1<sup>st</sup></div>
+														</div>
+														<input type="text" class="form-control border-0 bg-dark rounded text-white" style="font-size: 14px" disabled="true" value="IDR 150.000.000,00-,">
+													</div>
+												</div>
+												<div class="row justify-content-md-center mt-3 mb-2">
+												<div class="col-6">
+													<div class="input-group">
+														<div class="input-group-prepend">
+														<div class="input-group-text border-0 bg-info text-white" style="font-size: 18px">2<sup>nd</sup></div>
+														</div>
+														<input type="text" class="form-control border-0 bg-dark rounded text-white" style="font-size: 14px" disabled="true" value="IDR 100.000.000,00-,">
+													</div>
+												</div>
+												<div class="col-6">
+													<div class="input-group">
+														<div class="input-group-prepend">
+														<div class="input-group-text border-0 bg-info text-white" style="font-size: 18px">3<sup>th</sup></div>
+														</div>
+														<input type="text" class="form-control border-0 bg-dark rounded text-white" style="font-size: 14px" disabled="true" value="IDR 80.000.000,00-,">
+													</div>
+												</div>
+											</div>
+											</div>
+											
+										</div>
+										<div class="modal-footer bg-info">
+										<h5>Total Prize Pool : IDR 500.000.000,00-,</h5>
+										</div>
+										</div>
+									</div>
+								</div>
+					
 					<div class="card__content">
 		
 						<!-- Brackets -->
@@ -985,24 +1038,48 @@
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
-		<div class="modal-content bg-dark">
-			<div class="modal-header border-success">
+		<div class="modal-content border-0 rounded-circle">
+			<div class="modal-header border-success bg-dark">
 				<p><h4 class="modal-title text-uppercase" id="nama_team"></h4></p>
 			</div>
-			<div class="modal-body border-success">
+			<div class="modal-body border-success bg-dark">
 				<div class="row">
-					<div class="col lg-6 text-center">
+					<div class="col-lg-4 text-center">
 					<div class="image"><img src="<?=asset('assets/images/esports/logos/alchemists-86x98.png');?>" id="image_preview"  style="height: 10rem; width:12rem; padding:10px 0px; margin-top:-11px;" class="card-img-top" alt="..."></div>
 					</div>
-					<div class="col lg-6">
-					<h2 >Nama Kota :</h2>
-					<h3 style="font-size:25px;" id="nama_kota"></h3>
+					<div class="col-lg-8 text-left">
+					<div class="row">
+						<div class="col-4">
+							<div class="list-group list-group-flush" id="list-tab" role="tablist">
+							<a class="list-group-item border-success bg-dark list-group-item-action active"  id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Captain</a>
+							<a class="list-group-item border-success bg-dark list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Member</a>
+							</div>
+						</div>
+						<div class="col-8 border-left border-success">
+							<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><h4 class="pl-2">LordFahdan</h4></div>
+							<div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list"><h4 class="pl-2">
+								Hool<br>
+								Heil<br>
+								Hail<br>
+								Houl<br>
+								</h4>
+							</div>
+							</div>
+						</div>
+						</div>
+					<!-- <h2 >Nama Kota :</h2>
+					<h3 style="font-size:25px;" id="nama_kota"></h3> -->
 				</div>
 			</div>
-			<div class="modal-footer border-success">
+			</div>
+			<div class="modal-footer border-success bg-dark">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+
 <!-- Content / End -->

@@ -320,6 +320,286 @@
                     </div>
 
                 </aside>
+
+                <aside class="widget card widget--sidebar widget-player widget-player--alt">
+                    <div class="widget__title card__header">
+                        <h4>PUBG Mobile Career Stats</h4>
+                    </div>
+                    <div class="widget__content-secondary">
+
+                        <!-- Player Details -->
+                        <div class="widget-player__details">
+
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Rounds</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">1900</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Wins</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">500</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Top 10</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">640</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Kills</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">908</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Headshots</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">708</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Headshots (%)</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">80%</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Most Kills</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">24</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Highest Damage</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">2450</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Average Damage</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">1001.90</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Accuracy</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">35%</span>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                        <!-- Player Details / End -->
+
+                    </div>
+
+                    <div class="widget__content-tertiary widget__content--bottom-decor">
+                        <div class="widget__content-inner">
+                            <div class="widget-player__stats widget-player__stats--center">
+                                <div class="widget-player__stat-item widget-player__stat-item--number-side">
+                                    <div class="widget-player__stat--value widget-player__stat--value-primary">04.89</div>
+                                    <div class="widget-player__stat-inner">
+                                        <div class="widget-player__stat--label">K/D Ratio</div>
+                                        <div class="widget-player__stat--desc">in his career</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+
+
+                <aside class="widget card widget--sidebar widget-player widget-player--alt">
+                    <div class="widget__title card__header">
+                        <h4>Mobile Legends Bang Bang Career Stats</h4>
+                    </div>
+                    <div class="widget__content-secondary">
+
+                        <!-- Player Details -->
+                        <div class="widget-player__details">
+
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Matches</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">602</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">MVP</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">485</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Legendary</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">450</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Maniac</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">305</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Double Kill</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">508</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Savage</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">229</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Triple Kill</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">401</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Highest Damage</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">2450</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">MVP Form Losing Team</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">23</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">KDA</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">21.5%</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Battle Rate</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">71%</span>
+                                </div>
+                            </div><div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Gold/Min</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">931</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Damage To Hero/Min</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">749</span>
+                                </div>
+                            </div>
+                            <div class="widget-player__details__item">
+                                <div class="widget-player__details-desc-wrapper">
+                                    <span class="widget-player__details-holder">
+												<span class="widget-player__details-label">Deaths/Match</span>
+                                    <span class="widget-player__details-desc">in his career</span>
+                                    </span>
+                                    <span class="widget-player__details-value">0.9</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Player Details / End -->
+
+                    </div>
+
+                    <div class="widget__content-tertiary widget__content--bottom-decor">
+                        <div class="widget__content-inner">
+                            <div class="widget-player__stats widget-player__stats--center">
+                                <div class="widget-player__stat-item widget-player__stat-item--number-side">
+                                    <div class="widget-player__stat--value widget-player__stat--value-primary">94.02%</div>
+                                    <div class="widget-player__stat-inner">
+                                        <div class="widget-player__stat--label">Win Rate</div>
+                                        <div class="widget-player__stat--desc">in his career</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+
                 <!-- Widget: Featured Player - Alternative without Image / End -->
 
             </div>
