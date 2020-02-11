@@ -120,7 +120,8 @@
                                     'kota'          => $kota,
                                     'nomor_hp'      => $no_hp,
                                     'status'        => "guest",
-                                    'is_verified'   => 1
+                                    'is_verified'   => 1,
+                                    'created_at'    => date('Y-m-d H:i:s')
                                 ];
                         
                                 $dataDocs = [
@@ -130,10 +131,15 @@
                                     'id_number'     => $id_ktp,
                                     'username_game' => $username_game
                                 ];
-                                var_dump($dataDocs);
+                                $dataBalance = [
+                                    'users_id'  => $buatkode,
+                                    'balance'   => 0
+                                ];  
+                                // var_dump($dataBalance);die;
                 
                                 $this->db->table('users')->insert($data);
                                 $this->db->table('users_docs')->insert($dataDocs);
+                                $this->db->table('balance_users')->insert($dataBalance);
                                 return $this->db->rowCount();
                             }
                 
