@@ -32,7 +32,7 @@
 
                         <!-- Match Preview -->
                         <div class="match-preview">
-                            <section class="match-preview__body" style="height: 22rem;">
+                            <section class="match-preview__body" >
 
                                 <div class="match-preview__match-info match-preview__match-info--header">
                                     <div class="match-preview__match-place"><?= $data['tournament']['nama_kota'] ?></div>
@@ -44,38 +44,38 @@
                                     <div class="match-preview__date"><?= $data['tournament']['nama_kota'] ?></div>
                                     <h3 class="match-preview__title match-preview__title--lg">Round Of 32</h3>
                                 </header>
-                                <div class="match-preview__content">
-
+                                <div class="widget-game-result__main">
+                                    
                                     <!-- 1st Team -->
-                                    <div class="match-preview__team match-preview__team--first">
+                                    <div class="widget-game-result__team widget-game-result__team--first">
 
-                                        <figure class="match-preview__team-logo">
+                                        <figure class="widget-game-result__team-logo">
                                             <img src="<?= asset(paths('path_home_LogoTeam_0')).$rows['logo_1']; ?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name"><?= $rows['team_1'] ?></h5>
-                                        <div class="match-preview__team-info"><?= $rows['nama_kota_1'] ?></div>
+                                        <div class="widget-game-result__team-info">
+                                        <h5 class="widget-game-result__team-name"><?= $rows['team_1'] ?></h5>
+                                        <div class="widget-game-result__team-desc"><?= $rows['nama_kota_1'] ?></div>
+                                        </div>
                                     </div>
                                     <!-- 1st Team / End -->
 
-                                    <div class="match-preview__vs">
-                                        <div class="match-preview__conj">VS</div>
-                                        <div class="match-preview__match-info">
+                                    <div class="widget-game-result__score-wrap">
+                                        <div class="widget-game-result__score">VS</div>
+                                        <div class="widget-game-result__score-label">
                                         <?php $time = date("H:i",strtotime($rows['date'])); ?>
                                             <time class="match-preview__match-time" datetime="2017-08-12 09:00"><?= $time ?> WIB</time>
-                                            <div class="match-preview__match-place"><?= $data['tournament']['alamat'] ?></div>
+                                            <div class="widget-game-result__score-sublabel"><?= $data['tournament']['alamat'] ?></div>
                                         </div>
                                     </div>
 
                                     <!-- 2nd Team -->
-                                    <div class="match-preview__team match-preview__team--second">
-                                        <figure class="match-preview__team-logo">
-
+                                    <div class="widget-game-result__team widget-game-result__team--second">
+                                        <figure class="widget-game-result__team-logo">
                                             <img src="<?= asset(paths('path_home_LogoTeam_0')).$rows['logo_2']; ?>"  alt="">
-
-
                                         </figure>
-                                        <h5 class="match-preview__team-name"><?= $rows['team_2'] ?></h5>
-                                        <div class="match-preview__team-info"><?= $rows['nama_kota_2'] ?></div>
+                                        <div class="widget-game-result__team-info">
+                                        <h5 class="widget-game-result__team-name"><?= $rows['team_2'] ?></h5>
+                                        <div class="widget-game-result__team-desc"><?= $rows['nama_kota_2'] ?></div>
                                     </div>
                                     <!-- 2nd Team / End -->
 
@@ -90,14 +90,15 @@
                                 <div class="col-lg-6 pt-0 text-center">
                                     <h6>LOSS</h6>
                                 </div>
+                               
                             </div> -->
                             <div class="row mb-2 justify-content-center rounded">
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_1'] ?></h5>
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                    <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_1'] ?></div>
                                     <span class="badge <?php if ($rows['team1'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['team1'] != $rows['winner']){?>badge-danger <?php } ?>"><?php if ($rows['team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['team1'] !=$rows['winner']){?> Lose <?php }?></span>
                                 </div>
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_2'] ?></h5>
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_2'] ?></div>
                                     <span class="badge <?php if ($rows['team2'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['team2'] != $rows['winner']){?>badge-danger <?php } ?>"><?php if ($rows['team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['team2'] != $rows['winner']){?> Lose <?php }?></span>
                                 </div>
                             </div>
