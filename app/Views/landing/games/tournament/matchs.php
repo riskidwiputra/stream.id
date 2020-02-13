@@ -89,17 +89,16 @@
                                 </div>
                                 <div class="col-lg-6 pt-0 text-center">
                                     <h6>LOSS</h6>
-                                </div>
-                               
+                                </div>                               
                             </div> -->
                             <div class="row mb-2 justify-content-center rounded">
                                 <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
                                     <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_1'] ?></div>
-                                    <span class="badge <?php if ($rows['team1'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['team1'] != $rows['winner']){?>badge-danger <?php } ?>"><?php if ($rows['team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['team1'] !=$rows['winner']){?> Lose <?php }?></span>
+                                    <span class="badge <?php if ($rows['team1'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['team1'] != $rows['winner']){?>badge-danger <?php } else {} ?>"><?php if ($rows['team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['team1'] !=$rows['winner']){?> Lose <?php  } else {}?></span>
                                 </div>
                                 <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
                                 <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_2'] ?></div>
-                                    <span class="badge <?php if ($rows['team2'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['team2'] != $rows['winner']){?>badge-danger <?php } ?>"><?php if ($rows['team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['team2'] != $rows['winner']){?> Lose <?php }?></span>
+                                    <span class="badge <?php if ($rows['team2'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['team2'] != $rows['winner']){?>badge-danger <?php } else{} ?>"><?php if ($rows['team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['team2'] != $rows['winner']){?> Lose <?php } else {}?></span>
                                 </div>
                             </div>
                             <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if(!empty($rows['winner'])){ ?>badge-success <?php }else{ ?>  <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if( strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if(!empty($rows['winner'])){ ?>FINISH <?php }else{ ?> <?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?><?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
@@ -132,6 +131,7 @@
             </header>
 		</div>
         <div class="row">
+        
         <?php foreach ($data['round16'] as $rows) { ?>
             <div class="col-lg-4">
                 <!-- Widget: Match Announcement -->
@@ -195,11 +195,13 @@
                             <div class="countdown__content text-center">
                             <h3>Verify The Winner</h3>
                             <div class="row mb-2 justify-content-center rounded">
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_1'] ?></h5><span class="badge <?php if ($rows['team1'] == $rows['winner']) {?> badge-danger <?php } else if ($rows['team1'] == !$rows['winner']){?>badge-success <?php } ?>"><?php if ($rows['team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['team1'] == !$rows['winner']){?> Lose <?php }?></span>
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['id_team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_1'] ?></div>
+                                    <span class="badge <?php if ($rows['id_team1'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['id_team1'] != $rows['winner']){?>badge-danger <?php } else {} ?>"><?php if ($rows['id_team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['id_team1'] !=$rows['winner']){?> Lose <?php  } else {}?></span>
                                 </div>
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_2'] ?></h5><span class="badge <?php if ($rows['team2'] == $rows['winner']) {?> badge-danger <?php } else if ($rows['team2'] == !$rows['winner']){?>badge-success <?php } ?>"><?php if ($rows['team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['team2'] == !$rows['winner']){?> Lose <?php }?></span>
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['id_team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                    <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_2'] ?></div>
+                                    <span class="badge <?php if ($rows['id_team2'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['id_team2'] != $rows['winner']){?>badge-danger <?php } else{} ?>"><?php if ($rows['id_team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['id_team2'] != $rows['winner']){?> Lose <?php } else {}?></span>
                                 </div>
                             </div>
                             <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if(!empty($rows['winner'])){ ?>badge-success <?php }else{ ?>  <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if( strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if(!empty($rows['winner'])){ ?>FINISH <?php }else{ ?> <?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?><?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
@@ -390,11 +392,18 @@
                             <div class="countdown__content text-center">
                             <h3>Verify The Winner</h3>
                             <div class="row mb-2 justify-content-center rounded">
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_1'] ?></h5><span class="badge <?php if ($rows['team1'] == $rows['winner']) {?> badge-danger <?php } else if ($rows['team1'] == !$rows['winner']){?>badge-success <?php } ?>"><?php if ($rows['team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['team1'] == !$rows['winner']){?> Lose <?php }?></span>
+                           
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['id_team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                <div class="<?php if(!empty($rows['winner'])){ ?>pb-1<?php } else{ ?>pb-3 <?php } ?>" style="color: #fff; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; <?php if (!empty($rows['winner'])){ ?> font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; <?php }else{ ?> font-weight: 800; line-height: 1.5; letter-spacing: 0.05em; padding-top:4px; <?php  } ?> " ><?= $rows['team_1'] ?></div>
+                                    <?php if (!empty($rows['winner'])){ ?>
+                                    <span class="badge <?php if ($rows['id_team1'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['id_team1'] != $rows['winner']){?>badge-danger <?php } else {} ?>"><?php if ($rows['id_team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['id_team1'] !=$rows['winner']){?> Lose <?php  } else {}?></span>
+                                    <?php } ?>
                                 </div>
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_2'] ?></h5><span class="badge <?php if ($rows['team2'] == $rows['winner']) {?> badge-danger <?php } else if ($rows['team2'] == !$rows['winner']){?>badge-success <?php } ?>"><?php if ($rows['team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['team2'] == !$rows['winner']){?> Lose <?php }?></span>
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['id_team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                    <div class="<?php if(!empty($rows['winner'])){ ?>pb-1<?php } else{ ?>pb-3 <?php } ?>" style="color: #fff; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; <?php if (!empty($rows['winner'])){ ?> font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; <?php }else{ ?>font-weight: 800; line-height: 1.5; letter-spacing: 0.05em; padding-top:4px;    <?php  } ?> " ><?= $rows['team_2'] ?></div>
+                                    <?php if (!empty($rows['winner'])){ ?>
+                                    <span class="badge <?php if ($rows['id_team2'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['id_team2'] != $rows['winner']){?>badge-danger <?php } else{} ?>"><?php if ($rows['id_team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['id_team2'] != $rows['winner']){?> Lose <?php } else {}?></span>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if(!empty($rows['winner'])){ ?>badge-success <?php }else{ ?>  <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if( strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if(!empty($rows['winner'])){ ?>FINISH <?php }else{ ?> <?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?><?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
@@ -579,11 +588,13 @@
                             <div class="countdown__content text-center">
                             <h3>Verify The Winner</h3>
                             <div class="row mb-2 justify-content-center rounded">
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_1'] ?></h5><span class="badge <?php if ($rows['team1'] == $rows['winner']) {?> badge-danger <?php } else if ($rows['team1'] == !$rows['winner']){?>badge-success <?php } ?>"><?php if ($rows['team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['team1'] == !$rows['winner']){?> Lose <?php }?></span>
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['id_team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_1'] ?></div>
+                                    <span class="badge <?php if ($rows['id_team1'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['id_team1'] != $rows['winner']){?>badge-danger <?php } else {} ?>"><?php if ($rows['id_team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['id_team1'] !=$rows['winner']){?> Lose <?php  } else {}?></span>
                                 </div>
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_2'] ?></h5><span class="badge <?php if ($rows['team2'] == $rows['winner']) {?> badge-danger <?php } else if ($rows['team2'] == !$rows['winner']){?>badge-success <?php } ?>"><?php if ($rows['team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['team2'] == !$rows['winner']){?> Lose <?php }?></span>
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['id_team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                    <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_2'] ?></div>
+                                    <span class="badge <?php if ($rows['id_team2'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['id_team2'] != $rows['winner']){?>badge-danger <?php } else{} ?>"><?php if ($rows['id_team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['id_team2'] != $rows['winner']){?> Lose <?php } else {}?></span>
                                 </div>
                             </div>
                             <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?> <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
@@ -769,11 +780,13 @@
                             <div class="countdown__content text-center">
                             <h3>Verify The Winner</h3>
                             <div class="row mb-2 justify-content-center rounded">
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_1'] ?></h5><span class="badge <?php if ($rows['team1'] == $rows['winner']) {?> badge-danger <?php } else if ($rows['team1'] == !$rows['winner']){?>badge-success <?php } ?>"><?php if ($rows['team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['team1'] == !$rows['winner']){?> Lose <?php }?></span>
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['id_team1'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_1'] ?></div>
+                                    <span class="badge <?php if ($rows['id_team1'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['id_team1'] != $rows['winner']){?>badge-danger <?php } else {} ?>"><?php if ($rows['id_team1'] == $rows['winner']) {?> Winner <?php } else if ($rows['id_team1'] !=$rows['winner']){?> Lose <?php  } else {}?></span>
                                 </div>
-                                <div class="col-lg-6 pt-2 text-center border border-secondary <?php if($rows['team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
-                                    <h5><?= $rows['team_2'] ?></h5><span class="badge <?php if ($rows['team2'] == $rows['winner']) {?> badge-danger <?php } else if ($rows['team2'] == !$rows['winner']){?>badge-success <?php } ?>"><?php if ($rows['team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['team2'] == !$rows['winner']){?> Lose <?php }?></span>
+                                <div class="col-6 pt-2 text-center border border-secondary <?php if($rows['id_team2'] == $rows['winner']){ ?>bg-success<?php }else{}?>">
+                                    <div class="pb-1" style="color: #fff; font-weight: 700; line-height: 1.2; text-transform: uppercase; font-family: 'Roboto Condensed', sans-serif; letter-spacing: -0.02em; " ><?= $rows['team_2'] ?></div>
+                                    <span class="badge <?php if ($rows['id_team2'] == $rows['winner']) {?> badge-warning <?php } else if ($rows['id_team2'] != $rows['winner']){?>badge-danger <?php } else{} ?>"><?php if ($rows['id_team2'] == $rows['winner']) {?> Winner <?php } else if ($rows['id_team2'] != $rows['winner']){?> Lose <?php } else {}?></span>
                                 </div>
                             </div>
                             <span class="badge <?php if(strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if(!empty($rows['winner'])){ ?>badge-success <?php }else{ ?>  <?php if ($data['tournament']['status'] == "pending") { ?> badge-danger <?php } else if ($data['tournament']['status'] == "starting"){?>badge-warning <?php }else if ($data['tournament']['status'] == "complete") {?>badge-success <?php } ?><?php } ?><?php }else{ ?> badge-danger <?php } ?>  " style="font-size:15px; line-height:100%; margin-top:3px;"><?php if( strtotime(date('d-m-Y H:i')) >= strtotime($rows['date'])){ ?><?php if(!empty($rows['winner'])){ ?>FINISH <?php }else{ ?> <?php if ($data['tournament']['status'] == "pending") {?> ONCOMING <?php } else if ($data['tournament']['status'] == "starting"){?> ONGOING <?php }else if ($data['tournament']['status'] == "complete") {?> FINISH <?php } ?><?php } ?> <?php }else{ ?> ONCOMING <?php } ?>  </span>
