@@ -7,7 +7,7 @@
 		{
             
             $hash			= filter_var(str_replace('/' , '', base64_encode(md5(rand(0,999999999)).sha1(rand(0,999999999)))), FILTER_SANITIZE_URL);
-            $buatkode       = rand(999,999999999);
+            $buatkode       = $this->ctr->buatKode('users','USER','user_id');
             $username       = $this->ctr->post('username');
             $email          = $this->ctr->post('email');
             $password       = $this->ctr->post('password');
@@ -20,6 +20,7 @@
             $provinsi       = $this->ctr->post('provinsi'); 
             $kota           = $this->ctr->post('kabupaten'); 
             $no_hp          = $this->ctr->post('nomor_hp'); 
+            // $id     
             $tangal_lahir   = $tanggal ."-". $bulan. "-". $tahun ;
             
             // Gambar Ktp 

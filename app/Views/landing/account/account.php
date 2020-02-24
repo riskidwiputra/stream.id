@@ -6,7 +6,9 @@
         <div class="row">
 
             <div class="col-lg-8">
-
+            <div class="col-lg-12">
+							<?php Flasher::flash();?>
+			</div>
                 <!-- Personal Information -->
                 <div class="card">
                     <div class="card__header">
