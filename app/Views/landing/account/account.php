@@ -6,13 +6,14 @@
         <div class="row">
 
             <div class="col-lg-8">
-            <div class="col-lg-12">
-							<?php Flasher::flash();?>
-			</div>
+           
                 <!-- Personal Information -->
                 <div class="card">
                     <div class="card__header">
                         <h4>Personal Information</h4>
+                    </div>
+                    <div class="col-lg-12">
+							<?php Flasher::flash();?>
                     </div>
                     <div class="card__content" id="data" data-id="<?= BASEURL ?>">
                     <form action="<?= url('update-account/').$data['content']['user_id'];?>" method="post" enctype="multipart/form-data">

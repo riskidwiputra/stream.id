@@ -59,6 +59,9 @@
             $gambar2        = $_FILES['foto']['name'];
             $source2        = $_FILES['foto']['tmp_name'];
 
+            $folder         = paths('path_portal_Users'); 
+            $folder2        = paths('path_home_Users');
+            
             $ekstensiGambarValid2 = ['jpg','jpeg','png'];
             $ekstensiGambar2 = explode('.', $gambar2);
             $ekstensiGambar2 = strtolower(end($ekstensiGambar2));
