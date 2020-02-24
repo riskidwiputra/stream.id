@@ -122,14 +122,11 @@
                         <ul class="nav-account">
                         <?php if(Session::check('users') == true ){ ?> 
                         <li class="nav-account__item"><a href="<?= BASEURL ?>/account">My Account</a></li>
+                        <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/logout">Logout</a></li>
                         <?php }else{ ?>
-                        <?php } ?>
                             <li class="nav-account__item"><a href="<?= BASEURL ?>/login">Login</a></li>
-                            <?php if(Session::check('users') == true ){ ?> 
-                            <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/logout">Logout</a></li>
-                            <?php }else{ ?>
                             <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/registrasi">Registrasi</a></li>
-                            <?php } ?>
+                        <?php } ?>
                         </ul>
                         <!-- Account Navigation / End -->
                     </div>
