@@ -26,14 +26,16 @@
 			$no_hp				= $this->ctr->post('no_hp'); 
 			$username_game		= $this->ctr->post('username_game'); 
 
-			$folder         = paths('path_portal_Users'); 
-			$folder2        = paths('path_home_Users');
+		
 			
 			
 			if (!empty($_FILES['gambar_ktp']['name'])) {
 			
 				$foto         = $_FILES['gambar_ktp']['name'];
 				$source         = $_FILES['gambar_ktp']['tmp_name'];
+
+				$folder         = paths('path_portal_Users'); 
+				$folder2        = paths('path_home_Users');
 		
 				$ekstensiGambarValid = ['jpg','jpeg','png'];
 				$ekstensiGambar = explode('.', $foto);
@@ -78,6 +80,9 @@
 				}   
 				 // // Foto diri
 				if (!empty($_FILES['foto']['name'])) {
+					
+					$folder         = paths('path_portal_Users'); 
+					$folder2        = paths('path_home_Users');
 					
 					$gambar2        = $_FILES['foto']['name'];
 					$source2        = $_FILES['foto']['tmp_name'];
