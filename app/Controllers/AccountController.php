@@ -17,6 +17,7 @@
 			$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
 			$data['populared'] = $this->db->resultSet();
 			$data['content']   = $this->model('Account_Model')->select($id);
+			// 	
 			$this->view('landing/template/header');
 			$this->view('landing/account/account', $data);	
 			$this->view('landing/template/footer' , $data);			
@@ -43,5 +44,16 @@
             $data[] = array("id_kab" => $row['id_kab'], "nama" => $row['nama']);
             }
             echo json_encode($data);
-        }
+		}
+		public function Update($id){
+			if ( $this->model('Account_Model')->update($id) ) {
+                Flasher::setFlash('Data berhasil diupdate' ,'success'); 
+                redirect('/account');
+                exit;
+            } else { 
+                redirect('/account');
+                exit;
+			}   
+			
+		}
     }

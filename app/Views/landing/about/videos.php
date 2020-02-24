@@ -29,7 +29,7 @@
             <div class="post-grid__item post-tag-1 post-tag-4  col-sm-6 col-lg-4">
                 <div class="posts__item posts__item--category-1 posts__item--category-4  card">
                     <figure class="posts__thumb posts__thumb--video">
-                        <a href="https://www.youtube.com/watch?v&#x3D;XE0fU9PCrWE" class="mp_iframe"><img src="<?=asset('assets/images/esports/samples/team-video1.jpg');?>" alt=""></a>
+                        <a href="https://www.youtube.com/watch?v&#x3D;XE0fU9PCrWE" class="mp_iframe"><img src="<?=asset('assets/images/logo.png');?>" alt=""></a>
                     </figure>
                     <div class="posts__inner card__content">
                         <div class="posts__cat">

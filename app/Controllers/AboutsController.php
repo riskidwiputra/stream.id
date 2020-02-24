@@ -9,26 +9,29 @@
 
 		public function contact()
 		{ 
+			$data['content'] = $this->model('About_Model')->selectcontact();
 			$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
 			$data['populared'] = $this->db->resultSet();
 			$this->view('landing/template/header');
-			$this->view('landing/about/contact');	
-			$this->view('landing/template/footer' , $data);			
+			$this->view('landing/about/contact',$data);	
+			$this->view('landing/template/footer', $data);			
 		}
 		public function faqs()
 		{	
+			$data['content'] = $this->model('About_Model')->selectFaq();
 			$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
 			$data['populared'] = $this->db->resultSet();
 			$this->view('landing/template/header');
-			$this->view('landing/about/faqs');	
+			$this->view('landing/about/faqs',$data);	
 			$this->view('landing/template/footer' , $data);	
 		}
 		public function sponsors()
 		{ 
+			$data['content'] = $this->model('About_Model')->selectSponsor();
 			$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
 			$data['populared'] = $this->db->resultSet();
 			$this->view('landing/template/header');
-			$this->view('landing/about/sponsors');	
+			$this->view('landing/about/sponsors',$data);	
 			$this->view('landing/template/footer' , $data);			
 		}
 		public function gallery()

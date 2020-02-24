@@ -79,12 +79,15 @@
 					<div class="col-md-4">
 		
 						<!-- Contat Info -->
+						<?php foreach ($data['content'] as $rows) { ?>
+						
+					
 						<div class="card card--info">
 							<div class="card__header">
 								<h4>Contact Info</h4>
 							</div>
 							<div class="card__content">
-								<p class="mb-0">If you have questions or complaints, please contact us here.</p>
+								<p class="mb-0"><?= $rows['contact_info'] ?></p>
 							</div>
 							<div class="card__footer contact-info">
 								<address class="contact-info__item">
@@ -92,7 +95,7 @@
 										<i class="fa fa-envelope-o"></i>
 									</div>
 									<div class="contact-info__label">
-										<a href="mailto:astreamgaming@gmail.com">streamgaming@gmail.com</a>
+										<a href="mailto:astreamgaming@gmail.com"><?= $rows['email'] ?></a>
 									</div>
 								</address>
 								<address class="contact-info__item">
@@ -100,11 +103,12 @@
 										<i class="fa fa-map-o"></i>
 									</div>
 									<div class="contact-info__label">
-										Medan
+									<?= $rows['location'] ?>
 									</div>
 								</address>
 							</div>
 						</div>
+						<?php } ?>
 						<!-- Contat Info / End -->
 		
 					</div>

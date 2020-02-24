@@ -11,7 +11,7 @@
                 <div class="card">
                 
                     <div class="card__header">
-                        <h4>Login to your Account</h4>
+                        <h4>Login to your Account</h4>  
                     </div>
                     <div class="card__content">
                     <div class="col-lg-12">
@@ -67,6 +67,7 @@
                     <div class="col-lg-12">
 							<?php Flasher::flash();?>
 						</div>
+                        
                         <!-- Register Form -->
                         <form action="<?= url('register');?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">

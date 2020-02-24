@@ -61,6 +61,9 @@
 	// register
 	Route::post('/register', 				'AuthController@Register');
 	Route::post('/login', 					'AuthController@Login');
+
+	// account
+	Route::post('/update-account/{id}', 	'AccountController@Update');
 	// Komentar
 	Route::post('/ambil-komen/{id}', 		'NewsController@GetKomen');
 	Route::post('/tambah-komen/{id}', 		'NewsController@AddKomen'); 

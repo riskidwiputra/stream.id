@@ -7,7 +7,7 @@
 		{
             
             $hash			= filter_var(str_replace('/' , '', base64_encode(md5(rand(0,999999999)).sha1(rand(0,999999999)))), FILTER_SANITIZE_URL);
-            $buatkode       = $this->ctr->buatKode('users','USER','user_id');
+            $buatkode       = rand(999,999999999);
             $username       = $this->ctr->post('username');
             $email          = $this->ctr->post('email');
             $password       = $this->ctr->post('password');
@@ -135,8 +135,8 @@
                                     'users_id'  => $buatkode,
                                     'balance'   => 0
                                 ];  
+                                
                                 // var_dump($dataBalance);die;
-                
                                 $this->db->table('users')->insert($data);
                                 $this->db->table('users_docs')->insert($dataDocs);
                                 $this->db->table('balance_users')->insert($dataBalance);
