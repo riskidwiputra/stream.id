@@ -20879,6 +20879,89 @@ td.team-leader__avg {
   width: 100%;
 }
 
+
+/* Button Click on Match */
+/* Button Click on Match */
+.tournament-bracket__content .tournament-bracket__team2:first-child {
+  width: 100%;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+}
+
+.tournament-bracket__content .tournament-bracket__team2:first-child .tournament-bracket__score {
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+}
+
+.tournament-bracket__content .tournament-bracket__team2:last-child {
+  width: 100%;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .tournament-bracket__content .tournament-bracket__team2:last-child {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+@media (min-width: 992px) {
+  .tournament-bracket__content .tournament-bracket__team2:last-child .tournament-bracket__inner {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .tournament-bracket__content .tournament-bracket__team2:last-child .tournament-bracket__inner {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.tournament-bracket__content .tournament-bracket__team2:last-child .tournament-bracket__code {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.tournament-bracket__team2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #392d49;
+  border: 3px solid #34e95b;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px 0;
+  min-height: 56px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .tournament-bracket__team2 {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1199px) {
+  .tournament-bracket__team2 {
+    padding: 13px;
+  }
+}
+/* End Button Click on Match */
+/* End Button Click on Match */
+
+
 .tournament-bracket__team {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -32206,5 +32289,8 @@ select.form-control {
   margin-top: -50px
 }
 
-
+.scrollable{
+  height: 100px;
+  overflow: scroll;
+}
 /*# sourceMappingURL=maps/style-esports.css.map */

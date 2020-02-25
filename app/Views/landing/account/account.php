@@ -2,12 +2,27 @@
 		================================================== -->
 		<div class="site-content">
     <div class="container">
-   
+
         <div class="row">
 
             <div class="col-lg-8">
-           
-                <!-- Personal Information -->
+
+                <!-- Widget: Trending News -->
+            <aside class="widget widget--sidebar card widget-tabbed">
+							<div class="widget__title card__header">
+								<h4>My Account</h4>
+							</div>
+							<div class="widget__content card__content">
+								<div class="widget-tabbed__tabs">
+									<!-- Widget Tabs -->
+									<ul class="nav nav-tabs nav-justified widget-tabbed__nav" role="tablist">
+										<li class="nav-item"><a href="#data" class="nav-link active" aria-controls="data" role="tab" data-toggle="tab">Personal Information</a></li>
+										<li class="nav-item"><a href="#widget-tabbed-commented" class="nav-link" aria-controls="widget-tabbed-commented" role="tab" data-toggle="tab">My Game</a></li>
+									</ul>
+						
+									<!-- Widget Tab panes -->
+									<div class="tab-content widget-tabbed__tab-content">
+										<!-- Personal Information -->
                 <div class="card">
                     <div class="card__header">
                         <h4>Personal Information</h4>
@@ -191,6 +206,19 @@
                     </div>
                 </div>
                 <!-- Personal Information / End -->
+
+										<!-- Commented -->
+										<div role="tabpanel" class="tab-pane fade" id="widget-tabbed-commented">
+											<h4>Ini Masih Kosong</h4>
+                                        </div>
+                                        <!-- END Commented -->
+
+									</div>
+						
+								
+							
+						</aside>
+						<!-- Widget: Trending News / End -->
             </div>
 
             <div class="col-lg-4">
@@ -600,7 +628,5 @@
             </div>
 
         </div>
-    </div>
-</div>
 
 <!-- Content / End -->

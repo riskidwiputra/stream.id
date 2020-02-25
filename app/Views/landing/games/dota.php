@@ -14,12 +14,15 @@
                         <!-- Player Photo -->
                         <figure class="team-roster__player-img">
                             <div class="team-roster__player-shape effect-duotone effect-duotone--blue team-roster__player-shape--bg2"></div>
-                            <img src="<?=asset('assets/images/esports/bg/Dota2.png');?>" alt="">
+                            <img class="card-img" src="<?=asset('assets/images/esports/bg/Dota2.png');?>" alt="">
+                            
                         </figure>
                         <!-- Player Photo / End-->
 
                         <!-- Player Content -->
                         <div class="team-roster__content">
+                            <div class="team-roster__content-header text-right">Game
+                            </div>
 
                             <!-- Player Details -->
                             <div class="team-roster__player-details">
