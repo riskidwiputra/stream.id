@@ -79,6 +79,7 @@
 				'browser' => Detect::browser(),
 				'brand' => Detect::brand()
 			];
+			
 			$this->db->table('access_logs_users')->insert($dataLog); 
 		}
 

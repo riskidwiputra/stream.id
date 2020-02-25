@@ -114,6 +114,9 @@
 						unlink( paths('path_home_Users').$sql['image'] );
 						}
 					
+					}else{
+						Flasher::setFlash('Gambar Gagal Di upload', 'danger');
+						return false;
 					}
 		
 					if ($uploadGambar && $uploadGambar2 == false ) {
@@ -128,6 +131,7 @@
 					$namaFileBaru2 = $sql['image'];
 					
 				}
+				
 				$data = [
 					'username'		=> $username,
 					'jenis_kelamin'	=> $jenis_kelamin,

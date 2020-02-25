@@ -30,9 +30,9 @@
                                             <?php } ?>
                                         </figure>
                                         <div class="form-group__label">
-                                        <h6><?= $data['content']['username'] ?><?php if($data['content']['status'] == "player"){ ?><i style="color:green; font-size:15px" class="far fa-check-square pl-2"></i><?php }else{} ?></h6>
-                                            <span>Min size 80x80px</span>
-                                            <b><span>ID : <?= $data['content']['user_id'] ?></span></b>
+                                        <h6><?= $data['content']['username'] ?></h6>
+                                            <span style=" font-size:10px"><?= $data['content']['status'] ?><?php if($data['content']['status'] == "player"){ ?><i style="color:green; font-size:10px" class="far fa-check-square pl-2"></i><?php }else{} ?></span>
+                                            <b><span>ID : <?= $data['content']['id'] ?></span></b>
                                         </div>
                                         <input type="file" name="foto" style="display: none;">
                                     </label>
@@ -52,21 +52,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="account-password">Change Password</label>
-                                        <input type="password" class="form-control" value="" name="account-password" id="account-password" placeholder="**********">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="account-password-repeat">Repeat Password</label>
-                                        <input type="password" class="form-control" value="" name="account-password-repeat" id="account-password-repeat" placeholder="**********">
-                                    </div>
-                                </div>
-                            </div> -->
 
                             <div class="row">
                                 <div class="col-md-6">
