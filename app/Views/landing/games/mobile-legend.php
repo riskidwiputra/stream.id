@@ -20,6 +20,8 @@
 
                         <!-- Player Content -->
                         <div class="team-roster__content">
+                            <div class="team-roster__content-header text-right"><a href="#" class="btn btn-default btn-xs card-header__button">Add To My Game</a>
+                            </div>
 
                             <!-- Player Details -->
                             <div class="team-roster__player-details">
