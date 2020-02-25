@@ -52,12 +52,12 @@
 		}
 		public function Update($id){
 			if ( $this->model('Account_Model')->update($id) ) {
-                // Flasher::setFlash('Data berhasil diupdate' ,'success'); 
-                // redirect('/account');
-                // exit;
+                Flasher::setFlash('Data berhasil diupdate' ,'success'); 
+                redirect('/account');
+                exit;
             } else { 
-                // redirect('/account');
-                // exit;
+                redirect('/account');
+                exit;
 			}   
 			
 		}
