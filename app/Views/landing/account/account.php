@@ -27,6 +27,7 @@
                     <div class="card__header">
                         <h4>Personal Information</h4>
                     </div>
+                   
                     <div class="col-lg-12">
 							<?php Flasher::flash();?>
                     </div>
