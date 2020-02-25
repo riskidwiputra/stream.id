@@ -101,15 +101,14 @@
 					$namaFileBaru2 .= $ekstensiGambar2;
 					//  menggabungkan foto yang tadinya dipecah
 					//  Memindahkan foto
-					$uploadGambar  = move_uploaded_file($source2, $folder.$namaFileBaru2);
-					$uploadGambar2 = copy($folder.$namaFileBaru2, $folder2.$namaFileBaru2);
+					$uploadGambar  = move_uploaded_file($source2, $folder2.$namaFileBaru2);
+					$uploadGambar2 = copy($folder2.$namaFileBaru2, $folder.$namaFileBaru2);
 
 					var_dump($uploadGambar);
-					var_dump($uploadGambar2);
+					var_dump($uploadGambar2); 
 					var_dump($folder);
 					var_dump($folder2);
-					var_dump($source2);
-				// 	if ($uploadGambar || $$folder == true ) {
+				// 	if ($uploadGambar) {
 				// 		$where = [
 				// 			'user_id'	=> $id
 				// 		];
