@@ -104,55 +104,60 @@
 					$uploadGambar  = move_uploaded_file($source2, $folder.$namaFileBaru2);
 					$uploadGambar2 = copy($folder.$namaFileBaru2, $folder2.$namaFileBaru2);
 
-					if ($uploadGambar || $uploadGambar2 == true ) {
-						$where = [
-							'user_id'	=> $id
-						];
-						$sql = $this->db->table('users_docs')->selectWhere($where);
-						if (!empty($sql['image'])) {
-						unlink( paths('path_portal_Users').$sql['image'] );
-						unlink( paths('path_home_Users').$sql['image'] );
-						}
+					var_dump($uploadGambar);
+					var_dump($uploadGambar2);
+					var_dump($folder);
+					var_dump($folder2);
+					var_dump($source2);
+				// 	if ($uploadGambar || $$folder == true ) {
+				// 		$where = [
+				// 			'user_id'	=> $id
+				// 		];
+				// 		$sql = $this->db->table('users_docs')->selectWhere($where);
+				// 		if (!empty($sql['image'])) {
+				// 		unlink( paths('path_portal_Users').$sql['image'] );
+				// 		unlink( paths('path_home_Users').$sql['image'] );
+				// 		}
 					
-					}else{
-						Flasher::setFlash('Gambar Gagal Di upload', 'danger');
-						return false;
-					}
+				// 	}else{
+				// 		Flasher::setFlash('Gambar Gagal Di upload', 'danger');
+				// 		return false;
+				// 	}
 		
-					if ($uploadGambar && $uploadGambar2 == false ) {
-						Flasher::setFlash('system error Please contact the administrator', 'danger');
-						return false;
-					}
-				}else{
-					$where = [
-						'user_id'	=> $id
-					];
-					$sql = $this->db->table('users_docs')->selectWhere($where);
-					$namaFileBaru2 = $sql['image'];
+				// 	if ($uploadGambar && $uploadGambar2 == false ) {
+				// 		Flasher::setFlash('system error Please contact the administrator', 'danger');
+				// 		return false;
+				// 	}
+				// }else{
+				// 	$where = [
+				// 		'user_id'	=> $id
+				// 	];
+				// 	$sql = $this->db->table('users_docs')->selectWhere($where);
+				// 	$namaFileBaru2 = $sql['image'];
 					
 				}
 				
-				$data = [
-					'username'		=> $username,
-					'jenis_kelamin'	=> $jenis_kelamin,
-					'email'			=> $email,
-					'tgl_lahir'		=> $tangal_lahir,
-					'alamat'		=> $alamat,
-					'nomor_hp'		=> $no_hp,
-					'updated_at'	=> date('Y-m-d H:i:s')
-				];
-				$dataDocs = [
-					'id_card'		=> $namaFileBaru,
-					'image'			=> $namaFileBaru2,
-					'id_number'		=> $id_number,
-					'username_game'	=> $username_game
-				];
-				$where = [
-					'user_id'		=> $id
-				];
+				// $data = [
+				// 	'username'		=> $username,
+				// 	'jenis_kelamin'	=> $jenis_kelamin,
+				// 	'email'			=> $email,
+				// 	'tgl_lahir'		=> $tangal_lahir,
+				// 	'alamat'		=> $alamat,
+				// 	'nomor_hp'		=> $no_hp,
+				// 	'updated_at'	=> date('Y-m-d H:i:s')
+				// ];
+				// $dataDocs = [
+				// 	'id_card'		=> $namaFileBaru,
+				// 	'image'			=> $namaFileBaru2,
+				// 	'id_number'		=> $id_number,
+				// 	'username_game'	=> $username_game
+				// ];
+				// $where = [
+				// 	'user_id'		=> $id
+				// ];
 				
-				$this->db->table('users')->update($data ,$where);
-				$this->db->table('users_docs')->update($dataDocs ,$where);
-				return $this->db->rowCount();				
+				// $this->db->table('users')->update($data ,$where);
+				// $this->db->table('users_docs')->update($dataDocs ,$where);
+				// return $this->db->rowCount();				
 		}
     }
