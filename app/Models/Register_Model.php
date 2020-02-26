@@ -139,11 +139,17 @@
                                     'users_id'  => $buatkode,
                                     'balance'   => 0
                                 ];  
+
+                                $dataAuthenticate = [
+                                    'users_id' => $buatkode,
+                                    'authenticate'  => ''
+                                ];
                                 
                                 // var_dump($dataBalance);die;
                                 $this->db->table('users')->insert($data);
                                 $this->db->table('users_docs')->insert($dataDocs);
                                 $this->db->table('balance_users')->insert($dataBalance);
+                                $this->db->table('authenticate')->insert($dataAuthenticate);
                                 return $this->db->rowCount();
                             }
                 
