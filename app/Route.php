@@ -10,9 +10,7 @@
 	Route::get('/getnews/{id}', 			'NewsController@GetNews');
 
 	// GAMES
-	Route::get('/dota', 					'GamesController@dota');
-	Route::get('/mobile-legend', 			'GamesController@mobile_legend');
-	Route::get('/pubg-mobile', 				'GamesController@pubg');
+	Route::get('/game/{url}', 				'GamesController@select'); 
 
 	// Games // Tournament
 	Route::get('/tournament', 				'TournamentController@tournament');
