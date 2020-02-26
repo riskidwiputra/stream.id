@@ -1,11 +1,11 @@
-<?php 
-    $name = explode(' ', $data['content']['name']);
-    $name1 = $name[0];
-    $name2 = $name[1];
+<?php  
+$name = explode(' ', $data['content']['name']);
+$name1 = $name[0];
+$name2 = $name[1];
 ?>
 <!-- Content
-  ================================================== -->
-  <div class="site-content">
+================================================== -->
+<div class="site-content">
     <div class="container">
 
         <!-- Single Player -->
@@ -27,9 +27,15 @@
                         <!-- Player Content -->
                         <div class="team-roster__content">
                             <?php if (Session::check('users') == true):?>
+                                <?php if (in_array($data['content']['id_game_list'], $data['users_game'])):?>
                             <div class="team-roster__content-header text-right">
-                                <a href="#" class="btn btn-success btn-outline btn-lg">Add To My Game</a>
-                            </div>
+                                <a href="javascript:void(0);" class="btn btn-success btn-lg"><i class="fa fa-check"></i> Added</a>
+                            </div> 
+                                <?php else:?>
+                            <div class="team-roster__content-header text-right">
+                                <a href="javascript:void(0);" class="btn btn-success btn-outline btn-lg add add-game">Add To My Game</a>
+                            </div> 
+                                <?php endif;?>
                             <?php endif; ?>
 
                             <!-- Player Details -->
@@ -72,118 +78,76 @@
                                         <div class="circular circular--size-80">
                                             <div class="circular__bar" data-percent="90">
                                                 <span class="circular__percents">
-                                                 940
-                                                 <span class="circular__label">User</span>
-                                             </span>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <div class="team-roster__player-stats-circular-bar">
-                                    <div class="circular circular--size-80">
-                                        <div class="circular__bar" data-percent="15">
-                                            <span class="circular__percents">
-                                             15
-                                             <span class="circular__label">Turnament</span>
-                                         </span>
-                                     </div>
-                                 </div>
-                             </div>
-
-                         </div>
-
-                         <div class="team-roster__player-stats-progress-bars">
-
-                            <!-- Progress Stats Table -->
-                            <table class="progress-table progress-table--simple">
-                                <tbody>
-
-                                    <tr>
-                                        <td class="progress-table__title">Player User</td>
-                                        <td class="progress-table__progress-bar">
-                                            <div class="progress progress--lines">
-                                                <div class="progress__bar" style="width: 90%;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    940
+                                                    <span class="circular__label">User</span>
+                                                </span>
                                             </div>
-                                        </td>
-                                        <td class="progress-table__progress-label progress-table__progress-label--highlight">940</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="progress-table__title">Total Turament</td>
-                                        <td class="progress-table__progress-bar">
-                                            <div class="progress progress--lines">
-                                                <div class="progress__bar" style="width: 15%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td class="progress-table__progress-label progress-table__progress-label--highlight">15</td>
-                                    </tr>
+                                        </div>
+                                    </div>
+                                    <div class="team-roster__player-stats-circular-bar">
+                                        <div class="circular circular--size-80">
+                                            <div class="circular__bar" data-percent="15">
+                                                <span class="circular__percents">
+                                                   15
+                                                   <span class="circular__label">Turnament</span>
+                                               </span>
+                                           </div>
+                                       </div>
+                                   </div>
 
-                                </tbody>
-                            </table>
-                            <!-- Progress Stats Table / End -->
+                               </div>
 
-                        </div>
+                               <div class="team-roster__player-stats-progress-bars">
 
-                    </div>
-                    <!-- Player Stats / End -->
-
-                </div>
-                <!-- Player Content / End -->
-
-            </div>
-        </div>
-    </div>
-    <!-- Player / End -->
-
-    <!-- Single Player - General Stats -->
-    <div class="player-general-stats row">
-
-        <div class="player-general-stats__item col-sm-6 col-lg-3">
-            <div class="player-general-stats__card card">
-                <div class="player-general-stats__card-content card__content">
-                    <div class="player-general-stats__icon alc-icon alc-icon--circle alc-icon--sm alc-icon--outline alc-icon--outline-md">
-                        <svg role="img" class="df-icon df-icon--crosshair">
-                            <use xlink:href="<?=asset('assets/images/esports/icons-esports.svg#crosshair');?>" />
-                            </svg>
-                        </div>
-                        <div class="player-general-stats__body">
-                            <h5 class="player-general-stats__value">15</h5>
-                            <div class="player-general-stats__meta">
-                                <h6 class="player-general-stats__label">Turnament</h6>
-                                <div class="player-general-stats__sublabel">in total</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="player-general-stats__item col-sm-6 col-lg-3">
-                <div class="player-general-stats__card card">
-                    <div class="player-general-stats__card-content card__content">
-                        <div class="player-general-stats__icon alc-icon alc-icon--circle alc-icon--sm alc-icon--outline alc-icon--outline-md">
-                            <svg role="img" class="df-icon df-icon--dead-face">
-                                <use xlink:href="<?=asset('assets/images/esports/icons-esports.svg#dead-face');?>" />
-                                </svg>
-                            </div>
-                            <div class="player-general-stats__body">
-                                <h5 class="player-general-stats__value">940</h5>
-                                <div class="player-general-stats__meta">
-                                    <h6 class="player-general-stats__label">User</h6>
-                                    <div class="player-general-stats__sublabel">in total</div>
+                                    <!-- Progress Stats Table -->
+                                    <table class="progress-table progress-table--simple">
+                                        <tbody>
+                                            <tr>
+                                                <td class="progress-table__title">Player User</td>
+                                                <td class="progress-table__progress-bar">
+                                                    <div class="progress progress--lines">
+                                                        <div class="progress__bar" style="width: 90%;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="progress-table__progress-label progress-table__progress-label--highlight">940</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="progress-table__title">Total Turament</td>
+                                                <td class="progress-table__progress-bar">
+                                                    <div class="progress progress--lines">
+                                                        <div class="progress__bar" style="width: 15%;" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="progress-table__progress-label progress-table__progress-label--highlight">15</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Progress Stats Table / End -->
                                 </div>
                             </div>
+                            <!-- Player Stats / End -->
                         </div>
+                        <!-- Player Content / End -->
                     </div>
                 </div>
+            </div>
+            <!-- Player / End -->
+
+            <!-- Single Player - General Stats -->
+            <div class="player-general-stats row">
+
                 <div class="player-general-stats__item col-sm-6 col-lg-3">
                     <div class="player-general-stats__card card">
                         <div class="player-general-stats__card-content card__content">
                             <div class="player-general-stats__icon alc-icon alc-icon--circle alc-icon--sm alc-icon--outline alc-icon--outline-md">
-                                <svg role="img" class="df-icon df-icon--thumbs-up">
-                                    <use xlink:href="<?=asset('assets/images/esports/icons-esports.svg#thumbs-up');?>" />
+                                <svg role="img" class="df-icon df-icon--crosshair">
+                                    <use xlink:href="<?=asset('assets/images/esports/icons-esports.svg#crosshair');?>" />
                                     </svg>
                                 </div>
                                 <div class="player-general-stats__body">
-                                    <h5 class="player-general-stats__value">8627</h5>
+                                    <h5 class="player-general-stats__value">15</h5>
                                     <div class="player-general-stats__meta">
-                                        <h6 class="player-general-stats__label">User Like</h6>
+                                        <h6 class="player-general-stats__label">Turnament</h6>
                                         <div class="player-general-stats__sublabel">in total</div>
                                     </div>
                                 </div>
@@ -194,8 +158,44 @@
                         <div class="player-general-stats__card card">
                             <div class="player-general-stats__card-content card__content">
                                 <div class="player-general-stats__icon alc-icon alc-icon--circle alc-icon--sm alc-icon--outline alc-icon--outline-md">
-                                    <svg role="img" class="df-icon df-icon--gamepad">
-                                        <use xlink:href="<?=asset('assets/images/esports/icons-esports.svg#gamepad');?>" />
+                                    <svg role="img" class="df-icon df-icon--dead-face">
+                                        <use xlink:href="<?=asset('assets/images/esports/icons-esports.svg#dead-face');?>" />
+                                        </svg>
+                                    </div>
+                                    <div class="player-general-stats__body">
+                                        <h5 class="player-general-stats__value">940</h5>
+                                        <div class="player-general-stats__meta">
+                                            <h6 class="player-general-stats__label">User</h6>
+                                            <div class="player-general-stats__sublabel">in total</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="player-general-stats__item col-sm-6 col-lg-3">
+                            <div class="player-general-stats__card card">
+                                <div class="player-general-stats__card-content card__content">
+                                    <div class="player-general-stats__icon alc-icon alc-icon--circle alc-icon--sm alc-icon--outline alc-icon--outline-md">
+                                        <svg role="img" class="df-icon df-icon--thumbs-up">
+                                            <use xlink:href="<?=asset('assets/images/esports/icons-esports.svg#thumbs-up');?>" />
+                                        </svg>
+                                    </div>
+                                    <div class="player-general-stats__body">
+                                        <h5 class="player-general-stats__value">8627</h5>
+                                        <div class="player-general-stats__meta">
+                                            <h6 class="player-general-stats__label">User Like</h6>
+                                            <div class="player-general-stats__sublabel">in total</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="player-general-stats__item col-sm-6 col-lg-3">
+                            <div class="player-general-stats__card card">
+                                <div class="player-general-stats__card-content card__content">
+                                    <div class="player-general-stats__icon alc-icon alc-icon--circle alc-icon--sm alc-icon--outline alc-icon--outline-md">
+                                        <svg role="img" class="df-icon df-icon--gamepad">
+                                            <use xlink:href="<?=asset('assets/images/esports/icons-esports.svg#gamepad');?>" />
                                         </svg>
                                     </div>
                                     <div class="player-general-stats__body">
@@ -218,4 +218,17 @@
             </div>
         </div>
 
-<!-- Content / End -->
+        <!-- Content / End -->
+        <script>
+            $('.add-game').click(function() {
+                $.ajax({
+                    url : '<?=url('add-game/'.$data['content']['id_game_list']);?>',
+                    method : 'POST',
+                    success : function(m){
+                        $('.add').removeClass('btn-outline');
+                        $('.add').html('<i class="fa fa-check"></i> Added</a>');
+                        $('.add').removeClass('add-game');
+                    }
+                });
+            });
+        </script>

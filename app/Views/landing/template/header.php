@@ -1,64 +1,63 @@
-
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
 
     <!-- Basic Page Needs
-       ================================================== -->
-       <title>Stream-Gaming</title>
-       <meta charset="utf-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="description" content="Sports Club, League and News HTML Template">
-       <meta name="author" content="Dan Fisher">
-       <meta name="keywords" content="sports club news HTML template">
+    ================================================== -->
+    <title>Stream-Gaming</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sports Club, League and News HTML Template">
+    <meta name="author" content="Dan Fisher">
+    <meta name="keywords" content="sports club news HTML template">
 
     <!-- Favicons
-       ================================================== -->
-       <link rel="shortcut icon" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.ico">
-       <link rel="apple-touch-icon" sizes="120x120" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.png">
-       <link rel="apple-touch-icon" sizes="152x152" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.png">
+    ================================================== -->
+    <link rel="shortcut icon" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.ico">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.png">
 
     <!-- Mobile Specific Metas
-       ================================================== -->
-       <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    ================================================== -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
 
     <!-- Google Web Fonts
-       ================================================== -->
-       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Roboto+Condensed:400,400i,700,700i" rel="stylesheet">
+    ================================================== -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700|Roboto+Condensed:400,400i,700,700i" rel="stylesheet">
 
     <!-- CSS
-       ================================================== -->
-       <!-- Vendor CSS -->
-       <link href="<?= BASEURL ?>/public/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-       <link href="<?= BASEURL ?>/public/assets/fonts/font-awesome/css/all.min.css" rel="stylesheet">
-       <link href="<?= BASEURL ?>/public/assets/fonts/font-awesome/css/v4-shims.min.css" rel="stylesheet">
-       <link href="<?= BASEURL ?>/public/assets/fonts/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-       <link href="<?= BASEURL ?>/public/assets/vendor/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
-       <link href="<?= BASEURL ?>/public/assets/vendor/slick/slick.css" rel="stylesheet">
+    ================================================== -->
+    <!-- Vendor CSS -->
+    <link href="<?= BASEURL ?>/public/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="<?= BASEURL ?>/public/assets/fonts/font-awesome/css/all.min.css" rel="stylesheet">
+    <link href="<?= BASEURL ?>/public/assets/fonts/font-awesome/css/v4-shims.min.css" rel="stylesheet">
+    <link href="<?= BASEURL ?>/public/assets/fonts/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="<?= BASEURL ?>/public/assets/vendor/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="<?= BASEURL ?>/public/assets/vendor/slick/slick.css" rel="stylesheet">
 
-       <!-- REVOLUTION STYLE SHEETS -->
-       <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/public/assets/vendor/revolution/css/settings.css">
+    <!-- REVOLUTION STYLE SHEETS -->
+    <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/public/assets/vendor/revolution/css/settings.css">
 
-       <!-- REVOLUTION LAYERS STYLES -->
-       <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/public/assets/vendor/revolution/css/layers.css">
+    <!-- REVOLUTION LAYERS STYLES -->
+    <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/public/assets/vendor/revolution/css/layers.css">
 
-       <!-- REVOLUTION NAVIGATION STYLES -->
-       <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/public/assets/vendor/revolution/css/navigation.css">
+    <!-- REVOLUTION NAVIGATION STYLES -->
+    <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/public/assets/vendor/revolution/css/navigation.css">
 
-       <!-- REVEAL ADD-ON FILES -->
-       <link rel='stylesheet' href='<?= BASEURL ?>/public/assets/vendor/revolution-addons/reveal/css/revolution.addon.revealer.css?ver=1.0.0' type='text/css' media='all' />
-       <link rel='stylesheet' href='<?= BASEURL ?>/public/assets/vendor/revolution-addons/reveal/css/revolution.addon.revealer.preloaders.css?ver=1.0.0' type='text/css' media='all' />
+    <!-- REVEAL ADD-ON FILES -->
+    <link rel='stylesheet' href='<?= BASEURL ?>/public/assets/vendor/revolution-addons/reveal/css/revolution.addon.revealer.css?ver=1.0.0' type='text/css' media='all' />
+    <link rel='stylesheet' href='<?= BASEURL ?>/public/assets/vendor/revolution-addons/reveal/css/revolution.addon.revealer.preloaders.css?ver=1.0.0' type='text/css' media='all' />
 
-       <!-- TYPEWRITER ADD-ON FILES -->
-       <link rel='stylesheet' href='<?= BASEURL ?>/public/assets/vendor/revolution-addons/typewriter/css/typewriter.css' type='text/css' media='all' />
+    <!-- TYPEWRITER ADD-ON FILES -->
+    <link rel='stylesheet' href='<?= BASEURL ?>/public/assets/vendor/revolution-addons/typewriter/css/typewriter.css' type='text/css' media='all' />
 
-       <!-- Template CSS-->
-       <link href="<?= BASEURL ?>/public/assets/css/style-esports.css" rel="stylesheet">
+    <!-- Template CSS-->
+    <link href="<?= BASEURL ?>/public/assets/css/style-esports.css" rel="stylesheet">
 
-       <!-- Custom CSS-->
-       <link href="<?= BASEURL ?>/public/assets/css/custom.css" rel="stylesheet">
-       <style>
+    <!-- Custom CSS-->
+    <link href="<?= BASEURL ?>/public/assets/css/custom.css" rel="stylesheet">
+    <style>
         .dropdown-submenu {
 
         }
@@ -69,6 +68,7 @@
             margin-top: -1px;
         }
     </style>
+    <script src="<?=asset('assets/vendor/jquery/jquery.min.js');?>"></script>
     
 
 </head>
@@ -161,11 +161,10 @@
                                             <a class="test" tabindex="-1" href="#">Game List &nbsp;&nbsp;&nbsp;<i class="fas fa-angle-right"></i></a>
                                             <ul class="dropdown-menu main-nav__sub">
                                                 <?php foreach ($data['game-list'] as $game):?>
-                                                <li><a tabindex="-1" href="<?=url('game/'.$game['url']);?>"><?=$game['name'];?></a></li>
+                                                    <li><a tabindex="-1" href="<?=url('game/'.$game['url']);?>"><?=$game['name'];?></a></li>
                                                 <?php endforeach; ?> 
                                             </ul>
                                         </li>
-                                        <li class=""><a href="<?= BASEURL ?>/list-team">Team List</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/tournament">Tournament</a></li>
                                     </ul>
                                 </li>
@@ -196,15 +195,15 @@
 
                         <!-- Header Info Block -->
                         <ul class="info-block info-block--header">
-
+                            <?php if (Session::check('users')):?>
                             <li class="info-block__item info-block__item--shopping-cart js-info-block__item--onclick">
-                                <a href="#" class="info-block__link-wrapper">
+                                <a href="javascript:void(0);" class="info-block__link-wrapper">
                                     <div role="img" class="df-icon">
                                         <img  src="<?=asset('assets/images/mitra/stream-cash2.png');?>"/>
                                     </div>
 
                                     <h6 class="info-block__heading pl-2">Your Bag (8 items)</h6>
-                                    <span class="info-block__cart-sum pl-2">IDR 256,30 | P 1000</span>
+                                    <span class="info-block__cart-sum pl-2">IDR <?=number_format($data['users']['balance'],2,'.',',').',-';?> | P <?=number_format($data['users']['point'],0);?></span>
 
                                 </a>
 
@@ -288,6 +287,7 @@
                                 <!-- Dropdown Shopping Cart / End -->
 
                             </li>
+                            <?php endif;?>
                         </ul>
                         <!-- Header Info Block / End -->
 

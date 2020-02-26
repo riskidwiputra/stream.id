@@ -15,14 +15,14 @@
                         <div class="widget-tabbed__tabs">
                             <!-- Widget Tabs -->
                             <ul class="nav nav-tabs nav-justified widget-tabbed__nav" role="tablist">
-                                <li class="nav-item"><a href="javascript:void(0);" class="nav-link active">PERSONAL INFORMATION</a></li>
-                                <li class="nav-item"><a href="<?=url('my-game');?>" class="nav-link">MY GAME</a></li>
+                                <li class="nav-item"><a href="<?=url('account');?>" class="nav-link">PERSONAL INFORMATION</a></li>
+                                <li class="nav-item"><a href="javascript:void(0);" class="nav-link active">MY GAME</a></li>
                             </ul>
 
                             <!-- Widget Tab panes -->
                             <div class="tab-content widget-tabbed__tab-content">
                                 <!-- Newest -->
-                                <div role="tabpanel" class="tab-pane fade active show" id="personalinformation">
+                                <div role="tabpanel" class="tab-pane fade" id="personalinformation">
                                     <div class="col-lg-12">
                                         <?php Flasher::flash();?>
                                     </div>
@@ -220,7 +220,7 @@
                                             </form>
                                         </div>
                                         <!-- Commented -->
-                                        <div role="tabpanel" class="tab-pane fade" id="mygame">
+                                        <div role="tabpanel" class="tab-pane fade active show" id="mygame">
 
                                             <a href="#" class="btn-social-counter btn-social-counter--twitch" data-toggle="modal" data-target="#dota2">
                                                 <div class="btn-social-counter__icon">

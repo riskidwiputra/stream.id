@@ -11,6 +11,7 @@
 
 	// GAMES
 	Route::get('/game/{url}', 				'GamesController@select'); 
+	Route::post('/add-game/{id_game}',		'GamesController@addGame');
 
 	// Games // Tournament
 	Route::get('/tournament', 				'TournamentController@tournament');
@@ -45,6 +46,7 @@
 	
 	// Account
 	Route::get('/account', 					'AccountController@account');
+	Route::get('/my-game', 					'AccountController@my_game');
 
 	// List Team
 	Route::get('/list-team', 				'ListTeamController@listteam');
