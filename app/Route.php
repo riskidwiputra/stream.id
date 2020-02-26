@@ -47,6 +47,7 @@
 	// Account
 	Route::get('/account', 					'AccountController@account');
 	Route::get('/my-game', 					'AccountController@my_game');
+	Route::post('/update-identity/{id_game}',	'GamesController@update_identity');
 
 	// List Team
 	Route::get('/list-team', 				'ListTeamController@listteam');

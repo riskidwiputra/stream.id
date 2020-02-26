@@ -228,6 +228,7 @@ $name2 = $name[1];
                         $('.add').removeClass('btn-outline');
                         $('.add').html('<i class="fa fa-check"></i> Added</a>');
                         $('.add').removeClass('add-game');
+                        window.location.href = "<?=url('my-game');?>";
                     }
                 });
             });

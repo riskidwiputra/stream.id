@@ -40,7 +40,29 @@
 			$whereGame = [
 				'users_id' => Session::get('users')
 			];
+			$dataInGame = [
+				'id'	=> rand(),
+				'users_id'	=> Session::get('users'),
+				'game_id'	=> $id_game
+			];
+			$this->db->table('identity_ingame')->insert($dataInGame);
 			$this->db->table('users_game')->update($dataGame, $whereGame);
+		}
+
+		public function update_identity($id_game)
+		{
+			if (!empty($this->post('id')) OR !empty($this->post('username'))) {
+				$dataGame = [
+					'id_ingame'	=> $this->post('id'),
+					'username_ingame'	=> $this->post('username')
+				];
+				$whereGame = [
+					'users_id'	=> Session::get('users'),
+					'game_id'	=> $id_game
+				];
+				$checkGame = $this->db->table('identity_ingame')->update($dataGame, $whereGame);				
+			}
+			// print_r($checkGame);
 		}
 		
 	}
