@@ -136,9 +136,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="register-name">Address</label>
-                                                    <textarea class="form-control" name="alamat" id="alamat" value="<?= $data['content']['alamat'] ?>   " placeholder="Enter your Address..." required="" rows="3">
-                                                        <?= $data['content']['alamat'] ?>
-                                                    </textarea>
+                                                    <textarea class="form-control" name="alamat" id="alamat" value="<?= $data['content']['alamat'] ?>   " placeholder="Enter your Address..." required="" rows="3"><?= $data['content']['alamat'];?></textarea>
                                                 </div>
                                             </div>
                                         </div>
