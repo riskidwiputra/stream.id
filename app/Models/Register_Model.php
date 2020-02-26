@@ -20,9 +20,8 @@
             $provinsi       = $this->ctr->post('provinsi'); 
             $kota           = $this->ctr->post('kabupaten'); 
             $no_hp          = $this->ctr->post('nomor_hp'); 
-            // $id     
+            $id             = rand(1,999999999);
             $tangal_lahir   = $tanggal ."-". $bulan. "-". $tahun ;
-            
             // Gambar Ktp 
             if (!empty($_FILES['gambar_ktp']['name'])) {
             $gambar         = $_FILES['gambar_ktp']['name'];
@@ -133,7 +132,8 @@
                                     'id_card'       => $namaFileBaru2,
                                     'image'         => $namaFileBaru,
                                     'id_number'     => $id_ktp,
-                                    'username_game' => $username_game
+                                    'username_game' => $username_game,
+                                    'id'            => $id
                                 ];
                                 $dataBalance = [
                                     'users_id'  => $buatkode,

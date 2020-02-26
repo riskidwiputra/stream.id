@@ -101,10 +101,10 @@
 					$namaFileBaru2 .= $ekstensiGambar2;
 					//  menggabungkan foto yang tadinya dipecah
 					//  Memindahkan foto
-					$uploadGambar  = move_uploaded_file($source2, $folder.$namaFileBaru2);
-					$uploadGambar2 = copy($folder.$namaFileBaru2, $folder2.$namaFileBaru2);
+					$uploadGambar  = move_uploaded_file($source2, $folder2.$namaFileBaru2);
+					$uploadGambar2 = copy($folder2.$namaFileBaru2, $folder.$namaFileBaru2);
 
-					if ($uploadGambar || $uploadGambar2 == true ) {
+					if ($uploadGambar) {
 						$where = [
 							'user_id'	=> $id
 						];
@@ -114,6 +114,9 @@
 						unlink( paths('path_home_Users').$sql['image'] );
 						}
 					
+					}else{
+						Flasher::setFlash('Gambar Gagal Di upload', 'danger');
+						return false;
 					}
 		
 					if ($uploadGambar && $uploadGambar2 == false ) {
@@ -128,6 +131,7 @@
 					$namaFileBaru2 = $sql['image'];
 					
 				}
+				
 				$data = [
 					'username'		=> $username,
 					'jenis_kelamin'	=> $jenis_kelamin,
