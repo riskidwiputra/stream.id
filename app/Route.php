@@ -48,6 +48,9 @@
 	// Account
 	Route::get('/account', 					'AccountController@account');
 
+	// List Team
+	Route::get('/list-team', 				'ListTeamController@listteam');
+
 	// LOGIN
 	Route::get('/login', 					'AuthController@IndexLogin');
 	Route::get('/registrasi', 				'AuthController@IndexRegistrasi');

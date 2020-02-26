@@ -165,6 +165,7 @@
                                             <li><a tabindex="-1" href="<?= BASEURL ?>/pubg-mobile">PUBG Mobile</a></li>
                                             </ul>
                                         </li>
+                                        <li class=""><a href="<?= BASEURL ?>/list-team">Team List</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/tournament">Tournament</a></li>
                                     </ul>
                                 </li>
