@@ -1904,10 +1904,10 @@
 			<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content border-0 rounded-circle">
-						<div class="modal-header border-success bg-dark">
+						<div class="modal-header border-success" style="background-color: #4B3B60;">
 							<p><h4 class="modal-title text-uppercase" id="nama_team"></h4></p>
 						</div>
-						<div class="modal-body border-success bg-dark">
+						<div class="modal-body border-success" style="background-color: #4B3B60;">
 							<div class="row">
 								<div class="col-lg-4 text-center">
 								<div class="image"><img src="<?=asset('assets/images/esports/logos/alchemists-86x98.png');?>" id="image_preview"  style="height: 10rem; width:12rem; padding:10px 0px; margin-top:-11px;" class="card-img-top" alt="..."></div>
@@ -1916,8 +1916,8 @@
 								<div class="row">
 									<div class="col-4">
 										<div class="list-group list-group-flush" id="list-tab" role="tablist">
-										<a class="list-group-item border-success bg-dark list-group-item-action active"  id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><p >CAPTAIN</p></a>
-										<a class="list-group-item border-success bg-dark list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"><p>MEMBER</p></a>
+										<a class="list-group-item border-success list-group-item-action active" style="background-color: #4B3B60;" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><p >CAPTAIN</p></a>
+										<a class="list-group-item border-success list-group-item-action" style="background-color: #4B3B60;" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"><p>MEMBER</p></a>
 										</div>
 									</div>
 									<div class="col-8 border-left border-success">
@@ -1938,7 +1938,7 @@
 							</div>
 						</div>
 						</div>
-						<div class="modal-footer border-success bg-dark">
+						<div class="modal-footer border-success" style="background-color: #4B3B60;">
 							<button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
 						</div>
 					</div>

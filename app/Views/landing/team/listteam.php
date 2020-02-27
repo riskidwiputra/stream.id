@@ -129,20 +129,33 @@
                 <div class="modal fade" id="createteam" tabindex="-1" role="dialog" aria-labelledby="createteamLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content border-0 rounded-circle">
-                                                <div class="modal-header border-success bg-dark">
-                                                <h1>Mobile Legends</h1>
+                                                <div class="modal-header border-success" style="background-color: #4B3B60;">
+                                                	<h1>Create A Team</h1>
+                                                </div>	
+                                                <div class="modal-body border-success" style="background-color: #4B3B60;">
+													<div class="form-group form-group--sm">
+														<label for="billing_address_1">Team Name <abbr class="required" title="required">*</abbr></label>
+														<input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your Team name...">
+													</div>
+													
+													<div class="form-group form-group--sm">
+														<label for="billing_address_1">Choose Game <abbr class="required" title="required">*</abbr></label>
+														<select class="form-control">
+															<option>Mobile Legends</option>
+															<option>PUBG Mobile</option>
+															<option>Dota</option>
+														</select>
+													</div>
+													<div class="form-group form-group--sm">
+														<label for="billing_address_1">Team Description <abbr class="required" title="required">*</abbr></label>
+														<input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your Team description...">
+													</div>
+													<div class="form-group form-group--sm">
+														<label for="billing_address_1">Venue <abbr class="required" title="required">*</abbr></label>
+														<input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your Venue...">
+													</div>
                                                 </div>
-                                                <div class="modal-body border-success bg-dark">
-                                                <div class="form-group form-group--sm">
-											<label for="billing_address_1">Username In Game <abbr class="required" title="required">*</abbr></label>
-											<input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your street address...">
-                                        </div>
-                                        <div class="form-group form-group--sm">
-											<label for="billing_address_1">Id In Game <abbr class="required" title="required">*</abbr></label>
-											<input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your street address...">
-										</div>
-                                                </div>
-                                                <div class="modal-footer border-success bg-dark">
+                                                <div class="modal-footer border-success" style="background-color: #4B3B60;">
                                                     <a href="#" class="btn btn-info btn-outline">Join / Create Team</a>
                                                     <a href="#" class="btn btn-primary">Save</a>
                                                     <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
