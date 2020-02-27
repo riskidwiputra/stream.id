@@ -57,10 +57,10 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content border-0 rounded-circle">
                                                     <form method="post" class="form-identity<?=$game_id;?>">
-                                                        <div class="modal-header border-success bg-dark">
+                                                        <div class="modal-header border-success" style="background-color: #4B3B60;">
                                                             <h1><?=$game['name'];?></h1>  
                                                         </div>
-                                                        <div class="modal-body border-success bg-dark">
+                                                        <div class="modal-body border-success" style="background-color: #4B3B60;">
                                                             <div class="form-group form-group--sm">
                                                                 <label for="username_in_game<?=$game_id;?>">Username In Game <abbr class="required" title="required">*</abbr></label>
                                                                 <input type="text" name="username_in_game" id="username_in_game<?=$game_id;?>" class="form-control username_in_game" placeholder="Enter Username In Game..." value="<?=$identity['username_ingame'];?>" required>
@@ -70,7 +70,7 @@
                                                                 <input type="text" name="id_in_game" id="id_in_game<?=$game_id;?>" class="form-control id_in_game" placeholder="Enter ID In Game..." value="<?=$identity['id_ingame'];?>" required>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer border-success bg-dark">
+                                                        <div class="modal-footer border-success" style="background-color: #4B3B60;">
                                                             <a href="#" class="btn btn-info btn-outline">Join / Create Team</a>
                                                             <button type="submit" class="btn btn-primary">Save</button>
                                                             <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
