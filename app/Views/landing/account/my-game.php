@@ -58,7 +58,7 @@
                                                 <div class="modal-content border-0 rounded-circle">
                                                     <form method="post" class="form-identity<?=$game_id;?>">
                                                         <div class="modal-header border-success" style="background-color: #4B3B60;">
-                                                            <h1><?=$game['name'];?></h1>  
+                                                            <h1 style="padding:0;margin:0;"><?=$game['name'];?></h1>  
                                                         </div>
                                                         <div class="modal-body border-success" style="background-color: #4B3B60;">
                                                             <div class="form-group form-group--sm">
@@ -71,7 +71,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer border-success" style="background-color: #4B3B60;">
-                                                            <a href="#" class="btn btn-info btn-outline">Join / Create Team</a>
+                                                            <a href="<?=url('list-team');?>" class="btn btn-info btn-outline">Join / Create Team</a>
                                                             <button type="submit" class="btn btn-primary">Save</button>
                                                             <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
                                                         </div>
