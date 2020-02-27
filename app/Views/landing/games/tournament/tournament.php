@@ -106,7 +106,11 @@
 								<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Stream Point
 								<span class="radio-indicator"></span>
 							</label>
-						</div>
+                        </div>
+                            <label class="checkbox checkbox-inline">
+                                <input type="checkbox" id="inlineCheckbox1" value="option1"> Term And Condition
+                                <span class="checkbox-indicator"></span>
+                            </label>
                     </div>
                     <div class="modal-footer border-success" style="background-color: #4B3B60;">
                         <a href="#" class="btn btn-info btn-outline">Join</a>
