@@ -8,7 +8,7 @@
 		public function __construct()
 		{
 			parent::__construct();
-		
+
 		}
 		
 		public function Index()
@@ -25,8 +25,19 @@
 			$jumlahData 			= $this->db->single();
 			$limit					= 6;
 			$data['jumlahHalaman'] 	= ceil($jumlahData['jumlah'] / $limit);
+			$data['game-list'] = $this->db->table('game_list')->all();
+			$data['game-list']	= $this->db->resultSet();
+			$data['users'] = $this->db->query('
+				SELECT * FROM users 
+				JOIN users_docs
+				ON users.user_id = users_docs.user_id
+				JOIN balance_users
+				ON users.user_id = balance_users.users_id
+				WHERE users.user_id = "'.Session::get("users").'"
+				');
+			$data['users']	= $this->db->single();  
 			$data['content'] 		= $this->model('News_Model')->select();
-			$this->view('landing/template/header');
+			$this->view('landing/template/header', $data);
 			$this->view('news/news', $data);	
 			$this->view('landing/template/footer', $data);			
 		}
@@ -43,6 +54,17 @@
 			$data['commented'] 		= $this->db->resultSet();
 			$jumlahData 			= $this->db->query("SELECT COUNT(*) AS jumlah FROM news_game");
 			$jumlahData 			= $this->db->single();
+			$data['users'] = $this->db->query('
+				SELECT * FROM users 
+				JOIN users_docs
+				ON users.user_id = users_docs.user_id
+				JOIN balance_users
+				ON users.user_id = balance_users.users_id
+				WHERE users.user_id = "'.Session::get("users").'"
+				');
+			$data['users']	= $this->db->single();  
+			$data['game-list'] = $this->db->table('game_list')->all();
+			$data['game-list']	= $this->db->resultSet();
 			// batas news yang ingin di tampilkan 
 			$limit					= 6;
 			// mengambil angka page 
@@ -53,7 +75,7 @@
 			$data['start_number']	= ($data['page'] > $jumlah_number)? $data['page'] - $jumlah_number : 1;
 			$data['end_number']		= ($data['page'] < ($data['jumlahHalaman'] - $jumlah_number))? $data['page'] + $jumlah_number :$data['jumlahHalaman'];
 
-			$this->view('landing/template/header');
+			$this->view('landing/template/header', $data);
 			$this->view('news/news', $data);	
 			$this->view('landing/template/footer', $data);
 		}
@@ -73,20 +95,32 @@
 			$data['commented'] = $this->db->resultSet();
 			$data['content'] = $this->db->table('news_game')->where('id_news_game', $data['single']['id_news_game']);
 			$data['content'] = $this->db->single();
-			$this->view('landing/template/header');
+			$data['users'] = $this->db->query('
+				SELECT * FROM users 
+				JOIN users_docs
+				ON users.user_id = users_docs.user_id
+				JOIN balance_users
+				ON users.user_id = balance_users.users_id
+				WHERE users.user_id = "'.Session::get("users").'"
+				');
+			$data['users']	= $this->db->single();  
+			$data['game-list'] = $this->db->table('game_list')->all();
+			$data['game-list']	= $this->db->resultSet();
+			$this->view('landing/template/header', $data);
 			$this->view('singleNews/singleNews' ,$data);	
 			$this->view('landing/template/footer', $data);			
 		}
 
 		public function GetNews($id)
 		{
-		$this->model('News_Model')->getData($id);
-		echo json_encode(true);
+			$this->model('News_Model')->getData($id);
+			echo json_encode(true);
 		}
 		public function AddKomen($url)
 		{
 			$data['single'] = $this->db->table('news_game')->where('url', $url);
 			$data['single'] = $this->db->single();
+			
 			$id_news = $data['single']['id_news_game'];
 			$this->model('News_Model')->addkomen($id_news);
 			

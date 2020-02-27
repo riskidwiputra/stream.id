@@ -207,7 +207,7 @@
             <!-- Javascript Files
 	================================================== -->
             <!-- Core JS -->
-            <script src="<?=asset('assets/vendor/jquery/jquery.min.js');?>"></script>
+            <!-- <script src="<?=asset('assets/vendor/jquery/jquery.min.js');?>"></script> -->
             <script src="<?=asset('assets/vendor/jquery/jquery-migrate.min.js"');?>"></script>
             <script src="<?=asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js');?>"></script>
             <script src="<?=asset('assets/js/core.js');?>"></script>

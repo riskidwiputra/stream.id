@@ -10,9 +10,8 @@
 	Route::get('/getnews/{id}', 			'NewsController@GetNews');
 
 	// GAMES
-	Route::get('/dota', 					'GamesController@dota');
-	Route::get('/mobile-legend', 			'GamesController@mobile_legend');
-	Route::get('/pubg-mobile', 				'GamesController@pubg');
+	Route::get('/game/{url}', 				'GamesController@select'); 
+	Route::post('/add-game/{id_game}',		'GamesController@addGame');
 
 	// Games // Tournament
 	Route::get('/tournament', 				'TournamentController@tournament');
@@ -47,6 +46,11 @@
 	
 	// Account
 	Route::get('/account', 					'AccountController@account');
+	Route::get('/my-game', 					'AccountController@my_game');
+	Route::post('/update-identity/{id_game}',	'GamesController@update_identity');
+
+	// List Team
+	Route::get('/list-team', 				'ListTeamController@listteam');
 
 	// LOGIN
 	Route::get('/login', 					'AuthController@IndexLogin');
