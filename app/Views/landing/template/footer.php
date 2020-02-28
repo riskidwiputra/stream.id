@@ -229,8 +229,17 @@
             <script type="text/javascript" src="<?=asset('assets/vendor/revolution/js/extensions/revolution.extension.migration.min.js');?>"></script>
             <script type="text/javascript" src="<?=asset('assets/vendor/revolution/js/extensions/revolution.extension.parallax.min.js');?>"></script>
             <script type="text/javascript" src="<?=asset('assets/vendor/revolution/js/extensions/revolution.extension.slideanims.min.js');?>"></script>
+            <script type="text/javascript" src="<?=asset('assets/vendor/bootbox/bootbox.all.min.js');?>"></script>
 
             <script type="text/javascript">
+                $('.features-lock').click(function() {
+                    var dialog = bootbox.dialog({
+                        message: '<p class="text-center mb-0"><i class="fa fa-lock"></i> Feature is Locked, please verify your NIK / KK!</p>',
+                        closeButton: false
+                    });
+                    setTimeout(function(){ dialog.modal('hide'); }, 3000);
+                });
+
                 var revapi, tpj;
                 (function() {
                     if (!/loaded|interactive|complete/.test(document.readyState)) document.addEventListener("DOMContentLoaded", onLoad);
