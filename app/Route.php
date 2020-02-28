@@ -50,8 +50,9 @@
 	Route::post('/update-identity/{id_game}',	'GamesController@update_identity');
 
 	// List Team
-	Route::get('/list-team', 				'TeamController@list');
+	Route::get('/team', 					'TeamController@list');
 	Route::post('/create-team', 			'TeamController@createteam');
+	Route::post('/join-team/{id_team}', 	'TeamController@join');
 
 	// LOGIN
 	Route::get('/login', 					'AuthController@IndexLogin');

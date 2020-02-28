@@ -37,7 +37,7 @@
 					</li>
 					<li class="team-result-filter__item">
 						<button type="submit" class="btn btn-primary btn-sm card-header__button">Filter a Team</button>
-					</li>
+					</li> 
 					<?php if ($data['users']['status'] == 'player'):?>
 					<li class="team-result-filter__item">
 						<a href="javascript:void(0);" class="btn btn-success btn-outline btn-sm" data-toggle="modal" data-target="#createteam">Create a Team</a>
@@ -61,34 +61,63 @@
 								<th class="team-schedule__compet">Team Description</th>
 								<th class="team-schedule__venue">Venue</th>
 								<th class="team-schedule__prize">Slot</th>
+								<?php if (Session::check('users')):?>
 								<th class="team-schedule__tickets">Action</th>
+								<?php endif;?>
 							</tr>
 						</thead>
 						<tbody>
+							<?php foreach ($data['content'] as $row):
+								$game = $this->db->table('game_list')->where('id_game_list', $row['game_id']);
+								$captain = $this->db->table('users')->where('user_id', $row['leader_id']);
+								$captain = $captain['username'];
+								$slot = $this->db->table('game_list')->where('id_game_list', $row['game_id']);
+								$slot_total = $slot['player_on_team']+$slot['substitute_player'];
+								$slot_space = $this->db->table('team_player')->where('team_id', $row['team_id']);
+								$slot_space2 = explode(',', $slot_space['player_id']);
+								$slot_space3 = explode(',', $slot_space['substitute_id']); 
+								if (empty($slot_space['substitute_id'])) {
+									$slot_space3 = []; 
+								}
+								$slot_space = count($slot_space2)+count($slot_space3);  
+							?>
 							<tr>
-								<td class="team-schedule__date">06 - 12 - 2018</td>
+								<td class="team-schedule__date"><?=date('d - M - Y', strtotime($row['created_at']));?></td>
 								<td class="team-schedule__versus">
 									<div class="team-meta">
 										<figure class="team-meta__logo">
-											<img src="<?=asset('assets/images/samples/logos/lucky_clovers_shield.png"');?>" alt="">
+											<img src="<?=path('path_home_TeamLogo').$row['team_logo'];?>" alt="">
 										</figure>
 										<div class="team-meta__info">
-											<h6 class="team-meta__name">Lucky Clovers</h6>
-											<span class="team-meta__place">Dota 2</span>
+											<h6 class="team-meta__name"><?=$row['team_name'];?></h6>
+											<span class="team-meta__place"><?=$game['name'];?></span>
 										</div>
 									</div>
 								</td>
-								<th class="team-schedule__versus">Zoro</th>
-								<td class="team-schedule__compet">We are the best</td>
-								<td class="team-schedule__venue highlight">Jakarta</td>
-								<td class="team-schedule__prize">4 out of 5 Players</td>
+								<th class="team-schedule__versus"><?=$captain;?></th>
+								<td class="team-schedule__compet"><?=$row['team_description'];?></td>
+								<td class="team-schedule__venue highlight"><?=$row['venue'];?></td>
+								<td class="team-schedule__prize"><?=$slot_space;?> out of <?=$slot_total;?> Players</td>
+								<?php if (Session::check('users')):?>
 								<td class="team-schedule__tickets">
-									<a href="#" class="btn btn-xs btn-default-alt btn-block ">
+									<?php if (in_array( Session::get('users') , $slot_space2 ) OR in_array( Session::get('users') , $slot_space3 )):?>
+									<button class="btn btn-xs btn-default-alt btn-block disabled">
+										Joined
+									</button>	 
+									<?php elseif ($slot_space == $slot_total):?>
+									<button class="btn btn-xs btn-default-alt btn-block disabled">
+										Full
+									</button>	 
+									<?php else:?>
+									<button class="btn btn-xs btn-default-alt btn-block join" data-id="<?=$row['team_id'];?>">
 										Join
-									</a>
+									</button>
+									<?php endif;?>
 								</td>
+								<?php endif;?>
 							</tr>
-							<tr>
+							<?php endforeach; ?>
+							<!-- <tr>
 								<td class="team-schedule__date">06 - 12 - 2019</td>
 								<td class="team-schedule__versus">
 									<div class="team-meta">
@@ -110,7 +139,7 @@
 										Full
 									</a>
 								</td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
 				</div>
@@ -143,12 +172,12 @@
 
 							<div class="form-group form-group--sm">
 								<label for="team_name">Team Name <abbr class="required" title="required">*</abbr></label>
-								<input type="text" name="team_name" class="form-control team_name" placeholder="Enter your Team name...">
+								<input type="text" name="team_name" class="form-control team_name" placeholder="Enter your Team name..." required>
 							</div>
 
 							<div class="form-group form-group--sm">
 								<label for="game">Choose Game <abbr class="required" title="required">*</abbr></label>
-								<select class="form-control game">
+								<select class="form-control game" required>
 									<?php foreach ($data['game-list'] as $game_list):?>
 									<option value="<?=$game_list['id_game_list'];?>"><?=$game_list['name'];?></option>
 									<?php endforeach;?> 
@@ -157,22 +186,22 @@
 
 							<div class="form-group form-group--sm">
 								<label for="team_description">Team Description <abbr class="required" title="required">*</abbr></label>
-								<textarea name="team_description" class="form-control team_description" placeholder="Enter your Team description..."></textarea>
+								<textarea name="team_description" class="form-control team_description" placeholder="Enter your Team description..." required></textarea>
 							</div>
 
 							<div class="form-group form-group--sm">
 								<label for="venue">Venue <abbr class="required" title="required">*</abbr></label>
-								<input type="text" name="venue" class="form-control venue" placeholder="Enter your Venue...">
+								<input type="text" name="venue" class="form-control venue" placeholder="Enter your Venue..." required>
 							</div>
 
 							<div class="form-group form-group--sm">
 								<label for="team_logo">Team Logo <abbr class="required" title="required">*</abbr></label>
-								<input type="file" name="team_logo" class="d-block" id="team_logo">
+								<input type="file" name="team_logo" class="d-block" id="team_logo" required>
 							</div>
 
 						</div>
 						<div class="modal-footer border-success" style="background-color: #4B3B60;"> 
-							<button type="submit" class="btn btn-primary">Create</button>
+							<button type="submit" class="btn btn-primary btn-create">Create</button>
 							<a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
 						</div>
 					</form>
@@ -184,8 +213,11 @@
 </div>
 <script>
 	$('.create-team').submit(function(event) {
+		$('.btn-create').html('Please wait....');
+		$(this).find('.alert').hide('fast');
 		event.stopPropagation();
         event.preventDefault(); 
+        var form_data = new FormData;
         form_data.append('team_name', $(this).find('.team_name').val());
         form_data.append('game', $(this).find('.game option:selected').val());
         form_data.append('team_description', $(this).find('.team_description').val());
@@ -195,13 +227,33 @@
         	url : '<?=url('create-team');?>',
         	method : 'POST',
         	data : form_data,
+        	dataType : 'json',
         	contentType: false,
         	cache: false,
         	processData: false,
         	dateType : 'json',
         	success : function(m){
-        		console.log(m);
+        		if (m.status == true) {
+        			location.reload();
+        		} else {
+        			$('.btn-create').html('Create');
+        			$('#createteam .modal-body').prepend('<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ m.message +'</div>'); 
+        		}
         	}
         });
+	});
+
+	$('.join').click(function() {
+		// alert('join');
+		// $(this).html('Please Wait...');
+		// $(this).addClass('disabled');
+		$.ajax({
+			url : '<?=url('join-team/');?>' + $(this).data('id'),
+			method : 'POST',
+			dataType : 'json',
+			success : function(m){
+				console.log(m);
+			}
+		});
 	});
 </script>

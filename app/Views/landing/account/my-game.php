@@ -71,8 +71,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer border-success" style="background-color: #4B3B60;">
-                                                            <a href="<?=url('list-team');?>" class="btn btn-info btn-outline">Join / Create Team</a>
-                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                            <a href="<?=url('team');?>" class="btn btn-info btn-outline">Join / Create Team</a>
+                                                            <button type="submit" class="btn btn-primary create-team">Save</button>
                                                             <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
                                                         </div>
                                                     </form>
@@ -83,7 +83,7 @@
                                             $('.form-identity<?=$game_id;?>').submit(function(event) {
                                                 event.stopPropagation();
                                                 event.preventDefault();
-                                                $(this).find('button').html('Loading....');
+                                                $('.create-team').html('Loading....');
                                                 $.ajax({
                                                     url : '<?=url('update-identity/'.$game_id);?>',
                                                     method : 'POST',
@@ -91,15 +91,21 @@
                                                         id : $(this).find('.id_in_game').val(),
                                                         username : $(this).find('.username_in_game').val()
                                                     },
+                                                    dataType : 'json',
                                                     success : function(m) { 
                                                         // console.log(m);
-                                                        location.reload();
+                                                        if (m.status == true) {
+                                                            location.reload();
+                                                        } else {
+                                                            $('.create-team').html('Save');
+                                                            $('.modal-body').prepend('<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ m.message +'</div>');
+                                                        }
                                                     }
                                                 });
                                             });
                                         </script> 
                                         <?php endforeach; 
-                                        if (empty($data['content']['game_id'])){
+                                        if (count($data['content']['game_id']) == 0){
                                             echo '<h5 class="text-center">NOT FOUND</h5>';
                                         }
                                         ?>

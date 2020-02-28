@@ -165,7 +165,7 @@
                                                 <?php endforeach; ?> 
                                             </ul>
                                         </li>
-                                        <li class=""><a href="<?= BASEURL ?>/list-team">List Team</a></li>
+                                        <li class=""><a href="<?= BASEURL ?>/team">Team List</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/tournament">Tournament</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/leaderboard">Leaderboard</a></li>
                                     </ul>
@@ -187,12 +187,12 @@
                         <div class="header__primary-spacer"></div>
 
                         <!-- Header Search Form -->
-                        <div class="header-search-form ">
+                        <!-- <div class="header-search-form ">
                             <form action="#" id="mobile-search-form" class="search-form">
                                 <input type="text" class="form-control header-mobile__search-control" value="" placeholder="Enter your search here...">
                                 <button type="submit" class="header-mobile__search-submit"><i class="fa fa-search"></i></button>
                             </form>
-                        </div>
+                        </div> -->
                         <!-- Header Search Form / End -->
 
                         <!-- Header Info Block -->

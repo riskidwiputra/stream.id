@@ -34,8 +34,13 @@
 		public function addGame($id_game)
 		{
 			$game = $this->db->table('users_game')->where('users_id', Session::get('users'));
+			if (empty($game['game_id'])) {
+				$game_id2 = $id_game;
+			} else {
+				$game_id2 = $game['game_id'].','.$id_game;
+			}
 			$dataGame = [
-				'game_id' => $game['game_id'].$id_game.','
+				'game_id' => $game_id2
 			];
 			$whereGame = [
 				'users_id' => Session::get('users')
@@ -50,8 +55,13 @@
 		}
 
 		public function update_identity($id_game)
-		{
-			if (!empty($this->post('id')) OR !empty($this->post('username'))) {
+		{  
+			if (empty($this->post('id')) OR empty($this->post('username'))) {
+				echo json_encode([
+					'status' => false,
+					'message' => 'Input cannot be empty!!'
+				]);
+			} else {
 				$dataGame = [
 					'id_ingame'	=> $this->post('id'),
 					'username_ingame'	=> $this->post('username')
@@ -60,7 +70,8 @@
 					'users_id'	=> Session::get('users'),
 					'game_id'	=> $id_game
 				];
-				$checkGame = $this->db->table('identity_ingame')->update($dataGame, $whereGame);				
+				$checkGame = $this->db->table('identity_ingame')->update($dataGame, $whereGame);	
+				echo json_encode(['status' => true]);			
 			}
 			// print_r($checkGame);
 		}

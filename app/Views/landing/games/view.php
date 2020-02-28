@@ -1,5 +1,5 @@
 <?php  
-$name = explode(' ', $data['content']['name']);
+$name = explode(' ', $data['content']['name']); 
 $name1 = $name[0];
 $name2 = $name[1];
 ?>

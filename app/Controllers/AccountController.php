@@ -57,8 +57,11 @@
 				');
 				$data['users']	= $this->db->single();  
 				$data['content'] = $this->db->table('users_game')->where('users_id', Session::get('users'));  
-				$data['content']['game_id'] = explode(',', $data['content']['game_id']); 
-				array_pop($data['content']['game_id']);  
+				$data['content']['game_id'] = explode(',', $data['content']['game_id']);  
+				if ($data['content']['game_id'][0] == '') {
+					$data['content']['game_id'] = [];
+				}
+				// var_dump($data);die;
 				$this->view('landing/template/header', $data);
 				$this->view('landing/account/my-game', $data);	
 				$this->view('landing/template/footer' , $data);		

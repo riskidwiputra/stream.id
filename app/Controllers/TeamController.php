@@ -22,8 +22,9 @@
 				WHERE users.user_id = "'.Session::get("users").'"
 				');
 			$data['users']	= $this->db->single();  
-			// $data['content'] = $this->db->db->query('SELECT * FROM team ORDE BY ') 
-			$this->view('landing/template/header',$data);
+			$data['content'] = $this->db->query('SELECT * FROM team ORDER BY created_at DESC');
+			$data['content'] = $this->db->resultSet();
+ 			$this->view('landing/template/header',$data);
 			$this->view('landing/team/listteam', $data);	
 			$this->view('landing/template/footer');		 
 		}
@@ -31,7 +32,26 @@
 		
 		public function createteam()
 		{ 
-			// if ()
+			if (empty($this->post('team_name')) || empty($this->post('game')) || empty($this->post('team_description')) || empty($this->post('venue')) || empty($_FILES['logo']['name'])) {
+				echo json_encode([
+					'status' => false,
+					'message'	=> 'Form cannot be empty'
+				]);				
+			} else {
+				$this->model('Team_Model')->create(); 
+			}
+		}
+
+		public function join($id_team)
+		{
+			if ($id_team == '') {
+				echo json_encode([
+					'status'	=> false,
+					'message'	=> 'System Error, Plase refresh page!'
+				]);
+			} else {
+				$this->model('Team_Model')->join($id_team);
+			}
 		}
 		
 	}
