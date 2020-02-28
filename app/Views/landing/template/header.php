@@ -167,6 +167,7 @@
                                         </li>
                                         <li class=""><a href="<?= BASEURL ?>/list-team">List Team</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/tournament">Tournament</a></li>
+                                        <li class=""><a href="<?= BASEURL ?>/leaderboard">Leaderboard</a></li>
                                     </ul>
                                 </li>
                                 <li class=""><a href="#">About Us</a>

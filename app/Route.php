@@ -76,4 +76,5 @@
 	Route::post('/komen/{id}',				'NewsController@LoadMore');
 
 
-	
+	// Leaderboard
+	Route::get('/leaderboard', 				'LeaderboardController@Leaderboard');
