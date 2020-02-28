@@ -38,9 +38,15 @@
 					<li class="team-result-filter__item">
 						<button type="submit" class="btn btn-primary btn-sm card-header__button">Filter a Team</button>
 					</li>
+					<?php if ($data['users']['status'] == 'player'):?>
 					<li class="team-result-filter__item">
-						<a href="#" class="btn btn-success btn-outline btn-sm" data-toggle="modal" data-target="#createteam">Create a Team</a>
-					</li>
+						<a href="javascript:void(0);" class="btn btn-success btn-outline btn-sm" data-toggle="modal" data-target="#createteam">Create a Team</a>
+					</li> 
+					<?php elseif ($data['users']['status'] == 'guest'):?>
+					<li class="team-result-filter__item">
+						<a href="javascript:void(0);" class="btn btn-success btn-outline btn-sm features-lock">Create a Team</a>
+					</li>	
+					<?php endif;?>
 				</ul>
 				<!-- Result Filter / End -->
 			</div>
@@ -49,7 +55,7 @@
 					<table class="table table-hover team-schedule team-schedule--full">
 						<thead>
 							<tr>
-								<th class="team-schedule__date">Date of Manufacture</th>
+								<th class="team-schedule__date">Registered Date</th>
 								<th class="team-schedule__versus">Team Name</th>
 								<th class="team-schedule__versus">Team Captain</th>
 								<th class="team-schedule__compet">Team Description</th>
@@ -129,40 +135,73 @@
 		<div class="modal fade" id="createteam" tabindex="-1" role="dialog" aria-labelledby="createteamLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content border-0 rounded-circle">
-					<div class="modal-header border-success" style="background-color: #4B3B60;">
-						<h1 style="padding:0;margin:0;">Create A Team</h1>
-					</div>	
-					<div class="modal-body border-success" style="background-color: #4B3B60;">
-						<div class="form-group form-group--sm">
-							<label for="billing_address_1">Team Name <abbr class="required" title="required">*</abbr></label>
-							<input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your Team name...">
-						</div>
+					<form class="create-team" method="post"> 
+						<div class="modal-header border-success" style="background-color: #4B3B60;">
+							<h1 style="padding:0;margin:0;">Create A Team</h1>
+						</div>	
+						<div class="modal-body border-success" style="background-color: #4B3B60;">
 
-						<div class="form-group form-group--sm">
-							<label for="billing_address_1">Choose Game <abbr class="required" title="required">*</abbr></label>
-							<select class="form-control">
-								<option>Mobile Legends</option>
-								<option>PUBG Mobile</option>
-								<option>Dota</option>
-							</select>
+							<div class="form-group form-group--sm">
+								<label for="team_name">Team Name <abbr class="required" title="required">*</abbr></label>
+								<input type="text" name="team_name" class="form-control team_name" placeholder="Enter your Team name...">
+							</div>
+
+							<div class="form-group form-group--sm">
+								<label for="game">Choose Game <abbr class="required" title="required">*</abbr></label>
+								<select class="form-control game">
+									<?php foreach ($data['game-list'] as $game_list):?>
+									<option value="<?=$game_list['id_game_list'];?>"><?=$game_list['name'];?></option>
+									<?php endforeach;?> 
+								</select>
+							</div>
+
+							<div class="form-group form-group--sm">
+								<label for="team_description">Team Description <abbr class="required" title="required">*</abbr></label>
+								<textarea name="team_description" class="form-control team_description" placeholder="Enter your Team description..."></textarea>
+							</div>
+
+							<div class="form-group form-group--sm">
+								<label for="venue">Venue <abbr class="required" title="required">*</abbr></label>
+								<input type="text" name="venue" class="form-control venue" placeholder="Enter your Venue...">
+							</div>
+
+							<div class="form-group form-group--sm">
+								<label for="team_logo">Team Logo <abbr class="required" title="required">*</abbr></label>
+								<input type="file" name="team_logo" class="d-block" id="team_logo">
+							</div>
+
 						</div>
-						<div class="form-group form-group--sm">
-							<label for="billing_address_1">Team Description <abbr class="required" title="required">*</abbr></label>
-							<textarea name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your Team description..."></textarea>
+						<div class="modal-footer border-success" style="background-color: #4B3B60;"> 
+							<button type="submit" class="btn btn-primary">Create</button>
+							<a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
 						</div>
-						<div class="form-group form-group--sm">
-							<label for="billing_address_1">Venue <abbr class="required" title="required">*</abbr></label>
-							<input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your Venue...">
-						</div>
-					</div>
-					<div class="modal-footer border-success" style="background-color: #4B3B60;">
-						<a href="#" class="btn btn-info btn-outline">Join / Create Team</a>
-						<a href="#" class="btn btn-primary">Save</a>
-						<a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 
 	</div>
 </div>
+<script>
+	$('.create-team').submit(function(event) {
+		event.stopPropagation();
+        event.preventDefault(); 
+        form_data.append('team_name', $(this).find('.team_name').val());
+        form_data.append('game', $(this).find('.game option:selected').val());
+        form_data.append('team_description', $(this).find('.team_description').val());
+        form_data.append('venue', $(this).find('.venue').val());
+        form_data.append('logo', document.getElementById("team_logo").files[0]);
+        $.ajax({
+        	url : '<?=url('create-team');?>',
+        	method : 'POST',
+        	data : form_data,
+        	contentType: false,
+        	cache: false,
+        	processData: false,
+        	dateType : 'json',
+        	success : function(m){
+        		console.log(m);
+        	}
+        });
+	});
+</script>
