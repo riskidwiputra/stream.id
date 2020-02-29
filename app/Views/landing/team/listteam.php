@@ -1,5 +1,5 @@
 <div class="site-content">
-	<div class="container">
+	<div class="container content-alert-join">
 		
 		<!-- Schedule & Tickets -->
 		<div class="card card--has-table">
@@ -101,45 +101,16 @@
 								<?php if (Session::check('users')):?>
 								<td class="team-schedule__tickets">
 									<?php if (in_array( Session::get('users') , $slot_space2 ) OR in_array( Session::get('users') , $slot_space3 )):?>
-									<button class="btn btn-xs btn-default-alt btn-block disabled">
-										Joined
-									</button>	 
+									<button class="btn btn-xs btn-default-alt btn-block disabled"> Joined </button>	 
 									<?php elseif ($slot_space == $slot_total):?>
-									<button class="btn btn-xs btn-default-alt btn-block disabled">
-										Full
-									</button>	 
+									<button class="btn btn-xs btn-default-alt btn-block disabled"> Full </button>	 
 									<?php else:?>
-									<button class="btn btn-xs btn-default-alt btn-block join" data-id="<?=$row['team_id'];?>">
-										Join
-									</button>
+									<button class="btn btn-xs btn-default-alt btn-block join" data-id="<?=$row['team_id'];?>"> Join </button>
 									<?php endif;?>
 								</td>
 								<?php endif;?>
 							</tr>
-							<?php endforeach; ?>
-							<!-- <tr>
-								<td class="team-schedule__date">06 - 12 - 2019</td>
-								<td class="team-schedule__versus">
-									<div class="team-meta">
-										<figure class="team-meta__logo">
-											<img src="<?=asset('assets/images/samples/logos/lucky_clovers_shield.png"');?>" alt="">
-										</figure>
-										<div class="team-meta__info">
-											<h6 class="team-meta__name">E-Gaming</h6>
-											<span class="team-meta__place">PUBGM</span>
-										</div>
-									</div>
-								</td>
-								<th class="team-schedule__versus">Jaka</th>
-								<td class="team-schedule__compet">I hate you</td>
-								<td class="team-schedule__venue highlight">Medan</td>
-								<td class="team-schedule__prize">4 out of 4 Players</td>
-								<td class="team-schedule__tickets">
-									<a href="#" class="btn btn-xs btn-default-alt btn-block disabled">
-										Full
-									</a>
-								</td>
-							</tr> -->
+							<?php endforeach; ?> 
 						</tbody>
 					</table>
 				</div>
@@ -243,16 +214,22 @@
         });
 	});
 
-	$('.join').click(function() {
-		// alert('join');
-		// $(this).html('Please Wait...');
-		// $(this).addClass('disabled');
+	$('.join').click(function() { 		
+		$('.content-alert-join').find('.alert').hide('fast');
 		$.ajax({
 			url : '<?=url('join-team/');?>' + $(this).data('id'),
 			method : 'POST',
 			dataType : 'json',
 			success : function(m){
-				console.log(m);
+				// console.log(m.status);
+				if (m.status == true) {
+					$('.join').html('Joined');
+					$('.join').addClass('disabled');
+					$('.join').removeAttr('data-id');
+					$('.join').removeClass('join');
+				} else {
+					$('.content-alert-join').prepend('<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ m.message +'</div>'); 
+				}
 			}
 		});
 	});

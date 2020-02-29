@@ -172,7 +172,8 @@ class Team_Model extends Model
 		$team_player = $this->db->table('team_player')->where('team_id', $id_team);
 		$game = $this->db->table('game_list')->where('id_game_list', $team['game_id']);
 		// cek dijebol class join padahal belom login
-		if (Session::check('users') == false) {
+		// echo json_encode($id_team);die;
+		if (Session::check('users') == false OR $team == false) {
 			echo json_encode([
 				'status' => false,
 				'message' => 'System Error, Please refersh page!!'
@@ -217,7 +218,7 @@ class Team_Model extends Model
 							]);
 						} else {
 							// jika team inti sudah penuh
-							if (count($team_player0) == $game['player_on_team']) {
+							if (count($team_player0) == $game['player_on_team'] AND count($team_player1) == 0) {
 								// maka harus masuk di bagian cadangan
 								$dataTeamPlayer = [
 									'substitute_id'	=> Session::get('users')
@@ -233,7 +234,9 @@ class Team_Model extends Model
 								'team_id'	=> $id_team
 							];
 							$this->db->table('team_player')->update($dataTeamPlayer ,$whereTeamPlayer);
-							echo json_encode(['status'=>true]);
+							echo json_encode([
+								'status'=>true
+							]);
 						}
 					} else {
 						// cek udah punya team dengan game yang sama
