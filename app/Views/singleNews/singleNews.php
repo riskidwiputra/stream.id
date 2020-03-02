@@ -20,7 +20,7 @@
                                 <li class="meta__item meta__item--author"><img src="<?= asset('assets/images/samples/avatar-6-xs.jpg'); ?>" alt="Post Author Avatar"> by <?= $data['content']['penulis'] ?></li>
 
                                 <li class="meta__item meta__item--date">
-                                    <time datetime="2018-08-27"><?= $data['content']['tanggal'] ?></time>
+                                    <time datetime="2018-08-27"><?= date('d F Y H:i',strtotime($data['content']['tanggal'])) ?></time>
                                 </li>
                                 <li class="meta__item meta__item--views"><?= $data['content']['views']; ?></li>
                             </ul>
@@ -42,7 +42,33 @@
                                 ?>
                             
                             </div>
-                        </footer>
+                            <!-- <div class="post__tags post__tags--simple"> -->
+                            <!-- </div> -->
+                        </footer> 
+                        <div class="d-flex justify-content-center mt-3" style="font-size:15px;">
+                            <div class="d-flex justify-content-between">
+                                <span class="mr-3"><i class="fa fa-eye"></i> <?=$data['single']['views'];?></span>
+                                <!-- <?php if ($data['LikeMe'] == 0):?>
+                                <span class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></span>
+                                <?php elseif(Session::get('users') == false):?>
+                                <span class="mr-3"><i class="far fa-heart"></i> <?=$data['like'];?></span>
+                                <?php else:?>
+                                <span class="mr-3"><i class="fas fa-heart"></i> <?=$data['like'];?></span>
+                                <?php endif;?> -->
+
+                                <?php if (Session::check('users') == false) :?>
+                                <span class="mr-3"><i class="far fa-heart"></i> <?=$data['like'];?></span>
+                                <?php else:?>
+                                    <?php if ($data['LikeMe'] == 0):?>
+                                <span class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></span> 
+                                    <?php else:?>
+                                <span class="mr-3"><i class="fas fa-heart"></i> <?=$data['like'];?></span>
+                                    <?php endif;?>
+                                <?php endif;?>
+
+                                <span class="mr-3"><i class="far fa-comment"></i> <?=$data['comment_count'];?></span>
+                            </div>
+                        </div>
 
                     </div>
                 </article>
@@ -166,6 +192,7 @@
                 </div>
                 <!-- Post Comments / End -->
 
+                <?php if (Session::check('users')):?>
                 <!-- Post Comment Form -->
                 <div class="post-comment-form card">
                     <header class="post-comment-form__header card__header">
@@ -174,33 +201,34 @@
                     <div class="post-comment-form__content card__content">
                         <form method="post" id="form_komen"  >
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label" for="input-name">Your Name <span class="required">*</span></label>
-                                            <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control" placeholder="Masukkan Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label" for="input-email">Your Email <span class="required">*</span></label>
-                                            <input type="email" id="email_pengirim" name="email_pengirim" class="form-control" placeholder="Masukkan Email">
-                                        </div>
+                            <!-- <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-name">Your Name <span class="required">*</span></label>
+                                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control" placeholder="Masukkan Name">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="textarea-comment">Your Comment <span class="required">*</span></label>
-                                    <textarea name="komen" id="komen" rows="4" class="form-control"></textarea>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-email">Your Email <span class="required">*</span></label>
+                                        <input type="email" id="email_pengirim" name="email_pengirim" class="form-control" placeholder="Masukkan Email">
+                                    </div>
                                 </div>
-                                <div class="form-group mb-0 text-right">
+                            </div> -->
+                            <div class="form-group">
+                                <label class="control-label" for="textarea-comment">Your Comment <span class="required">*</span></label>
+                                <textarea name="komen" id="komen" rows="4" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group mb-0 text-right">
 
-                                    <input type="hidden" name="komentar_id" id="komentar_id" value="0" />
-                                    <input type="submit" name="submit" id="submit" class="btn btn-primary-inverse" value="Post Your Comment" />
-                                </div>
-                            </form>
+                                <input type="hidden" name="komentar_id" id="komentar_id" value="0" />
+                                <input type="submit" name="submit" id="submit" class="btn btn-primary-inverse" value="Post Your Comment" />
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <!-- Post Comment Form / End -->
+                <?php endif ;?>
 
             </div>
             <!-- Content / End -->
@@ -226,9 +254,7 @@
                             <div class="tab-content widget-tabbed__tab-content">
                                 <!-- Newest -->
                                 <div role="tabpanel" class="tab-pane fade show active" id="widget-tabbed-newest">
-                                    <ul class="posts posts--simple-list">
-
-                                        
+                                    <ul class="posts posts--simple-list"> 
                                         
                                         <?php if ($data['newest']): ?>
                                             <?php foreach ($data['newest'] as $row): ?>
@@ -236,14 +262,14 @@
                                            
                                         <li class="posts__item posts__item--category-1 posts__item--category-4 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
+                                            <a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
                                                     <span class="label posts__cat-label posts__cat-label--category-1"><?= $row['label'] ?></span><span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
                                                 </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= $row['tanggal'] ?></time>
+                                                <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('d F Y', strtotime($row['tanggal'])) ?></time>
                                             </div>
                                         </li>
                                         
@@ -257,66 +283,172 @@
                                     <ul class="posts posts--simple-list">
                                         
                                     <?php if ($data['commented']): ?>
-                                            <?php foreach ($data['commented'] as $row): ?>
+                                        <?php foreach ($data['commented'] as $row): ?>
                                         <li class="posts__item posts__item--category-2 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
+                                                <a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>';"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
                                                     <span class="label posts__cat-label posts__cat-label--category-2"><?= $row['label'] ?></span>
                                                 </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= $row['tanggal'] ?></time>
+                                                <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('d F Y', strtotime($row['tanggal'])) ?></time>
                                             </div>
                                         </li>
-                                    <?php endforeach ?>
-                                            
-                                        <?php endif ?>               
+                                        <?php endforeach ?>  
+                                    <?php endif ?>               
                                     </ul>
                                 </div>
                                 <!-- Popular -->
                                 <div role="tabpanel" class="tab-pane fade" id="widget-tabbed-popular">
-                                    <ul class="posts posts--simple-list">
-                                        
-                                        
+                                    <ul class="posts posts--simple-list"> 
                                         
                                         <?php if ($data['popular']): ?>
                                             <?php foreach ($data['popular'] as $row): ?>
                                         <li class="posts__item posts__item--category-3 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
+                                                <a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt="" onclick="window.location.href = '<?=url('news/'.$row['url']);?>';"></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
                                                     <span class="label posts__cat-label posts__cat-label--category-3"><?= $row['label'] ?>  </span>
                                                 </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date">September 5th, 2018</time>
+                                                <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('d F Y H:is', strtotime($row['tanggal'])) ?></time>
                                             </div>
                                         </li>
 
-                                        <?php endforeach ?>
-                                            
+                                            <?php endforeach ?>  
                                         <?php endif ?>
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </aside>
                 <!-- Widget: Trending News / End -->
-
-                
-
- 
-
             </div>
             <!-- Sidebar / End -->
         </div>
-
     </div>
 </div>
 
 <!-- Content / End -->
+<script> 
+    $('.berita').on('click', function (e) {
+
+        e.preventDefault();
+        const view = $(this).data('id');
+        const href = $(this).attr('href');
+        url = $('#base').data('id') + '/getnews/' + view;
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success: function (result) {
+                document.location.href = href;
+            }
+        });
+
+    });
+
+    $(document).ready(function () { 
+        const id = $('#display_comment').data('id');
+
+        $("#komentar").click(function () {
+            url = $('#comment').data('id') + '/komen/' + id;
+            $.ajax({
+                type: "post",
+                url: url,
+                data: "urut=" + $(".baris:last").attr('id'),
+                success: function (html) {
+                    if (html) {
+                        $("#display_comment").append(html);     
+                    } 
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        const BASEURL = $('#comment').data('id');
+        const id = $('#display_comment').data('id');
+        $('#form_komen').on('submit', function (event) {
+            event.preventDefault();
+            var form_data = $(this).serialize();
+            url = BASEURL + '/tambah-komen/' + id; 
+            if (komen == 0) {
+                $('#komen').focus();
+                return false;
+            }
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: form_data,
+                success: function (data) {
+                    $('#form_komen')[0].reset();
+                    $('#komentar_id').val('0');
+                    load_comment();
+                    var dialog = bootbox.dialog({
+                        message: '<p class="text-center mb-0"><i class="fa fa-check-circle"></i> Your comment has been post...</p>',
+                        closeButton: false
+                    });
+                    setTimeout(function(){
+                        dialog.modal('hide');
+                    }, 3000);
+                }
+            });
+        });
+
+        load_comment();
+
+        function load_comment() {
+            url = BASEURL + '/ambil-komen/' + id;
+
+            $.ajax({
+                url: url,
+                method: "post",
+                success: function (data) {
+                    $('#display_comment').html(data);
+                }
+
+            });
+
+        }
+
+        $(document).on('click', '.reply', function () {
+            var komentar_id = $(this).attr("id");
+            $('#komentar_id').val(komentar_id);
+            $('#komen').focus();
+
+        });
+    });
+
+
+    $('.like').click(function() {
+        var t = $(this);
+        $.ajax({
+            url : '<?=url('add-like/'.$data['content']['id_news_game']);?>',
+            method : 'POST',
+            dataType : 'json',
+            success: function (msg){
+                // console.log(msg);
+                if (msg.status == true) { 
+                    t.html('<i class="fas fa-heart"></i> ' + msg.content);
+                    t.removeClass('like');
+                } else {
+                    var dialog = bootbox.dialog({
+                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+ m.message +'</p>',
+                        closeButton: false
+                    });
+                    setTimeout(function(){
+                        dialog.modal('hide');
+                    }, 3000);
+                }
+            }
+        });
+    });
+
+</script>

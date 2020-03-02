@@ -152,11 +152,11 @@
                         <nav class="main-nav">
                             <ul class="main-nav__list">
                                 <li class="active"><a href="<?= BASEURL ?>/">Home</a></li>
-                                <li class=""><a href="#">News</a>
-                                    <ul class="main-nav__sub">
+                                <li class=""><a href="<?=url('news');?>">News</a>
+                                    <!-- <ul class="main-nav__sub">
                                         <li class=""><a href="<?= BASEURL ?>/news">News</a></li>
                                         
-                                    </ul>
+                                    </ul> -->
                                 </li>
                                 <li class=""><a href="#">Games</a>
                                     <ul class="main-nav__sub">

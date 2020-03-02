@@ -106,13 +106,12 @@
 			}
 		}
 
-		public function list_users($game_id)
-		{
+		public function list_users($id_team)
+		{ 
 			$data = $this->post('search');
 			$query = $this->db->query('
 				SELECT * FROM identity_ingame  
-				WHERE game_id = "'.$game_id.'"
-				AND id_ingame LIKE "%'.$data.'%"
+				WHERE game_id = "'.$game_id.'" 
 				OR username_ingame LIKE "%'.$data.'%"
 				ORDER BY username_ingame ASC
 			');

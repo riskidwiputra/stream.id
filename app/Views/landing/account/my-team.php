@@ -225,24 +225,25 @@
                                                                             ajax: {
                                                                                 dataType: 'json',  
                                                                                 method: 'POST',
-                                                                                url: '<?=url('list-users/'.$team['game_id']);?>',
+                                                                                url: '<?=url('list-users/'.$team['team_id']);?>',
                                                                                 delay: 400,
                                                                                 data: function(params) {
-                                                                                        // console.log(params);
+                                                                                    // console.log(params);
                                                                                     return {
-                                                                                        search: params.term 
+                                                                                        search: params.term ,
+                                                                                        team : '<?=$team['team_id'];?>'
                                                                                     } 
                                                                                 },
                                                                                 processResults: function(data){ 
-                                                                                            // console.log(data);
-                                                                                    return {
-                                                                                        results:  $.map(data, function (item) {
-                                                                                            return {
-                                                                                                text:  item.username_game+ ' - ' + item.id_game,
-                                                                                                id: item.id
-                                                                                            }
-                                                                                        })
-                                                                                    };
+                                                                                    console.log(data);
+                                                                                    // return {
+                                                                                    //     results:  $.map(data, function (item) {
+                                                                                    //         return {
+                                                                                    //             text:  item.username_game+ ' - ' + item.id_game,
+                                                                                    //             id: item.id
+                                                                                    //         }
+                                                                                    //     })
+                                                                                    // };
                                                                                 }
                                                                             }
                                                                         });

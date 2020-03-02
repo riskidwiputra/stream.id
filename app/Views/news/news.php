@@ -9,7 +9,14 @@
                 <!-- Posts Grid -->
                 <div class="posts posts--cards post-grid post-grid--2cols row">
                     
-                    <?php foreach ($data['content'] as $row): ?>
+                    <?php foreach ($data['content'] as $row):
+                        $whereNews = [
+                            'parent_komentar_id'    => 0,
+                            'id_news_game'  => $row['id_news_game']
+                        ];
+                        $like = $this->db->table('news_like')->countRows('news_id', $row['id_news_game']);
+                        $comment = $this->db->table('komentar')->countRows($whereNews);
+                    ?>
                         
                     
                     <div class="post-grid__item col-sm-6">
@@ -21,7 +28,7 @@
                                 <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" alt=""></a>
                             </figure>
                             <div class="posts__inner card__content" style="height: 13rem;">
-                                <time datetime="2018-08-23" class="posts__date"><?= $row['tanggal'] ?></time>
+                                <time datetime="2018-08-23" class="posts__date"><?= date('d F Y H:i',strtotime($row['tanggal'])) ?></time>
                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                 <div class="posts__excerpt">
                                 </div>
@@ -37,7 +44,7 @@
                                 </div>
                                 <ul class="post__meta meta">
                                     <li class="meta__item meta__item--views"><?= $row['views'] ?></li>
-                                    <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like icon-heart"></i> 530</a></li>
+                                    <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like icon-heart"></i> <?=$like;?></a></li>
                                     <li class="meta__item meta__item--comments"><a href="#"><?= $row['komentar'] ?></a></li>
                                 </ul>
                             </footer>
@@ -145,7 +152,7 @@
                                                     <span class="label posts__cat-label posts__cat-label--category-1">The Team</span><span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= $row['tanggal'] ?></time>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('d F Y H:i',strtotime($row['tanggal'])) ?></time>
                                             </div>
                                         </li>
                                         

@@ -451,9 +451,18 @@ class Team_Model extends Model
 		]);
 	}
 
-	public function invite()
+	public function invite($id_team, $id_identity)
 	{
-		
+		$identity = $this->db->table('identity_ingame')->where('id', $id_identity);
+		$team = $this->db->table('team')->where('team_id', $id_team);
+		$team_player = $this->db->table('team_player')->where('team_id', $id_team);
+		$team_player0 = explode(',', $team_player['player_id']);
+		$team_player1 = explode(',', $team_player['substitute_id']);
+		$game = $this->db->table('game_list')->where('id_game_list', $team['game_id']);
+		echo json_encode([
+			'status'	=> false,
+			'message'	=> $game
+		]);
 	}
 
 }

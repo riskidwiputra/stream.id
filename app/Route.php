@@ -78,6 +78,7 @@
 	// Komentar
 	Route::post('/ambil-komen/{id}', 		'NewsController@GetKomen');
 	Route::post('/tambah-komen/{id}', 		'NewsController@AddKomen'); 
+	Route::post('/add-like/{id_news}', 		'NewsController@like');
 
 	// 
 	Route::post('/komen/{id}',				'NewsController@LoadMore');

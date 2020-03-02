@@ -102,10 +102,30 @@
 				JOIN balance_users
 				ON users.user_id = balance_users.users_id
 				WHERE users.user_id = "'.Session::get("users").'"
-				');
+			');
 			$data['users']	= $this->db->single();  
 			$data['game-list'] = $this->db->table('game_list')->all();
 			$data['game-list']	= $this->db->resultSet();
+			$view = [
+				'views'	=> $data['single']['views'] + 1
+			];
+			$view0 = [
+				'url'	=> $id
+			];
+			$whereMe = [
+				'news_id'	=> $data['single']['id_news_game'],
+				'users_id'	=> Session::get('users')
+			];
+			$whereNews = [
+				'parent_komentar_id'	=> 0,
+				'id_news_game'	=> $data['single']['id_news_game']
+			];
+			$data['like'] = $this->db->table('news_like')->countRows('news_id', $data['single']['id_news_game']);
+			$data['LikeMe'] = $this->db->table('news_like')->countRows($whereMe);
+			$data['comment_count'] = $this->db->table('komentar')->countRows($whereNews);
+
+			// var_dump($data['LikeMe']);die;
+			$this->db->table('news_game')->update($view, $view0);
 			$this->view('landing/template/header', $data);
 			$this->view('singleNews/singleNews' ,$data);	
 			$this->view('landing/template/footer', $data);			
@@ -139,6 +159,20 @@
 			$data['single'] = $this->db->single();
 			$id_news = $data['single']['id_news_game'];
 			echo $this->model('News_Model')->getloadmore($id_news);
+		}
+
+		public function like($news_id)
+		{
+			$news = $this->db->table('news_game')->where('id_news_game', $news_id);
+
+			if ($news == false) {
+				echo json_encode([
+					'status'	=> false,
+					'message'	=> 'System Error, Plase refresh page!'
+				]);
+			} else {
+				$this->model('News_Model')->like($news_id);
+			}
 		}
 		
 	}
