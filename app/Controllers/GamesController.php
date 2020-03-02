@@ -46,7 +46,7 @@
 				'users_id' => Session::get('users')
 			];
 			$dataInGame = [
-				'id'	=> rand(),
+				'id'		=> uniqid(),
 				'users_id'	=> Session::get('users'),
 				'game_id'	=> $id_game
 			];

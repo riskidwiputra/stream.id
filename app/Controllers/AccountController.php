@@ -33,7 +33,7 @@
 				$this->view('landing/account/account', $data);	
 				$this->view('landing/template/footer' , $data);		
 			}else{
-				redirect('/login');
+				redirect('/logout');
 				exit;
 			}		
 		}
@@ -64,6 +64,36 @@
 				// var_dump($data);die;
 				$this->view('landing/template/header', $data);
 				$this->view('landing/account/my-game', $data);	
+				$this->view('landing/template/footer' , $data);		
+			}else{
+				redirect('/logout');
+				exit;
+			}		
+		}
+
+		public function my_team()
+		{ 	
+			if(Session::check('users') == true ){ 
+				$id = session::get('users');
+				$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
+				$data['populared'] = $this->db->resultSet();
+				$data['content']   = $this->model('Account_Model')->select($id);
+				$data['game-list'] = $this->db->table('game_list')->all();
+				$data['game-list']	= $this->db->resultSet();
+				$data['users'] = $this->db->query('
+					SELECT * FROM users 
+					JOIN users_docs
+					ON users.user_id = users_docs.user_id
+					JOIN balance_users
+					ON users.user_id = balance_users.users_id
+					WHERE users.user_id = "'.Session::get("users").'"
+				');
+				$data['users']	= $this->db->single();  
+				$data['content'] = $this->db->query('SELECT * FROM team_player WHERE player_id LIKE "%'.Session::get("users").'%" OR substitute_id LIKE "%'.Session::get("users").'%" ');
+				$data['content'] = $this->db->resultSet();
+				// var_dump($data['content']);die;
+				$this->view('landing/template/header', $data);
+				$this->view('landing/account/my-team', $data);	
 				$this->view('landing/template/footer' , $data);		
 			}else{
 				redirect('/login');

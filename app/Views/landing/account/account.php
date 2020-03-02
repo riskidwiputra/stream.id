@@ -17,6 +17,7 @@
                             <ul class="nav nav-tabs nav-justified widget-tabbed__nav" role="tablist">
                                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link active">PERSONAL INFORMATION</a></li>
                                 <li class="nav-item"><a href="<?=url('my-game');?>" class="nav-link">MY GAME</a></li>
+                                <li class="nav-item"><a href="<?=url('my-team');?>" class="nav-link">MY TEAM</a></li>
                             </ul>
 
                             <!-- Widget Tab panes -->
@@ -218,110 +219,7 @@
                                             </form>
                                         </div>
                                         <!-- Commented -->
-                                        <div role="tabpanel" class="tab-pane fade" id="mygame">
-
-                                            <a href="#" class="btn-social-counter btn-social-counter--twitch" data-toggle="modal" data-target="#dota2">
-                                                <div class="btn-social-counter__icon">
-                                                    <img class="card-img" src="<?=asset('assets/images/esports/bg/Icon-Dota-2.png');?>" alt="" height="300px">
-                                                </div>
-                                                <h6 class="btn-social-counter__title">Dota 2</h6>
-                                                <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Username :</span>
-                                                <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Id Game :</span>
-                                                <span class="btn-social-counter__add-icon"></span>
-                                            </a>
-                                            <div class="modal fade" id="dota2" tabindex="-1" role="dialog" aria-labelledby="dota2Label" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content border-0 rounded-circle">
-                                                        <div class="modal-header border-success" style="background-color: #4B3B60;">
-                                                            <h1>Dota 2</h1>  
-                                                        </div>
-                                                        <div class="modal-body border-success" style="background-color: #4B3B60;">
-                                                            <div class="form-group form-group--sm">
-                                                                <label for="username_in_game">Username In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="username_in_game" id="username_in_game" class="form-control" placeholder="Enter Username In Game...">
-                                                            </div>
-                                                            <div class="form-group form-group--sm">
-                                                                <label for="id_in_game">Id In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="id_in_game" id="id_in_game" class="form-control" placeholder="Enter ID In Game...">
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer border-success" style="background-color: #4B3B60;">
-                                                            <a href="#" class="btn btn-info btn-outline">Join / Create Team</a>
-                                                            <a href="#" class="btn btn-primary">Save</a>
-                                                            <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> 
-
-                                            <a href="#" class="btn-social-counter btn-social-counter--twitch mt-2" data-toggle="modal" data-target="#mobilelegends">
-                                                <div class="btn-social-counter__icon">
-                                                    <img class="card-img" src="<?=asset('assets/images/esports/bg/Icon-Mobile-Legends.png');?>" alt="" height="300px">
-                                                </div>
-                                                <h6 class="btn-social-counter__title">Mobile Legends</h6>
-                                                <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Username :</span>
-                                                <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Id Game :</span>
-                                                <span class="btn-social-counter__add-icon"></span>
-                                            </a>
-                                            <div class="modal fade" id="mobilelegends" tabindex="-1" role="dialog" aria-labelledby="mobilelegendsLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content border-0 rounded-circle">
-                                                        <div class="modal-header border-success" style="background-color: #4B3B60;">
-                                                            <h1>Mobile Legends</h1>
-                                                        </div>
-                                                        <div class="modal-body border-success" style="background-color: #4B3B60;">
-                                                            <div class="form-group form-group--sm">
-                                                                <label for="billing_address_1">Username In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your street address...">
-                                                            </div>
-                                                            <div class="form-group form-group--sm">
-                                                                <label for="billing_address_1">Id In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your street address...">
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer border-success" style="background-color: #4B3B60;">
-                                                            <a href="#" class="btn btn-info btn-outline">Join / Create Team</a>
-                                                            <a href="#" class="btn btn-primary">Save</a>
-                                                            <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> 
-
-                                            <a href="#" class="btn-social-counter btn-social-counter--twitch mt-2" data-toggle="modal" data-target="#pubgm">
-                                                <div class="btn-social-counter__icon">
-                                                    <img class="card-img" src="<?=asset('assets/images/esports/bg/Icon-PUBGM.png');?>" alt="" height="300px">
-                                                </div>
-                                                <h6 class="btn-social-counter__title">PUBGM</h6>
-                                                <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Username :</span>
-                                                <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Id Game :</span>
-                                                <span class="btn-social-counter__add-icon"></span>
-                                            </a>
-                                            <div class="modal fade" id="pubgm" tabindex="-1" role="dialog" aria-labelledby="pubgmLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content border-0 rounded-circle">
-                                                        <div class="modal-header border-success" style="background-color: #4B3B60;">
-                                                            <h1>PUBGM</h1>
-                                                        </div>
-                                                        <div class="modal-body border-success" style="background-color: #4B3B60;">
-                                                            <div class="form-group form-group--sm">
-                                                                <label for="billing_address_1">Username In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your street address...">
-                                                            </div>
-                                                            <div class="form-group form-group--sm">
-                                                                <label for="billing_address_1">Id In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="billing_address_1" id="billing_address_1" class="form-control" placeholder="Enter your street address...">
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer border-success" style="background-color: #4B3B60;">
-                                                            <a href="#" class="btn btn-info btn-outline">Join / Create Team</a>
-                                                            <a href="#" class="btn btn-primary">Save</a>
-                                                            <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <br>
+                                        <div role="tabpanel" class="tab-pane fade" id="mygame" >
 
                                         </div>
                                     </div>

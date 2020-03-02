@@ -68,8 +68,11 @@
             margin-top: -1px;
         }
     </style>
-    <script src="<?=asset('assets/vendor/jquery/jquery.min.js');?>"></script>
+    <script src="<?=asset('assets/vendor/jquery/jquery.min.js');?>"></script> 
+    <link href="<?=asset('assets/vendor/select2/select2.min.css');?>" rel="stylesheet" />
+    <link href="<?=asset('assets/vendor/select2/select2-bootstrap.css');?>" rel="stylesheet" />  
     
+    <script src="<?=asset('assets/vendor/select2/select2.min.js');?>"></script>
 
 </head>
 

@@ -1,5 +1,6 @@
 <!-- Content
   ================================================== -->
+  
     <div class="site-content">
         <div class="container">
 
@@ -9,15 +10,15 @@
 
                     <aside class="widget widget--sidebar card widget-tabbed">
                         <div class="widget__title card__header">
-                            <h4>MY GAME</h4>
+                            <h4>MY TEAM</h4>
                         </div>
                         <div class="widget__content card__content" id="data" data-id="<?= BASEURL ?>">
                             <div class="widget-tabbed__tabs">
                                 <!-- Widget Tabs -->
                                 <ul class="nav nav-tabs nav-justified widget-tabbed__nav" role="tablist">
                                     <li class="nav-item"><a href="<?=url('account');?>" class="nav-link">PERSONAL INFORMATION</a></li>
-                                    <li class="nav-item"><a href="javascript:void(0);" class="nav-link active">MY GAME</a></li>
-                                    <li class="nav-item"><a href="<?=url('my-team');?>" class="nav-link">MY TEAM</a></li>
+                                    <li class="nav-item"><a href="<?=url('my-game');?>" class="nav-link">MY GAME</a></li>
+                                    <li class="nav-item"><a href="javascript:void(0);" class="nav-link active">MY TEAM</a></li>
                                 </ul>
 
                                 <!-- Widget Tab panes -->
@@ -26,60 +27,261 @@
                                     <div role="tabpanel" class="tab-pane fade active show" id="mygame">
                                         <?php 
                                         $i = 0;
-                                        foreach ($data['content']['game_id'] as $game_id):
-                                            $game = $this->db->table('game_list')->where('id_game_list', $game_id);
-                                            $identity = [
-                                                'users_id'  => Session::get('users'),
-                                                'game_id'   => $game_id
+                                        foreach ($data['content'] as $team_player):
+                                            $team = $this->db->table('team')->where('team_id', $team_player['team_id']);
+                                            $game = $this->db->table('game_list')->where('id_game_list', $team['game_id']); 
+                                            // var_dump($team);
+                                            $conf_game = $game['player_on_team']+$game['substitute_player'];
+                                            $player0 = explode(',', $team_player['player_id']);
+                                            $player1 = explode(',', $team_player['substitute_id']);
+                                            $all_request = $this->db->query('SELECT * FROM team_request WHERE team_id = "'.$team['team_id'].'" ORDER BY created_at DESC');
+                                            $all_request = $this->db->resultSet();
+                                            $new_request = [
+                                                'team_id'   => $team_player['team_id'],
+                                                'status'    => 1
                                             ];
-                                            $identity = $this->db->table('identity_ingame')->where($identity);
-                                            if (empty($identity['id_ingame'])) {
-                                                $identity['id'] = '-';
-                                            } else { 
-                                                $identity['id'] = $identity['id_ingame'];
+                                            $new_request = $this->db->table('team_request')->countRows($new_request);
+                                            if ($team_player['substitute_id'] == '') {
+                                                $player1 = [];
                                             }
-                                            if (empty($identity['username_ingame'])) {
-                                                $identity['username'] = '-';
-                                            } else {
-                                                $identity['username'] = $identity['username_ingame'];
-                                            }
-                                            // var_dump($game);
                                         ?>
-                                        <a href="javascript:void(0);" class="btn-social-counter btn-social-counter--twitch mb-3" data-toggle="modal" data-target="#game<?=$game_id;?>">
+                                        <a href="javascript:void(0);" class="btn-social-counter btn-social-counter--twitch mb-3" data-toggle="modal" data-target="#game<?=$team['team_id'];?>">
                                             <div class="btn-social-counter__icon">
-                                                <img class="card-img" src="<?=path('path_portal_Gamelist').$game['logo'];?>" alt="" height="300px">
+                                                <img class="card-img" src="<?=path('path_portal_TeamLogo').$team['team_logo'];?>" alt="" style="height: 80px;"> 
                                             </div>
-                                            <h6 class="btn-social-counter__title"><?=$game['name'];?></h6>
-                                            <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Username : <?=$identity['username'];?></span>
-                                            <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Id Game : <?=$identity['id'];?></span>
+                                            <h6 class="btn-social-counter__title"><?=$team['team_name'];?></h6>
+                                            <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span><?=$game['name'];?></span>
+                                            <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Member : <?=count($player0)+count($player1).'/'.$conf_game;?></span>
                                             <span class="btn-social-counter__add-icon"></span>
                                         </a>
-                                        <div class="modal fade" id="game<?=$game_id;?>" tabindex="-1" role="dialog" aria-labelledby="dota2Label" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
+                                        <div class="modal fade" id="game<?=$team['team_id'];?>">
+                                            <div class="modal-dialog" >
                                                 <div class="modal-content border-0 rounded-circle">
-                                                    <form method="post" class="form-identity<?=$game_id;?>">
+                                                    <form method="post" class="form-identity<?=$team['team_id'];?>">
                                                         <div class="modal-header border-success" style="background-color: #4B3B60;">
-                                                            <h1 style="padding:0;margin:0;"><?=$game['name'];?></h1>  
+                                                            <h3 style="padding:0;margin:0;"><?=$team['team_name'];?></h3>  
+                                                            <a href="javascript:void(0);" data-toggle="modal" data-target="#invite<?=$team['team_id'];?>" onclick="$('#game<?=$team['team_id'];?>').modal('hide');"><i class="fa fa-plus"></i> INVITE</a>
                                                         </div>
                                                         <div class="modal-body border-success" style="background-color: #4B3B60;">
-                                                            <div class="form-group form-group--sm">
-                                                                <label for="username_in_game<?=$game_id;?>">Username In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="username_in_game" id="username_in_game<?=$game_id;?>" class="form-control username_in_game" placeholder="Enter Username In Game..." value="<?=$identity['username_ingame'];?>" required>
-                                                            </div>
-                                                            <div class="form-group form-group--sm">
-                                                                <label for="id_in_game<?=$game_id;?>">ID In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="id_in_game" id="id_in_game<?=$game_id;?>" class="form-control id_in_game" placeholder="Enter ID In Game..." value="<?=$identity['id_ingame'];?>" required>
-                                                            </div>
+                                                            <?php if (Session::check('users') == $team['leader_id']):?>
+                                                            <a href="javascript:void(0);" class="float-right" data-toggle="modal" data-target="#join<?=$team['team_id'];?>" onclick="$('#game<?=$team['team_id'];?>').modal('hide');"><?php if ($new_request > 0){echo '<span class="badge badge-danger">'.$new_request.'</span> ';};?>REQUESTING JOIN</a>
+                                                            <?php endif;?>
+                                                            <h5>Primary Player</h5> 
+                                                            <ul>
+                                                                <?php  
+                                                                $i=0;
+                                                                for ($i=0;$i<count($player0);$i++):
+                                                                    $pl = [
+                                                                        'users_id'  => $player0[$i],
+                                                                        'game_id'   => $team['game_id']
+                                                                    ];
+                                                                    $pl = $this->db->table('identity_ingame')->where($pl); 
+                                                                    if ($team['leader_id'] == $pl['users_id']) {
+                                                                        $lead = ' <span class="font-weight-bold text-primary">(CAPTAIN)</span>';
+                                                                    } else {
+                                                                        $lead = ''; 
+                                                                    }
+                                                                ?>
+                                                                <li><?=$pl['username_ingame'].$lead;?></li>
+                                                                <?php endfor;?>
+                                                            </ul>
+                                                            <h5>Substitute Player</h5>
+                                                                <?php  
+                                                                $i=0;
+                                                                for ($i=0;$i<count($player1);$i++):
+                                                                    $pl = [
+                                                                        'users_id'  => $player1[$i],
+                                                                        'game_id'   => $team['game_id']
+                                                                    ];
+                                                                    $pl = $this->db->table('identity_ingame')->where($pl); 
+                                                                ?>
+                                                                <li><?=$pl['username_ingame'];?></li>
+                                                                <?php endfor;?>
+                                                            <ul>     
+                                                            </ul>
                                                         </div>
-                                                        <div class="modal-footer border-success" style="background-color: #4B3B60;">
-                                                            <a href="<?=url('team');?>" class="btn btn-info btn-outline">Join / Create Team</a>
-                                                            <button type="submit" class="btn btn-primary create-team">Save</button>
+                                                        <div class="modal-footer border-success" style="background-color: #4B3B60;">  
                                                             <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
                                         </div>  
+                                        <?php if (Session::check('users') == $team['leader_id']):?>
+                                        <div class="modal fade" id="join<?=$team['team_id'];?>">
+                                            <div class="modal-dialog" >
+                                                <div class="modal-content border-0 rounded-circle">
+                                                    <form method="post" class="form-identity<?=$team['team_id'];?>">
+                                                        <div class="modal-header border-success" style="background-color: #4B3B60;">
+                                                            <h3 style="padding:0;margin:0;">Requesting Join <sub class="text-muted"><?=$team['team_name'];?></sub></h3>  
+                                                        </div>
+                                                        <div class="modal-body border-success" style="background-color: #4B3B60;">
+                                                            <div class="table-responsive">
+                                                                <table>
+                                                                    <?php foreach($all_request as $all):
+                                                                        $req_nick = [
+                                                                            'users_id'  => $all['users_id'],
+                                                                            'game_id'   => $team['game_id']
+                                                                        ];
+                                                                        $req_nick = $this->db->table('identity_ingame')->where($req_nick);
+                                                                    ?>
+                                                                    <tr >
+                                                                        <td><?=$req_nick['username_ingame'];?></td> 
+                                                                        <td>
+                                                                            <?php if ($all['status'] == 1):?>
+                                                                            <a href="javascript:void(0);" class="accept<?=$all['request_id'];?>" data-id="<?=$all['request_id'];?>" data-name="<?=$req_nick['username_ingame'];?>"><i class="fa fa-check-circle"></i></a>
+                                                                            <a href="javascript:void(0);" class="declined<?=$all['request_id'];?>" data-id="<?=$all['request_id'];?>" data-name="<?=$req_nick['username_ingame'];?>"><i class="fa fa-times-circle"></i></a>
+                                                                            <?php elseif ($all['status'] == 0):?>
+                                                                            <a href="javascript:void(0);"><i>&nbsp;&nbsp;&nbsp;| DECLINED</i></a>
+                                                                            <?php elseif ($all['status'] == 2):?>
+                                                                            <a href="javascript:void(0);"><i>&nbsp;&nbsp;&nbsp;| ACCEPTED</i></a>
+                                                                            <?php endif;?>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <script>
+                                                                        $('.accept<?=$all['request_id'];?>').click(function(){
+                                                                            var t = $(this);
+                                                                            var data = t.data('id');
+                                                                            var user = t.data('name');
+                                                                            bootbox.confirm({ 
+                                                                                message: "Are you sure want to accept <b>"+user+"</b> in your team ?",
+                                                                                buttons: {
+                                                                                    confirm: {
+                                                                                        label: 'Yes',
+                                                                                        className: 'btn-success'
+                                                                                    },
+                                                                                    cancel: {
+                                                                                        label: 'No',
+                                                                                        className: 'btn-danger'
+                                                                                    }
+                                                                                },
+                                                                                callback: function (result) {
+                                                                                    if (result == true) {
+                                                                                        $.ajax({
+                                                                                            url : '<?=url('accept-join/')?>' + data,
+                                                                                            method : 'POST',
+                                                                                            dataType : 'json',
+                                                                                            success : function(m){
+                                                                                                if (m.status == true) {
+                                                                                                    $(t).after('<a href="javascript:void(0);"><i>&nbsp;&nbsp;&nbsp;| ACCEPTED</i>')
+                                                                                                    $('.accept'+data).remove();
+                                                                                                    $('.declined'+data).remove();
+                                                                                                } else {
+                                                                                                    var dialog = bootbox.dialog({
+                                                                                                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+m.message+'</p>'
+                                                                                                    }); 
+                                                                                                }
+                                                                                            }
+                                                                                        });                                                                                        
+                                                                                    }
+                                                                                }
+                                                                            });
+                                                                        });
+
+                                                                        $('.declined<?=$all['request_id'];?>').click(function() {
+                                                                            var t = $(this);
+                                                                            var data = t.data('id');
+                                                                            var user = t.data('name'); 
+                                                                            bootbox.confirm({ 
+                                                                                message: "Are you sure want to declined <b>"+user+"</b> in your team ?",
+                                                                                buttons: {
+                                                                                    confirm: {
+                                                                                        label: 'Yes',
+                                                                                        className: 'btn-success'
+                                                                                    },
+                                                                                    cancel: {
+                                                                                        label: 'No',
+                                                                                        className: 'btn-danger'
+                                                                                    }
+                                                                                },
+                                                                                callback: function (result) {
+                                                                                    if (result == true) {
+                                                                                        $.ajax({
+                                                                                            url : '<?=url('declined-join/')?>' + data,
+                                                                                            method : 'POST',
+                                                                                            dataType : 'json',
+                                                                                            success : function(m){
+                                                                                                if (m.status == true) {
+                                                                                                    $(t).after('<a href="javascript:void(0);"><i>&nbsp;&nbsp;&nbsp;| DECLINED</i>')
+                                                                                                    $('.accept'+data).remove();
+                                                                                                    $('.declined'+data).remove();
+                                                                                                } else {
+                                                                                                    var dialog = bootbox.dialog({
+                                                                                                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+m.message+'</p>'
+                                                                                                    }); 
+                                                                                                }
+                                                                                            }
+                                                                                        });                                                                    
+                                                                                    }
+                                                                                }
+                                                                            });
+                                                                        });
+
+                                                                        $('.nick_name').select2({
+                                                                            theme : 'bootstrap',
+                                                                            minimumInputLength: 1,
+                                                                            allowClear: true,
+                                                                            placeholder: 'Enter Username In Game',
+                                                                            ajax: {
+                                                                                dataType: 'json',  
+                                                                                method: 'POST',
+                                                                                url: '<?=url('list-users/'.$team['game_id']);?>',
+                                                                                delay: 400,
+                                                                                data: function(params) {
+                                                                                        // console.log(params);
+                                                                                    return {
+                                                                                        search: params.term 
+                                                                                    } 
+                                                                                },
+                                                                                processResults: function(data){ 
+                                                                                            // console.log(data);
+                                                                                    return {
+                                                                                        results:  $.map(data, function (item) {
+                                                                                            return {
+                                                                                                text:  item.username_game+ ' - ' + item.id_game,
+                                                                                                id: item.id
+                                                                                            }
+                                                                                        })
+                                                                                    };
+                                                                                }
+                                                                            }
+                                                                        });
+                                                                    </script>
+                                                                    <?php endforeach;?>
+                                                                </table>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="modal-footer border-success" style="background-color: #4B3B60;">  
+                                                            <a href="#" class="btn btn-default" data-dismiss="modal" onclick="$('#game<?=$team['team_id'];?>').modal('show');">Cancel</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        <?php endif;?>
+                                        <?php if (Session::check('users') == $team['leader_id']):?>
+                                        <div class="modal fade" id="invite<?=$team['team_id'];?>">
+                                            <div class="modal-dialog" >
+                                                <div class="modal-content border-0 rounded-circle">
+                                                    <form method="post" class="form-invite<?=$team['team_id'];?>">
+                                                        <div class="modal-header border-success" style="background-color: #4B3B60;">
+                                                            <h3 style="padding:0;margin:0;">Inviting Join <sub class="text-muted"><?=$team['team_name'];?></sub></h3>  
+                                                        </div>
+                                                        <div class="modal-body border-success" style="background-color: #4B3B60;">
+                                                            <div class="form-group form-group--sm">
+                                                                <label for="nick_name">Username In Game <abbr class="required" title="required">*</abbr></label>
+                                                                <select name="nick_name" class="form-control nick_name" required></select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer border-success" style="background-color: #4B3B60;"> 
+                                                            <button type="submit" class="btn btn-primary invite-btn">Invite</button>
+                                                            <a href="#" class="btn btn-default" data-dismiss="modal" onclick="$('#game<?=$team['team_id'];?>').modal('show');">Cancel</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        <?php endif;?>
                                         <script>
                                             $('.form-identity<?=$game_id;?>').submit(function(event) {
                                                 event.stopPropagation();
@@ -104,9 +306,31 @@
                                                     }
                                                 });
                                             });
+                                            $('.form-invite<?=$team['team_id'];?>').submit(function(event) {
+                                                event.stopPropagation();
+                                                event.preventDefault();
+                                                $('.invite-btn').html('Loading....');
+                                                $.ajax({
+                                                    url : '<?=url('invite-join/'.$team['team_id']);?>',
+                                                    method : 'POST',
+                                                    data : {
+                                                        data : $('.nick_name option:selected').val(),
+                                                    },
+                                                    dataType : 'json',
+                                                    success : function(m) { 
+                                                        console.log(m);
+                                                        // if (m.status == true) {
+                                                        //     location.reload();
+                                                        // } else {
+                                                        //     $('.create-team').html('Save');
+                                                        //     $('.modal-body').prepend('<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ m.message +'</div>');
+                                                        // }
+                                                    }
+                                                });
+                                            });
                                         </script> 
                                         <?php endforeach; 
-                                        if (count($data['content']['game_id']) == 0){
+                                        if (count($data['content']) == 0){
                                             echo '<h5 class="text-center">NOT FOUND</h5>';
                                         }
                                         ?>

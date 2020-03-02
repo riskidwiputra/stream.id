@@ -47,12 +47,17 @@
 	// Account
 	Route::get('/account', 					'AccountController@account');
 	Route::get('/my-game', 					'AccountController@my_game');
+	Route::get('/my-team', 					'AccountController@my_team');
 	Route::post('/update-identity/{id_game}',	'GamesController@update_identity');
 
 	// List Team
 	Route::get('/team', 					'TeamController@list');
 	Route::post('/create-team', 			'TeamController@createteam');
 	Route::post('/join-team/{id_team}', 	'TeamController@join');
+	Route::post('/accept-join/{id_req}',	'TeamController@accept');
+	Route::post('/declined-join/{id_req}',	'TeamController@declined');
+	Route::post('/list-users/{id}',			'TeamController@list_users');
+	Route::post('/invite-join/{id_team}',	'TeamController@invite');
 
 	// LOGIN
 	Route::get('/login', 					'AuthController@IndexLogin');

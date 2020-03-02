@@ -121,8 +121,7 @@
 		}
 
 		public function where($where1, $where2 = null)
-		{ 
-			// var_dump($_SERVER);die;
+		{  
 			$sql = "SELECT * FROM ";
 			$sql .= $this->table. ' WHERE';
 			if (is_array($where1)) {

@@ -44,7 +44,7 @@ class Team_Model extends Model
 					if ($checkIdentity == false OR empty($checkIdentity['id_ingame']) OR empty($checkIdentity['username_ingame'])) {
 						echo json_encode([
 							'status'	=> false,
-							'message'	=> 'Please filled ID and username in this game.<br/>Go to <a href="'.url('my-game').'">MY GAME</a>'
+							'message'	=> 'Please filled ID and username in this game. Go to <a href="'.url('my-game').'">MY GAME</a>'
 						]);
 					} else {
 						$namaFileBaru = uniqid();
@@ -100,7 +100,7 @@ class Team_Model extends Model
 							$c = false;
 							echo json_encode([
 								'status' => false,
-								'message' => 'You already have a team in this game!!'
+								'message' => 'The user already have a team in this game!!'
 							]);  
 							break;
 						} else {
@@ -171,8 +171,9 @@ class Team_Model extends Model
 		$team = $this->db->table('team')->where('team_id', $id_team);
 		$team_player = $this->db->table('team_player')->where('team_id', $id_team);
 		$game = $this->db->table('game_list')->where('id_game_list', $team['game_id']);
-		// cek dijebol class join padahal belom login
-		// echo json_encode($id_team);die;
+		// cek dijebol class join padahal belom login data id salah
+		// echo json_encode(['status' => true]);
+		// die;
 		if (Session::check('users') == false OR $team == false) {
 			echo json_encode([
 				'status' => false,
@@ -198,85 +199,261 @@ class Team_Model extends Model
 						'status' => false,
 						'message' => 'You have joined this team'
 					]);
-				} else {
-					// cek udah punya team dengan game yang sama
-					$c = false;
-					$team_player2 = $this->db->query('SELECT * FROM team_player WHERE player_id LIKE "%'.Session::get('users').'%" OR substitute_id LIKE "%'.Session::get('users').'%" ');
-					$team_player2 = $this->db->resultSet();
-					if ($team_player2 == false) { 
-						// cek identity di game
-						$checkIdentity = [
-							'users_id'	=> Session::get('users'),
-							'game_id'	=> $team['game_id']
-						];
-						$checkIdentity = $this->db->table('identity_ingame')->where($checkIdentity);
+				} else { 
 
-						if ($checkIdentity == false OR empty($checkIdentity['id_ingame']) OR empty($checkIdentity['username_ingame'])) {
-							echo json_encode([
-								'status'	=> false,
-								'message'	=> 'Please filled ID and username in this game.<br/>Go to <a href="'.url('my-game').'">MY GAME</a>'
-							]);
-						} else {
-							// jika team inti sudah penuh
-							if (count($team_player0) == $game['player_on_team'] AND count($team_player1) == 0) {
-								// maka harus masuk di bagian cadangan
-								$dataTeamPlayer = [
-									'substitute_id'	=> Session::get('users')
-								];
-							} else { 
-								// jika tim inti masih ada slot 
-								// maka dia masuk dibagian pemain inti
-								$dataTeamPlayer = [
-									'player_id'	=> $team_player['player_id'].','.Session::get('users')
-								]; 
-							}
-							$whereTeamPlayer = [
-								'team_id'	=> $id_team
-							];
-							$this->db->table('team_player')->update($dataTeamPlayer ,$whereTeamPlayer);
-							echo json_encode([
-								'status'=>true
-							]);
-						}
-					} else {
+					// cek pernah request join 
+					$request_join = [
+						'team_id'	=> $id_team,
+						'users_id'	=> Session::get('users'),
+						'status'	=> 1
+					];
+					$request_join = $this->db->table('team_request')->where($request_join);
+
+
+					// jika gak pernah request join atau request_join udah di tolak
+					if ($request_join == false) {
 						// cek udah punya team dengan game yang sama
-						foreach ($team_player2 as $aa) {
-							$game2 = $this->db->table('team')->where('team_id', $aa['team_id']); 
-							if ($game2['game_id'] == $game['id_game_list']) {
-								$c = false;
+						$c = false;
+						$team_player2 = $this->db->query('SELECT * FROM team_player WHERE player_id LIKE "%'.Session::get('users').'%" OR substitute_id LIKE "%'.Session::get('users').'%" ');
+						$team_player2 = $this->db->resultSet();
+						if ($team_player2 == false) { 
+						// cek identity di game
+							$checkIdentity = [
+								'users_id'	=> Session::get('users'),
+								'game_id'	=> $team['game_id']
+							];
+							$checkIdentity = $this->db->table('identity_ingame')->where($checkIdentity);
+
+							if ($checkIdentity == false OR empty($checkIdentity['id_ingame']) OR empty($checkIdentity['username_ingame'])) {
 								echo json_encode([
-									'status' => false,
-									'message' => 'You already have a team in this game!!'
-								]);  
-								break;
+									'status'	=> false,
+									'message'	=> 'Please filled ID and username in this game. Go to <a href="'.url('my-game').'">MY GAME</a>'
+								]);
 							} else {
-								$c = true; 
-							}
-						}
-						if ($c == true) {
 							// jika team inti sudah penuh
-							if (count($team_player0) == $game['player_on_team']) {
+								if (count($team_player0) == $game['player_on_team'] AND count($team_player1) == 0) {
 								// maka harus masuk di bagian cadangan
-								$dataTeamPlayer = [
-									'substitute_id'	=> Session::get('users')
-								];
-							} else { 
+									$dataTeamPlayer = [
+										'substitute_id'	=> Session::get('users')
+									];
+								} else { 
 								// jika tim inti masih ada slot 
 								// maka dia masuk dibagian pemain inti
-								$dataTeamPlayer = [
-									'player_id'	=> $team_player['player_id'].','.Session::get('users')
-								]; 
+								// $dataTeamPlayer = [
+								// 	'player_id'	=> $team_player['player_id'].','.Session::get('users')
+								// ]; 
+								}
+							// $whereTeamPlayer = [
+							// 	'team_id'	=> $id_team
+							// ];
+							// $this->db->table('team_player')->update($dataTeamPlayer ,$whereTeamPlayer);
+
+								$dataRequest = [
+									'request_id'	=> uniqid(),
+									'team_id'		=> $id_team,
+									'users_id'		=> Session::get('users'),
+									'status'		=> 1,
+									'created_at'	=> date('Y-m-d H:i:s')
+								];
+								$this->db->table('team_request')->insert($dataRequest);
+								echo json_encode([
+									'status'=>true
+								]);
 							}
-							$whereTeamPlayer = [
-								'team_id'	=> $id_team
-							];
-							$this->db->table('team_player')->update($dataTeamPlayer ,$whereTeamPlayer);
-							echo json_encode(['status'=>true]);
+						} else {
+							// cek udah punya team dengan game yang sama
+							foreach ($team_player2 as $aa) {
+								$game2 = $this->db->table('team')->where('team_id', $aa['team_id']); 
+								if ($game2['game_id'] == $game['id_game_list']) {
+									$c = false;
+									echo json_encode([
+										'status' => false,
+										'message' => 'You already have a team in this game!!'
+									]);  
+									break;
+								} else {
+									$c = true; 
+								}
+							}
+							if ($c == true) {
+							// jika team inti sudah penuh
+								if (count($team_player0) == $game['player_on_team']) {
+								// maka harus masuk di bagian cadangan
+									$dataTeamPlayer = [
+										'substitute_id'	=> Session::get('users')
+									];
+								} else { 
+								// jika tim inti masih ada slot 
+								// maka dia masuk dibagian pemain inti
+									$dataTeamPlayer = [
+										'player_id'	=> $team_player['player_id'].','.Session::get('users')
+									]; 
+								}
+								$whereTeamPlayer = [
+									'team_id'	=> $id_team
+								];
+							// $this->db->table('team_player')->update($dataTeamPlayer ,$whereTeamPlayer);
+								$dataRequest = [
+									'request_id'	=> uniqid(),
+									'team_id'		=> $id_team,
+									'users_id'		=> Session::get('users'),
+									'status'		=> 1,
+									'created_at'	=> date('Y-m-d H:i:s')
+								];
+								$this->db->table('team_request')->insert($dataRequest);
+								echo json_encode([
+									'status'=>true
+								]); 
+							} 
 						} 
+					} else {
+						echo json_encode([
+							'status'	=> false,
+							'message'	=> 'Waiting for your request join to accept'
+ 						]);
 					} 
 				} 
 			} 
 		}
+	}
+
+	public function accept($id_req) 
+	{
+		$request = $this->db->table('team_request')->where('request_id', $id_req);
+
+		// jika request palsu / jebol 
+		if ($request == false) {
+			echo json_encode([
+				'status'	=> false,
+				'message' 	=> 'System Error, Plase refresh page!'
+			]);
+		} else {
+
+			if ($request['status'] != 1) {
+				echo json_encode([
+					'status'	=> false,
+					'message' 	=> 'System Error, Plase refresh page!'
+				]);
+			} else {
+				$team = $this->db->table('team')->where('team_id', $request['team_id']);
+				$game = $this->db->table('game_list')->where('id_game_list', $team['game_id']);
+				$team_player = $this->db->table('team_player')->where('team_id', $request['team_id']);
+				$team_player0 = explode(',', $team_player['player_id']);
+				$team_player1 = explode(',', $team_player['substitute_id']); 
+				if ($team_player1[0] == '') {
+					$team_player1 = [];
+				} 
+
+				// cek udah punya team dengan game yang sama
+				$c = false;
+				$team_player2 = $this->db->query('SELECT * FROM team_player WHERE player_id LIKE "%'.$request["users_id"].'%" OR substitute_id LIKE "%'.$request["users_id"].'%" ');
+				$team_player2 = $this->db->resultSet();
+				if ($team_player2 == false) { 
+					//jika team sudah penuh
+					if ($game['player_on_team']+$game['substitute_player'] == count($team_player0)+count($team_player1)) {
+						echo json_encode([
+							'status'	=> false,
+							'message' 	=> 'Team is Full!'
+						]);
+					} else {
+						// jika masih tidak ada slot di inti 
+						// maka masukkan ke cadangan
+						if ($game['player_on_team'] == count($team_player0) AND $count($team_player1) == 0) {
+							$dataTeamPlayer = [
+								'substitute_id'	=> $request['users_id']
+							];
+						} else { //jika 
+							$dataTeamPlayer = [
+								'player_id'	=> $team_player['player_id'].','.$request['users_id']
+							];
+						}
+						$whereTeamPlayer = [
+							'team_id'	=> $request['team_id']
+						];
+						$dataReq = [
+							'status'	=> 2
+						];
+						$whereReq = [
+							'request_id'	=> $id_req
+						];
+						$this->db->table('team_request')->update($dataReq, $whereReq);
+						$this->db->table('team_player')->update($dataTeamPlayer ,$whereTeamPlayer);
+						echo json_encode([
+							'status'	=> true
+						]);
+					}
+				} else { 
+					// cek udah punya team dengan game yang sama
+					foreach ($team_player2 as $aa) {
+						$game2 = $this->db->table('team')->where('team_id', $aa['team_id']); 
+						if ($game2['game_id'] == $game['id_game_list']) {
+							$c = false;
+							echo json_encode([
+								'status' => false,
+								'message' => 'The user already have a team in this game!!'
+							]);  
+							break;
+						} else {
+							$c = true; 
+						}
+					}
+					if ($c == true) {
+						//jika team sudah penuh
+						if ($game['player_on_team']+$game['substitute_player'] == count($team_player0)+count($team_player1)) {
+							echo json_encode([
+								'status'	=> false,
+								'message' 	=> 'Team is Full!'
+							]);
+						} else {
+							// jika masih tidak ada slot di inti 
+							// maka masukkan ke cadangan
+							if ($game['player_on_team'] == count($team_player0) AND $count($team_player1) == 0) {
+								$dataTeamPlayer = [
+									'substitute_id'	=> $request['users_id']
+								];
+							} else { //jika 
+								$dataTeamPlayer = [
+									'player_id'	=> $team_player['player_id'].','.$request['users_id']
+								];
+							}
+							$whereTeamPlayer = [
+								'team_id'	=> $request['team_id']
+							];
+							$dataReq = [
+								'status'	=> 2
+							];
+							$whereReq = [
+								'request_id'	=> $id_req
+							];
+							$this->db->table('team_request')->update($dataReq, $whereReq);
+							$this->db->table('team_player')->update($dataTeamPlayer ,$whereTeamPlayer);
+							echo json_encode([
+								'status'	=> true
+							]);
+						}
+					}  
+				}  
+			}
+		}
+	}
+
+	public function declined($id_req)
+	{
+		$dataReq = [
+			'status'	=> 0
+		];
+		$whereReq = [
+			'request_id'	=> $id_req
+		];
+		$this->db->table('team_request')->update($dataReq, $whereReq); 
+		echo json_encode([
+			'status'	=> true
+		]);
+	}
+
+	public function invite()
+	{
+		
 	}
 
 }

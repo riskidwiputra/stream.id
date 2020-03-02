@@ -80,6 +80,12 @@
 									$slot_space3 = []; 
 								}
 								$slot_space = count($slot_space2)+count($slot_space3);  
+								$request_join = [
+									'team_id'	=> $row['team_id'],
+									'users_id' 	=> Session::get('users'),
+									'status'	=> 1
+								];
+								$request_join = $this->db->table('team_request')->where($request_join);
 							?>
 							<tr>
 								<td class="team-schedule__date"><?=date('d - M - Y', strtotime($row['created_at']));?></td>
@@ -101,11 +107,13 @@
 								<?php if (Session::check('users')):?>
 								<td class="team-schedule__tickets">
 									<?php if (in_array( Session::get('users') , $slot_space2 ) OR in_array( Session::get('users') , $slot_space3 )):?>
-									<button class="btn btn-xs btn-default-alt btn-block disabled"> Joined </button>	 
+									<button class="btn btn-xs btn-default-alt btn-block disabled">Joined</button>	 
 									<?php elseif ($slot_space == $slot_total):?>
-									<button class="btn btn-xs btn-default-alt btn-block disabled"> Full </button>	 
+									<button class="btn btn-xs btn-default-alt btn-block disabled">Full</button>	
+									<?php elseif ($request_join != false):?> 
+									<button class="btn btn-xs btn-default-alt btn-block disabled">Waiting Confirm</button>	
 									<?php else:?>
-									<button class="btn btn-xs btn-default-alt btn-block join" data-id="<?=$row['team_id'];?>"> Join </button>
+									<button class="btn btn-xs btn-default-alt btn-block join" data-id="<?=$row['team_id'];?>">Join</button>
 									<?php endif;?>
 								</td>
 								<?php endif;?>
@@ -184,8 +192,7 @@
 </div>
 <script>
 	$('.create-team').submit(function(event) {
-		$('.btn-create').html('Please wait....');
-		$(this).find('.alert').hide('fast');
+		$('.btn-create').html('Please wait....'); 
 		event.stopPropagation();
         event.preventDefault(); 
         var form_data = new FormData;
@@ -207,28 +214,31 @@
         		if (m.status == true) {
         			location.reload();
         		} else {
-        			$('.btn-create').html('Create');
-        			$('#createteam .modal-body').prepend('<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ m.message +'</div>'); 
+        			$('.btn-create').html('Create');  
+        			var dialog = bootbox.dialog({
+                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+m.message+'</p>'
+                    }); 
         		}
         	}
         });
 	});
 
-	$('.join').click(function() { 		
-		$('.content-alert-join').find('.alert').hide('fast');
+	$('.join').click(function() { 		 
+		var t = $(this);
 		$.ajax({
 			url : '<?=url('join-team/');?>' + $(this).data('id'),
 			method : 'POST',
 			dataType : 'json',
-			success : function(m){
-				// console.log(m.status);
+			success : function(m){ 
 				if (m.status == true) {
-					$('.join').html('Joined');
-					$('.join').addClass('disabled');
-					$('.join').removeAttr('data-id');
-					$('.join').removeClass('join');
-				} else {
-					$('.content-alert-join').prepend('<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ m.message +'</div>'); 
+					t.html('Waiting Confirm');
+					t.addClass('disabled');
+					t.removeAttr('data-id');
+					t.removeClass('join');
+				} else { 
+					var dialog = bootbox.dialog({
+                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+m.message+'</p>'
+                    }); 
 				}
 			}
 		});
