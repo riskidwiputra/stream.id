@@ -459,9 +459,17 @@ class Team_Model extends Model
 		$team_player0 = explode(',', $team_player['player_id']);
 		$team_player1 = explode(',', $team_player['substitute_id']);
 		$game = $this->db->table('game_list')->where('id_game_list', $team['game_id']);
+		$dataInvite = [
+			'invite_id'	=> uniqid(),
+			'team_id'	=> $id_team,
+			'identity_id'	=> $identity['id'],
+			'status'	=> 1,
+			'created_at'	=> date('Y-m-d H:i:s')
+		]; 
+		// $this->db->table('team_invite')->insert($dataInvite);
 		echo json_encode([
 			'status'	=> false,
-			'message'	=> $game
+			'message'	=> $dataInvite
 		]);
 	}
 

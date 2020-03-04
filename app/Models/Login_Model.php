@@ -48,6 +48,9 @@
 									if (Session::check('_login_again')) {
 										Session::unset('_login_again');
 									} 
+									if (Session::check('FalseRegister')) {
+										Session::unset('FalseRegister');
+									}
 									Session::set('users',$dataUsers['user_id']);  
 									
 									$this->save_device($dataUsers['user_id']);			

@@ -22,18 +22,6 @@ class Register_Model extends Model
         $id             = rand(1,999999999);
         $tanggal_lahir   = $tanggal ."-". $bulan. "-". $tahun ;
 
-        // $username = 'akuganteng ';
-        // var_dump($username);
-        // // $a1 = preg_match("@[ ]@", $username);
-        // $a2 = preg_match("@[A-Z]@", $username);
-        // $a3 = preg_match("@[0-9]@", $username);
-
-        // // var_dump($password);
-        // // var_dump($a1);
-        // var_dump($a2);
-        // var_dump($a3);
-        // die;
-
         // Gambar Ktp 
         if (!empty($_FILES['gambar_ktp']['name'])) {
             $gambar         = $_FILES['gambar_ktp']['name'];
@@ -146,18 +134,7 @@ class Register_Model extends Model
             $preg1 = preg_match("@[a-z]@", $password);
             $preg2 = preg_match("@[A-Z]@", $password);
             $preg3 = preg_match("@[0-9]@", $password);
-
-            // $password = ' asdfasdf';
-            // var_dump($password);
-            // var_dump($preg1);
-            // var_dump($preg2);
-            // var_dump($preg3);
-            
-            // var_dump($password);
-            // var_dump($preg1 == false OR $preg2 == false);
-            // var_dump($preg3 == false);
-            // var_dump($preg1 == false OR $preg2 == false AND $preg3 == false);
-            // die;
+ 
             if($preg1 == false OR $preg2 == false AND $preg3 == false){
                 $dataFalse = [
                     'username'  => $username,
