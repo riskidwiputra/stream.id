@@ -20,7 +20,7 @@
                                 <li class="meta__item meta__item--author"><img src="<?= asset('assets/images/samples/avatar-6-xs.jpg'); ?>" alt="Post Author Avatar"> by <?= $data['content']['penulis'] ?></li>
 
                                 <li class="meta__item meta__item--date">
-                                    <time datetime="2018-08-27"><?= date('d F Y H:i',strtotime($data['content']['tanggal'])) ?></time>
+                                    <time datetime="2018-08-27"><?= date('j F Y | H:i',strtotime($data['content']['tanggal'])) ?></time>
                                 </li>
                                 <li class="meta__item meta__item--views"><?= $data['content']['views']; ?></li>
                             </ul>
@@ -269,7 +269,7 @@
                                                     <span class="label posts__cat-label posts__cat-label--category-1"><?= $row['label'] ?></span><span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= date('d F Y', strtotime($row['tanggal'])) ?></time>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['tanggal'])) ?></time>
                                             </div>
                                         </li>
                                         
@@ -293,7 +293,7 @@
                                                     <span class="label posts__cat-label posts__cat-label--category-2"><?= $row['label'] ?></span>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= date('d F Y', strtotime($row['tanggal'])) ?></time>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['tanggal'])) ?></time>
                                             </div>
                                         </li>
                                         <?php endforeach ?>  
@@ -315,7 +315,7 @@
                                                     <span class="label posts__cat-label posts__cat-label--category-3"><?= $row['label'] ?>  </span>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= date('d F Y H:is', strtotime($row['tanggal'])) ?></time>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['tanggal'])) ?></time>
                                             </div>
                                         </li>
 

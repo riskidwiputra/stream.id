@@ -235,15 +235,15 @@
                                                                                     } 
                                                                                 },
                                                                                 processResults: function(data){ 
-                                                                                    console.log(data);
-                                                                                    // return {
-                                                                                    //     results:  $.map(data, function (item) {
-                                                                                    //         return {
-                                                                                    //             text:  item.username_game+ ' - ' + item.id_game,
-                                                                                    //             id: item.id
-                                                                                    //         }
-                                                                                    //     })
-                                                                                    // };
+                                                                                    // console.log(data);
+                                                                                    return {
+                                                                                        results:  $.map(data, function (item) {
+                                                                                            return {
+                                                                                                text:  item.username_game+ ' - ' + item.id_game,
+                                                                                                id: item.id
+                                                                                            }
+                                                                                        })
+                                                                                    };
                                                                                 }
                                                                             }
                                                                         });

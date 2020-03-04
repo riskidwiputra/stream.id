@@ -72,21 +72,23 @@
                         <!-- Register Form -->
                         <form action="<?= url('register');?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="register-name">Username</label>
-                                <input type="text" name="username" id="username" class="form-control" placeholder="Enter your Username..." required="">
+                                <label for="register-name">Username <i class="text-danger" style="font-size:15px;">*</i></label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Enter your Username..." value="<?=$data['FalseRegister']['username'];?>" required="">
                             </div>
                             <div class="form-group">
-                                <label for="register-password">Your Password</label>
+                                <label for="register-password">Your Password <i class="text-danger" style="font-size:15px;">*</i></label>
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password..." required="">
+                                <i class="text-muted ml-2" style="font-size:12px;">The password must be a combination of letters and numbers</i>
                             </div>
                             <div class="form-group">
-                                <label for="repeat-password">Repeat Password</label>
+                                <label for="repeat-password">Repeat Password <i class="text-danger" style="font-size:15px;">*</i></label>
                                 <input type="password" name="repassword" id="repeat-repassword" class="form-control" placeholder="Repeat your password..." required="">
+                                <i class="text-muted ml-2" style="font-size:12px;">The password must be a combination of letters and numbers</i>
                             </div>
                             <div class="form-group">
-                                <label for=""> Gender</label><br>
+                                <label for=""> Gender <i class="text-danger" style="font-size:15px;">*</i></label><br>
                                 <label class="radio radio-inline mr-2">
-                                    <input type="radio" name="jenis_kelamin" id="inlineRadio1" value="laki-laki" checked required=""> Male
+                                    <input type="radio" name="jenis_kelamin" id="inlineRadio1" value="laki-laki" <?php if ($data['FalseRegister']['jenis_kelamin'] == 'laki-laki') {echo 'checked';}else{echo 'checked';}?> required=""> Male
                                     <span class="radio-indicator"></span>
                                 </label>
                                 <label class="radio radio-inline mr-2">
@@ -95,78 +97,84 @@
                                 </label>
                             </div>
                             <div class="form-group">
-                                <label for="register-name">Your Email</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address..." required="">
+                                <label for="register-name">Your Email <i class="text-danger" style="font-size:15px;">*</i></label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address..." value="<?=$data['FalseRegister']['email'];?>" required="">
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="select-default">Date of birth</label>
-                                <div class="input-group ">
-
+                                <label class="control-label" for="select-default">Date of birth <i class="text-danger" style="font-size:15px;">*</i></label>
+                                <div class="input-group "> 
                                     <select  name="tanggal" class="form-control col-lg-3" required="">
-                                        <option readonly=""  value="" hidden="">Date</option>
+                                        <option value='0' <?php if ($data['FalseRegister']['birth'] == ''){echo 'selected';} ?>>Date</option>
                                         <?php for ($i=01; $i <= 31 ; $i++) { ?>
                                             <?php if ($i <= 9){ ?>
-                                        <option value="0<?= $i ?>">0<?= $i ?></option>
+                                        <option value="0<?= $i ?>" <?php if ($data['FalseRegister']['birth'] != '' AND date('d', strtotime($data['FalseRegister']['birth'])) == $i ){echo 'selected';} ?>>0<?= $i ?></option>
                                             <?php }else{ ?>
-                                        <option value="<?= $i ?>"><?= $i ?></option>
+                                        <option value="<?= $i ?>" <?php if ($data['FalseRegister']['birth'] != '' AND date('d', strtotime($data['FalseRegister']['birth'])) == $i ){echo 'selected';} ?>><?= $i ?></option>
                                             <?php } ?>
                                         <?php } ?>
                                     </select>
                                     <select name="bulan" class="form-control col-lg-3" required="">
-                                        <option readonly=""  value="" hidden="">Month</option> 
+                                        <option value='0' <?php if ($data['FalseRegister']['birth'] == ''){echo 'selected';} ?>>Month </option> 
                                         <?php $bulan=array("","Januari","Pebruari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"); ?>
-                                        <?php  for ($i=1;$i<=12;$i++){ ?>
-                                        <option value="<?= $i ?>"><?= $bulan[$i] ?></option>
+                                        <?php  for ($i=1;$i<=12;$i++){ 
+                                            if (substr(date('m', strtotime(Session::get('FalseRegister')['birth'])),0,1) == 0) {
+                                                $a = substr(date('m', strtotime(Session::get('FalseRegister')['birth'])),1,2);
+                                            } else {
+                                                $a = date('m', strtotime(Session::get('FalseRegister')['birth']));
+                                            }
+                                        ?>
+                                        <option value="<?= $i ?>" <?php if ($data['FalseRegister']['birth'] != '' AND $a == $i ){echo 'selected';} ?>><?= $bulan[$i] ?></option>
                                         <?php } ?>
                                     </select>
 
                                     <select   name="tahun" class="form-control col-lg-3" required="">
-                                        <option readonly=""  value="" hidden="">Year</option>
+                                        <option value='0' <?php if ($data['FalseRegister']['birth'] == ''){echo 'selected';} ?>>Year</option>
                                         <?php for ($i=2020; $i>=1945 ; $i--) { ?> 
-                                        <option value="<?= $i ?>"><?= $i ?></option>
+                                        <option value="<?= $i ?>" <?php if ($data['FalseRegister']['birth'] != '' AND date('Y', strtotime($data['FalseRegister']['birth'])) == $i ){echo 'selected';} ?>><?= $i ?></option>
                                         <?php } ?> 
                                     </select>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label for="register-name">Address</label>
-                                <textarea class="form-control" name="alamat" id="alamat" placeholder="Enter your Address..." required="" rows="5"></textarea>
+                                <label for="register-name">Address <i class="text-danger" style="font-size:15px;">*</i></label>
+                                <textarea class="form-control" name="alamat" id="alamat" placeholder="Enter your Address..." required="" rows="5"><?=$data['FalseRegister']['address'];?></textarea>
                             </div>
 
                             <div class="form-group" style="position: static;"> 
-                                <label for="Provinsi">PROVINCE</label> 
+                                <label for="Provinsi">PROVINCE <i class="text-danger" style="font-size:15px;">*</i></label> 
                                 <select class="form-control" name="provinsi" id="provinsi" required="">
 
                                 </select> 
                             </div>
+                            
                             <div class="form-group" style="position: static;"> 
-                                <label for="Kabupaten">DISTRICT / CITY</label> 
+                                <label for="Kabupaten">DISTRICT / CITY <i class="text-danger" style="font-size:15px;">*</i></label> 
                                 <select class="form-control" name="kabupaten" id="kabupaten" required="">
                                 </select> 
                             </div> 
 
                             <div class="form-group">
-                                <label for="register-name">Phone Number (May be Empty / Optional)</label>
-                                <input type="number" name="nomor_hp" id="nomor_hp" class="form-control" placeholder="Enter your phone number...">
+                                <label for="register-name">Phone Number (Optional) </label>
+                                <input type="number" name="nomor_hp" id="nomor_hp" class="form-control" value="<?=$data['FalseRegister']['phone'];?>" placeholder="Enter your phone number...">
                             </div>
+                            
                             <div class="form-group">
-                                <label for="register-name">Input ID Card / Family Card (May be Empty / Optional)</label><br>
-                                <img src="" id="ktp" name="ktp"><br>
+                                <label for="register-name">Upload ID Card (KTP) / Family Card (KK) - (Optional)</label><br>
+                                <img src="" id="ktp" name="ktp">
                                 <input type="file" name="gambar_ktp" id="ktp">
                             </div>
+
                             <div class="form-group">
-                                <label for="register-name">Your Photo (May be Empty / Optional)</label><br>
-                                <img src="" id="foto" name="foto"><br>
+                                <label for="register-name">Upload Photo Profile (Optional)</label><br>
+                                <img src="" id="foto" name="foto">
                                 <input type="file" name="foto" id="foto">
                             </div>
+
                             <div class="form-group">
-                                <label for="register-name">ID Number (May be Empty / Optional)</label>
-                                <input type="number" name="id_ktp" id="id_ktp" class="form-control" placeholder="Enter your ID number...">
-                            </div>
-                            <div class="form-group">
-                                <label for="register-name">Username Game (May be Empty / Optional)</label>
-                                <input type="text" name="username_game" id="username_game" class="form-control" placeholder="Enter your username game...">
-                            </div>
+                                <label for="register-name">ID Number / NIK (Optional)</label>
+                                <input type="number" name="id_ktp" id="id_ktp" class="form-control" value="<?=$data['FalseRegister']['id_number'];?>" placeholder="Enter your ID number / NIK...">
+                            </div> 
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-default btn-lg btn-block" >

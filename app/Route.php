@@ -52,6 +52,7 @@
 
 	// List Team
 	Route::get('/team', 					'TeamController@list');
+	Route::get('/team/{page}/{page_no}',	'TeamController@page');
 	Route::post('/create-team', 			'TeamController@createteam');
 	Route::post('/join-team/{id_team}', 	'TeamController@join');
 	Route::post('/accept-join/{id_req}',	'TeamController@accept');
@@ -61,7 +62,7 @@
 
 	// LOGIN
 	Route::get('/login', 					'AuthController@IndexLogin');
-	Route::get('/registrasi', 				'AuthController@IndexRegistrasi');
+	Route::get('/register', 				'AuthController@IndexRegistrasi');
 	Route::get('/logout', 					'AuthController@Logout');
 
 	// Provinsi 

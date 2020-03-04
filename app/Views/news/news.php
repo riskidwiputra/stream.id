@@ -28,7 +28,7 @@
                                 <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" alt=""></a>
                             </figure>
                             <div class="posts__inner card__content" style="height: 13rem;">
-                                <time datetime="2018-08-23" class="posts__date"><?= date('d F Y H:i',strtotime($row['tanggal'])) ?></time>
+                                <time datetime="2018-08-23" class="posts__date"><?= date('j F Y | H:i',strtotime($row['tanggal'])) ?></time>
                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                 <div class="posts__excerpt">
                                 </div>
@@ -82,7 +82,7 @@
                         }else{
                             $link_next = ($data['page'] < $data['jumlahHalaman'])? $data['page'] + 1 : $data['jumlahHalaman'];
                         ?>
-                        <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-page/<?= $link_next ?>""><i class="fa fa-angle-right"></i></a></li>
+                        <li class="page-item"><a class="page-link" href="<?= BASEURL ?>/news-page/<?= $link_next ?>"><i class="fa fa-angle-right"></i></a></li>
                         <?php
                         }
                         }else{?>
@@ -176,7 +176,7 @@
                                                     <span class="label posts__cat-label posts__cat-label--category-2"><?= $row['label'] ?></span>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= $row['tanggal'] ?></time>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('d F Y H:i',strtotime($row['tanggal'])) ;?></time>
                                             </div>
                                         </li>
                                      <?php endforeach ?>
@@ -201,7 +201,7 @@
                                                     <span class="label posts__cat-label posts__cat-label--category-3">Striker GO</span>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date">September 5th, 2018</time>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('d F Y H:i',strtotime($row['tanggal'])) ?></time>
                                             </div>
                                         </li>
 

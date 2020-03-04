@@ -128,7 +128,7 @@
                                 <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/logout">Logout</a></li>
                             <?php }else{ ?>
                                 <li class="nav-account__item"><a href="<?= BASEURL ?>/login">Login</a></li>
-                                <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/registrasi">Registrasi</a></li>
+                                <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/register">Register</a></li>
                             <?php } ?>
                         </ul>
                         <!-- Account Navigation / End -->

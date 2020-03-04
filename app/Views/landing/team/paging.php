@@ -131,7 +131,7 @@
 			<ul class="pagination pagination--circle justify-content-center">
 				<?php
 				$total_no_of_records = $data['content_count'];
-				$records_per_page = $data['records_per_page']; 
+				$records_per_page = $data['records_per_page'];
 				$page_no = $data['page_no'];
 				$total_no_of_pages = ceil($total_no_of_records/$records_per_page);
 				$current_page = $page_no;
