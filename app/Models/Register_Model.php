@@ -22,17 +22,17 @@ class Register_Model extends Model
         $id             = rand(1,999999999);
         $tanggal_lahir   = $tanggal ."-". $bulan. "-". $tahun ;
 
-        $username = 'a ';
-        var_dump($username);
-        $a1 = preg_match("@[ ]@", $username);
-        // $a2 = preg_match("@[A-Z]@", $password);
-        // $a3 = preg_match("@[0-9]@", $password);
+        // $username = 'akuganteng ';
+        // var_dump($username);
+        // // $a1 = preg_match("@[ ]@", $username);
+        // $a2 = preg_match("@[A-Z]@", $username);
+        // $a3 = preg_match("@[0-9]@", $username);
 
-        // var_dump($password);
-        var_dump($a1);
+        // // var_dump($password);
+        // // var_dump($a1);
         // var_dump($a2);
         // var_dump($a3);
-        die;
+        // die;
 
         // Gambar Ktp 
         if (!empty($_FILES['gambar_ktp']['name'])) {
