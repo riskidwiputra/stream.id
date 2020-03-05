@@ -8,6 +8,10 @@
 		public function __construct()
 		{
 			parent::__construct();
+
+			if (Session::check('users') == false){
+				redirect('/logout');
+			}
 			
 		}
 
@@ -91,6 +95,8 @@
 				$data['users']	= $this->db->single();  
 				$data['content'] = $this->db->query('SELECT * FROM team_player WHERE player_id LIKE "%'.Session::get("users").'%" OR substitute_id LIKE "%'.Session::get("users").'%" ');
 				$data['content'] = $this->db->resultSet();
+				$data['invited'] = $this->db->table('team_invite')->where('users_id', Session::get('users'));
+				$data['count_invited'] = 
 				// var_dump($data['content']);die;
 				$this->view('landing/template/header', $data);
 				$this->view('landing/account/my-team', $data);	

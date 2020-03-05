@@ -9,8 +9,10 @@
                 <div class="col-lg-8">
 
                     <aside class="widget widget--sidebar card widget-tabbed">
-                        <div class="widget__title card__header">
+                        <div class="widget__title card__header d-flex justify-content-between">
                             <h4>MY TEAM</h4>
+                            <span></span>
+                            <a href="javascript:void(0);" class="btn text-white p-0 m-0"><span class="badge badge-danger">2</span><u> MY INVITATION</u></a>
                         </div>
                         <div class="widget__content card__content" id="data" data-id="<?= BASEURL ?>">
                             <div class="widget-tabbed__tabs">
@@ -319,13 +321,20 @@
                                                     },
                                                     dataType : 'json',
                                                     success : function(m) { 
-                                                        console.log(m);
-                                                        // if (m.status == true) {
-                                                        //     location.reload();
-                                                        // } else {
-                                                        //     $('.create-team').html('Save');
-                                                        //     $('.modal-body').prepend('<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ m.message +'</div>');
-                                                        // }
+                                                        // console.log(m);
+                                                        if (m.status == true) {
+                                                            // location.reload();
+                                                            $('.invite-btn').html('Invite');
+                                                            var dialog = bootbox.dialog({
+                                                                message: '<p class="text-center mb-0"><i class="fa fa-check-circle"></i> User successfully invited </p>'
+                                                            }); 
+                                                        } else {
+                                                            $('.invite-btn').html('Invite');
+                                                            // $('.modal-body').prepend('<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ m.message +'</div>');
+                                                            var dialog = bootbox.dialog({
+                                                                message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+m.message+'</p>'
+                                                            }); 
+                                                        }
                                                     }
                                                 });
                                             });

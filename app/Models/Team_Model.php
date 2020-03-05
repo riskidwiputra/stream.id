@@ -463,13 +463,14 @@ class Team_Model extends Model
 			'invite_id'	=> uniqid(),
 			'team_id'	=> $id_team,
 			'identity_id'	=> $identity['id'],
+			'users_id'	=> $identity['users_id'],
 			'status'	=> 1,
 			'created_at'	=> date('Y-m-d H:i:s')
 		]; 
-		// $this->db->table('team_invite')->insert($dataInvite);
+		$this->db->table('team_invite')->insert($dataInvite);
 		echo json_encode([
-			'status'	=> false,
-			'message'	=> $dataInvite
+			'status'	=> true
+			// 'message'	=> $dataInvite
 		]);
 	}
 
