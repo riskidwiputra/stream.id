@@ -230,13 +230,153 @@
                     </div>
 
                     <div class="col-lg-4">
+		
+        <!-- Widget: Achievements -->
+        <aside class="widget card card--no-paddings widget--sidebar widget-achievements">
+            <div class="widget__title card__header card__header--has-arrows js-alc-achievements-carousel-header"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
+                <h4>My Game</h4>
+            <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button></div>
+            <div class="widget__content card__content">
+        
+                <div class="alc-achievements js-alc-achievements-carousel slick-initialized slick-slider">
+        
+                    <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2646px; transform: translate3d(-756px, 0px, 0px);"><div class="alc-achievements__item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 378px;" tabindex="-1">
+                        <div class="alc-achievements__content">
+                            <div class="alc-achievements__icon alc-icon alc-icon--circle alc-icon--xl alc-icon--outline alc-icon--outline-xl">
+                                <svg role="img" class="df-icon df-icon--trophy">
+                                    <use xlink:href="assets/images/esports/icons-esports.svg#trophy"></use>
+                                </svg>
+                            </div>
+                            <h5 class="alc-achievements__event-title">Dota 2</h5>
+                            <div class="alc-achievements__event-date">Nick Name Game</div>
+                        </div>
+                        <div class="alc-achievements__meta">
+                            <div class="alc-achievements__meta-item">
+                                <h6 class="alc-achievements__meta-value">7th Rank</h6>
+                                <div class="alc-achievements__meta-name">Position</div>
+                            </div>
+                            <div class="alc-achievements__meta-item">
+                                <h6 class="alc-achievements__meta-value">521</h6>
+                                <div class="alc-achievements__meta-name">Team Kills</div>
+                            </div>
+                            <div class="alc-achievements__meta-item">
+                                <h6 class="alc-achievements__meta-value">-</h6>
+                                <div class="alc-achievements__meta-name">Money Won</div>
+                            </div>
+                        </div>
+                    </div><div class="alc-achievements__item slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" style="width: 378px;" tabindex="-1">
+                        <div class="alc-achievements__content">
+                            <div class="alc-achievements__icon alc-icon alc-icon--circle alc-icon--xl alc-icon--outline alc-icon--outline-xl">
+                                <svg role="img" class="df-icon df-icon--trophy">
+                                    <use xlink:href="assets/images/esports/icons-esports.svg#trophy"></use>
+                                </svg>
+                            </div>
+                            <h5 class="alc-achievements__event-title">L.O. Heroes Pro League</h5>
+                            <div class="alc-achievements__event-date">September 2017</div>
+                        </div>
+                        <div class="alc-achievements__meta">
+                            <div class="alc-achievements__meta-item">
+                                <h6 class="alc-achievements__meta-value">1st Rank</h6>
+                                <div class="alc-achievements__meta-name">Position</div>
+                            </div>
+                            <div class="alc-achievements__meta-item">
+                                <h6 class="alc-achievements__meta-value">825</h6>
+                                <div class="alc-achievements__meta-name">Team Kills</div>
+                            </div>
+                            <div class="alc-achievements__meta-item">
+                                <h6 class="alc-achievements__meta-value">$90.000</h6>
+                                <div class="alc-achievements__meta-name">Money Won</div>
+                            </div>
+                        </div>
+                    </div><div class="alc-achievements__item slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 378px;" tabindex="-1">
+                        <div class="alc-achievements__content">
+                            <div class="alc-achievements__icon alc-icon alc-icon--circle alc-icon--xl alc-icon--outline alc-icon--outline-xl">
+                                <svg role="img" class="df-icon df-icon--trophy">
+                                    <use xlink:href="assets/images/esports/icons-esports.svg#trophy"></use>
+                                </svg>
+                            </div>
+                            <h5 class="alc-achievements__event-title">Xenowatch Con 2018</h5>
+                            <div class="alc-achievements__event-date">February 2018</div>
+                        </div>
+                        <div class="alc-achievements__meta">
+                            <div class="alc-achievements__meta-item">
+                                <h6 class="alc-achievements__meta-value">7th Rank</h6>
+                                <div class="alc-achievements__meta-name">Position</div>
+                            </div>
+                            <div class="alc-achievements__meta-item">
+                                <h6 class="alc-achievements__meta-value">521</h6>
+                                <div class="alc-achievements__meta-name">Team Kills</div>
+                            </div>
+                            <div class="alc-achievements__meta-item">
+                                <h6 class="alc-achievements__meta-value">-</h6>
+                                <div class="alc-achievements__meta-name">Money Won</div>
+                            </div>
+                        </div>
+                    </div></div></div>
+                    
+                    
+        
+                </div>
+            </div>
+        </aside>
+        <!-- Widget: Achievements / End -->
+
+        		
+        <!-- Widget: Achievements -->
+        <aside class="widget card card--no-paddings widget--sidebar widget-achievements">
+            <div class="widget__title card__header card__header--has-arrows js-alc-achievements-carousel-header"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
+                <h4>My Team</h4>
+            <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button></div>
+            <div class="widget__content card__content">
+        
+                <div class="alc-achievements js-alc-achievements-carousel slick-initialized slick-slider">
+        
+                    <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2646px; transform: translate3d(-756px, 0px, 0px);"><div class="alc-achievements__item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 378px;" tabindex="-1">
+                    <div class="widget__content card__content">
+								<ul class="team-info-list list-unstyled">
+						
+									<li class="team-info__item">
+										<span class="team-info__label">Team Name:</span>
+										<span class="team-info__value ">Alchemists L.O. Heroes</span>
+									</li>
+									<li class="team-info__item">
+										<span class="team-info__label">Country of Origin:</span>
+										<span class="team-info__value ">United States</span>
+									</li>
+									<li class="team-info__item">
+										<span class="team-info__label">Founded in:</span>
+										<span class="team-info__value ">December 2014</span>
+									</li>
+									<li class="team-info__item">
+										<span class="team-info__label">Prize Money Won in 2017:</span>
+										<span class="team-info__value team-info__value--active">USD 94.000</span>
+									</li>
+									<li class="team-info__item">
+										<span class="team-info__label">Total Prize Money Won:</span>
+										<span class="team-info__value ">USD 2.843.050</span>
+									</li>
+						
+									<li class="team-info__item team-info__item--desc">
+										<span class="team-info__label">Team Bio:</span>
+										<span class="team-info__desc">Based in California, and founded by Faye Spiegel “The Game Huntress”,  The Alchemists L.O. Heroes ended up being one of the strongests teams in the world.</span>
+									</li>
+						
+								</ul>
+							</div></div></div>
+                    
+                    
+        
+                </div>
+            </div>
+        </aside>
+        <!-- Widget: Achievements / End -->
+
                         <!-- Widget: Featured Player - Alternative without Image -->
                         <aside class="widget card widget--sidebar widget-player widget-player--alt">
                             <div class="widget__title card__header">
                                 <h4>Total Career Stats</h4>
                             </div>
                             <div class="widget__content-secondary">
-
                                 <!-- Player Details -->
                                 <div class="widget-player__details">
 
