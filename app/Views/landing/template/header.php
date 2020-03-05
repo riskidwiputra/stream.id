@@ -68,8 +68,11 @@
             margin-top: -1px;
         }
     </style>
-    <script src="<?=asset('assets/vendor/jquery/jquery.min.js');?>"></script>
+    <script src="<?=asset('assets/vendor/jquery/jquery.min.js');?>"></script> 
+    <link href="<?=asset('assets/vendor/select2/select2.min.css');?>" rel="stylesheet" />
+    <link href="<?=asset('assets/vendor/select2/select2-bootstrap.css');?>" rel="stylesheet" />  
     
+    <script src="<?=asset('assets/vendor/select2/select2.min.js');?>"></script>
 
 </head>
 
@@ -125,7 +128,7 @@
                                 <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/logout">Logout</a></li>
                             <?php }else{ ?>
                                 <li class="nav-account__item"><a href="<?= BASEURL ?>/login">Login</a></li>
-                                <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/registrasi">Registrasi</a></li>
+                                <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/register">Register</a></li>
                             <?php } ?>
                         </ul>
                         <!-- Account Navigation / End -->
@@ -149,11 +152,11 @@
                         <nav class="main-nav">
                             <ul class="main-nav__list">
                                 <li class="active"><a href="<?= BASEURL ?>/">Home</a></li>
-                                <li class=""><a href="#">News</a>
-                                    <ul class="main-nav__sub">
+                                <li class=""><a href="<?=url('news');?>">News</a>
+                                    <!-- <ul class="main-nav__sub">
                                         <li class=""><a href="<?= BASEURL ?>/news">News</a></li>
                                         
-                                    </ul>
+                                    </ul> -->
                                 </li>
                                 <li class=""><a href="#">Games</a>
                                     <ul class="main-nav__sub">
@@ -165,9 +168,9 @@
                                                 <?php endforeach; ?> 
                                             </ul>
                                         </li>
-                                        <li class=""><a href="<?= BASEURL ?>/list-team">List Team</a></li>
+                                        <li class=""><a href="<?= BASEURL ?>/team">Team List</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/tournament">Tournament</a></li>
-                                        <li class=""><a href="<?= BASEURL ?>/leaderboard">Leaderboard</a></li>
+                                        <!-- <li class=""><a href="<?= BASEURL ?>/leaderboard">Leaderboard</a></li> -->
                                     </ul>
                                 </li>
                                 <li class=""><a href="#">About Us</a>
@@ -187,12 +190,12 @@
                         <div class="header__primary-spacer"></div>
 
                         <!-- Header Search Form -->
-                        <div class="header-search-form ">
+                        <!-- <div class="header-search-form ">
                             <form action="#" id="mobile-search-form" class="search-form">
                                 <input type="text" class="form-control header-mobile__search-control" value="" placeholder="Enter your search here...">
                                 <button type="submit" class="header-mobile__search-submit"><i class="fa fa-search"></i></button>
                             </form>
-                        </div>
+                        </div> -->
                         <!-- Header Search Form / End -->
 
                         <!-- Header Info Block -->

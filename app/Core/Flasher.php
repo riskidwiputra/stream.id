@@ -69,9 +69,7 @@ class Session {
 
 	public static function set($session, $data)
 	{ 
-		if (!isset($_SESSION[$session])) {
-			$_SESSION[$session] = $data; 
-		}
+		$_SESSION[$session] = $data; 
 		return true;
 	}
 

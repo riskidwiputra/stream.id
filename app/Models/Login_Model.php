@@ -18,7 +18,7 @@
 				$where = [
 					'email' => $email
 				];
-					
+					 
 				if (date('d-m-Y H:i:s') < Session::get('_login_again')) {
 					Flasher::setFlashLogin('Please login in <span id="timer" style="font-weight:bold;"></span>', 'danger');
 					return false;
@@ -30,7 +30,6 @@
 						Flasher::setFlashLogin('Please login in <span id="timer" style="font-weight:bold;"></span>', 'danger');
 						return false;
 					} else {
-						
 						if ($this->db->table('users')->countRows($where) > 0) {
 							
 							$dataUsers = $this->db->query('
@@ -42,8 +41,16 @@
 							if (password_verify($password, $dataUsers['password']) == true) {
 							
 								if ($dataUsers['is_verified'] == 1) { 
-								
-									Session::unset();
+									
+									if (Session::check('_fail_login')) {
+										Session::unset('_fail_login');
+									}
+									if (Session::check('_login_again')) {
+										Session::unset('_login_again');
+									} 
+									if (Session::check('FalseRegister')) {
+										Session::unset('FalseRegister');
+									}
 									Session::set('users',$dataUsers['user_id']);  
 									
 									$this->save_device($dataUsers['user_id']);			
@@ -60,7 +67,7 @@
 							
 						} else {
                             Flasher::setFlashLogin('Your <b>account</b> has not been registered', 'danger');
-							Session::set('_fail_login', Session::get('_fail_login')+1);
+							Session::set('_fail_login', Session::get('_fail_login')+1); 
 							return false; 
 						}	
 					} 

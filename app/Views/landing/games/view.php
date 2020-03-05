@@ -1,5 +1,5 @@
 <?php  
-$name = explode(' ', $data['content']['name']);
+$name = explode(' ', $data['content']['name']); 
 $name1 = $name[0];
 $name2 = $name[1];
 ?>
@@ -19,7 +19,7 @@ $name2 = $name[1];
                         <!-- Player Photo -->
                         <figure class="team-roster__player-img">
                             <div class="team-roster__player-shape effect-duotone effect-duotone--blue team-roster__player-shape--bg2"></div>
-                            <img class="card-img" src="<?=path('path_portal_Gamelist').$data['content']['logo'];?>" alt="">
+                            <img class="card-img" src="<?=path('path_portal_Gamelist').$data['content']['logo'];?>" alt="Game Logo" style="width:500px;height:500px;">
                             
                         </figure>
                         <!-- Player Photo / End-->

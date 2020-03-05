@@ -47,15 +47,22 @@
 	// Account
 	Route::get('/account', 					'AccountController@account');
 	Route::get('/my-game', 					'AccountController@my_game');
+	Route::get('/my-team', 					'AccountController@my_team');
 	Route::post('/update-identity/{id_game}',	'GamesController@update_identity');
 
 	// List Team
-	Route::get('/list-team', 				'TeamController@list');
+	Route::get('/team', 					'TeamController@list');
+	Route::get('/team/{page}/{page_no}',	'TeamController@page');
 	Route::post('/create-team', 			'TeamController@createteam');
+	Route::post('/join-team/{id_team}', 	'TeamController@join');
+	Route::post('/accept-join/{id_req}',	'TeamController@accept');
+	Route::post('/declined-join/{id_req}',	'TeamController@declined');
+	Route::post('/list-users/{id}',			'TeamController@list_users');
+	Route::post('/invite-join/{id_team}',	'TeamController@invite');
 
 	// LOGIN
 	Route::get('/login', 					'AuthController@IndexLogin');
-	Route::get('/registrasi', 				'AuthController@IndexRegistrasi');
+	Route::get('/register', 				'AuthController@IndexRegistrasi');
 	Route::get('/logout', 					'AuthController@Logout');
 
 	// Provinsi 
@@ -72,6 +79,7 @@
 	// Komentar
 	Route::post('/ambil-komen/{id}', 		'NewsController@GetKomen');
 	Route::post('/tambah-komen/{id}', 		'NewsController@AddKomen'); 
+	Route::post('/add-like/{id_news}', 		'NewsController@like');
 
 	// 
 	Route::post('/komen/{id}',				'NewsController@LoadMore');
