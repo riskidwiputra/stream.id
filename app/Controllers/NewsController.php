@@ -106,7 +106,6 @@
 				LIMIT 2
 			');
 			$data['related'] = $this->db->resultSet();
-			// var_dump($data['related']);die;
 
 			$label = $this->db->table('kategori')->where('id_kategori', $data['content']['label']); 
 			if ($label['color'] == 1) { 
@@ -119,8 +118,7 @@
 				$data['label'] = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
 			} elseif ($label['color'] == 5) {
 				$data['label'] = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
-			} 
-			// var_dump($data['label']);die;
+			}  
 			$data['author'] = $this->db->table('data_management')->where('stream_id', $data['content']['penulis']);
 			$data['author'] = $data['author']['fullname']; 
 			$data['game-list'] = $this->db->table('game_list')->all();
@@ -143,7 +141,6 @@
 			$data['LikeMe'] = $this->db->table('news_like')->countRows($whereMe);
 			$data['comment_count'] = $this->db->table('komentar')->countRows($whereNews);
 
-			// var_dump($data['LikeMe']);die;
 			$this->db->table('news_game')->update($view, $view0);
 			$this->view('landing/template/header', $data);
 			$this->view('singleNews/singleNews' ,$data);	
