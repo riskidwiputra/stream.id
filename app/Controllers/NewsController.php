@@ -102,9 +102,34 @@
 				JOIN balance_users
 				ON users.user_id = balance_users.users_id
 				WHERE users.user_id = "'.Session::get("users").'"
+			'); 
+
+			$tag = explode(',',$data['single']['tag']);  
+			$data['related'] = $this->db->query('
+				SELECT * FROM news_game
+				WHERE label = "'.$data['single']['label'].'"
+				OR judul LIKE "%'.$tag[0].'%"
+				OR isi LIKE "%'.$tag[0].'%"
+				OR tag LIKE "%'.$tag[0].'%"
+				ORDER BY views DESC
+				LIMIT 2
 			');
-			$data['label'] = $this->db->table('kategori')->where('id_kategori', $data['content']['label']);
-			$data['label'] = $data['label']['nama_kategori'];
+			$data['related'] = $this->db->resultSet();
+			// var_dump($data['related']);die;
+
+			$label = $this->db->table('kategori')->where('id_kategori', $data['content']['label']); 
+			if ($label['color'] == 1) { 
+				$data['label'] = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
+			} elseif ($label['color'] == 2) { 
+				$data['label'] = '<span class="label posts__cat-label posts__cat-label--category-4">'.$label['nama_kategori'].'</span>'; 
+			} elseif ($label['color'] == 3) { 
+				$data['label'] = '<span class="label posts__cat-label posts__cat-label--category-5">'.$label['nama_kategori'].'</span>'; 
+			} elseif ($label['color'] == 4) {
+				$data['label'] = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
+			} elseif ($label['color'] == 5) {
+				$data['label'] = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
+			} 
+			// var_dump($data['label']);die;
 			$data['author'] = $this->db->table('data_management')->where('stream_id', $data['content']['penulis']);
 			$data['author'] = $data['author']['fullname'];
 			$data['users']	= $this->db->single();  

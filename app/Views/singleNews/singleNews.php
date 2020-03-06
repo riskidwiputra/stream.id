@@ -12,7 +12,7 @@
 
                     <div class="card__content">
                         <div class="post__category">
-                            <span class="label posts__cat-label posts__cat-label--category-2"><?= $data['label']?></span>
+                            <?= $data['label']?>
                         </div>
                         <header class="post__header">
                             <h2 class="post__title"><?= $data['content']['judul'] ?></h2>
@@ -36,29 +36,26 @@
 
                         <footer class="post__footer">
                             <div class="post__tags post__tags--simple">
-                                <?php
-                                    $kalimat    = $data['content']['tag'];
-                                    echo data_tag($kalimat);
-                                ?>
-                            
-                            </div>
-                            <!-- <div class="post__tags post__tags--simple"> -->
-                            <!-- </div> -->
+                                <?php $tag = explode(',',$data['content']['tag']); 
+                                foreach($tag as $t) {
+                                    echo '<a href="javascript:void(0);">'.strtoupper($t).'</a>';
+                                }?>                            
+                            </div> 
                         </footer> 
                         <div class="d-flex justify-content-center mt-3" style="font-size:15px;">
                             <div class="d-flex justify-content-between">
-                                <a href="javascript:void(0);" class="mr-3"><i class="fa fa-eye"></i> <?=$data['single']['views'];?></a> 
+                                <span class="mr-3"><i class="fa fa-eye"></i> <?=$data['single']['views'];?></span> 
                                 <?php if (Session::check('users') == false) :?>
-                                <a href="javascript:void(0);" class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></a>
+                                <span class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></span>
                                 <?php else:?>
                                     <?php if ($data['LikeMe'] == 0):?>
-                                <a href="javascript:void(0);" class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></a> 
+                                <span class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></span> 
                                     <?php else:?>
-                                <a href="javascript:void(0);" class="mr-3"><i class="fas fa-heart"></i> <?=$data['like'];?></a>
+                                <span class="mr-3"><i class="fas fa-heart"></i> <?=$data['like'];?></span>
                                     <?php endif;?>
                                 <?php endif;?>
 
-                                <a href="javascript:void(0);" class="mr-3"><i class="far fa-comment"></i> <?=$data['comment_count'];?></a>
+                                <span class="mr-3"><i class="far fa-comment"></i> <?=$data['comment_count'];?></span>
                             </div>
                         </div>
 
@@ -82,68 +79,104 @@
                         <div class="card__content">
                             <!-- Posts Grid -->
                             <div class="posts posts--tile posts--tile-alt post-grid row">
-
+                                <!-- start foreach -->
+                                <?php foreach ($data['related'] as $related):
+                                    // var_dump($related);
+                                    $author = $this->db->table('data_management')->where('stream_id', $related['penulis']);
+                                    $author = $author['fullname'];
+                                    $label = $this->db->table('kategori')->where('id_kategori', $related['label']); 
+                                    if ($label['color'] == 1) { 
+                                        $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
+                                    } elseif ($label['color'] == 2) { 
+                                        $label = '<span class="label posts__cat-label posts__cat-label--category-4">'.$label['nama_kategori'].'</span>'; 
+                                    } elseif ($label['color'] == 3) { 
+                                        $label = '<span class="label posts__cat-label posts__cat-label--category-5">'.$label['nama_kategori'].'</span>'; 
+                                    } elseif ($label['color'] == 4) {
+                                        $label = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
+                                    } elseif ($label['color'] == 5) {
+                                        $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
+                                    }
+                                    $like = $this->db->table('news_like')->countRows('news_id', $related['id_news_game']);
+                                    $whereNews = [
+                                        'parent_komentar_id'    => 0,
+                                        'id_news_game'  => $related['id_news_game']
+                                    ];                                    
+                                    $comment = $this->db->table('komentar')->countRows($whereNews);
+                                    $whereMe = [
+                                        'news_id'   => $related['id_news_game'],
+                                        'users_id'  => Session::get('users')
+                                    ];
+                                    $data['LikeMe'] = $this->db->table('news_like')->countRows($whereMe);
+                                ?>
                                 <div class="post-grid__item col-sm-6">
                                     <div class="posts__item posts__item--tile posts__item--category-2  card">
-                                        <figure class="posts__thumb">
-                                            <img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img5-card.jpg" alt="">
-                                            <div class="posts__inner">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-2">L.O. Heroes</span>
+                                        <a href="<?=url('news/'.$related['url']);?>">
+                                            <figure class="posts__thumb">
+                                                <img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $related['gambar'] ?>" alt="">
+                                                <div class="posts__inner">
+                                                    <div class="posts__cat">
+                                                        <?=$label; ?>
+                                                    </div>
+                                                    <h6 class="posts__title posts__title--color-hover"><a href="<?=$related['url'];?>"><?=$related['judul'];?></a></h6>
+                                                    <time datetime="2018-08-23" class="posts__date"><?=date('d F Y H:i', strtotime($related['created_at']));?></time>
                                                 </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">A new class is added to the human&#x27;s race</a></h6>
-                                                <time datetime="2018-08-23" class="posts__date">July 16th, 2018</time>
-                                            </div>
-                                        </figure>
-                                        <a href="_esports_blog-post-1.html" class="posts__cta"></a>
+                                            </figure>
+                                        </a>           
+                                        <a href="<?=$related['url'];?>" class="posts__cta"></a>
                                         <footer class="posts__footer card__footer">
                                             <div class="post-author">
                                                 <figure class="post-author__avatar">
-                                                    <img src="<?= BASEURL ?>/public/assets/images/football/samples/avatar-6-xs.jpg" alt="Post Author Avatar">
+                                                    <img src="<?= asset('assets/images/samples/avatar-6-xs.jpg'); ?>" alt="Post Author Avatar">
                                                 </figure>
                                                 <div class="post-author__info">
-                                                    <h4 class="post-author__name">Lagertha Dax</h4>
+                                                    <h4 class="post-author__name"><?=$author;?></h4>
                                                 </div>
                                             </div>
                                             <ul class="post__meta meta">
-                                                <li class="meta__item meta__item--views">2369</li>
-                                                <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like icon-heart"></i> 530</a></li>
-                                                <li class="meta__item meta__item--comments"><a href="#">18</a></li>
-                                            </ul>
-                                        </footer>
-                                    </div>
-                                </div>
-                                <div class="post-grid__item col-sm-6">
-                                    <div class="posts__item posts__item--tile posts__item--category-3  card">
-                                        <figure class="posts__thumb">
-                                            <img src="<?= BASEURL ?>/public/assets/images/esports/samples/post-img8-card.jpg" alt="">
-                                            <div class="posts__inner">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-3">Striker GO</span>
-                                                </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="_esports_blog-post-1.html">New Tech vehicles will be added in July&#x27;s patch</a></h6>
-                                                <time datetime="2018-08-23" class="posts__date">May 14th, 2018</time>
-                                            </div>
-                                        </figure>
-                                        <a href="_esports_blog-post-1.html" class="posts__cta"></a>
-                                        <footer class="posts__footer card__footer">
-                                            <div class="post-author">
-                                                <figure class="post-author__avatar">
-                                                    <img src="<?= BASEURL ?>/public/assets/images/football/samples/avatar-6-xs.jpg" alt="Post Author Avatar">
-                                                </figure>
-                                                <div class="post-author__info">
-                                                    <h4 class="post-author__name">Lagertha Dax</h4>
-                                                </div>
-                                            </div>
-                                            <ul class="post__meta meta">
-                                                <li class="meta__item meta__item--views">2369</li>
-                                                <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like icon-heart"></i> 530</a></li>
-                                                <li class="meta__item meta__item--comments"><a href="#">18</a></li>
-                                            </ul>
-                                        </footer>
-                                    </div>
-                                </div>
+                                                <li class="meta__item meta__item--views"><?= $related['views']; ?></li>                                   
 
+                                                <?php if (Session::check('users') == false) :?>
+                                                <li class="meta__item meta__item--likes"><a href="javascript:void(0);" class="like<?=$related['id_news_game'];?>"><i class="meta-like icon-heart"></i> <?=$like;?></a></li>
+                                                <?php else:?>
+                                                    <?php if ($data['LikeMe'] == 0):?>
+                                                <li class="meta__item meta__item--likes"><a href="javascript:void(0);" class="like<?=$related['id_news_game'];?>"><i class="meta-like icon-heart"></i> <?=$like;?></a></li>
+                                                    <?php else:?>
+                                                <li class="meta__item meta__item--likes"><a href="javascript:void(0);"><i class="fas fa-heart mr-1" style="font-size:12px;"></i> <?=$like;?></a></li>
+                                                    <?php endif;?>
+                                                <?php endif;?>
+
+                                                <li class="meta__item meta__item--comments"><a href="#"><?= $related['komentar']; ?></a></li>
+                                            </ul>
+                                        </footer>
+                                    </div>
+                                </div> 
+                                <script>
+                                    $('.like<?=$row['id_news_game'];?>').click(function() {
+                                        var t = $(this);
+                                        $.ajax({
+                                            url : '<?=url('add-like/'.$row['id_news_game']);?>',
+                                            method : 'POST',
+                                            dataType : 'json',
+                                            success: function (msg){
+                                                // console.log(msg);
+                                                if (msg.status == true) { 
+                                                    t.html('<i class="fas fa-heart mr-1" style="font-size:12px;"></i> ' + msg.content);
+                                                    t.removeClass('like');
+                                                } else {
+                                                    var dialog = bootbox.dialog({
+                                                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+ msg.message +'</p>',
+                                                        closeButton: false
+                                                    });
+                                                    setTimeout(function(){
+                                                        dialog.modal('hide');
+                                                    }, 3000);
+                                                }
+                                            }
+                                        });
+                                    });
+                                </script>
+                                <?php endforeach; ?>
+                                <!-- endforeach -->
                             </div>
                             <!-- Post Grid / End -->
                         </div>
@@ -249,7 +282,20 @@
                                     <ul class="posts posts--simple-list"> 
                                         
                                         <?php if ($data['newest']): ?>
-                                            <?php foreach ($data['newest'] as $row): ?>
+                                            <?php foreach ($data['newest'] as $row): 
+                                                $label = $this->db->table('kategori')->where('id_kategori', $row['label']); 
+                                                if ($label['color'] == 1) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 2) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-4">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 3) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-5">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 4) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 5) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
+                                                } 
+                                            ?>
                                                 
                                            
                                         <li class="posts__item posts__item--category-1 posts__item--category-4 ">
@@ -258,7 +304,7 @@
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-1"><?= $row['label'] ?></span><span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
+                                                    <?=$label;?>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['created_at'])) ?></time>
@@ -275,14 +321,27 @@
                                     <ul class="posts posts--simple-list">
                                         
                                     <?php if ($data['commented']): ?>
-                                        <?php foreach ($data['commented'] as $row): ?>
+                                        <?php foreach ($data['commented'] as $row): 
+                                            $label = $this->db->table('kategori')->where('id_kategori', $row['label']); 
+                                            if ($label['color'] == 1) { 
+                                                $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
+                                            } elseif ($label['color'] == 2) { 
+                                                $label = '<span class="label posts__cat-label posts__cat-label--category-4">'.$label['nama_kategori'].'</span>'; 
+                                            } elseif ($label['color'] == 3) { 
+                                                $label = '<span class="label posts__cat-label posts__cat-label--category-5">'.$label['nama_kategori'].'</span>'; 
+                                            } elseif ($label['color'] == 4) {
+                                                $label = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
+                                            } elseif ($label['color'] == 5) {
+                                                $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
+                                            } 
+                                        ?>
                                         <li class="posts__item posts__item--category-2 ">
                                             <figure class="posts__thumb posts__thumb--hover">
                                                 <a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>';"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt=""></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-2"><?= $row['label'] ?></span>
+                                                    <?=$label; ?>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['created_at'])) ?></time>
@@ -297,14 +356,27 @@
                                     <ul class="posts posts--simple-list"> 
                                         
                                         <?php if ($data['popular']): ?>
-                                            <?php foreach ($data['popular'] as $row): ?>
+                                            <?php foreach ($data['popular'] as $row): 
+                                                $label = $this->db->table('kategori')->where('id_kategori', $row['label']); 
+                                                if ($label['color'] == 1) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 2) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-4">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 3) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-5">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 4) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 5) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
+                                                } 
+                                            ?>
                                         <li class="posts__item posts__item--category-3 ">
                                             <figure class="posts__thumb posts__thumb--hover">
                                                 <a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="125px" height="112" alt="" onclick="window.location.href = '<?=url('news/'.$row['url']);?>';"></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-3"><?= $row['label'] ?>  </span>
+                                                    <?=$label; ?>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['created_at'])) ?></time>

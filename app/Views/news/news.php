@@ -16,8 +16,7 @@
                         ];
                         $like = $this->db->table('news_like')->countRows('news_id', $row['id_news_game']);
                         $comment = $this->db->table('komentar')->countRows($whereNews);
-                        $label = $this->db->table('kategori')->where('id_kategori', $row['label']);
-                        // $label = $label['nama_kategori'];
+                        $label = $this->db->table('kategori')->where('id_kategori', $row['label']); 
                         if ($label['color'] == 1) { 
                              $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
                         } elseif ($label['color'] == 2) { 
@@ -28,7 +27,7 @@
                              $label = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
                         } elseif ($label['color'] == 5) {
                             $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
-                        }
+                        } 
                         $penulis = $this->db->table('data_management')->where('stream_id', $row['penulis']);
                         $penulis = $penulis['fullname'];
                         $whereMe = [
@@ -64,24 +63,18 @@
                                     </div>
                                 </div>
                                 <ul class="post__meta meta">
-                                    <li class="meta__item meta__item--views"><?= $row['views']; ?></li>
-                                    
+                                    <li class="meta__item meta__item--views"><?= $row['views']; ?></li>                                   
 
                                     <?php if (Session::check('users') == false) :?>
                                     <li class="meta__item meta__item--likes"><a href="javascript:void(0);" class="like<?=$row['id_news_game'];?>"><i class="meta-like icon-heart"></i> <?=$like;?></a></li>
-                                    <!-- <a href="javascript:void(0);" class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></a> -->
                                     <?php else:?>
                                         <?php if ($data['LikeMe'] == 0):?>
-                                    <!-- <a href="javascript:void(0);" class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></a>  -->
                                     <li class="meta__item meta__item--likes"><a href="javascript:void(0);" class="like<?=$row['id_news_game'];?>"><i class="meta-like icon-heart"></i> <?=$like;?></a></li>
                                         <?php else:?>
                                     <li class="meta__item meta__item--likes"><a href="javascript:void(0);"><i class="fas fa-heart mr-1" style="font-size:12px;"></i> <?=$like;?></a></li>
-                                    <!-- <a href="javascript:void(0);" class="mr-3"><i class="fas fa-heart"></i> <?=$data['like'];?></a> -->
                                         <?php endif;?>
                                     <?php endif;?>
 
-
-                                    <!-- <li class="meta__item meta__item--likes"><a href="javascript:void(0);" class="like<?=$row['id_news_game'];?>"><i class="meta-like icon-heart"></i> <?=$like;?></a></li> -->
                                     <li class="meta__item meta__item--comments"><a href="#"><?= $row['komentar']; ?></a></li>
                                 </ul>
                             </footer>
@@ -203,8 +196,18 @@
                                         
                                         <?php if ($data['newest']): ?>
                                             <?php foreach ($data['newest'] as $row): 
-                                                $label = $this->db->table('kategori')->where('id_kategori', $row['label']);
-                                                $label = $label['nama_kategori'];
+                                                $label = $this->db->table('kategori')->where('id_kategori', $row['label']); 
+                                                if ($label['color'] == 1) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 2) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-4">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 3) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-5">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 4) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 5) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
+                                                }
                                             ?>
                                                 
                                            
@@ -214,7 +217,7 @@
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-1"><?=$label;?></span> 
+                                                    <?=$label; ?>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date"><?= date('d F Y H:i',strtotime($row['created_at'])) ?></time>
@@ -232,8 +235,18 @@
                                         
                                     <?php if ($data['commented']): ?>
                                             <?php foreach ($data['commented'] as $row): 
-                                                $label = $this->db->table('kategori')->where('id_kategori', $row['label']);
-                                                $label = $label['nama_kategori'];
+                                                $label = $this->db->table('kategori')->where('id_kategori', $row['label']); 
+                                                if ($label['color'] == 1) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 2) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-4">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 3) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-5">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 4) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 5) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
+                                                }
                                             ?>
                                         <li class="posts__item posts__item--category-2 ">
                                             <figure class="posts__thumb posts__thumb--hover">
@@ -241,7 +254,7 @@
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-2"><?= $label; ?></span>
+                                                    <?=$label; ?>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date"><?= date('d F Y H:i',strtotime($row['created_at'])) ;?></time>
@@ -260,8 +273,18 @@
                                         
                                         <?php if ($data['popular']): ?>
                                             <?php foreach ($data['popular'] as $row): 
-                                                $label = $this->db->table('kategori')->where('id_kategori', $row['label']);
-                                                $label = $label['nama_kategori'];
+                                                $label = $this->db->table('kategori')->where('id_kategori', $row['label']); 
+                                                if ($label['color'] == 1) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 2) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-4">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 3) { 
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-5">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 4) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
+                                                } elseif ($label['color'] == 5) {
+                                                    $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
+                                                }
                                             ?>
                                         <li class="posts__item posts__item--category-3 ">
                                             <figure class="posts__thumb posts__thumb--hover">
@@ -269,7 +292,7 @@
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
-                                                    <span class="label posts__cat-label posts__cat-label--category-3"><?= $label; ?></span>
+                                                    <?=$label; ?>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date"><?= date('d F Y H:i',strtotime($row['created_at'])) ?></time>
