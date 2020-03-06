@@ -4,7 +4,7 @@
 	{ 
 	    public function select()
 		{	
-			 $this->db->table('news_game')->query("SELECT * FROM news_game  ORDER BY id_news_game DESC LIMIT 0, 6");
+			 $this->db->table('news_game')->query("SELECT * FROM news_game  ORDER BY created_at DESC LIMIT 0, 6");
 
 			return $this->db->resultSet();
 		
@@ -13,7 +13,7 @@
 		{	
 			$limit			= 6;
 			$limit_start 	= ($id - 1) * $limit;
-			 $this->db->table('news_game')->query("SELECT * FROM news_game  ORDER BY id_news_game DESC LIMIT ".$limit_start.",".$limit);
+			 $this->db->table('news_game')->query("SELECT * FROM news_game  ORDER BY created_at DESC LIMIT ".$limit_start.",".$limit);
 
 			return $this->db->resultSet();
 		}

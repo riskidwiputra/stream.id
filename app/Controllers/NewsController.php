@@ -103,6 +103,10 @@
 				ON users.user_id = balance_users.users_id
 				WHERE users.user_id = "'.Session::get("users").'"
 			');
+			$data['label'] = $this->db->table('kategori')->where('id_kategori', $data['content']['label']);
+			$data['label'] = $data['label']['nama_kategori'];
+			$data['author'] = $this->db->table('data_management')->where('stream_id', $data['content']['penulis']);
+			$data['author'] = $data['author']['fullname'];
 			$data['users']	= $this->db->single();  
 			$data['game-list'] = $this->db->table('game_list')->all();
 			$data['game-list']	= $this->db->resultSet();
@@ -169,6 +173,11 @@
 				echo json_encode([
 					'status'	=> false,
 					'message'	=> 'System Error, Plase refresh page!'
+				]);
+			} elseif(Session::check('users') == false) {
+				echo json_encode([
+					'status'	=> false,
+					'message'	=> 'Login is Required!'
 				]);
 			} else {
 				$this->model('News_Model')->like($news_id);

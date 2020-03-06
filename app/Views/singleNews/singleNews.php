@@ -12,15 +12,15 @@
 
                     <div class="card__content">
                         <div class="post__category">
-                            <span class="label posts__cat-label posts__cat-label--category-2"><?= $data['content']['label']?></span>
+                            <span class="label posts__cat-label posts__cat-label--category-2"><?= $data['label']?></span>
                         </div>
                         <header class="post__header">
                             <h2 class="post__title"><?= $data['content']['judul'] ?></h2>
                             <ul class="post__meta meta">
-                                <li class="meta__item meta__item--author"><img src="<?= asset('assets/images/samples/avatar-6-xs.jpg'); ?>" alt="Post Author Avatar"> by <?= $data['content']['penulis'] ?></li>
+                                <li class="meta__item meta__item--author"><img src="<?= asset('assets/images/samples/avatar-6-xs.jpg'); ?>" alt="Post Author Avatar"> by <?= $data['author'] ?></li>
 
                                 <li class="meta__item meta__item--date">
-                                    <time datetime="2018-08-27"><?= date('j F Y | H:i',strtotime($data['content']['tanggal'])) ?></time>
+                                    <time datetime="2018-08-27"><?= date('j F Y | H:i',strtotime($data['content']['created_at'])) ?></time>
                                 </li>
                                 <li class="meta__item meta__item--views"><?= $data['content']['views']; ?></li>
                             </ul>
@@ -47,26 +47,18 @@
                         </footer> 
                         <div class="d-flex justify-content-center mt-3" style="font-size:15px;">
                             <div class="d-flex justify-content-between">
-                                <span class="mr-3"><i class="fa fa-eye"></i> <?=$data['single']['views'];?></span>
-                                <!-- <?php if ($data['LikeMe'] == 0):?>
-                                <span class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></span>
-                                <?php elseif(Session::get('users') == false):?>
-                                <span class="mr-3"><i class="far fa-heart"></i> <?=$data['like'];?></span>
-                                <?php else:?>
-                                <span class="mr-3"><i class="fas fa-heart"></i> <?=$data['like'];?></span>
-                                <?php endif;?> -->
-
+                                <a href="javascript:void(0);" class="mr-3"><i class="fa fa-eye"></i> <?=$data['single']['views'];?></a> 
                                 <?php if (Session::check('users') == false) :?>
-                                <span class="mr-3"><i class="far fa-heart"></i> <?=$data['like'];?></span>
+                                <a href="javascript:void(0);" class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></a>
                                 <?php else:?>
                                     <?php if ($data['LikeMe'] == 0):?>
-                                <span class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></span> 
+                                <a href="javascript:void(0);" class="mr-3 like"><i class="far fa-heart"></i> <?=$data['like'];?></a> 
                                     <?php else:?>
-                                <span class="mr-3"><i class="fas fa-heart"></i> <?=$data['like'];?></span>
+                                <a href="javascript:void(0);" class="mr-3"><i class="fas fa-heart"></i> <?=$data['like'];?></a>
                                     <?php endif;?>
                                 <?php endif;?>
 
-                                <span class="mr-3"><i class="far fa-comment"></i> <?=$data['comment_count'];?></span>
+                                <a href="javascript:void(0);" class="mr-3"><i class="far fa-comment"></i> <?=$data['comment_count'];?></a>
                             </div>
                         </div>
 
@@ -269,7 +261,7 @@
                                                     <span class="label posts__cat-label posts__cat-label--category-1"><?= $row['label'] ?></span><span class="label posts__cat-label posts__cat-label--category-4">Xenowatch</span>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['tanggal'])) ?></time>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['created_at'])) ?></time>
                                             </div>
                                         </li>
                                         
@@ -293,7 +285,7 @@
                                                     <span class="label posts__cat-label posts__cat-label--category-2"><?= $row['label'] ?></span>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['tanggal'])) ?></time>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['created_at'])) ?></time>
                                             </div>
                                         </li>
                                         <?php endforeach ?>  
@@ -315,7 +307,7 @@
                                                     <span class="label posts__cat-label posts__cat-label--category-3"><?= $row['label'] ?>  </span>
                                                 </div>
                                                 <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
-                                                <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['tanggal'])) ?></time>
+                                                <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['created_at'])) ?></time>
                                             </div>
                                         </li>
 
@@ -440,7 +432,7 @@
                     t.removeClass('like');
                 } else {
                     var dialog = bootbox.dialog({
-                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+ m.message +'</p>',
+                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+ msg.message +'</p>',
                         closeButton: false
                     });
                     setTimeout(function(){
