@@ -1,8 +1,13 @@
-Options All -Indexes 
+Options -Indexes
+Options -Multiviews
+
+<Files ~".(xml|css|jpe?g|png|gif|js|webfonts)$">
+	Allow from all
+</Files>
 
 RewriteEngine On 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
-#RewriteRule ^(.*)$ index.php [L]
+RewriteRule ^(.*)$ index.php [L]
  
