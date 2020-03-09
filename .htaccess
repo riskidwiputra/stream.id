@@ -1,7 +1,7 @@
-Options -Indexes
+Options All -Indexes
 Options -Multiviews
 
-<Files ~".(xml|css|jpe?g|png|gif|js|webfonts)$">
+<Files ~".(xml|css|jpe?g|png|gif|js|webfonts|fonts)$">
 	Allow from all
 </Files>
 
