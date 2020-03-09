@@ -7,11 +7,7 @@
 	{
 		public function __construct()
 		{
-			parent::__construct();
-
-			if (Session::check('users') == false){
-				redirect('/logout');
-			}
+			parent::__construct(); 
 			
 		}
 
@@ -26,13 +22,14 @@
 				$data['game-list']	= $this->db->resultSet();
 				$data['users'] = $this->db->query('
 					SELECT * FROM users 
-					JOIN users_docs
-					ON users.user_id = users_docs.user_id
+					JOIN users_detail
+					ON users.user_id = users_detail.user_id
 					JOIN balance_users
 					ON users.user_id = balance_users.users_id
 					WHERE users.user_id = "'.Session::get("users").'"
-				');
+					');
 				$data['users']	= $this->db->single();  
+				// var_dump($data);die;
 				$this->view('landing/template/header', $data);
 				$this->view('landing/account/account', $data);	
 				$this->view('landing/template/footer' , $data);		
@@ -53,12 +50,12 @@
 				$data['game-list']	= $this->db->resultSet();
 				$data['users'] = $this->db->query('
 					SELECT * FROM users 
-					JOIN users_docs
-					ON users.user_id = users_docs.user_id
+					JOIN users_detail
+					ON users.user_id = users_detail.user_id
 					JOIN balance_users
 					ON users.user_id = balance_users.users_id
 					WHERE users.user_id = "'.Session::get("users").'"
-				');
+					');
 				$data['users']	= $this->db->single();  
 				$data['content'] = $this->db->table('users_game')->where('users_id', Session::get('users'));  
 				$data['content']['game_id'] = explode(',', $data['content']['game_id']);  
@@ -86,17 +83,22 @@
 				$data['game-list']	= $this->db->resultSet();
 				$data['users'] = $this->db->query('
 					SELECT * FROM users 
-					JOIN users_docs
-					ON users.user_id = users_docs.user_id
+					JOIN users_detail
+					ON users.user_id = users_detail.user_id
 					JOIN balance_users
 					ON users.user_id = balance_users.users_id
 					WHERE users.user_id = "'.Session::get("users").'"
-				');
+					');
 				$data['users']	= $this->db->single();  
 				$data['content'] = $this->db->query('SELECT * FROM team_player WHERE player_id LIKE "%'.Session::get("users").'%" OR substitute_id LIKE "%'.Session::get("users").'%" ');
 				$data['content'] = $this->db->resultSet();
+				$invited = [
+					'users_id'	=> Session::get('users'),
+					'status'	=> 1
+				];
 				$data['invited'] = $this->db->table('team_invite')->where('users_id', Session::get('users'));
-				$data['count_invited'] = 
+				$data['invited'] = $this->db->resultSet();
+				$data['count_invited'] = $this->db->table('team_invite')->countRows($invited);  
 				// var_dump($data['content']);die;
 				$this->view('landing/template/header', $data);
 				$this->view('landing/account/my-team', $data);	
@@ -129,9 +131,11 @@
 			}
 			echo json_encode($data);
 		}
-		public function Update($id){
-			if ( $this->model('Account_Model')->update($id) ) {
-				Flasher::setFlash('Data berhasil diupdate' ,'success'); 
+
+		public function Update()
+		{
+			if ( $this->model('Account_Model')->update(Session::get('users')) == true ) {
+				Flasher::setFlash('Profile has been successfully updated' ,'success'); 
 				redirect('/account');
 				exit;
 			} else { 
@@ -139,5 +143,20 @@
 				exit;
 			}   
 			
+		}
+
+		public function change_password()
+		{
+			if (empty($this->post('current-password')) || empty($this->post('new-password')) || empty($this->post('confirm-password'))) {
+				Flasher::setFlashLogin('Form cannot be empty!', 'danger');
+				redirect('/account');
+			} else {
+				if ($this->model('Account_Model')->change_password() == true) {
+					Flasher::setFlashLogin('Password has been successfully changed ', 'success');
+					redirect('/account');
+				} else {
+					redirect('/account');
+				}
+			}
 		}
 	}

@@ -12,7 +12,7 @@
 					</header>
                     <header class="card__header sponsor-card__header">
                         <figure class="sponsor-card__logo">
-                            <a href="#"><img src="<?=asset(paths('path_home_Sponsors_0'));?><?= $rows['image'] ?>" ></a>
+                            <a href="#"><img src="<?=cdn(paths('backup_sponsors')).$rows['image'] ?>" ></a>
                         </figure>
                     </header>
                     <div class="card__content sponsor-card__content">

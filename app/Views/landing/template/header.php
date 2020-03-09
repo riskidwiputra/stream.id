@@ -14,9 +14,9 @@
 
     <!-- Favicons
     ================================================== -->
-    <link rel="shortcut icon" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.ico">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?= BASEURL ?>/public/assets/images/esports/icons/icon-stream-gaming.png">
+    <link rel="shortcut icon" href="<?= cdn('v1/assets/images/esports/icons/icon-stream-gaming.ico');?>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= cdn('v1/assets/images/esports/icons/icon-stream-gaming.png');?>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= cdn('v1/assets/images/esports/icons/icon-stream-gaming.png');?>">
 
     <!-- Mobile Specific Metas
     ================================================== -->
@@ -29,34 +29,34 @@
     <!-- CSS
     ================================================== -->
     <!-- Vendor CSS -->
-    <link href="<?= BASEURL ?>/public/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="<?= BASEURL ?>/public/assets/fonts/font-awesome/css/all.min.css" rel="stylesheet">
-    <link href="<?= BASEURL ?>/public/assets/fonts/font-awesome/css/v4-shims.min.css" rel="stylesheet">
-    <link href="<?= BASEURL ?>/public/assets/fonts/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-    <link href="<?= BASEURL ?>/public/assets/vendor/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
-    <link href="<?= BASEURL ?>/public/assets/vendor/slick/slick.css" rel="stylesheet">
+    <link href="<?= cdn('v1/assets/vendor/bootstrap/css/bootstrap.css');?>" rel="stylesheet">
+    <link href="<?= cdn('v1/assets/fonts/font-awesome/css/all.min.css');?>" rel="stylesheet">
+    <link href="<?= cdn('v1/assets/fonts/font-awesome/css/v4-shims.min.css');?>" rel="stylesheet">
+    <link href="<?= cdn('v1/assets/fonts/simple-line-icons/css/simple-line-icons.css');?>" rel="stylesheet">
+    <link href="<?= cdn('v1/assets/vendor/magnific-popup/dist/magnific-popup.css');?>" rel="stylesheet">
+    <link href="<?= cdn('v1/assets/vendor/slick/slick.css');?>" rel="stylesheet">
 
     <!-- REVOLUTION STYLE SHEETS -->
-    <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/public/assets/vendor/revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="<?= cdn('v1/assets/vendor/revolution/css/settings.css');?>">
 
     <!-- REVOLUTION LAYERS STYLES -->
-    <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/public/assets/vendor/revolution/css/layers.css">
+    <link rel="stylesheet" type="text/css" href="<?= cdn('v1/assets/vendor/revolution/css/layers.css');?>">
 
     <!-- REVOLUTION NAVIGATION STYLES -->
-    <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/public/assets/vendor/revolution/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="<?= cdn('v1/assets/vendor/revolution/css/navigation.css');?>">
 
     <!-- REVEAL ADD-ON FILES -->
-    <link rel='stylesheet' href='<?= BASEURL ?>/public/assets/vendor/revolution-addons/reveal/css/revolution.addon.revealer.css?ver=1.0.0' type='text/css' media='all' />
-    <link rel='stylesheet' href='<?= BASEURL ?>/public/assets/vendor/revolution-addons/reveal/css/revolution.addon.revealer.preloaders.css?ver=1.0.0' type='text/css' media='all' />
+    <link rel='stylesheet' href="<?= cdn('v1/assets/vendor/revolution-addons/reveal/css/revolution.addon.revealer.css');?>" type='text/css' media='all' />
+    <link rel='stylesheet' href="<?= cdn('v1/assets/vendor/revolution-addons/reveal/css/revolution.addon.revealer.preloaders.css');?>" type='text/css' media='all' />
 
     <!-- TYPEWRITER ADD-ON FILES -->
-    <link rel='stylesheet' href='<?= BASEURL ?>/public/assets/vendor/revolution-addons/typewriter/css/typewriter.css' type='text/css' media='all' />
+    <link rel='stylesheet' href="<?= cdn('v1/assets/vendor/revolution-addons/typewriter/css/typewriter.css');?>" type='text/css' media='all' />
 
     <!-- Template CSS-->
-    <link href="<?= BASEURL ?>/public/assets/css/style-esports.css" rel="stylesheet">
+    <link href="<?= cdn('v1/assets/css/style-esports.css');?>" rel="stylesheet">
 
     <!-- Custom CSS-->
-    <link href="<?= BASEURL ?>/public/assets/css/custom.css" rel="stylesheet">
+    <link href="<?= cdn('v1/assets/css/custom.css');?>" rel="stylesheet">
     <style>
         .dropdown-submenu {
 
@@ -68,11 +68,11 @@
             margin-top: -1px;
         }
     </style>
-    <script src="<?=asset('assets/vendor/jquery/jquery.min.js');?>"></script> 
-    <link href="<?=asset('assets/vendor/select2/select2.min.css');?>" rel="stylesheet" />
-    <link href="<?=asset('assets/vendor/select2/select2-bootstrap.css');?>" rel="stylesheet" />  
+    <script src="<?= cdn('v1/assets/vendor/jquery/jquery.min.js');?>"></script> 
+    <link href="<?= cdn('v1/assets/vendor/select2/select2.min.css');?>" rel="stylesheet" />
+    <link href="<?= cdn('v1/assets/vendor/select2/select2-bootstrap.css');?>" rel="stylesheet" />  
     
-    <script src="<?=asset('assets/vendor/select2/select2.min.js');?>"></script>
+    <script src="<?= cdn('v1/assets/vendor/select2/select2.min.js');?>"></script>
 
 </head>
 
@@ -87,7 +87,7 @@
           <!-- Header Mobile -->
           <div class="header-mobile clearfix" id="header-mobile">
             <div class="header-mobile__logo">
-                <a href="<?= BASEURL ?>/"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" width="300" srcset="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" alt="Alchemists" class="header-mobile__logo-img"></a>
+                <a href="<?= url(); ?>/"><img src="<?= cdn('v1/assets/images/esports/streamgaming.png');?>" width="300" srcset="<?= cdn('v1/assets/images/esports/streamgaming.png');?>" alt="Alchemists" class="header-mobile__logo-img"></a>
             </div>
             <div class="header-mobile__inner">
                 <a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>
@@ -124,8 +124,8 @@
                         <!-- Account Navigation -->
                         <ul class="nav-account">
                             <?php if(Session::check('users') == true ){ ?> 
-                                <li class="nav-account__item"><a href="<?= BASEURL ?>/account">My Account</a></li>
-                                <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/logout">Logout</a></li>
+                                <li class="nav-account__item"><a href="<?= url('account');?>">My Account</a></li>
+                                <li class="nav-account__item nav-account__item--logout"><a href="<?= url('logout');?>">Logout</a></li>
                             <?php }else{ ?>
                                 <li class="nav-account__item"><a href="<?= BASEURL ?>/login">Login</a></li>
                                 <li class="nav-account__item nav-account__item--logout"><a href="<?= BASEURL ?>/register">Register</a></li>
@@ -144,7 +144,7 @@
 
                         <!-- Header Logo -->
                         <div class="header-logo">
-                            <a href="<?= BASEURL ?>/"><img src="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png" width="250" srcset="<?= BASEURL ?>/public/assets/images/esports/streamgaming.png 2x" alt="Alchemists" class="header-logo__img"></a>
+                            <a href="<?= BASEURL ?>/"><img src="<?= cdn('v1/assets/images/esports/streamgaming.png');?>" width="250" srcset="<?= cdn('v1/assets/images/esports/streamgaming.png');?> 2x" alt="Alchemists" class="header-logo__img"></a>
                         </div>
                         <!-- Header Logo / End -->
 
@@ -204,7 +204,7 @@
                             <li class="info-block__item info-block__item--shopping-cart js-info-block__item--onclick">
                                 <a href="javascript:void(0);" class="info-block__link-wrapper">
                                     <div role="img" class="df-icon">
-                                        <img  src="<?=asset('assets/images/mitra/stream-cash2.png');?>"/>
+                                        <img  src="<?= cdn('v1/assets/images/mitra/stream-cash2.png');?>"/>
                                     </div>
 
                                     <h6 class="info-block__heading pl-2">Your Bag (8 items)</h6>
@@ -222,7 +222,7 @@
                                     <li class="header-cart__item">
                                         <figure class="header-cart__product-thumb">
                                             <a href="_esports_shop-product.html">
-                                                <img src="<?= BASEURL ?>/public/assets/images/esports/samples/cart-sm-1.jpg" alt="Jaxxy Framed Art Print">
+                                                <img src="<?= cdn('v1/assets/images/esports/samples/cart-sm-1.jpg');?>" alt="Jaxxy Framed Art Print">
                                             </a>
                                         </figure>
                                         <div class="header-cart__badges">
@@ -233,7 +233,7 @@
                                     <li class="header-cart__item">
                                         <figure class="header-cart__product-thumb">
                                             <a href="_esports_shop-product.html">
-                                                <img src="<?= BASEURL ?>/public/assets/images/esports/samples/cart-sm-2.jpg" alt="Tech Warrior Framed Art Print">
+                                                <img src="<?= cdn('v1/assets/images/esports/samples/cart-sm-2.jpg');?>" alt="Tech Warrior Framed Art Print">
                                             </a>
                                         </figure>
                                         <div class="header-cart__badges">
@@ -244,7 +244,7 @@
                                     <li class="header-cart__item">
                                         <figure class="header-cart__product-thumb">
                                             <a href="_esports_shop-product.html">
-                                                <img src="<?= BASEURL ?>/public/assets/images/esports/samples/cart-sm-3.jpg" alt="Alchemists White Mug">
+                                                <img src="<?= cdn('v1/assets/images/esports/samples/cart-sm-3.jpg');?>" alt="Alchemists White Mug">
                                             </a>
                                         </figure>
                                         <div class="header-cart__badges">
@@ -254,7 +254,7 @@
                                     <li class="header-cart__item">
                                         <figure class="header-cart__product-thumb">
                                             <a href="_esports_shop-product.html">
-                                                <img src="<?= BASEURL ?>/public/assets/images/esports/samples/cart-sm-4.jpg" alt="Mercenaries Framed Art Print">
+                                                <img src="<?= cdn('v1/assets/images/esports/samples/cart-sm-4.jpg');?>" alt="Mercenaries Framed Art Print">
                                             </a>
                                         </figure>
                                         <div class="header-cart__badges">

@@ -15,7 +15,7 @@
 			if(Session::check('users') == true ){ 
 				redirect('/account');
 				exit;
-			}else{
+			}else{   
 				$data['populared'] = $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 2 ");
 				$data['populared'] = $this->db->resultSet();
 				$data['game-list'] = $this->db->table('game_list')->all();
@@ -32,14 +32,19 @@
 				];
 				$this->view('landing/template/header', $data);
 				$this->view('landing/account/login', $data);	
-				$this->view('landing/template/footer' , $data);		
+				$this->view('landing/template/footer' , $data);	
+				// $dataVerify = [
+				// 	'email' => 'mramadhan687@gmail.com',
+				// 	'token'  => 'adwawdaawd71271732812'
+				// ];
+				// $this->view('email/verify', $dataVerify);
 			}	
 		}
 
 		public function Login()
 		{   
 			
-			if ($this->model('Login_Model')->login($_POST) > 0) { 
+			if ($this->model('Login_Model')->login($_POST) == true) { 
 				redirect('/account');	
 				exit;
 			}else{ 
@@ -79,8 +84,8 @@
 
 		public function Register()
 		{ 
-			if ( $this->model('Register_Model')->insert($_POST) ) {
-				Flasher::setFlash('Your account has been made, <br /> please verify it by clicking the activation link that has been send to your email.' ,'success'); 
+			if ( $this->model('Register_Model')->insert($_POST) == true ) {
+				Flasher::setFlash('Your account has been successfully created . Please verify email by clicking the activation link that has been send to your email.' ,'success'); 
 				redirect('/register');
 				exit;
 			} else { 
@@ -93,5 +98,13 @@
 		{
 			Session::unset();
 			redirect('/');
+		}
+
+		public function Verify($email , $hash) {
+			if ($this->model('Auth_Model')->verify($email, $hash) > 0) {
+				redirect('/login');
+			} else {
+				redirect('/login'); 
+			} 
 		}
 	}

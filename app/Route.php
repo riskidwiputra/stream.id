@@ -49,6 +49,7 @@
 	Route::get('/my-game', 					'AccountController@my_game');
 	Route::get('/my-team', 					'AccountController@my_team');
 	Route::post('/update-identity/{id_game}',	'GamesController@update_identity');
+	Route::post('/change-password', 		'AccountController@change_password');
 
 	// List Team
 	Route::get('/team', 					'TeamController@list');
@@ -59,11 +60,14 @@
 	Route::post('/declined-join/{id_req}',	'TeamController@declined');
 	Route::post('/list-users/{id}',			'TeamController@list_users');
 	Route::post('/invite-join/{id_team}',	'TeamController@invite');
+	Route::post('/accept-invited/{id}',		'TeamController@acceptInvited');
+	Route::post('/declined-invited/{id}',	'TeamController@declinedInvited');
 
 	// LOGIN
 	Route::get('/login', 					'AuthController@IndexLogin');
 	Route::get('/register', 				'AuthController@IndexRegistrasi');
 	Route::get('/logout', 					'AuthController@Logout');
+	Route::get('/verify/{email}/{hash}',	'AuthController@Verify');
 
 	// Provinsi 
 	Route::post('/provinsi', 				'AccountController@Provinsi');
@@ -75,7 +79,7 @@
 	Route::post('/login', 					'AuthController@Login');
 
 	// account
-	Route::post('/update-account/{id}', 	'AccountController@Update');
+	Route::post('/update-account', 	'AccountController@Update');
 	// Komentar
 	Route::post('/ambil-komen/{id}', 		'NewsController@GetKomen');
 	Route::post('/tambah-komen/{id}', 		'NewsController@AddKomen'); 

@@ -12,7 +12,11 @@
                         <div class="widget__title card__header d-flex justify-content-between">
                             <h4>MY TEAM</h4>
                             <span></span>
-                            <a href="javascript:void(0);" class="btn text-white p-0 m-0"><span class="badge badge-danger">2</span><u> MY INVITATION</u></a>
+                            <?php if ($data['count_invited'] > 0):?>
+                            <a href="javascript:void(0);" class="btn text-white p-0 m-0 my-invitation" data-toggle="modal" data-target="#invitation"><span class="badge badge-danger"><?=$data['count_invited'];?></span><u> MY INVITATION</u></a>
+                            <?php else:?>
+                            <a href="javascript:void(0);" class="btn text-white p-0 m-0" data-toggle="modal" data-target="#invitation"><u> MY INVITATION</u></a>
+                            <?php endif;?>
                         </div>
                         <div class="widget__content card__content" id="data" data-id="<?= BASEURL ?>">
                             <div class="widget-tabbed__tabs">
@@ -49,7 +53,7 @@
                                         ?>
                                         <a href="javascript:void(0);" class="btn-social-counter btn-social-counter--twitch mb-3" data-toggle="modal" data-target="#game<?=$team['team_id'];?>">
                                             <div class="btn-social-counter__icon">
-                                                <img class="card-img" src="<?=path('path_portal_TeamLogo').$team['team_logo'];?>" alt="" style="height: 80px;"> 
+                                                <img class="card-img" src="<?= cdn(paths('backup_team')).$team['team_logo'];?>" alt="" style="height: 80px;"> 
                                             </div>
                                             <h6 class="btn-social-counter__title"><?=$team['team_name'];?></h6>
                                             <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span><?=$game['name'];?></span>
@@ -62,7 +66,7 @@
                                                     <form method="post" class="form-identity<?=$team['team_id'];?>">
                                                         <div class="modal-header border-success" style="background-color: #4B3B60;">
                                                             <h3 style="padding:0;margin:0;"><?=$team['team_name'];?></h3>  
-                                                            <a href="javascript:void(0);" data-toggle="modal" data-target="#invite<?=$team['team_id'];?>" onclick="$('#game<?=$team['team_id'];?>').modal('hide');"><i class="fa fa-plus"></i> INVITE</a>
+                                                            <a href="javascript:void(0);" data-toggle="modal" data-target="#invite<?=$team['team_id'];?>" onclick="$('#game<?=$team['team_id'];?>').modal('hide');"><i class="fa fa-user-plus"></i></a>
                                                         </div>
                                                         <div class="modal-body border-success" style="background-color: #4B3B60;">
                                                             <?php if (Session::check('users') == $team['leader_id']):?>
@@ -217,38 +221,7 @@
                                                                                     }
                                                                                 }
                                                                             });
-                                                                        });
-
-                                                                        $('.nick_name').select2({
-                                                                            theme : 'bootstrap',
-                                                                            minimumInputLength: 1,
-                                                                            allowClear: true,
-                                                                            placeholder: 'Enter Username In Game',
-                                                                            ajax: {
-                                                                                dataType: 'json',  
-                                                                                method: 'POST',
-                                                                                url: '<?=url('list-users/'.$team['team_id']);?>',
-                                                                                delay: 400,
-                                                                                data: function(params) {
-                                                                                    // console.log(params);
-                                                                                    return {
-                                                                                        search: params.term ,
-                                                                                        team : '<?=$team['team_id'];?>'
-                                                                                    } 
-                                                                                },
-                                                                                processResults: function(data){ 
-                                                                                    // console.log(data);
-                                                                                    return {
-                                                                                        results:  $.map(data, function (item) {
-                                                                                            return {
-                                                                                                text:  item.username_game+ ' - ' + item.id_game,
-                                                                                                id: item.id
-                                                                                            }
-                                                                                        })
-                                                                                    };
-                                                                                }
-                                                                            }
-                                                                        });
+                                                                        }); 
                                                                     </script>
                                                                     <?php endforeach;?>
                                                                 </table>
@@ -284,7 +257,7 @@
                                                 </div>
                                             </div>
                                         </div>  
-                                        <?php endif;?>
+                                        <?php endif;?> 
                                         <script>
                                             $('.form-identity<?=$game_id;?>').submit(function(event) {
                                                 event.stopPropagation();
@@ -329,8 +302,7 @@
                                                                 message: '<p class="text-center mb-0"><i class="fa fa-check-circle"></i> User successfully invited </p>'
                                                             }); 
                                                         } else {
-                                                            $('.invite-btn').html('Invite');
-                                                            // $('.modal-body').prepend('<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+ m.message +'</div>');
+                                                            $('.invite-btn').html('Invite');  
                                                             var dialog = bootbox.dialog({
                                                                 message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+m.message+'</p>'
                                                             }); 
@@ -338,13 +310,167 @@
                                                     }
                                                 });
                                             });
+                                            $('.nick_name').select2({
+                                                theme : 'bootstrap',
+                                                minimumInputLength: 1,
+                                                allowClear: true,
+                                                placeholder: 'Enter Username In Game',
+                                                ajax: {
+                                                    dataType: 'json',  
+                                                    method: 'POST',
+                                                    url: '<?=url('list-users/'.$team['team_id']);?>',
+                                                    delay: 400,
+                                                    data: function(params) {
+                                                                                    // console.log(params);
+                                                        return {
+                                                            search: params.term ,
+                                                            team : '<?=$team['team_id'];?>'
+                                                        } 
+                                                    },
+                                                    processResults: function(data){ 
+                                                                                    // console.log(data);
+                                                        return {
+                                                            results:  $.map(data, function (item) {
+                                                                return {
+                                                                    text:  item.username_game+ ' - ' + item.id_game,
+                                                                    id: item.id
+                                                                }
+                                                            })
+                                                        };
+                                                    }
+                                                }
+                                            });
                                         </script> 
                                         <?php endforeach; 
                                         if (count($data['content']) == 0){
                                             echo '<h5 class="text-center">NOT FOUND</h5>';
                                         }
                                         ?>
+                                        <div class="modal fade" id="invitation">
+                                            <div class="modal-dialog" >
+                                                <div class="modal-content border-0 rounded-circle">
+                                                    <form method="post" class="form-invite<?=$team['team_id'];?>">
+                                                        <div class="modal-header border-success" style="background-color: #4B3B60;">
+                                                            <h3 style="padding:0;margin:0;">Invited to Join</h3>  
+                                                        </div>
+                                                        <div class="modal-body border-success" style="background-color: #4B3B60;">
+                                                            <div class="table-responsive">
+                                                                <table>
+                                                                    <?php foreach ($data['invited'] as $invited): 
+                                                                        $team = $this->db->table('team')->where('team_id', $invited['team_id']);
+                                                                        $game = $this->db->table('game_list')->where('id_game_list', $team['game_id']);
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td><?=$team['team_name']. ' - '.$game['name'];?></td>
+                                                                        <td>
+                                                                            <?php if ($invited['status'] == 1):?>
+                                                                            <a href="javascript:void(0);" class="acceptInvited<?=$invited['invite_id'];?>" data-id="<?=$invited['invite_id'];?>" data-name="<?=$team['team_name'];?>"><i class="fa fa-check-circle"></i></a>
+                                                                            <a href="javascript:void(0);" class="declinedInvited<?=$invited['invite_id'];?>" data-id="<?=$invited['invite_id'];?>" data-name="<?=$team['team_name'];?>"><i class="fa fa-times-circle"></i></a> 
+                                                                            <?php elseif ($invited['status'] == 0):?>
+                                                                            <a href="javascript:void(0);"><i>&nbsp;&nbsp;&nbsp;| DECLINED</i></a>
+                                                                            <?php elseif ($invited['status'] == 2):?>
+                                                                            <a href="javascript:void(0);"><i>&nbsp;&nbsp;&nbsp;| ACCEPTED</i></a>
+                                                                            <?php endif;?>
 
+
+                                                                        </td>
+                                                                    </tr>
+                                                                    <script>
+                                                                        $('.acceptInvited<?=$invited['invite_id'];?>').click(function(){
+                                                                            var t = $(this);
+                                                                            var data = t.data('id');
+                                                                            var user = t.data('name');
+                                                                            bootbox.confirm({ 
+                                                                                message: "Are you sure you want to accept the invitation to join <b>"+user+"</b> ?",
+                                                                                buttons: {
+                                                                                    confirm: {
+                                                                                        label: 'Yes',
+                                                                                        className: 'btn-success'
+                                                                                    },
+                                                                                    cancel: {
+                                                                                        label: 'No',
+                                                                                        className: 'btn-danger'
+                                                                                    }
+                                                                                },
+                                                                                callback: function (result) {
+                                                                                    if (result == true) {
+                                                                                        $.ajax({
+                                                                                            url : '<?=url('accept-invited/')?>' + data,
+                                                                                            method : 'POST',
+                                                                                            dataType : 'json',
+                                                                                            success : function(m){
+                                                                                                if (m.status == true) {
+                                                                                                    $(t).after('<a href="javascript:void(0);"><i>&nbsp;&nbsp;&nbsp;| ACCEPTED</i>')
+                                                                                                    $('.acceptInvited'+data).remove();
+                                                                                                    $('.declinedInvited'+data).remove();
+                                                                                                    setTimeout(function(){
+                                                                                                        location.reload();
+                                                                                                    },2500);
+                                                                                                } else {
+                                                                                                    var dialog = bootbox.dialog({
+                                                                                                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+m.message+'</p>'
+                                                                                                    }); 
+                                                                                                }
+                                                                                                // console.log(m);
+                                                                                            }
+                                                                                        });                                                                                        
+                                                                                    }
+                                                                                }
+                                                                            });
+                                                                        });
+
+                                                                        $('.declinedInvited<?=$invited['invite_id'];?>').click(function() {
+                                                                            var t = $(this);
+                                                                            var data = t.data('id');
+                                                                            var user = t.data('name'); 
+                                                                            bootbox.confirm({ 
+                                                                                message: "Are you sure you want to declined the invitation to join <b>"+user+"</b> ??",
+                                                                                buttons: {
+                                                                                    confirm: {
+                                                                                        label: 'Yes',
+                                                                                        className: 'btn-success'
+                                                                                    },
+                                                                                    cancel: {
+                                                                                        label: 'No',
+                                                                                        className: 'btn-danger'
+                                                                                    }
+                                                                                },
+                                                                                callback: function (result) {
+                                                                                    if (result == true) {
+                                                                                        $.ajax({
+                                                                                            url : '<?=url('declined-invited/')?>' + data,
+                                                                                            method : 'POST',
+                                                                                            dataType : 'json',
+                                                                                            success : function(m){
+                                                                                                if (m.status == true) {
+                                                                                                    $(t).after('<a href="javascript:void(0);"><i>&nbsp;&nbsp;&nbsp;| DECLINED</i>')
+                                                                                                    $('.acceptInvited'+data).remove();
+                                                                                                    $('.declinedInvited'+data).remove();
+                                                                                                    $('.my-invitation').find('span').remove();
+                                                                                                } else {
+                                                                                                    var dialog = bootbox.dialog({
+                                                                                                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+m.message+'</p>'
+                                                                                                    }); 
+                                                                                                }
+                                                                                            }
+                                                                                        });                                                                    
+                                                                                    }
+                                                                                }
+                                                                            });
+                                                                        }); 
+                                                                    </script>
+                                                                    <?php endforeach; ?>
+                                                                </table> 
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer border-success" style="background-color: #4B3B60;"> 
+                                                            <button type="submit" class="btn btn-primary invite-btn">Invite</button>
+                                                            <a href="#" class="btn btn-default" data-dismiss="modal" onclick="$('#game<?=$team['team_id'];?>').modal('show');">Cancel</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>  
                                     </div>
                                 </div>
 

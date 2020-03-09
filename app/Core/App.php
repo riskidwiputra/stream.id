@@ -412,7 +412,7 @@
 			}
 
 			if (PATH_CDN != 'PATH_CDN' || !empty(PATH_CDN) || !is_null(PATH_CDN)) {
-				define('PATH_CDN', $this->path('path_cdn'));				
+				define('PATH_CDN', $this->path('content_management'));				
 			}
 		}
 
@@ -440,9 +440,9 @@
 		}
 	}
 
-	function path_cdn($path)
+	function cdn($path)
 	{
-		return PATH_CDN.'/'.$path;
+		return PATH_CDN.$path;
 	}
 
 	function asset($path)

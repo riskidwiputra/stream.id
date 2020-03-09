@@ -81,24 +81,18 @@
 
         public function sendMail($type, $data)
         { 
-            $email_pengirim = 'rizkydwiputra1250@gmail.com'; // Isikan dengan email pengirim
-            $nama_pengirim = 'riski'; // Isikan dengan nama pengirim
-            $email_penerima = $data['email']; // Ambil email penerima dari inputan form
-                        
-
-            $this->mail = new PHPMailer;
-            $this->mail->isSMTP();
-            $this->mail->Host = 'smtp.gmail.com';
-            $this->mail->Username = $email_pengirim; // Email Pengirim
-            $this->mail->Password = 'djjwmgbxrbptugua'; // Isikan dengan Password email pengirim
-            $this->mail->Port = 587;
+            $this->mail = new PHPMailer; 
+            $this->mail->IsSMTP();
+            $this->mail->SMTPSecure = 'ssl'; 
+            $this->mail->Host = "gaming.stream-universe.id"; //host masing2 provider email
+            $this->mail->SMTPDebug = 1;
+            $this->mail->Port = 465;
             $this->mail->SMTPAuth = true;
-            $this->mail->SMTPSecure = 'ssl';
-            // $this->mail->SMTPDebug = 2; // Aktifkan untuk melakukan debugging 
-            $this->mail->SetFrom('admin@makaronikia.com','Luna.com');
-            $this->mail->addReplyTo('replyto@example.com','luna.com');
-            $this->mail->addAddress($email_penerima, '');
-            $this->mail->isHTML(true); // Aktifkan jika isi emailnya berupa html
+            $this->mail->Username = "support@gaming.stream-universe.id"; //user email
+            $this->mail->Password = "Y0uDontS33M3"; //password email 
+            $this->mail->SetFrom("support@gaming.stream-universe.id","Support Stream Gaming"); //set email pengirim
+            $this->mail->AddAddress($data['email'],"");
+            $this->mail->IsHTML(true);
 
             // Load file content.php
             ob_start();
@@ -116,15 +110,13 @@
             ob_end_clean(); 
             $this->mail->Subject = $subjek;
             $this->mail->Body = $content; 
-            $this->mail->AddEmbeddedImage( asset('images/logoluna.png'), 'logoluna', 'logoluna.png');  
-            $this->mail->AddEmbeddedImage( asset('images/bgluna.png'), 'bgluna', 'bgluna.png');
-            $this->mail->AddEmbeddedImage( asset('images/fb.png'), 'fb', 'fb.png');
-            $this->mail->AddEmbeddedImage( asset('images/twitter.png'), 'twitter', 'twitter.png');
-            $this->mail->AddEmbeddedImage( asset('images/instagram.png'), 'instagram', 'instagram.png');
-            // if(empty($attachment)){ // Jika tanpa attachment
-            // $this->mail->SMTPDebug = 2;
-            $this->mail->send();
-                
-            return $this->mail;     
+            // $this->mail->AddEmbeddedImage( asset('images/logoluna.png'), 'logoluna', 'logoluna.png');  
+            // $this->mail->AddEmbeddedImage( asset('images/bgluna.png'), 'bgluna', 'bgluna.png');
+            // $this->mail->AddEmbeddedImage( asset('images/fb.png'), 'fb', 'fb.png');
+            // $this->mail->AddEmbeddedImage( asset('images/twitter.png'), 'twitter', 'twitter.png');
+            // $this->mail->AddEmbeddedImage( asset('images/instagram.png'), 'instagram', 'instagram.png'); 
+            
+            if($this->mail->Send()) return true;
+            else return false;   
         }
     } 

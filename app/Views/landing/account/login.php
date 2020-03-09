@@ -70,7 +70,7 @@
                         </div>
 
                         <!-- Register Form -->
-                        <form action="<?= url('register');?>" method="post" enctype="multipart/form-data">
+                        <form class="form-register" action="<?= url('register');?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="register-name">Username <i class="text-danger" style="font-size:15px;">*</i></label>
                                 <input type="text" name="username" id="username" class="form-control" placeholder="Enter your Username..." value="<?=$data['FalseRegister']['username'];?>" required="">
@@ -194,8 +194,8 @@
 </div>
 
 <!-- Content / End -->
-<?php if (Session::check('_login_again')):?>
 <script>
+<?php if (Session::check('_login_again')):?>
     // Set the date we're counting down to
     var countDownDate = new Date("<?=date('M d, Y H:i:s', strtotime(Session::get('_login_again'))) ?>").getTime();
 
@@ -227,5 +227,62 @@
                 clearInterval(x); 
         }
     }, 1000);
-</script>
 <?php endif;?>
+    const portal = $('#data').data('id');
+
+    // alert(portal);
+    $(document).ready(function () {
+        $("#provinsi").append('<option value="">Pilih</option>');
+        $("#kabupaten").html('');
+        $("#kecamatan").html('');
+        $("#kelurahan").html('');
+        $("#kabupaten").append('<option value="">Pilih</option>');
+        $("#kecamatan").append('<option value="">Pilih</option>');
+        $("#kelurahan").append('<option value="">Pilih</option>'); 
+        $.ajax({
+            url: '<?=url('provinsi');?>',
+            type: 'POST',
+            dataType: 'json',
+            success: function (result) {
+                for (var i = 0; i < result.length; i++) {
+                    $("#provinsi").append('<option value="' + result[i].id_prov + '">' + result[i].nama + '</option>');
+
+                }
+            }
+
+        });
+
+    });
+    $("#provinsi").change(function () {
+
+        var id_prov = $("#provinsi").val();
+
+        $("#kabupaten").html('');
+        $("#kecamatan").html('');
+        $("#kelurahan").html('');
+        $("#kabupaten").append('<option value="">Pilih</option>');
+        $("#kecamatan").append('<option value="">Pilih</option>');
+        $("#kelurahan").append('<option value="">Pilih</option>');
+        var url = portal + '/kabupaten/' + id_prov;
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            success: function (result) {
+                for (var i = 0; i < result.length; i++) {
+                    $("#kabupaten").append('<option value="' + result[i].id_kab + '">' + result[i].nama + '</option>');
+
+                }
+
+            }
+        });
+
+    });
+
+    $('.form-register').submit(function(event) {
+        // event.stopPropagation();
+        // event.preventDefault(); 
+        $(this).find('button').html('Loading....');
+    });
+</script>

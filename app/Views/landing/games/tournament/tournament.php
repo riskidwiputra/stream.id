@@ -13,7 +13,7 @@
 								<!-- Match Preview --> 
 						<div class="match-preview">		
 							<div class="match-preview__match-info match-preview__match-info--header">
-								<div class="image" ><img src="<?= asset(paths('path_home_Kompetisi_0')).$rows['gambar']; ?>" style="height: 11rem;" class="card-img-top" alt="..."></div>
+								<div class="image" ><img src="<?= cdn(paths('backup_competition')).$rows['gambar']; ?>" style="height: 11rem;" class="card-img-top" alt="..."></div>
                             </div>
 							<div class="match-preview__content" style="height: 11rem;" >
                                 <ul class="list-unstyled">

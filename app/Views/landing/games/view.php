@@ -19,7 +19,7 @@ $name2 = $name[1];
                         <!-- Player Photo -->
                         <figure class="team-roster__player-img">
                             <div class="team-roster__player-shape effect-duotone effect-duotone--blue team-roster__player-shape--bg2"></div>
-                            <img class="card-img" src="<?=path('path_portal_Gamelist').$data['content']['logo'];?>" alt="Game Logo" style="width:500px;height:500px;">
+                            <img class="card-img" src="<?=cdn(paths('backup_gamelist')).$data['content']['logo'];?>" alt="Game Logo" style="padding:0;margin:0;width:400px;height:400px;">
                             
                         </figure>
                         <!-- Player Photo / End-->

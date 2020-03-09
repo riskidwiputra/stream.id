@@ -9,13 +9,13 @@
                         <div class="sponsors">
                             <ul class="sponsors-logos">
                                 <li class="sponsors__item">
-                                    <a href="#" target="_blank"><img src="<?=asset('assets/images/mitra/indihome1.png');?>" alt="Indihome"></a>
+                                    <a href="#" target="_blank"><img src="<?= cdn('v1/assets/images/mitra/indihome1.png');?>" alt="Indihome"></a>
                                 </li>
                                 <li class="sponsors__item">
-                                    <a href="#" target="_blank"><img src="<?=asset('assets/images/mitra/stream-universe.png');?>" alt="Stream Universe"></a>
+                                    <a href="#" target="_blank"><img src="<?= cdn('v1/assets/images/mitra/stream-universe.png');?>" alt="Stream Universe"></a>
                                 </li>
                                 <li class="sponsors__item">
-                                    <a href="#" target="_blank"><img src="<?=asset('assets/images/mitra/stream-cash.png');?>" alt="Stream Cash"></a>
+                                    <a href="#" target="_blank"><img src="<?= cdn('v1/assets/images/mitra/stream-cash.png');?>" alt="Stream Cash"></a>
                                 </li>
                             </ul>
                         </div>
@@ -37,7 +37,7 @@
                                         <!-- Widget: Popular Posts / End -->
                                         <div class="widget widget--footer widget-popular-posts">
                                             <div class="widget__content">
-                                                <img src="<?=asset('assets/images/esports/streamgaming.png');?>"> 
+                                                <img src="<?= cdn('v1/assets/images/esports/streamgaming.png');?>"> 
                                             </div>
                                             <!-- Widget: Popular Posts / End -->
 
@@ -52,22 +52,33 @@
                                             <h4 class="widget__title">Popular News</h4>
                                             <div class="widget__content">
                                                 <ul class="posts posts--simple-list">
-                                                <?php if ($data['populared']): ?>
-                                                <?php foreach ($data['populared'] as $row): ?>
+                                                <?php foreach ($data['populared'] as $row): 
+                                                    $label = $this->db->table('kategori')->where('id_kategori', $row['label']); 
+                                                    if ($label['color'] == 1) { 
+                                                        $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
+                                                    } elseif ($label['color'] == 2) { 
+                                                        $label = '<span class="label posts__cat-label posts__cat-label--category-4">'.$label['nama_kategori'].'</span>'; 
+                                                    } elseif ($label['color'] == 3) { 
+                                                        $label = '<span class="label posts__cat-label posts__cat-label--category-5">'.$label['nama_kategori'].'</span>'; 
+                                                    } elseif ($label['color'] == 4) {
+                                                        $label = '<span class="label posts__cat-label posts__cat-label--category-2">'.$label['nama_kategori'].'</span>'; 
+                                                    } elseif ($label['color'] == 5) {
+                                                        $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
+                                                    }
+                                                    ?>
                                                     <li class="posts__item posts__item--category-4 ">
                                                         <figure class="posts__thumb posts__thumb--hover">
-                                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" width="90" height="68" alt=""></a>
+                                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=cdn(paths('backup_news')).$row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
                                                         </figure>
                                                         <div class="posts__inner">
                                                             <div class="posts__cat">
-                                                                <span class="label posts__cat-label posts__cat-label--category-4"><?= $row['label'] ?></span>
+                                                                <?=$label; ?>
                                                             </div>
                                                             <h6 class="posts__title posts__title--color-hover"><a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><?= strtoupper($row['judul']); ?></a></h6>
                                                             <time datetime="2018-09-27" class="posts__date"><?= $row['tanggal'] ?></time>
                                                         </div>
                                                     </li>
-                                                    <?php endforeach ?>
-                                                <?php endif ?>
+                                                    <?php endforeach ?> 
                                                 </ul>
                                             </div>
                                         </div>
@@ -207,32 +218,39 @@
             <!-- Javascript Files
 	================================================== -->
             <!-- Core JS -->
-            <script src="<?=asset('assets/vendor/jquery/jquery.min.js');?>"></script>
-            <script src="<?=asset('assets/vendor/select2/select2.min.js');?>"></script>
-            <script src="<?=asset('assets/vendor/jquery/jquery-migrate.min.js"');?>"></script>
-            <script src="<?=asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js');?>"></script>
-            <script src="<?=asset('assets/js/core.js');?>"></script>
+            <script src="<?= cdn('v1/assets/vendor/jquery/jquery.min.js');?>"></script>
+            <script src="<?= cdn('v1/assets/vendor/select2/select2.min.js');?>"></script>
+            <script src="<?= cdn('v1/assets/vendor/jquery/jquery-migrate.min.js"');?>"></script>
+            <script src="<?= cdn('v1/assets/vendor/bootstrap/js/bootstrap.bundle.min.js');?>"></script>
+            <script src="<?= cdn('v1/assets/js/core.js');?>"></script>
 
             <!-- Vendor JS -->
-            <script src="<?=asset('assets/vendor/twitter/jquery.twitter.js');?>"></script>
+            <script src="<?= cdn('v1/assets/vendor/twitter/jquery.twitter.js');?>"></script>
            
 
             <!-- REVEAL ADD-ON FILES -->
             <!-- TYPEWRITER ADD-ON FILES -->
-            <script type='text/javascript' src="<?=asset('assets/vendor/revolution-addons/typewriter/js/revolution.addon.typewriter.min.js');?>"></script>
+            <script type='text/javascript' src="<?= cdn('v1/assets/vendor/revolution-addons/typewriter/js/revolution.addon.typewriter.min.js');?>"></script>
 
             <!-- REVOLUTION JS FILES -->
-            <script type="text/javascript" src="<?=asset('assets/vendor/revolution/js/jquery.themepunch.tools.min.js');?>"></script>
-            <script type="text/javascript" src="<?=asset('assets/vendor/revolution/js/jquery.themepunch.revolution.min.js');?>"></script>
+            <script type="text/javascript" src="<?= cdn('v1/assets/vendor/revolution/js/jquery.themepunch.tools.min.js');?>"></script>
+            <script type="text/javascript" src="<?= cdn('v1/assets/vendor/revolution/js/jquery.themepunch.revolution.min.js');?>"></script>
 
             <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-            <script type="text/javascript" src="<?=asset('assets/vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js');?>"></script>
-            <script type="text/javascript" src="<?=asset('assets/vendor/revolution/js/extensions/revolution.extension.migration.min.js');?>"></script>
-            <script type="text/javascript" src="<?=asset('assets/vendor/revolution/js/extensions/revolution.extension.parallax.min.js');?>"></script>
-            <script type="text/javascript" src="<?=asset('assets/vendor/revolution/js/extensions/revolution.extension.slideanims.min.js');?>"></script>
-            <script type="text/javascript" src="<?=asset('assets/vendor/bootbox/bootbox.all.min.js');?>"></script>
+            <script type="text/javascript" src="<?= cdn('v1/assets/vendor/revolution/js/extensions/revolution.extension.layeranimation.min.js');?>"></script>
+            <script type="text/javascript" src="<?= cdn('v1/assets/vendor/revolution/js/extensions/revolution.extension.migration.min.js');?>"></script>
+            <script type="text/javascript" src="<?= cdn('v1/assets/vendor/revolution/js/extensions/revolution.extension.parallax.min.js');?>"></script>
+            <script type="text/javascript" src="<?= cdn('v1/assets/vendor/revolution/js/extensions/revolution.extension.slideanims.min.js');?>"></script>
+            <script type="text/javascript" src="<?= cdn('v1/assets/vendor/bootbox/bootbox.all.min.js');?>"></script>
 
             <script type="text/javascript">
+                function number(evt) {
+                    var charCode = (evt.which) ? evt.which : event.keyCode
+                    if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+                        return false;
+                    return true;
+                } 
                 $('.features-lock').click(function() {
                     var dialog = bootbox.dialog({
                         message: '<p class="text-center mb-0"><i class="fa fa-lock"></i> Feature is Locked, please verify your NIK / KK!</p>',
@@ -339,34 +357,28 @@
             </script>
 
             <!-- Template JS -->
-            <script src="<?=asset('assets/js/init.js');?>"></script>
-            <script src="<?=asset('assets/js/custom.js');?>"></script>
-            <script src="<?=asset('assets/js/maps.js');?>"></script>
-            <script src="<?=asset('assets/js/script.js');?>"></script>
+            <script src="<?= cdn('v1/assets/js/init.js');?>"></script>
+            <script src="<?= cdn('v1/assets/js/custom.js');?>"></script>
+            <script src="<?= cdn('v1/assets/js/maps.js');?>"></script>
+            <script src="<?= cdn('v1/assets/js/script.js');?>"></script>
             <script>
-            $(document).ready(function(){
-            $('.dropdown-submenu a.test').on("click", function(e){
-                $(this).next('ul').toggle();
-        
-            });
-            });
-            </script>
-            <script>
-            $('.detail').on("click", function () {
+                $(document).ready(function(){
+                    $('.dropdown-submenu a.test').on("click", function(e){
+                        $(this).next('ul').toggle();
             
-            var logo        = $(this).data('logo');
+                    });
+                }); 
+                $('.detail').on("click", function () { 
+                    var logo        = $(this).data('logo');
 
-            var nama_team   = $(this).data('nama');
-            var nama_kota   = $(this).data('nama_kota'); 
-                
-            $("#image_preview").attr("src",logo);
-            $("#nama_team").html(nama_team);
-            $("#nama_kota").html(nama_kota);
-            });
+                    var nama_team   = $(this).data('nama');
+                    var nama_kota   = $(this).data('nama_kota'); 
+                        
+                    $("#image_preview").attr("src",logo);
+                    $("#nama_team").html(nama_team);
+                    $("#nama_kota").html(nama_kota);
+                });
             </script>
-            
-            
-
-</body>
+    </body>
 
 </html>

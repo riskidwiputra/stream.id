@@ -36,8 +36,8 @@
 		{
 			$users = $this->db->query('
 				SELECT * FROM users 
-				JOIN users_docs
-				ON users.user_id = users_docs.user_id
+				JOIN users_detail
+				ON users.user_id = users_detail.user_id
 				JOIN balance_users
 				ON users.user_id = balance_users.users_id
 				WHERE users.user_id = "'.Session::get("users").'"

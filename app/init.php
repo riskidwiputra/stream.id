@@ -12,7 +12,7 @@
 
 	require_once 'Route.php'; 
 
-	require_once 'vendor/PHPMailer/PHPMailerAutoload.php';
+	require_once 'vendor/PHPMailer/class.phpmailer.php';
 	require_once 'vendor/Device/index.php'; 
 
 	require_once 'Core/Initialize.php';

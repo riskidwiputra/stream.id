@@ -17,8 +17,8 @@
 			$data['game-list']	= $this->db->resultSet();
 			$data['users'] = $this->db->query('
 				SELECT * FROM users 
-				JOIN users_docs
-				ON users.user_id = users_docs.user_id
+				JOIN users_detail
+				ON users.user_id = users_detail.user_id
 				JOIN balance_users
 				ON users.user_id = balance_users.users_id
 				WHERE users.user_id = "'.Session::get("users").'"
@@ -48,8 +48,8 @@
 			$data['game-list']	= $this->db->resultSet();
 			$data['users'] = $this->db->query('
 				SELECT * FROM users 
-				JOIN users_docs
-				ON users.user_id = users_docs.user_id
+				JOIN users_detail
+				ON users.user_id = users_detail.user_id
 				JOIN balance_users
 				ON users.user_id = balance_users.users_id
 				WHERE users.user_id = "'.Session::get("users").'"
@@ -90,8 +90,8 @@
 		{ 
 			$users = $this->db->query('
 				SELECT * FROM users 
-				JOIN users_docs
-				ON users.user_id = users_docs.user_id
+				JOIN users_detail
+				ON users.user_id = users_detail.user_id
 				JOIN balance_users
 				ON users.user_id = balance_users.users_id
 				WHERE users.user_id = "'.Session::get("users").'"
@@ -116,8 +116,8 @@
 		{
 			$users = $this->db->query('
 				SELECT * FROM users 
-				JOIN users_docs
-				ON users.user_id = users_docs.user_id
+				JOIN users_detail
+				ON users.user_id = users_detail.user_id
 				JOIN balance_users
 				ON users.user_id = balance_users.users_id
 				WHERE users.user_id = "'.Session::get("users").'"
@@ -168,9 +168,11 @@
 			$game = $this->db->table('game_list')->where('id_game_list', $team['game_id']);
 			$data = $this->post('search');
 			$query = $this->db->query('
-				SELECT * FROM identity_ingame  
-				WHERE game_id = "'.$game_id.'" 
-				OR username_ingame LIKE "%'.$data.'%"
+				SELECT * FROM identity_ingame   
+				WHERE game_id = "'.$game["id_game_list"].'"
+				AND users_id != "'.Session::get("users").'"
+				AND username_ingame LIKE "%'.$data.'%"
+				OR id_ingame LIKE "%'.$data.'"
 				ORDER BY username_ingame ASC
 			');
 			$query = $this->db->resultSet();
@@ -195,6 +197,30 @@
 				]);
 			} else {
 				$this->model('Team_Model')->invite($id_team, $this->post('data'));
+			}
+		}
+
+		public function acceptInvited($id_invited)
+		{
+			if ($id_invited == '') {
+				echo json_encode([
+					'status'	=> false,
+					'message'	=> 'System Error, Plase refresh page!'
+				]);
+			} else {
+				$this->model('Team_Model')->acceptInvited($id_invited);
+			}
+		}
+
+		public function declinedInvited($id_invited)
+		{
+			if ($id_invited == '') {
+				echo json_encode([
+					'status'	=> false,
+					'message'	=> 'System Error, Plase refresh page!'
+				]);
+			} else {
+				$this->model('Team_Model')->declinedInvited($id_invited);
 			}
 		}
 		

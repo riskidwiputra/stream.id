@@ -45,7 +45,7 @@
                                     <!-- <span class="label posts__cat-label posts__cat-label--category-5"><?= $label; ?></span> -->
                                     <?=$label;?>
                                 </div>
-                                <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game']; ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" alt="" style="height:300px;"></a>
+                                <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game']; ?>"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="height:300px;"></a>
                             </figure>
                             <div class="posts__inner card__content">
                                 <time datetime="2018-08-23" class="posts__date"><?= date('j F Y | H:i',strtotime($row['created_at'])); ?></time>
@@ -217,7 +217,7 @@
                                            
                                         <li class="posts__item posts__item--category-1 posts__item--category-4 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
+                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
@@ -254,7 +254,7 @@
                                             ?>
                                         <li class="posts__item posts__item--category-2 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
+                                            <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
@@ -292,7 +292,7 @@
                                             ?>
                                         <li class="posts__item posts__item--category-3 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=asset(paths('path_home_NewsGame_0'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
+                                                <a href="<?=url('news/'.$row['url']);?>" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">

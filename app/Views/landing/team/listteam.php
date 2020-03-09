@@ -4,7 +4,7 @@
 		<!-- Schedule & Tickets -->
 		<div class="card card--has-table">
 			<div class="card__header card__header--has-btn">
-				<h4>List Team Gaming</h4>
+				<h4 class="mt-2" style="font-size:23px">Team List</h4>
 				<!-- Result Filter -->
 				<ul class="team-result-filter">
 					<li class="team-result-filter__item">
@@ -92,7 +92,7 @@
 								<td class="team-schedule__versus">
 									<div class="team-meta">
 										<figure class="team-meta__logo">
-											<img src="<?=path('path_home_TeamLogo').$row['team_logo'];?>" alt="">
+											<img src="<?=cdn(paths('backup_team')).$row['team_logo'];?>" alt="">
 										</figure>
 										<div class="team-meta__info">
 											<h6 class="team-meta__name"><?=$row['team_name'];?></h6>
@@ -232,7 +232,12 @@
         	dateType : 'json',
         	success : function(m){
         		if (m.status == true) {
-        			location.reload();
+        			var dialog = bootbox.dialog({
+                        message: '<p class="text-center mb-0"><i class="fa fa-check-circle"></i> You has been successfully create a team.</p>'
+                    });
+                    setTimeout(function() {
+        				location.reload();
+                    },3000);
         		} else {
         			$('.btn-create').html('Create');  
         			var dialog = bootbox.dialog({

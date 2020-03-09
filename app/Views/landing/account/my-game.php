@@ -47,7 +47,7 @@
                                         ?>
                                         <a href="javascript:void(0);" class="btn-social-counter btn-social-counter--twitch mb-3" data-toggle="modal" data-target="#game<?=$game_id;?>">
                                             <div class="btn-social-counter__icon">
-                                                <img class="card-img" src="<?=path('path_portal_Gamelist').$game['logo'];?>" alt="" height="300px">
+                                                <img class="card-img" src="<?= cdn(paths('backup_gamelist')).$game['logo'];?>" alt="" height="300px">
                                             </div>
                                             <h6 class="btn-social-counter__title"><?=$game['name'];?></h6>
                                             <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Username : <?=$identity['username'];?></span>
@@ -64,11 +64,11 @@
                                                         <div class="modal-body border-success" style="background-color: #4B3B60;">
                                                             <div class="form-group form-group--sm">
                                                                 <label for="username_in_game<?=$game_id;?>">Username In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="username_in_game" id="username_in_game<?=$game_id;?>" class="form-control username_in_game" placeholder="Enter Username In Game..." value="<?=$identity['username_ingame'];?>" required>
+                                                                <input type="text" name="username_in_game" id="username_in_game<?=$game_id;?>" class="form-control username_in_game" placeholder="Enter Username In Game..." value="<?=$identity['username_ingame'];?>" autocomplete="off" required>
                                                             </div>
                                                             <div class="form-group form-group--sm">
                                                                 <label for="id_in_game<?=$game_id;?>">ID In Game <abbr class="required" title="required">*</abbr></label>
-                                                                <input type="text" name="id_in_game" id="id_in_game<?=$game_id;?>" class="form-control id_in_game" placeholder="Enter ID In Game..." value="<?=$identity['id_ingame'];?>" required>
+                                                                <input type="text" name="id_in_game" id="id_in_game<?=$game_id;?>" class="form-control id_in_game" placeholder="Enter ID In Game..." value="<?=$identity['id_ingame'];?>" autocomplete="off" onkeypress="return number(event)" required>
                                                             </div>
                                                         </div>
                                                         <div class="modal-footer border-success" style="background-color: #4B3B60;">

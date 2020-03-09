@@ -12,8 +12,8 @@
 			if (Session::check('users')) {
 				$this->Users = $this->db->query('
 					SELECT * FROM users 
-					JOIN users_docs
-					ON users.user_id = users_docs.user_id
+					JOIN users_detail
+					ON users.user_id = users_detail.user_id
 					JOIN balance_users
 					ON users.user_id = balance_users.users_id
 					WHERE users.user_id = "'.Session::get("users").'"
@@ -22,7 +22,6 @@
 			} else {
 				$this->Users = '';
 			}
-
 		}
 		
 		public function Index()
@@ -42,9 +41,9 @@
 			$data['game-list'] 		= $this->db->table('game_list')->all();
 			$data['game-list']		= $this->db->resultSet();
 			$data['users'] 			= $this->Users;
-			$data['content'] 		= $this->model('News_Model')->select();
+			$data['content'] 		= $this->model('News_Model')->select(); 
 			$this->view('landing/template/header', $data);
-			$this->view('news/news', $data);	
+			$this->view('landing/news/view', $data);	
 			$this->view('landing/template/footer', $data);			
 		}
 		public function Pagination($id)
@@ -74,7 +73,7 @@
 			$data['end_number']		= ($data['page'] < ($data['jumlahHalaman'] - $jumlah_number))? $data['page'] + $jumlah_number :$data['jumlahHalaman'];
 
 			$this->view('landing/template/header', $data);
-			$this->view('news/news', $data);	
+			$this->view('landing/news/view', $data);	
 			$this->view('landing/template/footer', $data);
 		}
 
@@ -119,8 +118,8 @@
 			} elseif ($label['color'] == 5) {
 				$data['label'] = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
 			}  
-			$data['author'] = $this->db->table('data_management')->where('stream_id', $data['content']['penulis']);
-			$data['author'] = $data['author']['fullname']; 
+			// $data['author'] = $this->db->table('data_management')->where('stream_id', $data['content']['penulis']);
+			// $data['author'] = $data['author']['fullname']; 
 			$data['game-list'] = $this->db->table('game_list')->all();
 			$data['game-list']	= $this->db->resultSet();
 			$view = [
@@ -143,7 +142,7 @@
 
 			$this->db->table('news_game')->update($view, $view0);
 			$this->view('landing/template/header', $data);
-			$this->view('singleNews/singleNews' ,$data);	
+			$this->view('landing/news/single' ,$data);	
 			$this->view('landing/template/footer', $data);			
 		}
 
