@@ -8,7 +8,7 @@
             <div class="album-heading__icon alc-icon alc-icon--circle alc-icon--sm alc-icon--outline alc-icon--outline-md">
                 <i class="icon-picture"></i>
             </div>
-            <h2 class="album-heading__title">New Xenowatch Characters</h2>
+            <h2 class="album-heading__title">Galery Stream Gaming</h2>
             <h6 class="album-heading__subtitle">Updated: March 12th, 2018</h6>
         </div>
         <!-- Album Heading / End -->
@@ -66,9 +66,9 @@
             </div>
             <div class="album__item col-4 col-sm-6 col-lg-4">
                 <div class="album__item-holder">
-                    <a href="<?=asset('assets/images/esports/samples/team-album4.jpg');?>" class="album__item-link mp_gallery">
+                    <a href="<?=asset('assets/images/esports/samples/team-album3.jpg');?>" class="album__item-link mp_gallery">
                         <figure class="album__thumb">
-                            <img src="<?=asset('assets/images/esports/samples/team-album4.jpg');?>x" alt="">
+                            <img src="<?=asset('assets/images/esports/samples/team-album3.jpg');?>" alt="">
                         </figure>
                         <div class="album__item-desc">
                             <h4 class="album__item-title">The story behind Rurouni and his Robot Guardian</h4>
