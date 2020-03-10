@@ -17,7 +17,6 @@
                             <ul class="nav nav-tabs nav-justified widget-tabbed__nav" role="tablist">
                                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link active">PERSONAL INFORMATION</a></li>
                                 <li class="nav-item"><a href="#change-password" class="nav-link">CHANGE PASSWORD</a></li>
-                                <li class="nav-item"><a href="<?=url('my-game');?>" class="nav-link">MY GAME</a></li>
                                 <li class="nav-item"><a href="<?=url('my-team');?>" class="nav-link">MY TEAM</a></li>
                             </ul>
 
@@ -255,147 +254,524 @@
             </div>  
 
             <div class="col-lg-4">
-              
+            
                 <!-- Widget: Achievements -->
                 <aside class="widget card card--no-paddings widget--sidebar widget-achievements">
-                    <div class="widget__title card__header card__header--has-arrows js-alc-achievements-carousel-header"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
+                    <div class="widget__title card__header card__header--has-arrows js-alc-achievements-carousel-header">
                         <h4>My Game</h4>
-                        <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button></div>
-                        <div class="widget__content card__content">
-                            
-                            <div class="alc-achievements js-alc-achievements-carousel slick-initialized slick-slider">
-                                
-                                <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2646px; transform: translate3d(-756px, 0px, 0px);"><div class="alc-achievements__item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 378px;" tabindex="-1">
-                                    <div class="alc-achievements__content">
-                                        <div class="alc-achievements__icon alc-icon alc-icon--circle alc-icon--xl alc-icon--outline alc-icon--outline-xl">
-                                            <svg role="img" class="df-icon df-icon--trophy">
-                                                <use xlink:href="<?= cdn('v1/assets/images/esports/icons-esports.svg#trophy');?>"></use>
-                                            </svg>
-                                        </div>
-                                        <h5 class="alc-achievements__event-title">Dota 2</h5>
-                                        <div class="alc-achievements__event-date">Nick Name Game</div>
+                    </div>
+                    <div class="widget__content card__content">
+                
+                        <div class="alc-achievements js-alc-achievements-carousel">
+                
+                            <div class="alc-achievements__item">
+                                <div class="alc-achievements__content">
+                                    <div class="alc-achievements__icon alc-icon alc-icon--xl">
+                                        <img src="<?=asset('assets\images\esports\bg\Mobile-Legend.png');?>" alt="">
                                     </div>
-                                    <div class="alc-achievements__meta">
-                                        <div class="alc-achievements__meta-item">
-                                            <h6 class="alc-achievements__meta-value">7th Rank</h6>
-                                            <div class="alc-achievements__meta-name">Position</div>
-                                        </div>
-                                        <div class="alc-achievements__meta-item">
-                                            <h6 class="alc-achievements__meta-value">521</h6>
-                                            <div class="alc-achievements__meta-name">Team Kills</div>
-                                        </div>
-                                        <div class="alc-achievements__meta-item">
-                                            <h6 class="alc-achievements__meta-value">-</h6>
-                                            <div class="alc-achievements__meta-name">Money Won</div>
-                                        </div>
-                                    </div>
+                                    <h5 class="alc-achievements__event-title">Mobile Legends Bang Bang</h5>
+                                    <div class="alc-achievements__event-date">LordFahdan</div>
+                                    <button type="submit" class="btn btn-primary-inverse mt-3" data-toggle="modal" data-target="#game">View Details</button>
                                 </div>
-                                <div class="alc-achievements__item slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" style="width: 378px;" tabindex="-1">
-                                    <div class="alc-achievements__content">
-                                        <div class="alc-achievements__icon alc-icon alc-icon--circle alc-icon--xl alc-icon--outline alc-icon--outline-xl">
-                                            <svg role="img" class="df-icon df-icon--trophy">
-                                                <use xlink:href="<?= cdn('v1/assets/images/esports/icons-esports.svg#trophy');?>"></use>
-                                            </svg>
-                                        </div>
-                                        <h5 class="alc-achievements__event-title">L.O. Heroes Pro League</h5>
-                                        <div class="alc-achievements__event-date">September 2017</div>
+                                <div class="alc-achievements__meta">
+                                    <div class="alc-achievements__meta-item">
+                                        <h6 class="alc-achievements__meta-value">YE QIU</h6>
+                                        <div class="alc-achievements__meta-name">Team Captain</div>
                                     </div>
-                                    <div class="alc-achievements__meta">
-                                        <div class="alc-achievements__meta-item">
-                                            <h6 class="alc-achievements__meta-value">1st Rank</h6>
-                                            <div class="alc-achievements__meta-name">Position</div>
-                                        </div>
-                                        <div class="alc-achievements__meta-item">
-                                            <h6 class="alc-achievements__meta-value">825</h6>
-                                            <div class="alc-achievements__meta-name">Team Kills</div>
-                                        </div>
-                                        <div class="alc-achievements__meta-item">
-                                            <h6 class="alc-achievements__meta-value">$90.000</h6>
-                                            <div class="alc-achievements__meta-name">Money Won</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="alc-achievements__item slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" style="width: 378px;" tabindex="-1">
-                                    <div class="alc-achievements__content">
-                                        <div class="alc-achievements__icon alc-icon alc-icon--circle alc-icon--xl alc-icon--outline alc-icon--outline-xl">
-                                            <svg role="img" class="df-icon df-icon--trophy">
-                                                <use xlink:href="<?= cdn('v1/assets/images/esports/icons-esports.svg#trophy');?>"></use>
-                                            </svg>
-                                        </div>
-                                        <h5 class="alc-achievements__event-title">Xenowatch Con 2018</h5>
-                                        <div class="alc-achievements__event-date">February 2018</div>
-                                    </div>
-                                    <div class="alc-achievements__meta">
-                                        <div class="alc-achievements__meta-item">
-                                            <h6 class="alc-achievements__meta-value">7th Rank</h6>
-                                            <div class="alc-achievements__meta-name">Position</div>
-                                        </div>
-                                        <div class="alc-achievements__meta-item">
-                                            <h6 class="alc-achievements__meta-value">521</h6>
-                                            <div class="alc-achievements__meta-name">Team Kills</div>
-                                        </div>
-                                        <div class="alc-achievements__meta-item">
-                                            <h6 class="alc-achievements__meta-value">-</h6>
-                                            <div class="alc-achievements__meta-name">Money Won</div>
-                                        </div>
+                                    <!-- <div class="alc-achievements__meta-item">
+                                        <h6 class="alc-achievements__meta-value">637</h6>
+                                        <div class="alc-achievements__meta-name">Team Kills</div>
+                                    </div> -->
+                                    <div class="alc-achievements__meta-item">
+                                        <h6 class="alc-achievements__meta-value">940</h6>
+                                        <div class="alc-achievements__meta-name">Player User</div>
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                            <div class="alc-achievements__item">
+                                <div class="alc-achievements__content">
+                                    <div class="alc-achievements__icon alc-icon alc-icon--xl">
+                                        <img src="<?=asset('assets\images\esports\bg\Icon-PUBGM.png');?>" alt="">
+                                    </div>
+                                    <h5 class="alc-achievements__event-title">PUBG Mobile</h5>
+                                    <div class="alc-achievements__event-date">FZRaizy</div>
+                                    <button type="submit" class="btn btn-primary-inverse mt-3" data-toggle="modal" data-target="#game">View Details</button>
+                                </div>
+                                <div class="alc-achievements__meta">
+                                    <div class="alc-achievements__meta-item">
+                                        <h6 class="alc-achievements__meta-value">Sung Jin-Woo</h6>
+                                        <div class="alc-achievements__meta-name">Team Captain</div>
+                                    </div>
+                                    <!-- <div class="alc-achievements__meta-item">
+                                        <h6 class="alc-achievements__meta-value">825</h6>
+                                        <div class="alc-achievements__meta-name">Team Kills</div>
+                                    </div> -->
+                                    <div class="alc-achievements__meta-item">
+                                        <h6 class="alc-achievements__meta-value">940</h6>
+                                        <div class="alc-achievements__meta-name">Player User</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="alc-achievements__item">
+                                <div class="alc-achievements__content">
+                                    <div class="alc-achievements__icon alc-icon alc-icon--xl">
+                                        <img src="<?=asset('assets\images\esports\bg\Dota2.png');?>" alt="">
+                                    </div>
+                                    <h5 class="alc-achievements__event-title">Dota 2</h5>
+                                    <div class="alc-achievements__event-date">Androctonuss</div>
+                                    <button type="submit" class="btn btn-primary-inverse mt-3" data-toggle="modal" data-target="#game">View Details</button>
+                                </div>
+                                <div class="alc-achievements__meta">
+                                    <div class="alc-achievements__meta-item">
+                                        <h6 class="alc-achievements__meta-value">Wawan</h6>
+                                        <div class="alc-achievements__meta-name">Team Captain</div>
+                                    </div>
+                                    <!-- <div class="alc-achievements__meta-item">
+                                        <h6 class="alc-achievements__meta-value">521</h6>
+                                        <div class="alc-achievements__meta-name">Team Kills</div>
+                                    </div> -->
+                                    <div class="alc-achievements__meta-item">
+                                        <h6 class="alc-achievements__meta-value">940</h6>
+                                        <div class="alc-achievements__meta-name">Player User</div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                        </div>
+                    </div>
+                </aside>
+                <!-- Widget: Achievements / End -->
+                
+                <!-- Modal My Game -->
+                <div class="modal fade" id="game" tabindex="-1" role="dialog" aria-labelledby="dota2Label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content border-0 rounded-circle">
+                            <form method="post" class="form-identity">
+                                <div class="modal-header border-success" style="background-color: #4B3B60;">
+                                    <h1 style="padding:0;margin:0;">PUBG Mobile / Dota 2 / ML</h1>  
+                                </div>
+                                <div class="modal-body border-success" style="background-color: #4B3B60;">
+                                    <div class="form-group form-group--sm">
+                                        <label for="username_in_game">Username In Game <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" name="username_in_game" id="username_in_game" class="form-control username_in_game" placeholder="Enter Username In Game..." value="" autocomplete="off" required>
+                                    </div>
+                                    <div class="form-group form-group--sm">
+                                        <label for="id_in_game<?=$game_id;?>">ID In Game <abbr class="required" title="required">*</abbr></label>
+                                        <input type="text" name="id_in_game" id="id_in_game" class="form-control id_in_game" placeholder="Enter ID In Game..." value="" autocomplete="off" onkeypress="return number(event)" required>
+                                    </div>
+                                </div>
+                                <div class="modal-footer border-success" style="background-color: #4B3B60;">
+                                    <a href="" class="btn btn-info btn-outline">Join / Create Team</a>
+                                    <button type="submit" class="btn btn-primary create-team">Save</button>
+                                    <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </aside>
-            <!-- Widget: Achievements / End -->
+                <!-- Modal My Game END -->
 
+                <!-- Widget: Featured Player - Alternative Extended -->
+						<aside class="widget card widget--sidebar widget-player widget-player--sm">
+							<div class="widget__title card__header js-alc-achievements-carousel-header2">
+								<h4>My Team</h4>
+                            </div>
 
-            <!-- Widget: Achievements -->
-            <aside class="widget card card--no-paddings widget--sidebar widget-achievements">
-                <div class="widget__title card__header card__header--has-arrows js-alc-achievements-carousel-header"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="">Previous</button>
-                    <h4>My Team</h4>
-                    <button class="slick-next slick-arrow" aria-label="Next" type="button" style="">Next</button></div>
-                    <div class="widget__content card__content">
+                            <!-- Carousel 2 -->
+                            <div class="js-alc-achievements-carousel2">
 
-                        <div class="alc-achievements js-alc-achievements-carousel slick-initialized slick-slider">
-
-                            <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 2646px; transform: translate3d(-756px, 0px, 0px);"><div class="alc-achievements__item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 378px;" tabindex="-1">
+                                <!-- Item 1 -->
+                                <div class="alc-achievements__item">
                                 <div class="widget__content card__content">
-                                    <ul class="team-info-list list-unstyled">
+                                    <figure class="widget-player__photo">
+                                        <img src="<?=asset('assets\images\esports\logos\pirates-114x98.png');?>" alt="">
+                                    </figure>
+                                    <header class="widget-player__header clearfix">
+                                        <h4 class="widget-player__name">
+                                            <span class="widget-player__first-name">Evos</span>
+                                            <span class="widget-player__last-name">Esport</span>
+                                        </h4>
+                                        <span class="widget-player__info">Mobile Legends Bang Bang</span>
+                                        <!-- <span class="widget-player__rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span> -->
+                                    </header>
+                                    <div class="widget-player__overlay effect-duotone effect-duotone--base"></div>
+                                </div>
+                            
+                                <!-- Secondary (stats) -->
+                                <div class="widget__content-secondary">
+                            
+                                    <!-- Player Details -->
+                                    <div class="widget-player__details">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Evos Oura</span>
+                                                    <span class="widget-player__details-desc">Captain</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Evos Donkey</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Evos Luminare</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Evos Wann</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Evos Rekt</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">-</span>
+                                                    <span class="widget-player__details-desc"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Player Details / End -->
+                            
+                                </div>
+                                <!-- Secondary (stats) / End -->
+                            
+                                <!-- Tertiary -->
+                                <div class="widget__content-tertiary">
+                                    <div class="widget__content-inner">
+                                        <div class="widget-player__stats row align-items-center">
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat--value">4.2</div>
+                                                    <div class="widget-player__stat--label">Avg Kills</div>
+                                                    <div class="widget-player__stat--desc">in her career</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat--value">1.8</div>
+                                                    <div class="widget-player__stat--label">Avg Deaths</div>
+                                                    <div class="widget-player__stat--desc">in her career</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat--value">6.5</div>
+                                                    <div class="widget-player__stat--label">Avg Assists</div>
+                                                    <div class="widget-player__stat--desc">in her career</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat-circular circular circular--size-80">
+                                                        <div class="circular__bar" data-percent="84.1">
+                                                            <span class="circular__percents">84.1<small>%</small><span class="circular__label">Win Rate</span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Tertiary / End -->
+                                </div>
+                                <!-- Item 1 END -->
+                                
+                                <!-- Item 2 -->
+                                <div class="alc-achievements__item">
+                                <div class="widget__content card__content">
+                                    <figure class="widget-player__photo">
+                                        <img src="<?=asset('assets\images\esports\logos\alchemists-213x241.png');?>" alt="">
+                                    </figure>
+                                    <header class="widget-player__header clearfix">
+                                        <h4 class="widget-player__name">
+                                            <span class="widget-player__first-name">RRQ</span>
+                                            <span class="widget-player__last-name">Hoshi</span>
+                                        </h4>
+                                        <span class="widget-player__info">Mobile Legends Bang Bang</span>
+                                        <!-- <span class="widget-player__rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span> -->
+                                    </header>
+                                    <div class="widget-player__overlay effect-duotone effect-duotone--base"></div>
+                                </div>
+                            
+                                <!-- Secondary (stats) -->
+                                <div class="widget__content-secondary">
+                            
+                                    <!-- Player Details -->
+                                    <div class="widget-player__details">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Vyn</span>
+                                                    <span class="widget-player__details-desc">Captain</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Jamesss</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">R7</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">TUTURU</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Lemon</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">WizzKing</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">LJ</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Xin</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Player Details / End -->
+                            
+                                </div>
+                                <!-- Secondary (stats) / End -->
+                            
+                                <!-- Tertiary -->
+                                <div class="widget__content-tertiary">
+                                    <div class="widget__content-inner">
+                                        <div class="widget-player__stats row align-items-center">
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat--value">4.2</div>
+                                                    <div class="widget-player__stat--label">Avg Kills</div>
+                                                    <div class="widget-player__stat--desc">in her career</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat--value">1.8</div>
+                                                    <div class="widget-player__stat--label">Avg Deaths</div>
+                                                    <div class="widget-player__stat--desc">in her career</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat--value">6.5</div>
+                                                    <div class="widget-player__stat--label">Avg Assists</div>
+                                                    <div class="widget-player__stat--desc">in her career</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat-circular circular circular--size-80">
+                                                        <div class="circular__bar" data-percent="84.1">
+                                                            <span class="circular__percents">84.1<small>%</small><span class="circular__label">Win Rate</span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Tertiary / End -->
+                                </div>
+                                <!-- Item 2 End -->
 
-                                     <li class="team-info__item">
-                                      <span class="team-info__label">Team Name:</span>
-                                      <span class="team-info__value ">Alchemists L.O. Heroes</span>
-                                  </li>
-                                  <li class="team-info__item">
-                                      <span class="team-info__label">Country of Origin:</span>
-                                      <span class="team-info__value ">United States</span>
-                                  </li>
-                                  <li class="team-info__item">
-                                      <span class="team-info__label">Founded in:</span>
-                                      <span class="team-info__value ">December 2014</span>
-                                  </li>
-                                  <li class="team-info__item">
-                                      <span class="team-info__label">Prize Money Won in 2017:</span>
-                                      <span class="team-info__value team-info__value--active">USD 94.000</span>
-                                  </li>
-                                  <li class="team-info__item">
-                                      <span class="team-info__label">Total Prize Money Won:</span>
-                                      <span class="team-info__value ">USD 2.843.050</span>
-                                  </li>
+                                <!-- Item 3 -->
+                                <div class="alc-achievements__item">
+                                <div class="widget__content card__content">
+                                    <figure class="widget-player__photo">
+                                        <img src="<?=asset('assets\images\esports\logos\sharks-244x207.png');?>" alt="">
+                                    </figure>
+                                    <header class="widget-player__header clearfix">
+                                        <h4 class="widget-player__name">
+                                            <span class="widget-player__first-name">Bigetron</span>
+                                            <span class="widget-player__last-name">RA</span>
+                                        </h4>
+                                        <span class="widget-player__info">PUBG Mobile</span>
+                                        <!-- <span class="widget-player__rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span> -->
+                                    </header>
+                                    <div class="widget-player__overlay effect-duotone effect-duotone--base"></div>
+                                </div>
 
-                                  <li class="team-info__item team-info__item--desc">
-                                      <span class="team-info__label">Team Bio:</span>
-                                      <span class="team-info__desc">Based in California, and founded by Faye Spiegel “The Game Huntress”,  The Alchemists L.O. Heroes ended up being one of the strongests teams in the world.</span>
-                                  </li>
+                                <!-- Secondary (stats) -->
+                                <div class="widget__content-secondary">
+                            
+                                    <!-- Player Details -->
+                                    <div class="widget-player__details">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Zuxxy</span>
+                                                    <span class="widget-player__details-desc">Captain</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Luxxy</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Ryzen</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Microboy</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Sanss</span>
+                                                    <span class="widget-player__details-desc">Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Alice</span>
+                                                    <span class="widget-player__details-desc">Sub-Member</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Player Details / End -->
+                            
+                                </div>
+                                <!-- Secondary (stats) / End -->
+                            
+                                <!-- Tertiary -->
+                                <div class="widget__content-tertiary">
+                                    <div class="widget__content-inner">
+                                        <div class="widget-player__stats row align-items-center">
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat--value">4.2</div>
+                                                    <div class="widget-player__stat--label">Avg Kills</div>
+                                                    <div class="widget-player__stat--desc">in her career</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat--value">1.8</div>
+                                                    <div class="widget-player__stat--label">Avg Deaths</div>
+                                                    <div class="widget-player__stat--desc">in her career</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat--value">6.5</div>
+                                                    <div class="widget-player__stat--label">Avg Assists</div>
+                                                    <div class="widget-player__stat--desc">in her career</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 col-sm-3">
+                                                <div class="widget-player__stat-item">
+                                                    <div class="widget-player__stat-circular circular circular--size-80">
+                                                        <div class="circular__bar" data-percent="84.1">
+                                                            <span class="circular__percents">84.1<small>%</small><span class="circular__label">Win Rate</span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Tertiary / End -->
+                                </div>
+                                <!-- Item 3 END -->
 
-                              </ul>
-                          </div></div></div>
+                            </div>
+                            <!-- Carousel 2 END -->
+						</aside>
+						<!-- Widget: Featured Player - Alternative Extended / End -->
 
 
-
-                      </div>
-                  </div>
-              </aside>
-              <!-- Widget: Achievements / End -->
+            
 
               <!-- Widget: Featured Player - Alternative without Image -->
               <aside class="widget card widget--sidebar widget-player widget-player--alt">
