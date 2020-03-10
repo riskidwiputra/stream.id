@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Feb 2020 pada 09.25
--- Versi server: 10.4.10-MariaDB
--- Versi PHP: 7.3.12
+-- Waktu pembuatan: 10 Mar 2020 pada 09.44
+-- Versi server: 10.4.8-MariaDB
+-- Versi PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,30 +29,48 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `access_logs_portal` (
-  `stream_id` char(128) NOT NULL,
+  `stream_id` varchar(128) DEFAULT NULL,
   `time` varchar(128) NOT NULL,
   `device` varchar(128) NOT NULL,
   `ip` varchar(128) DEFAULT NULL,
   `os` varchar(128) NOT NULL,
   `browser` varchar(128) NOT NULL,
-  `brand` varchar(128) NOT NULL
+  `brand` varchar(128) NOT NULL,
+  `count` int(11) NOT NULL DEFAULT 1,
+  `flag` int(11) NOT NULL COMMENT '0=gagal,1=success'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `access_logs_portal`
 --
 
-INSERT INTO `access_logs_portal` (`stream_id`, `time`, `device`, `ip`, `os`, `browser`, `brand`) VALUES
-('ADM0001', '19-02-2020 16:45:11', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.106', 'Unknown Brand'),
-('ADM0001', '19-02-2020 16:58:37', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.106', 'Unknown Brand'),
-('ADM0001', '19-02-2020 18:24:01', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.106', 'Unknown Brand'),
-('ADM0001', '20-02-2020 15:43:06', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.116', 'Unknown Brand'),
-('ADM0001', '20-02-2020 15:50:39', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.116', 'Unknown Brand'),
-('ADM0001', '21-02-2020 00:08:55', 'Computer', '158.140.174.59', 'Windows 10', 'Chrome 80.0.3987.116', 'Unknown Brand'),
-('ADM0001', '22-02-2020 16:31:24', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.116', 'Unknown Brand'),
-('ADM0001', '23-02-2020 21:37:12', 'Computer', '158.140.174.59', 'Windows 10', 'Chrome 80.0.3987.116', 'Unknown Brand'),
-('ADM0001', '26-02-2020 13:10:59', 'Computer', '158.140.174.59', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
-('ADM0001', '26-02-2020 15:47:16', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand');
+INSERT INTO `access_logs_portal` (`stream_id`, `time`, `device`, `ip`, `os`, `browser`, `brand`, `count`, `flag`) VALUES
+('ADM0001', '29-02-2020 01:14:12', 'Computer', '125.165.4.102', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand', 1, 1),
+('ADM0001', '29-02-2020 01:21:17', 'Computer', '180.251.3.209', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand', 1, 1),
+('ADM0001', '02-03-2020 19:48:32', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand', 1, 1),
+('ADM0001', '04-03-2020 17:36:27', 'Computer', '125.161.105.239', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand', 1, 1),
+('ADM0001', '04-03-2020 18:26:37', 'Computer', '125.161.105.198', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand', 1, 1),
+('ADM0001', '04-03-2020 18:26:48', 'Computer', '125.161.105.198', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand', 1, 1),
+('ADM0001', '05-03-2020 14:42:03', 'Computer', '36.76.130.34', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 1),
+('ADM0001', '06-03-2020 14:58:19', 'Computer', '36.79.6.199', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 1),
+('ADM0001', '06-03-2020 17:22:13', 'Computer', '125.161.105.146', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 1),
+(NULL, '07-03-2020 22:56:13', 'Computer', '125.161.105.72', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 0),
+(NULL, '2020-03-07 23:08:14', 'Computer', '36.72.160.172', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 0),
+(NULL, '2020-03-07 23:09:09', 'Computer', '180.241.51.224', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 0),
+(NULL, '2020-03-07 23:12:03', 'Computer', '36.76.140.155', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 0),
+(NULL, '2020-03-07 23:12:14', 'Computer', '36.76.140.155', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 0),
+(NULL, '2020-03-07 23:16:49', 'Computer', '125.162.11.158', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 3, 0),
+(NULL, '2020-03-07 23:19:37', 'Computer', '125.161.104.229', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 0),
+(NULL, '2020-03-07 23:22:08', 'Computer', '125.161.107.154', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 2, 1),
+('627bajjn12', '2020-03-07 23:23:02', 'Computer', '36.76.89.27', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 2, 0),
+('627bajjn12', '2020-03-07 23:34:33', 'Computer', '125.161.105.142', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 1),
+('627bajjn12', '2020-03-07 23:34:40', 'Computer', '180.251.15.50', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 1),
+('627bajjn12', '2020-03-07 23:43:46', 'Computer', '125.161.105.188', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 1),
+('ADM0001', '2020-03-08 00:35:46', 'Computer', '36.76.106.166', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 1, 1),
+('ADM0001', '2020-03-08 14:37:37', 'Computer', '125.165.28.35', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 2, 1),
+('ADM0001', '2020-03-09 15:34:48', 'Computer', '125.162.35.140', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 2, 1),
+('ADM0001', '2020-03-09 22:30:58', 'Computer', '180.251.32.11', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 2, 1),
+('ADM0001', '2020-03-10 08:45:59', 'Computer', '180.249.243.81', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -77,30 +95,178 @@ CREATE TABLE `access_logs_users` (
 INSERT INTO `access_logs_users` (`user_id`, `time`, `device`, `ip`, `os`, `browser`, `brand`) VALUES
 ('USER0001', '03-02-2020 17:59:34', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
 ('USER0001', '03-02-2020 18:00:06', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
-('USER0001', '06-02-2020 17:41:34', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
-('USER0001', '06-02-2020 17:42:01', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
-('USER0001', '06-02-2020 18:09:30', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
-('USER0002', '06-02-2020 18:21:07', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.87', 'Unknown Brand'),
-('USER0002', '06-02-2020 19:35:52', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.87', 'Unknown Brand'),
-('USER0001', '08-02-2020 11:45:34', 'Computer', '158.140.174.116', 'Windows 10', 'Chrome 80.0.3987.87', 'Unknown Brand'),
-('USER0004', '08-02-2020 11:59:17', 'Computer', '158.140.174.44', 'Windows 10', 'Chrome 80.0.3987.87', 'Unknown Brand'),
-('USER0005', '08-02-2020 13:12:29', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
-('USER0006', '08-02-2020 13:55:36', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
-('USER0005', '08-02-2020 16:21:33', 'Computer', '114.125.47.16', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
-('USER0005', '08-02-2020 17:12:32', 'Computer', '114.125.47.16', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
-('USER0007', '08-02-2020 18:29:50', 'Computer', '125.161.107.227', 'Windows 10', 'Chrome 77.0.3865.120', 'Unknown Brand'),
-('USER0005', '09-02-2020 01:36:44', 'Computer', '182.1.2.4', 'Linux', 'Chrome 79.0.3945.136', 'Unknown Brand'),
-('USER0005', '09-02-2020 01:37:46', 'Phone', '114.125.29.180', 'Android 10 (Pie)', 'Chrome 79.0.3945.136', 'Unknown Brand'),
-('USER0005', '09-02-2020 13:19:43', 'Computer', '114.122.10.167', 'Linux', 'Chrome 79.0.3945.136', 'Unknown Brand'),
-('USER0004', '13-02-2020 15:17:48', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.100', 'Unknown Brand'),
-('USER0004', '13-02-2020 17:35:57', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.100', 'Unknown Brand'),
-('USER0004', '14-02-2020 17:54:09', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.100', 'Unknown Brand'),
-('USER0004', '17-02-2020 17:10:54', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.106', 'Unknown Brand'),
-('USER0001', '17-02-2020 17:21:46', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.106', 'Unknown Brand'),
-('USER0001', '17-02-2020 17:48:38', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.106', 'Unknown Brand'),
-('USER0001', '17-02-2020 18:12:01', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.106', 'Unknown Brand'),
-('USER0001', '18-02-2020 09:15:17', 'Computer', '158.140.187.48', 'Windows 10', 'Chrome 80.0.3987.106', 'Unknown Brand'),
-('USER0001', '20-02-2020 14:54:16', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.116', 'Unknown Brand');
+('USER0001', '05-02-2020 15:27:01', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
+('USER0001', '05-02-2020 17:39:20', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
+('USER0001', '06-02-2020 15:50:50', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
+('USER0001', '06-02-2020 15:51:06', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 79.0.3945.130', 'Unknown Brand'),
+('USER0002', '26-02-2020 18:17:46', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '26-02-2020 21:39:00', 'Computer', '36.72.161.195', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '26-02-2020 21:39:09', 'Computer', '36.72.161.195', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '26-02-2020 21:56:09', 'Computer', '36.79.3.5', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '27-02-2020 15:43:41', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '27-02-2020 16:15:52', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '27-02-2020 18:35:24', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '27-02-2020 18:35:26', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '28-02-2020 00:34:25', 'Computer', '125.165.4.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '28-02-2020 00:34:31', 'Computer', '125.165.4.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '28-02-2020 10:54:04', 'Computer', '36.76.93.54', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '28-02-2020 10:54:08', 'Computer', '36.76.93.54', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '28-02-2020 15:12:23', 'Computer', NULL, 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '28-02-2020 18:17:06', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '28-02-2020 18:17:10', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '28-02-2020 21:02:00', 'Computer', '125.161.107.203', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '28-02-2020 21:02:03', 'Computer', '125.161.107.203', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '29-02-2020 01:00:58', 'Computer', '180.241.60.60', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '29-02-2020 14:55:21', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '29-02-2020 14:55:30', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '29-02-2020 15:03:59', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '29-02-2020 16:04:09', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '29-02-2020 16:04:15', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '29-02-2020 18:04:54', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '29-02-2020 18:04:57', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '29-02-2020 22:56:19', 'Computer', '36.76.108.216', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '01-03-2020 01:55:11', 'Computer', '180.241.89.14', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '01-03-2020 01:55:14', 'Computer', '180.241.89.14', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '01-03-2020 23:16:22', 'Computer', '125.162.10.79', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '02-03-2020 00:18:08', 'Computer', '125.161.107.73', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0003', '02-03-2020 00:18:14', 'Computer', '125.161.107.73', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '02-03-2020 11:18:21', 'Computer', '180.249.46.157', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '02-03-2020 15:04:10', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '02-03-2020 15:04:16', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '02-03-2020 19:46:08', 'Computer', '158.140.179.247', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '03-03-2020 01:20:12', 'Computer', '125.165.58.134', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '03-03-2020 15:47:22', 'Computer', NULL, 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '03-03-2020 15:47:25', 'Computer', NULL, 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '04-03-2020 17:06:22', 'Computer', '125.161.106.63', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '04-03-2020 17:06:29', 'Computer', '125.161.106.63', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '04-03-2020 19:33:51', 'Computer', '125.161.104.148', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '04-03-2020 19:33:57', 'Computer', '125.161.104.148', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '05-03-2020 18:10:39', 'Computer', '125.165.24.227', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('USER0002', '06-03-2020 15:07:51', 'Computer', '125.161.105.33', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('USER0002', '06-03-2020 15:07:57', 'Computer', '180.251.53.216', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('USER0002', '07-03-2020 12:18:28', 'Computer', '125.161.104.53', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('USER0002', '07-03-2020 15:07:49', 'Computer', '36.76.89.27', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('USER0002', '07-03-2020 17:51:48', 'Computer', '36.76.109.239', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('USER0002', '08-03-2020 00:42:09', 'Computer', '36.76.131.76', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e64d91ba6ade', '08-03-2020 19:02:04', 'Computer', '125.161.106.223', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e64d91ba6ade', '08-03-2020 19:02:04', 'Computer', '125.161.106.223', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e65043377612', '08-03-2020 21:44:34', 'Computer', '125.161.106.170', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e65043377612', '08-03-2020 21:44:34', 'Computer', '125.161.106.170', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e65043377612', '08-03-2020 21:44:44', 'Computer', '125.161.106.170', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e65043377612', '08-03-2020 21:44:44', 'Computer', '125.161.106.170', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e64d91ba6ade', '09-03-2020 01:03:05', 'Computer', '125.161.104.102', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e64d91ba6ade', '09-03-2020 01:03:05', 'Computer', '125.161.104.102', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e65043377612', '09-03-2020 01:03:44', 'Computer', '125.161.104.102', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e65043377612', '09-03-2020 01:03:44', 'Computer', '125.161.104.102', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e64d91ba6ade', '10-03-2020 01:38:06', 'Computer', '125.161.105.112', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e64d91ba6ade', '10-03-2020 01:38:06', 'Computer', '125.161.105.112', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e64d91ba6ade', '10-03-2020 01:51:46', 'Computer', '180.249.46.44', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e64d91ba6ade', '10-03-2020 01:51:46', 'Computer', '180.249.46.44', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e65043377612', '10-03-2020 01:52:43', 'Computer', '180.249.46.44', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand'),
+('5e65043377612', '10-03-2020 01:52:43', 'Computer', '180.249.46.44', 'Windows 10', 'Chrome 80.0.3987.132', 'Unknown Brand');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `access_logs_wallet`
+--
+
+CREATE TABLE `access_logs_wallet` (
+  `users_id` varchar(50) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `device` varchar(50) NOT NULL,
+  `ip` varchar(50) NOT NULL,
+  `os` varchar(50) NOT NULL,
+  `browser` varchar(50) NOT NULL,
+  `brand` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `access_logs_wallet`
+--
+
+INSERT INTO `access_logs_wallet` (`users_id`, `time`, `device`, `ip`, `os`, `browser`, `brand`) VALUES
+('USER0002', '0000-00-00 00:00:00', 'Computer', '180.251.3.209', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand'),
+('USER0002', '2020-02-28 18:20:40', 'Computer', '180.251.3.209', 'Windows 10', 'Chrome 80.0.3987.122', 'Unknown Brand');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `authenticate`
+--
+
+CREATE TABLE `authenticate` (
+  `users_id` varchar(100) NOT NULL,
+  `authenticate` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `authenticate`
+--
+
+INSERT INTO `authenticate` (`users_id`, `authenticate`) VALUES
+('5e64d91ba6ade', ''),
+('5e65043377612', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `balance_history`
+--
+
+CREATE TABLE `balance_history` (
+  `transactions_id` varchar(30) NOT NULL,
+  `users_id` varchar(256) NOT NULL,
+  `date` varchar(30) NOT NULL,
+  `type` enum('add','cut') NOT NULL,
+  `transaction_type` int(11) NOT NULL COMMENT '1=cash,2=point',
+  `balance` varchar(50) NOT NULL,
+  `information` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `balance_history`
+--
+
+INSERT INTO `balance_history` (`transactions_id`, `users_id`, `date`, `type`, `transaction_type`, `balance`, `information`) VALUES
+('5E4A77C96B4ED', 'USER0002', '2020-02-17 18:23:53', 'add', 1, '1000', 'Topup Manual by Administrator.'),
+('5E4A77D2EDB48', 'USER0002', '2020-02-17 18:24:02', 'add', 2, '1000', 'Topup Manual by Administrator.'),
+('5E4BA6AA57E82', 'USER0002', '2020-02-18 15:56:10', 'add', 1, '10000', 'Topup Manual by Administrator.'),
+('5E4BB0312BB13', 'USER0002', '2020-02-18 16:36:49', 'cut', 1, '10000', 'Transfer balance to zan@gmail.com'),
+('5E4BB0312BB33', 'zan@gmail.com', '2020-02-18 16:36:49', 'add', 1, '10000', 'Transfer balance from admin@gmail.com'),
+('5E4E8C16C2C4E', 'USER0002', '2020-02-20 20:39:34', 'add', 1, '10000', 'Top Up via indomaret'),
+('5E4E927C8C1D4', 'USER0002', '2020-02-20 21:06:52', 'add', 1, '1000000', 'Top Up via indomaret'),
+('5E4E970F74A35', 'USER0002', '2020-02-20 21:26:23', 'add', 1, '10000', 'Top Up via Transfer Bank BCA'),
+('5E4E97B422DF5', 'USER0002', '2020-02-20 21:29:08', 'add', 1, '100000000', 'Top Up via Transfer Bank BCA'),
+('5E4EC801C0547', 'USER0002', '2020-02-21 00:55:13', 'add', 1, '10000', 'TopUp via '),
+('5E4EC90CA05C3', 'USER0002', '2020-02-21 00:59:40', 'add', 1, '10000', 'TopUp via '),
+('5E4EC98CD5DC9', 'USER0002', '2020-02-21 01:01:48', 'add', 1, '10000', 'TopUp via INDOMARET'),
+('5E4ECA7A6F7F8', 'USER0002', '2020-02-21 01:05:46', 'add', 1, '250000', 'TopUp via Transfer Bank BNI'),
+('5E4ED5734A62D', 'USER0002', '2020-02-21 01:52:35', 'add', 1, '10000', 'TopUp via '),
+('5E4EE0B9C7CD3', 'USER0002', '2020-02-21 02:40:41', 'add', 1, '10000', 'TopUp via Transfer Bank PERMATA'),
+('5E4EE1E49AE7C', 'USER0002', '2020-02-21 02:45:40', 'add', 1, '12000', 'TopUp via '),
+('5E4EE1E514E59', 'USER0002', '2020-02-21 02:45:41', 'add', 1, '10000', 'TopUp via '),
+('5E4EE1E5589F4', 'USER0002', '2020-02-21 02:45:41', 'add', 1, '120000', 'TopUp via '),
+('5E4EE1E5BF192', 'USER0002', '2020-02-21 02:45:41', 'add', 1, '10000', 'TopUp via '),
+('5E4EE1E670EFA', 'USER0002', '2020-02-21 02:45:42', 'add', 1, '10000', 'TopUp via '),
+('5E4EE1E6A923E', 'USER0002', '2020-02-21 02:45:42', 'add', 1, '10000', 'TopUp via '),
+('5E4EE1E6E8D27', 'USER0002', '2020-02-21 02:45:42', 'add', 1, '10000', 'TopUp via '),
+('5E4EE1E72F812', 'USER0002', '2020-02-21 02:45:43', 'add', 1, '1000000', 'TopUp via INDOMARET'),
+('5E4EE1E76491A', 'USER0002', '2020-02-21 02:45:43', 'add', 1, '100000', 'TopUp via Transfer Bank BCA'),
+('5E4EE1E7CDB53', 'USER0002', '2020-02-21 02:45:43', 'add', 1, '10000', 'TopUp via Transfer Bank '),
+('5E4EE7FCCD61D', 'USER0002', '2020-02-21 03:11:40', 'add', 1, '10000', 'TopUp via '),
+('5E4EE8A893148', 'USER0002', '2020-02-21 03:14:32', 'add', 1, '10000', 'TopUp via Transfer Bank PERMATA'),
+('5E4F8C0B1398E', 'USER0003', '2020-02-21 14:51:39', 'add', 1, '1000', 'Topup Manual via Administrator.'),
+('5E4F9980033AC', 'USER0003', '2020-02-21 15:49:04', 'add', 1, '1000', 'Topup Manual via Administrator.'),
+('5E4F9B909A2C6', 'USER0003', '2020-02-21 15:57:52', 'add', 1, '1000', 'Topup Manual via Administrator.'),
+('5E4F9BAFD80DA', 'USER0003', '2020-02-21 15:58:23', 'add', 1, '1000', 'Topup Manual via Administrator.'),
+('5E55160288832', 'USER0002', '2020-02-25 19:41:38', 'cut', 1, '50000', 'Withdraw to BANK RAKYAT INDONESIA (BRI)'),
+('5E5545A251EBD', 'USER0002', '2020-02-25 23:04:50', 'cut', 1, '10000', 'Transfer balance to zan@gmail.com'),
+('5E5545A251ED8', 'zan@gmail.com', '2020-02-25 23:04:50', 'add', 1, '10000', 'Transfer balance from admin@gmail.com'),
+('5E55486D23678', 'USER0002', '2020-02-25 23:16:45', 'cut', 1, '10000', 'Transfer balance to zan@gmail.com'),
+('5E55486D23692', 'zan@gmail.com', '2020-02-25 23:16:45', 'add', 1, '10000', 'Transfer balance from admin@gmail.com'),
+('5E5566FE6C452', 'USER0002', '2020-02-26 01:27:10', 'cut', 1, '100000000', 'Withdraw to BANK CENTRAL ASIA (BCA)'),
+('5E564281C8E23', 'USER0002', '2020-02-26 17:03:45', 'add', 1, '10', 'Topup Manual via Administrator.');
 
 -- --------------------------------------------------------
 
@@ -110,15 +276,169 @@ INSERT INTO `access_logs_users` (`user_id`, `time`, `device`, `ip`, `os`, `brows
 
 CREATE TABLE `balance_users` (
   `users_id` varchar(300) NOT NULL,
-  `balance` float NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `balance` float NOT NULL,
+  `point` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `balance_users`
 --
 
-INSERT INTO `balance_users` (`users_id`, `balance`) VALUES
-('USER0001', 0);
+INSERT INTO `balance_users` (`users_id`, `balance`, `point`) VALUES
+('5e64d91ba6ade', 0, 0),
+('5e65043377612', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bank`
+--
+
+CREATE TABLE `bank` (
+  `code` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `bank`
+--
+
+INSERT INTO `bank` (`code`, `name`) VALUES
+('002', 'BANK RAKYAT INDONESIA (BRI)'),
+('003', 'BANK EKSPOR INDONESIA'),
+('008', 'BANK MANDIRI'),
+('009', 'BANK NEGARA INDONESIA (BNI)'),
+('011', 'BANK DANAMON'),
+('013', 'PERMATA BANK'),
+('014', 'BANK CENTRAL ASIA (BCA)'),
+('016', 'BANK BII'),
+('019', 'BANK PANIN'),
+('020', 'BANK ARTA NIAGA KENCANA'),
+('022', 'BANK CIMB NIAGA'),
+('023', 'BANK BUANA IND'),
+('026', 'BANK LIPPO'),
+('028', 'BANK NISP'),
+('030', 'AMERICAN EXPRESS BANK LTD'),
+('031', 'CITIBANK N.A.'),
+('032', 'JP. MORGAN CHASE BANK, N.A.'),
+('033', 'BANK OF AMERICA, N.A'),
+('034', 'ING INDONESIA BANK'),
+('036', 'BANK MULTICOR TBK.'),
+('037', 'BANK ARTHA GRAHA'),
+('039', 'BANK CREDIT AGRICOLE INDOSUEZ'),
+('040', 'THE BANGKOK BANK COMP. LTD'),
+('041', 'THE HONGKONG & SHANGHAI B.C.'),
+('042', 'THE BANK OF TOKYO MITSUBISHI UFJ LTD'),
+('045', 'BANK SUMITOMO MITSUI INDONESIA'),
+('046', 'BANK DBS INDONESIA'),
+('047', 'BANK RESONA PERDANIA'),
+('048', 'BANK MIZUHO INDONESIA'),
+('050', 'STANDARD CHARTERED BANK'),
+('052', 'BANK ABN AMRO'),
+('053', 'BANK KEPPEL TATLEE BUANA'),
+('054', 'BANK CAPITAL INDONESIA, TBK.'),
+('057', 'BANK BNP PARIBAS INDONESIA'),
+('058', 'BANK UOB INDONESIA'),
+('059', 'KOREA EXCHANGE BANK DANAMON'),
+('060', 'RABOBANK INTERNASIONAL INDONESIA'),
+('061', 'ANZ PANIN BANK'),
+('067', 'DEUTSCHE BANK AG.'),
+('068', 'BANK WOORI INDONESIA'),
+('069', 'BANK OF CHINA LIMITED'),
+('076', 'BANK BUMI ARTA'),
+('087', 'BANK EKONOMI'),
+('088', 'BANK ANTARDAERAH'),
+('089', 'BANK HAGA'),
+('093', 'BANK IFI'),
+('095', 'BANK CENTURY, TBK.'),
+('097', 'BANK MAYAPADA'),
+('110', 'BANK JABAR'),
+('111', 'BANK DKI'),
+('112', 'BPD DIY'),
+('113', 'BANK JATENG'),
+('114', 'BANK JATIM'),
+('115', 'BPD JAMBI'),
+('116', 'BPD ACEH'),
+('117', 'BANK SUMUT'),
+('118', 'BANK NAGARI'),
+('119', 'BANK RIAU'),
+('120', 'BANK SUMSEL'),
+('121', 'BANK LAMPUNG'),
+('122', 'BPD KALSEL'),
+('123', 'BPD KALIMANTAN BARAT'),
+('124', 'BPD KALTIM'),
+('125', 'BPD KALTENG'),
+('126', 'BPD SULSEL'),
+('127', 'BANK SULUT'),
+('128', 'BPD NTB'),
+('129', 'BPD BALI'),
+('130', 'BANK NTT'),
+('131', 'BANK MALUKU'),
+('132', 'BPD PAPUA'),
+('133', 'BANK BENGKULU'),
+('134', 'BPD SULAWESI TENGAH'),
+('135', 'BANK SULTRA'),
+('145', 'BANK NUSANTARA PARAHYANGAN'),
+('146', 'BANK SWADESI'),
+('147', 'BANK MUAMALAT'),
+('151', 'BANK MESTIKA'),
+('152', 'BANK METRO EXPRESS'),
+('153', 'BANK SHINTA INDONESIA'),
+('157', 'BANK MASPION'),
+('159', 'BANK HAGAKITA'),
+('161', 'BANK GANESHA'),
+('162', 'BANK WINDU KENTJANA'),
+('164', 'HALIM INDONESIA BANK'),
+('166', 'BANK HARMONI INTERNATIONAL'),
+('167', 'BANK KESAWAN'),
+('200', 'BANK TABUNGAN NEGARA (BTN)'),
+('212', 'BANK HIMPUNAN SAUDARA 1906, TBK .'),
+('213', 'BANK TABUNGAN PENSIUNAN NASIONAL'),
+('405', 'BANK SWAGUNA'),
+('422', 'BANK JASA ARTA'),
+('426', 'BANK MEGA'),
+('427', 'BANK JASA JAKARTA'),
+('441', 'BANK BUKOPIN'),
+('451', 'BANK SYARIAH MANDIRI'),
+('459', 'BANK BISNIS INTERNASIONAL'),
+('466', 'BANK SRI PARTHA'),
+('472', 'BANK JASA JAKARTA'),
+('484', 'BANK BINTANG MANUNGGAL'),
+('485', 'BANK BUMIPUTERA'),
+('490', 'BANK YUDHA BHAKTI'),
+('491', 'BANK MITRANIAGA'),
+('494', 'BANK AGRO NIAGA'),
+('498', 'BANK INDOMONEX'),
+('501', 'BANK ROYAL INDONESIA'),
+('503', 'BANK ALFINDO'),
+('506', 'BANK SYARIAH MEGA'),
+('513', 'BANK INA PERDANA'),
+('517', 'BANK HARFA'),
+('520', 'PRIMA MASTER BANK'),
+('521', 'BANK PERSYARIKATAN INDONESIA'),
+('523', 'BANK DIPO INTERNATIONAL'),
+('525', 'BANK AKITA'),
+('526', 'LIMAN INTERNATIONAL BANK'),
+('531', 'ANGLOMAS INTERNASIONAL BANK'),
+('535', 'BANK KESEJAHTERAAN EKONOMI'),
+('536', 'BANK UIB'),
+('542', 'BANK ARTOS IND'),
+('547', 'BANK PURBA DANARTA'),
+('548', 'BANK MULTI ARTA SENTOSA'),
+('553', 'BANK MAYORA'),
+('555', 'BANK INDEX SELINDO'),
+('558', 'BANK EKSEKUTIF'),
+('559', 'CENTRATAMA NASIONAL BANK'),
+('562', 'BANK FAMA INTERNASIONAL'),
+('564', 'BANK SINAR HARAPAN BALI'),
+('566', 'BANK VICTORIA INTERNATIONAL'),
+('567', 'BANK HARDA'),
+('945', 'BANK FINCONESIA'),
+('946', 'BANK MERINCORP'),
+('947', 'BANK MAYBANK INDOCORP'),
+('948', 'BANK OCBC – INDONESIA'),
+('949', 'BANK CHINA TRUST INDONESIA'),
+('950', 'BANK COMMONWEALTH');
 
 -- --------------------------------------------------------
 
@@ -139,35 +459,6 @@ CREATE TABLE `contact` (
 
 INSERT INTO `contact` (`id_contact`, `contact_info`, `email`, `location`) VALUES
 (414749, 'If you have questions or complaints, please contact us here.', 'streamgaming@gmail.com', 'Medan');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `data_management`
---
-
-CREATE TABLE `data_management` (
-  `stream_id` char(128) NOT NULL,
-  `fullname` varchar(128) NOT NULL,
-  `username` varchar(128) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `gender` enum('man','women') NOT NULL,
-  `address` text NOT NULL,
-  `number_phone` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `image` varchar(128) NOT NULL,
-  `position` varchar(128) NOT NULL,
-  `level` enum('superadmin','admin') NOT NULL,
-  `created_at` varchar(128) NOT NULL,
-  `updated_at` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `data_management`
---
-
-INSERT INTO `data_management` (`stream_id`, `fullname`, `username`, `password`, `gender`, `address`, `number_phone`, `email`, `image`, `position`, `level`, `created_at`, `updated_at`) VALUES
-('ADM0001', 'admin', 'admin', '$2y$10$J06Kn.sslr7WglIVZ/UB4OCnMhuXgRHQT2H0PUbJakZ9GYKVYMNBW', 'man', 'Jl. Tembung', '0812315123122131', 'admin@gmail.com', '', 'CEO', 'superadmin', '', '');
 
 -- --------------------------------------------------------
 
@@ -195,6 +486,51 @@ INSERT INTO `faqs` (`id_faqs`, `title`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `gallery`
+--
+
+CREATE TABLE `gallery` (
+  `gallery_id` varchar(100) NOT NULL,
+  `caption` varchar(100) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `created_at` varchar(20) NOT NULL,
+  `updated_at` varchar(20) NOT NULL,
+  `position` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `gallery`
+--
+
+INSERT INTO `gallery` (`gallery_id`, `caption`, `image`, `created_at`, `updated_at`, `position`) VALUES
+('5e667a14dbb25', 'Stream Gaming', '5e667a14db763.png', '2020-03-10 00:17:08', '2020-03-10 01:02:28', 1),
+('5e66fc4645a22', 'Stream Universe', '5e66fc464556b.png', '2020-03-10 09:32:38', '', 2),
+('5e66fc8e714c4', 'Stream Cash', '5e66fc8e7111e.png', '2020-03-10 09:33:50', '', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `gallery_like`
+--
+
+CREATE TABLE `gallery_like` (
+  `id` varchar(100) NOT NULL,
+  `gallery_id` varchar(100) NOT NULL,
+  `users_id` varchar(100) NOT NULL,
+  `date` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `gallery_like`
+--
+
+INSERT INTO `gallery_like` (`id`, `gallery_id`, `users_id`, `date`) VALUES
+('5e669050d9fd4', '5e667a14dbb25', '5e64d91ba6ade', '2020-03-10 01:52:00'),
+('5e66913f71bc6', '5e667a14dbb25', '5e65043377612', '2020-03-10 01:55:59');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `game_list`
 --
 
@@ -204,6 +540,8 @@ CREATE TABLE `game_list` (
   `title` varchar(128) NOT NULL,
   `content` text NOT NULL,
   `logo` varchar(128) NOT NULL,
+  `player_on_team` int(11) NOT NULL,
+  `substitute_player` int(11) NOT NULL,
   `url` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -211,10 +549,33 @@ CREATE TABLE `game_list` (
 -- Dumping data untuk tabel `game_list`
 --
 
-INSERT INTO `game_list` (`id_game_list`, `name`, `title`, `content`, `logo`, `url`) VALUES
-(501085427, 'PUBG MOBILE', 'PUBG MOBILE', '&lt;p&gt;PLAYERUNKNOWN&amp;#39;S BATTLEGROUNDS&lt;br /&gt;\r\nis officially designed exclusively for mobile devices. Play anywhere, anytime. PUBG MOBILE presents the most exciting free multiplayer action on mobile devices. Falls, prepare weapons, and complete. Survive in the classic 100 player battle, payload mode, fast-paced 4v4 team deathmatch mode, and zombie mode. Enduring is the key, and who is the last to be the winner. During a call of duty, shoot at will!&lt;/p&gt;\r\n', '5e562710e7291.png', 'pubg-mobile'),
-(604500562, 'DOTA', 'DOTA 2', '&lt;p&gt;The most-played game on Steam.&lt;br /&gt;\r\nEvery day, millions of players worldwide enter battle as one of over a hundred Dota heroes. And no matter if it&amp;#39;s their 10th hour of play or 1,000th, there&amp;#39;s always something new to discover. With regular updates that ensure a constant evolution of gameplay, features, and heroes, Dota 2 has truly taken on a life of its own.&lt;/p&gt;\r\n', '5e5626bf12aa3.png', 'dota'),
-(1086187021, 'MOBILE LEGEND', 'MOBILE LEGEND', '&lt;p&gt;Join Your Friends In A New Brand 5v5 Moba Game Against Real Human Players, Mobile Legends: Bang Bang! Choose your favorite hero and create the perfect team with your friends!&lt;br /&gt;\r\n10 Seconds Make a Match, 10 Minutes Fighting, Hallway, Forest, Destroying Tower, Team Fighting, All The Fun From PC MOBAs And Action Games That Are In Your Hands! Show Your E-sports Spirit!&lt;br /&gt;\r\nMobile Legends: Bang Bang, 2017 New Mobile Game Works. Attack your opponent with the touch of your finger and win the crown of the strongest challenger!&lt;br /&gt;\r\nYour cellphone will be hungry!&lt;/p&gt;\r\n\r\n&lt;ul&gt;\r\n	&lt;li&gt;&amp;nbsp;&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '5e5626ee38cfc.png', 'mobile-legend');
+INSERT INTO `game_list` (`id_game_list`, `name`, `title`, `content`, `logo`, `player_on_team`, `substitute_player`, `url`) VALUES
+(501085427, 'PUBG MOBILE', 'PUBG MOBILE', '<p><strong>PLAYERUNKNOWN&#39;S BATTLEGROUNDS</strong><br />\r\nis officially designed exclusively for mobile devices. Play anywhere, anytime. PUBG MOBILE presents the most exciting free multiplayer action on mobile devices. Falls, prepare weapons, and complete. Survive in the classic 100 player battle, payload mode, fast-paced <strong>4v4 </strong>team deathmatch mode, and zombie mode. Enduring is the key, and who is the last to be the winner. During a call of duty, shoot at will!</p>', '5e5651372050d.jpg', 4, 1, 'pubg-mobile'),
+(604500562, 'DOTA 2', 'DOTA 2', '<p>The most-played game on Steam.<br />\r\nEvery day, millions of players worldwide enter battle as one of over a hundred Dota heroes. And no matter if it&#39;s their 10th hour of play or 1,000th, there&#39;s always something new to discover. With regular updates that ensure a constant evolution of gameplay, features, and heroes, Dota 2 has truly taken on a life of its own.</p>', '5e5626bf12aa3.png', 5, 1, 'dota'),
+(1086187021, 'MOBILE LEGEND', 'MOBILE LEGEND', '<p>Join Your Friends In A New Brand 5v5 Moba Game Against Real Human Players, Mobile Legends: Bang Bang! Choose your favorite hero and create the perfect team with your friends!<br />\r\n10 Seconds Make a Match, 10 Minutes Fighting, Hallway, Forest, Destroying Tower, Team Fighting, All The Fun From PC MOBAs And Action Games That Are In Your Hands! Show Your E-sports Spirit!<br />\r\nMobile Legends: Bang Bang, 2017 New Mobile Game Works. Attack your opponent with the touch of your finger and win the crown of the strongest challenger!<br />\r\nYour cellphone will be hungry!</p>\r\n\r\n<ul>\r\n	<li>&nbsp;</li>\r\n</ul>', '5e5626ee38cfc.png', 5, 1, 'mobile-legend'),
+(1879495753, 'Apex Legends', 'Apex Legends', '<p><u><strong>awdawadwd <em>dwdwawa</em></strong></u></p>', '5e5f988958767.png', 3, 1, 'apex-legends');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `identity_ingame`
+--
+
+CREATE TABLE `identity_ingame` (
+  `id` varchar(100) NOT NULL,
+  `users_id` varchar(300) NOT NULL,
+  `game_id` varchar(256) NOT NULL,
+  `id_ingame` varchar(256) NOT NULL,
+  `username_ingame` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `identity_ingame`
+--
+
+INSERT INTO `identity_ingame` (`id`, `users_id`, `game_id`, `id_ingame`, `username_ingame`) VALUES
+('2147483647', '5e64d91ba6ade', '501085427', '01312389321938', 'Zanemy'),
+('5e65082a75e6a', '5e65043377612', '501085427', '832312821381282', 'NmaXX');
 
 -- --------------------------------------------------------
 
@@ -779,6 +1140,7 @@ INSERT INTO `kabupaten` (`id_kab`, `id_prov`, `nama`, `id_jenis`) VALUES
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
   `nama_kategori` varchar(128) NOT NULL,
+  `color` int(11) NOT NULL COMMENT '1=danger,2=warning,3=info,4=primary,5=success',
   `gambar_kategori` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -786,8 +1148,9 @@ CREATE TABLE `kategori` (
 -- Dumping data untuk tabel `kategori`
 --
 
-INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `gambar_kategori`) VALUES
-(5, 'Pubg Legends', '5dfb41620c481.jpg');
+INSERT INTO `kategori` (`id_kategori`, `nama_kategori`, `color`, `gambar_kategori`) VALUES
+(5, 'Pubg Legends', 4, '5dfb41620c481.jpg'),
+(6, 'Update', 1, '5e60e5450e618.png');
 
 -- --------------------------------------------------------
 
@@ -7934,29 +8297,6 @@ CREATE TABLE `komentar` (
   `id_news_game` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `komentar`
---
-
-INSERT INTO `komentar` (`komentar_id`, `parent_komentar_id`, `komentar`, `nama_pengirim`, `email_pengirim`, `date`, `id_news_game`) VALUES
-(1, 0, 'komentra122', 'nama', 'komentar@sad', '2020-01-03 05:17:39', 3),
-(2, 0, 'asda', 'acsac', 'asda@afs', '2020-01-03 07:16:24', 6),
-(3, 2, 'gx', 'fhjht', 'ghd@fgd', '2020-01-06 07:28:25', 6),
-(4, 0, 'ada', 'asda', 'asdad@sad', '2020-01-06 08:08:07', 6),
-(5, 4, 'asda', 'asda', 'asd@aAS', '2020-01-06 08:29:14', 6),
-(6, 5, 'komentar2', 'asda', 'asda@sad', '2020-01-06 18:36:51', 6),
-(7, 4, 'asd', 'asd', 'asd@asd', '2020-01-06 18:39:52', 6),
-(8, 0, 'asd', 'sad', 'asda@sad', '2020-01-06 19:13:02', 6),
-(9, 0, 'asda', 'empat', 'empat@gmail.com', '2020-01-06 19:13:17', 6),
-(10, 0, 'asda', 'lima@gmail.com', 'lima@sda', '2020-01-06 19:13:32', 6),
-(11, 0, 'enam', 'enam', 'enal@asd', '2020-01-06 19:13:40', 6),
-(12, 0, 'asd', 'tujuuh', 'tes@gea', '2020-01-06 19:14:49', 6),
-(13, 2, 'asd', 'asd@', 'asda@ads', '2020-01-07 05:28:25', 6),
-(14, 0, 'aSD', 'teasd', '2qQE@SDa', '2020-01-07 06:01:03', 6),
-(15, 0, 'the last', 'asd', 'asd@sda', '2020-01-07 06:05:54', 6),
-(16, 0, 'jhvy,cu', 'hvkk', 'hcy#@vxgfx', '2020-02-05 16:20:30', 1),
-(17, 16, 'yg', 'uyfly', 'uyfi@gjcf', '2020-02-05 16:20:49', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -7980,21 +8320,48 @@ INSERT INTO `kompetisi` (`id_kompetisi`, `nama_kompetisi`, `gambar`, `sistem`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `member`
+-- Struktur dari tabel `management_access`
 --
 
-CREATE TABLE `member` (
-  `kode_member` char(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `password` varchar(128) NOT NULL
+CREATE TABLE `management_access` (
+  `stream_id` varchar(100) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `role_access` int(11) NOT NULL,
+  `created_at` varchar(20) NOT NULL,
+  `updated_at` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `member`
+-- Dumping data untuk tabel `management_access`
 --
 
-INSERT INTO `member` (`kode_member`, `email`, `password`) VALUES
-('MBR0001', 'putra1250@yahoo.com', '$2y$10$Cg2/4PaR0gBzO5trqofYzu9Np7fQvTGHIGyhA1bEh4WJO78.tPhVm');
+INSERT INTO `management_access` (`stream_id`, `fullname`, `username`, `email`, `password`, `role_access`, `created_at`, `updated_at`) VALUES
+('ADM0001', 'Mhd Ramadhan Arvin', 'admin', 'admin@gmail.com', '$2y$10$F3tr26xPB5Unzn7VpaMkm.w6d7anAm6rwYhZdf5y202XwuoW7LGX6', 1, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `management_docs`
+--
+
+CREATE TABLE `management_docs` (
+  `access_id` varchar(100) NOT NULL,
+  `gender` int(11) NOT NULL,
+  `address` text NOT NULL,
+  `number_phone` varchar(15) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `position` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `management_docs`
+--
+
+INSERT INTO `management_docs` (`access_id`, `gender`, `address`, `number_phone`, `image`, `position`) VALUES
+('ADM0001', 1, 'JL AR HAKIM', '081234567890', '5e62441d233d1.png', 'Web Programmer');
 
 -- --------------------------------------------------------
 
@@ -8003,37 +8370,39 @@ INSERT INTO `member` (`kode_member`, `email`, `password`) VALUES
 --
 
 CREATE TABLE `news_game` (
-  `id_news_game` int(11) NOT NULL,
+  `id_news_game` varchar(100) NOT NULL,
   `judul` varchar(128) NOT NULL,
   `penulis` varchar(128) NOT NULL,
   `label` varchar(128) NOT NULL,
-  `tanggal` varchar(128) NOT NULL,
   `gambar` varchar(128) NOT NULL,
   `isi` text NOT NULL,
-  `tag` varchar(128) NOT NULL,
+  `tag` text NOT NULL,
   `url` varchar(128) NOT NULL,
   `views` int(11) NOT NULL DEFAULT 0,
-  `komentar` int(11) NOT NULL DEFAULT 0
+  `komentar` int(11) NOT NULL DEFAULT 0,
+  `created_at` varchar(30) NOT NULL,
+  `updated_at` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `news_game`
 --
 
-INSERT INTO `news_game` (`id_news_game`, `judul`, `penulis`, `label`, `tanggal`, `gambar`, `isi`, `tag`, `url`, `views`, `komentar`) VALUES
-(1, 'Pencipta PUBG Sibak Ambisi Besar Proyek Anyar Prologue', 'Rendy Anwar', 'pubg mobile', '2020-01-03', '5e0ec91e91b19.jpg', '&lt;p&gt;&lt;strong&gt;Brendan &amp;#39;PlayerUnknown&amp;#39; Greene&lt;/strong&gt;, sang pencipta gim fenomenal bergenre&amp;nbsp;&lt;em&gt;battle royale&lt;/em&gt;&amp;nbsp;&lt;strong&gt;PlayerUnknown&amp;#39;s Battlegrounds&amp;nbsp;&lt;/strong&gt;&lt;em&gt;(PUBG),&lt;/em&gt;&amp;nbsp;menunjukkan&amp;nbsp;&lt;em&gt;teaser&lt;/em&gt;&amp;nbsp;untuk proyek gim anyarnya pada&amp;nbsp;&lt;strong&gt;The Game Awards&lt;/strong&gt;. Namun, satu hal yang dapat dipastikan, gim ini bukanlah sekuel dari&amp;nbsp;&lt;strong&gt;PUBG&lt;/strong&gt;, ataupun memiliki&amp;nbsp;&lt;em&gt;genre shooter&lt;/em&gt;.&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;juga mengungkapkan bahwa dirinya memiliki ambisi yang jauh lebih besar dengan proyeknya kali ini.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;memang meninggalkan&amp;nbsp;&lt;strong&gt;PUBG&lt;/strong&gt;&amp;nbsp;pada awal tahun ini untuk membentuk&amp;nbsp;&lt;strong&gt;PlayerUnknown&amp;#39;s Production&lt;/strong&gt;, meski tim barunya masih merupakan bagian dari&amp;nbsp;&lt;strong&gt;PUBG Corp.&lt;/strong&gt;&amp;nbsp;Bersama dengan anggota barunya yang terdiri dari berbagai veteran gim hingga para peneliti di luar industi, termasuk ahli fisika nuklir, hingga gelar doktor dalam bidang sistem manajemen dan kecerdasan buatan (AI).&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;iframe allow=&quot;;&quot; allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/0lgQtGSliG4&quot; width=&quot;640&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sayangnya, dalam video&amp;nbsp;&lt;em&gt;teaser&lt;/em&gt;&amp;nbsp;awal sepanjang 30 detik, masih belum bisa di pastikan apakah&amp;nbsp;&lt;strong&gt;Prologue&lt;/strong&gt;&amp;nbsp;akan mengusung gaya permainan seperti apa. Walaupun, secara visual, gim terbaru ini tampak memiliki grafis yang sangat realistik. Selain itu,&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;juga memaparkan ambisi jangka panjang dari&lt;strong&gt;&amp;nbsp;PlayerUnknown&amp;#39;s Production&lt;/strong&gt;&amp;nbsp;yang ingin membangun dan menguji teknologi baru untuk sesuatu yang besar.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;quot;Ini adalah langkah pertama dari petualangan saya,&amp;quot; ungkap&amp;nbsp;&lt;a href=&quot;https://www.forbes.com/sites/davidthier/2019/12/12/playerunknown-on-prologue-why-it-isnt-pubg-2/#6f80d0f4b189&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Greene.&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;&amp;quot;Kami membangun studio, menentukan tujuan untuk bereksperimen dengan teknologi baru.&amp;quot;&amp;nbsp;&lt;strong&gt;Prologue&lt;/strong&gt;&amp;nbsp;merupakan awal bagi dunia baru, dan&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;ingin menggunakannya untuk menyampaikan sesuatu yang baru ke seluruh dunia.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;menyampaikan harapannya untuk dapat menciptakan sesuatu yang memiliki skala sangat besar, mencontohkan cakupan mencapai ratusan kilometer dan menampung ribuan orang (pemain) di dalamnya secara langsung.&lt;/p&gt;\r\n\r\n&lt;p&gt;Namun, mimpi dari&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;yang ingin dicapai olehnya masih terlalu besar dan dirinya pun belum sanggup untuk mendapatkannya saat ini. Perlu dukungan dari teknologi baru agar apa yang diimpikannya dapat teralisasikan secara sempurna.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/Git/portal_stream.id/public/assets/img/NewsGame/1894114147.jpg&quot; style=&quot;height:450px; width:800px&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Meskipun kita harus menunggu sedikit lebih lama untuk mengetahui apa yang ingin coba disajikan oleh&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;melalui proyek&amp;nbsp;&lt;strong&gt;Prologue,&lt;/strong&gt;&amp;nbsp;tampaknya gim ini akan sangat layak ditunggu. Bagaimana pendapatmu Sobat Esports, apakah kamu bisa menebak kira-kira seperti apa tujuan akhir dari&amp;nbsp;&lt;strong&gt;Prologue?&lt;/strong&gt;&lt;/p&gt;\r\n', 'PUBGMobile, Prologue, Player Unknown\\\'s Prologue, BrendanGreene, PUBG.CorpEsportsID, EsportsIndonesia', 'pencipta-pubg-sibak-ambisi-besar-proyek-anyar-prologue', 6, 2),
-(2, 'Dua Tahun Rilis, PUBG Mobile Raup 21 Triliun Rupiah!', 'Eric Soejatno', 'pubg mobile', '2020-01-03', '5e0ecb909938f.jpg', '&lt;p&gt;Dirilis dari Februari 2018,&amp;nbsp;&lt;strong&gt;PUBG Mobile&lt;/strong&gt;&amp;nbsp;berkembang pesat menjadi salah satu game mobile&amp;nbsp;&lt;em&gt;battle royale&lt;/em&gt;&amp;nbsp;yang populer di dunia. Baru-baru ini, mereka tercatat berhasil meraih pendapatan US$1,5 miliar (sekitar Rp21 triliun) berdasarkan laporan&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://sensortower.com/blog/pubg-mobile-revenue-one-point-five-billion&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Sensor Tower&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;Pemasukan PUBG Mobile meningkat drastis dari kuartal kedua 2018, dengan perolehan mencapai U$20 juta (ketika&amp;nbsp;&lt;em&gt;Royale Pass&lt;/em&gt;&amp;nbsp;diluncurkan untuk pertama kali) menjadi US$496 juta memasuki kuartal ketiga 2019.&lt;/p&gt;\r\n\r\n&lt;p&gt;Berbeda dengan negara-negara lain, Tencent rilis gim yang hampir sama dengan PUBG Mobile di Tiongkok, yaitu&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/pubg/news/2019/05/98b418276d571e623651fc1d471c7811/tencent-tutup-pubg-mobile-di-cina-demi-rasa-patriotisme&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Game For Peace&amp;nbsp;&lt;/a&gt;&lt;/strong&gt;pada bulan Mei 2019. Meski begitu, Tencent masih meraih pendapatan fantastis yaitu US$614 miliar, atau sekitar dari 40 persen pendapatan yang disumbangkan dari Negara Tirai Bambu tersebut. Pemasukan PUBG Mobile juga datang dari Amerika Serikat yang menyumbangkan US$293 juta dan Jepang dengan US$117 juta.&lt;/p&gt;\r\n\r\n&lt;p&gt;Saat ini, PUBG Mobile telah diunduh lebih dari 600 juta pemain di seluruh dunia. India menjadi negara yang paling banyak mengunduh PUBG Mobile dengan total 116 juta unduhan. Sedangkan Tiongkok menjadi negara terbanyak kedua dengan total 108 juta unduhan, dan selanjutnya Amerika Serikat dengan unduhan terbanyak dengan total 42 juta.&lt;/p&gt;\r\n\r\n&lt;p&gt;Raihan pendapatan PUBG Mobile berbanding jauh dari kompetitornya. Contohnya, Knives Out yang populer di Jepang dengan total pendapatan hingga US$915 juta sejak rilis. Fortnite Mobile mengantongi total US$813 juta dari&amp;nbsp;&lt;em&gt;Apple App Store&lt;/em&gt;. Menariknya, Fortnite Mobile sampai saat ini belum dirilis via Google Play Store.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/737020191217050227.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Bahkan memasuki 2020, Tencent selaku publisher dan developer PUBG Mobile akan mengadakan kompetisi bersifat liga yang menyediakan&amp;nbsp;&lt;a href=&quot;https://esports.id/pubg/news/2019/12/845f3cb43a07259b2e4724dfa5c5c0d1/tencent-ungkap-pubgm-esports-2020-siapkan-5-juta-usd-prize-pool&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;total hadiah&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;mencapai US$5 juta, di mana semua kalangan mulai dari amatir, semi pro, sampai profesional bisa menanjak naik untuk kompetisi yang lebih tinggi.&lt;/p&gt;\r\n\r\n&lt;p&gt;Tidak hanya itu, berbagai update juga akan hadir di PUBGM seperti kehadiran&amp;nbsp;&lt;em&gt;grappling hooks&lt;/em&gt;&amp;nbsp;dan mempunyai kemampuan&amp;nbsp;&lt;em&gt;sliding&lt;/em&gt;&amp;nbsp;sambil menembak. Menarik ditunggu apakah update maupun kompetisi esports dari PUBG Mobile ke depannya bakal lebih menjamin laba yang jauh lebih besar dari sekarang!&lt;/p&gt;\r\n', 'PUBG Mobile, PUBG Mobile Esports 2020, PUBGM, Esports Indonesia, Esports ID, Tencent PUBGM', 'dua-tahun-rilis,-pubg-mobile-raup-21-triliun-rupiah!', 2, 0),
-(3, 'Usung PUBG M, Dunia Games League 2020 Kucurkan 1,6 Miliar!', 'Michael', 'pubg mobile', '2020-01-03', '5e0ecc367258e.jpg', '&lt;p&gt;Setelah sukses di tahun lalu,&amp;nbsp;&lt;em&gt;&lt;strong&gt;Telkomsel&lt;/strong&gt;&lt;/em&gt;&amp;nbsp;melalui&amp;nbsp;&lt;strong&gt;Dunia Games&lt;/strong&gt;&amp;nbsp;akan menggelar kembali liga esports&amp;nbsp;&lt;strong&gt;Dunia Games League 2020&lt;/strong&gt;&amp;nbsp;dengan memperkenalkan format baru kualifikasi yang dibagi menjadi empat kategori, yaitu Amatir, Kampus, Profesional (Pro), dan Online.&amp;nbsp;&lt;strong&gt;PUBG Mobile&lt;/strong&gt;&amp;nbsp;adalah gim yang dipertandingkan dengan total hadiah untuk diperebutkan sungguh fantastis, yakni&amp;nbsp;&lt;strong&gt;Rp 1.6 Miliar&lt;/strong&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Dunia Games League 2020&lt;/strong&gt;&amp;nbsp;rencananya akan diikuti oleh lebih dari 25.000 peserta yang terbagi lebih dari 7.500 tim.&amp;nbsp;&lt;strong&gt;Kualifikasi Amatir&lt;/strong&gt;&amp;nbsp;akan diadakan secara serentak awal Januari di 122 kota, untuk mencari 4 tim terbaik menuju grand final. Sedangkan&amp;nbsp;&lt;strong&gt;Kualifikasi Kampus&lt;/strong&gt;&amp;nbsp;berlangsung di 64 kampus se-Indonesia untuk memperebutkan 4 slot tiket menuju babak utamanya (&lt;em&gt;grand final&lt;/em&gt;).&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/1020191213061745.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sebanyak 16 tim akan diundang dalam&amp;nbsp;&lt;strong&gt;Kualifikasi Pro&lt;/strong&gt;&amp;nbsp;yang akan mulai bertanding pertengahan Januari untuk mencari 8 tim terbaik. Sedangkan peserta&amp;nbsp;&lt;strong&gt;Kualifikasi Online&lt;/strong&gt;&amp;nbsp;diperkirakan sebanyak 1.000 tim yang akan berjuang merebut 4 tiket&amp;nbsp;&lt;em&gt;wild card&lt;/em&gt;&amp;nbsp;untuk bersaing rengkuh gelar juara pada&amp;nbsp;&lt;em&gt;grand final&lt;/em&gt;&amp;nbsp;yang akan berlangsung akhir Februari 2020. Registrasi Kualifikasi Online Dunia Games dimulai pada awal Januari 2020, dan mulai tanding di awal Februari 2020.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Direktur Marketing Telkomsel, Rachel Goh&lt;/strong&gt;, dalam&amp;nbsp;&lt;em&gt;press release&lt;/em&gt;&amp;nbsp;mengatakan, &amp;ldquo;Menghadapi perkembangan industri esport di Indonesia, Dunia Games hadir untuk menjadi pendukung utama bagi industri ini melalui ajang Dunia Games League. Ajang ini kami hadirkan untuk memberikan wadah bagi pelanggan yang mencintai game dan esport serta sebagai salah satu upaya untuk membangun ekosistem digital entertainment lifestyle bagi masyarakat Indonesia.&amp;quot;&lt;/p&gt;\r\n\r\n&lt;p&gt;Pada kesempatan yang sama,&amp;nbsp;&lt;strong&gt;Gaga Li,&amp;nbsp;&lt;/strong&gt;&lt;strong&gt;Head of E-sports PUBG Mobile for Southeast Asia&lt;/strong&gt;&amp;nbsp;menyampaikan, &amp;ldquo;Industri Esports di Indonesia sangat positif saat ini, kami telah membuat langkah-langkah signifikan untuk memastikan dapat memenuhi tantangan yang kompetitif dan memenuhi janji kami kepada para user PUBG Mobile. Kerjasama strategis dengan Telkomsel Dunia Games akan menjadi elemen penting dalam upaya kami untuk mendukung ekosistem esports Indonesia, khususnya PUBG Mobile.&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/832220191213061633.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sedangkan Kemenpora yang diwakili&amp;nbsp;&lt;strong&gt;Sekretaris Deputi Peningkatan Prestasi Olahraga&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Aris Subiyono&lt;/strong&gt;&amp;nbsp;menyambut baik dan memberikan apresiasi untuk Telkomsel dan Dunia Games dalam gelaran turnamen esports ini. &amp;ldquo;Kami tentu menyambut baik event esports ini, semoga dengan gelaran ini akan menjadi kejuaraan yang bisa melahirkan atlet-atlet bisa membanggakan Indonesia di ajang internasional.&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;Informasi dan Pendaftaran Dunia Games League 2020 sudah dapat diakses secara&amp;nbsp;&lt;em&gt;online&lt;/em&gt;&amp;nbsp;melalui&amp;nbsp;&lt;a href=&quot;https://dgl.duniagames.co.id/&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;\r\n', 'DG League 2020, Jadwal Dunia Games League, Dunia Games League 2020, DG League, Juara Dunia Games League, Daftar Dunia Games Leag', 'usung-pubg-m,-dunia-games-league-2020-kucurkan-1,6-miliar!', 2, 1),
-(4, 'AyamJAGO Resmi Berpisah dari RRQ Hoshi', 'Eric Soejatno', 'pubg mobile', '2020-01-03', '5e0eccfa85b73.jpg', '&lt;p&gt;Perubahan di&amp;nbsp;&lt;strong&gt;RRQ Hoshi&lt;/strong&gt;&amp;nbsp;yang juga divisi MLBB tidak hanya dari pelatih, namun juga pemain. Melalui pengumuman dari&amp;nbsp;&lt;em&gt;official fanpage&lt;/em&gt;&amp;nbsp;RRQ, mereka memutuskan untuk melepas&lt;strong&gt;&amp;nbsp;Try &amp;quot;AyamJAGO&amp;quot; Widyanto&lt;/strong&gt;&amp;nbsp;dari skuadnya. Berposisi sebagai midlaner, AyamJAGO sudah cukup lama membela tim ini, sejak Juli 2018.&lt;/p&gt;\r\n\r\n&lt;p&gt;Diboyong dari&amp;nbsp;&lt;strong&gt;XCN&lt;/strong&gt;, debut AyamJAGO bersama RRQ berjalan manis dengan sukses meraih juara&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/mobile-legends/news/2018/07/856fc81623da2150ba2210ba1b51d241/taklukkan-dua-musuh-abadi-rrq-rebut-gelar-bekraf-game-prime-2018&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;BEKRAF Game Prime 2018&lt;/a&gt;&lt;/strong&gt;, dan akhirnya mampu membawa RRQ raih juara MPL Season 2, usai mengalahkan musuh bebuyutannya, EVOS.&lt;/p&gt;\r\n\r\n&lt;p&gt;Memakai roster yang sama saat menjuarai MPL Season 2, RRQ berada di peringkat 5 regular season&amp;nbsp;&lt;strong&gt;MPL Season 3&lt;/strong&gt;. Raihan tersebut membuat RRQ harus berjuang dari&lt;em&gt;&amp;nbsp;lower bracket&lt;/em&gt;&amp;nbsp;menghadapi Bigetron Esports. Secara mengejutkan, RRQ harus angkat koper lebih awal usai takluk melawan Bigetron.&lt;/p&gt;\r\n\r\n&lt;p&gt;Masih dipertahankan di RRQ, AyamJAGO hanya dimainkan dua kali saat MPL Season 4 regular season. Dia juga tidak dimainkan saat RRQ Hoshi hanya mampu raih juara kedua&lt;strong&gt;&amp;nbsp;MPL Season 4&lt;/strong&gt;. Menariknya, dia menjadi salah satu dari 6 pemain yang ikut dalam roster RRQ di Mobile Legends World Championships M1.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/801820191220162235.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sukses membawa RRQ menjadi&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/67606d48e361ce176ca71fd54fcf4286/kuasai-grup-a-rrq-hoshi-dipastikan-lolos-playoff-m1&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;juara grup&lt;/a&gt;&amp;nbsp;&lt;/strong&gt;dan mengalahkan&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/c254e7753095807e1cca159e48eceb21/tundukkan-todak-rrq-siap-ladeni-evos-legends&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Todak&lt;/strong&gt;&amp;nbsp;&lt;/a&gt;di&amp;nbsp;&lt;em&gt;upper bracket&lt;/em&gt;, AyamJAGO tidak dimainkan pada hari terakhir M1, usai kekalahan RRQ menghadapi EVOS Legends. Posisinya digantikan oleh&lt;strong&gt;&amp;nbsp;Diky &amp;quot;TUTURU&amp;quot;&lt;/strong&gt;. Tanpa AyamJAGO, RRQ Hoshi akhirnya harus puas berada di peringkat kedua usai kembali takluk dari EVOS Legends dengan skor sengit 3-4.&lt;/p&gt;\r\n\r\n&lt;p&gt;MPL Season 5 memang belum diumumkan kapan akan dimulai namun dengan&amp;nbsp; keluarnya AyamJAGO, RRQ Hoshi masih menyisakan 10 pemain, termasuk&amp;nbsp;&lt;strong&gt;I Gusti &amp;quot;Rocket&amp;quot; Ngurah Agung Duva&lt;/strong&gt;&amp;nbsp;yang sebelumnya bermain di RRQ Capcorn.&lt;/p&gt;\r\n\r\n&lt;p&gt;Belum diketahui apakah 10 pemain tadi akan tetap di dalam roster RRQ Hoshi, ataukah masih ada pergantian pemain kembali? Sobat Esports, bagaimana pendapatmu mengenai berpisahnya AyamJAGO dari RRQ Hoshi?&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n', 'RRQ Hoshi, AyamJAGO, RRQ MLBB, MPL Season 5, AyamJAGO RRQ, Lemon RRQ, Tuturu, MPL, Rex Regum Qeon', 'ayamjago-resmi-berpisah-dari-rrq-hoshi', 0, 0),
-(5, 'Mau Cepat Panjat Rank di Season Baru Mobile Legends, Pelajari Ini!', 'Rendy Anwar', 'Mobile legends', '2020-01-03', '5e0ecd6b6ffb5.jpg', '&lt;p&gt;&lt;strong&gt;Mobile Legends&lt;/strong&gt;&amp;nbsp;baru saja memasuki musim baru yakni&amp;nbsp;&lt;strong&gt;Season 15&lt;/strong&gt;&amp;nbsp;dimana ini merupakan kesempatan untuk kamu menerapkan pelajaran dari berbagai pengalaman sebelumnya dan mengincar prestasi yang lebih tinggi. Namun, impian untuk bisa tampil lebih baik di season terbaru ini hanya bisa dicapai jika kamu mau menurunkan ego dan belajar bermain sebagai sebuah tim.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Kali ini, tim&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Esports.ID&amp;nbsp;&lt;/a&gt;&lt;/strong&gt;akan memberikan beberapa tips yang dapat kamu terapkan supaya bisa tampil maksimal dan lebih baik, terutama pada awal season baru seperti ini. Yuk kita simak bersama apa saja hal-hal yang mungkin belum kamu terapkan saat ini?&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Kuasai hero-hero untuk setiap role&lt;/strong&gt;&lt;br /&gt;\r\nTidak dipungkiri bahwa jika kamu bisa menguasai setiap&amp;nbsp;&lt;em&gt;role&lt;/em&gt;&amp;nbsp;hero, match akan terasa lebih nyaman karena dapat mengisi posisi yang kosong. Terutama pada&amp;nbsp;&lt;em&gt;solo rank&lt;/em&gt;&amp;nbsp;dimana cukup sering ditemukan tim yang memiliki dua&amp;nbsp;&lt;em&gt;mage, assassin,&lt;/em&gt;&amp;nbsp;ataupun&amp;nbsp;&lt;em&gt;marksman&lt;/em&gt;&amp;nbsp;tanpa ada&amp;nbsp;&lt;em&gt;backup&lt;/em&gt;&amp;nbsp;dari&amp;nbsp;&lt;em&gt;tank.&lt;/em&gt;&amp;nbsp;Hasilnya tentu bisa ditebak yakni tim tersebut tidak dapat tampil maksimal saat&amp;nbsp;&lt;em&gt;teamfight&lt;/em&gt;&amp;nbsp;dan berujung pada kekalahan.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Setidaknya, jika kamu bisa fleksibel untuk mengisi role yang diperlukan, kemungkinan untuk menang di&amp;nbsp;&lt;em&gt;match&lt;/em&gt;&amp;nbsp;tersebut dapat meningkat serta memberikan perlawanan yang maksimal dalam&amp;nbsp;&lt;em&gt;teamfight.&lt;/em&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/907020191227042426.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Pelajari counter untuk hero-hero meta&lt;/strong&gt;&lt;br /&gt;\r\nBisa dikatakan ini adalah poin paling krusial untuk memenangkan sebuah match. Secara garis besar, penentuan kemenanganmu dalam pertandingan bergantung pada fase&amp;nbsp;&lt;em&gt;pick&lt;/em&gt;&amp;nbsp;and&amp;nbsp;&lt;em&gt;banned.&lt;/em&gt;&amp;nbsp;Memilih hero yang hanya kamu kuasai tidak dapat terus menerus menjamin kemenanganmu. Namun, jika dapat menggunakan hero&amp;nbsp;&lt;em&gt;counter&lt;/em&gt;&amp;nbsp;untuk melawan musuh, kamu dipastikan dapat menghentikan strategi mereka dan menguasai pertandingan.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Kamu bisa menggunakan&amp;nbsp;&lt;strong&gt;Khufra&lt;/strong&gt;&amp;nbsp;untuk menghentikan mobilitas hero gesit seperti&amp;nbsp;&lt;strong&gt;Gusion&lt;/strong&gt;&amp;nbsp;hingga memilih&amp;nbsp;&lt;strong&gt;Lolita&lt;/strong&gt;&amp;nbsp;agar dapat mengurangi dampak dari&amp;nbsp;&lt;em&gt;marksman&lt;/em&gt;&amp;nbsp;yang memiliki&amp;nbsp;&lt;em&gt;attack speed&lt;/em&gt;&amp;nbsp;cepat ataupun&amp;nbsp;&lt;em&gt;ultimate&lt;/em&gt;&amp;nbsp;dari&amp;nbsp;&lt;strong&gt;Chang&amp;#39;e.&lt;/strong&gt;&amp;nbsp;Apa saja nih&amp;nbsp;&lt;em&gt;counter&lt;/em&gt;&amp;nbsp;hero yang kamu ketahui Sobat Esports?&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/254420191227042444.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Hindari sikap egois saat bermain&lt;/strong&gt;&lt;br /&gt;\r\nBerbagi&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;mungkin hal yang masih cukup sulit ditemukan oleh para pemain&amp;nbsp;&lt;strong&gt;Mobile Legends&lt;/strong&gt;&amp;nbsp;hingga saat ini, terutama saat bermain&amp;nbsp;&lt;em&gt;solo.&lt;/em&gt;&amp;nbsp;Meskipun kegunaan dari&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/12/20885c72ca35d75619d6a378edea9f76/kenali-khasiat-baru-buff-monster-di-mobile-legends&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;berbeda&amp;nbsp;&lt;/a&gt;&lt;/strong&gt;untuk setiap&amp;nbsp;&lt;em&gt;role&lt;/em&gt;&amp;nbsp;hero, pastinya kamu masih sering menemukan anggota tim yang menghabiskan semua&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;namun tidak berkontribusi banyak dalam&amp;nbsp;&lt;em&gt;teamfight&lt;/em&gt;&amp;nbsp;ataupun melakukan&amp;nbsp;&lt;em&gt;push objective.&lt;/em&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Padahal&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;tersebut sangat penting untuk beberapa&amp;nbsp;&lt;em&gt;role&lt;/em&gt;&amp;nbsp;hero, terutama di&amp;nbsp;&lt;em&gt;early&lt;/em&gt;&amp;nbsp;gim. Nah, sebisa mungkin biasakan untuk hindari mengambil&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;untuk seorang diri dan lebih memprioritaskan mereka yang menjadi&amp;nbsp;&lt;em&gt;main attacker&lt;/em&gt;&amp;nbsp;di timmu yah Sobat Esports.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/334820191227042452.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Bermain bersama teman untuk mencegah masalah yang tidak diinginkan&lt;/strong&gt;&lt;br /&gt;\r\nKalibrasi ulang rank membuat mereka yang berada di rank&amp;nbsp;&lt;strong&gt;Mythic&lt;/strong&gt;&amp;nbsp;juga turun ke&amp;nbsp;&lt;strong&gt;Epic.&lt;/strong&gt;&amp;nbsp;Hal ini tentu menjadi kabar cukup buruk untuk kalian yang masih bergulat di rank&amp;nbsp;&lt;strong&gt;Epic&lt;/strong&gt;&amp;nbsp;saat ini, karena besar kemungkinan kamu bisa saja berhadapan dengan &amp;#39;bekas&amp;#39;&amp;nbsp;&lt;strong&gt;Mythic,&lt;/strong&gt;&amp;nbsp;namun dipasangkan dengan anggota yang baru menanjak ke&amp;nbsp;&lt;strong&gt;Epic.&lt;/strong&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Bermain bersama teman di&amp;nbsp;&lt;em&gt;ranked&lt;/em&gt;&amp;nbsp;match mungkin bisa sedikit mengatasi masalah ini. Selain bisa menghindari mereka yang kurang dapat diajak bekerjasama, kamu bisa membagi role dengan setiap temanmu agar dapat tampil maksimal di&amp;nbsp;&lt;em&gt;match&lt;/em&gt;&amp;nbsp;tersebut. Kamu lebih senang bermain&amp;nbsp;&lt;em&gt;solo&lt;/em&gt;&amp;nbsp;atau tim nih Sobat Esports di awal musim baru seperti saat ini?&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/793120191227042356.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Terakhir, percaya atau tidak, tim yang saling memahami satu sama lain mulai dari saat&amp;nbsp;&lt;strong&gt;&lt;em&gt;drafting&lt;/em&gt;&lt;/strong&gt;&amp;nbsp;akan menampilkan permainan lebih baik dari mereka yang bertengkar sejak awal pertandingan. Bagaimana pendapatmu Sobat Esports, apakah kamu masih terjebak di&amp;nbsp;&lt;em&gt;rank&lt;/em&gt;&amp;nbsp;&amp;#39;neraka&amp;#39;?&lt;/p&gt;\r\n', 'MLBBS15, MobileLegends, MLBBIndonesia, MobileLegends, Season15, EsportsID, EsportsIndonesia', 'mau-cepat-panjat-rank-di-season-baru-mobile-legends,-pelajari-ini!', 5, 0),
-(6, 'MLBB Campus Championship, Ini Kesempatan Mahasiswa untuk Jadi Pro!', 'Michael', 'Mobile legends', '2020-01-03', '5e0ecdc94f5b6.jpg', '&lt;p&gt;&lt;strong&gt;Moonton&lt;/strong&gt;, developer dan publisher game&amp;nbsp;&lt;strong&gt;Mobile Legends : Bang Bang (MLBB)&lt;/strong&gt;&amp;nbsp;nampaknya antusias menyambut Tahun 2020. Game &amp;ldquo;sejuta umat&amp;rdquo; ini sudah menyiapkan beberapa turnamen di awal tahun 2020:&amp;nbsp;&lt;strong&gt;Campus Championship&lt;/strong&gt;&amp;nbsp;dan&amp;nbsp;&lt;strong&gt;MPL Season 5&lt;/strong&gt;. Dua turnamen bergengsi ini merupakan komitmen Moonton untuk menjangkau semua kalangan dan menjawab kebutuhan peminat esports di Indonesia.&lt;/p&gt;\r\n\r\n&lt;p&gt;Didukung oleh&amp;nbsp;&lt;strong&gt;GoPay&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Mobile Legends: Bang Bang Campus Championship (GoPay MLCC)&lt;/strong&gt;&amp;nbsp;akan menjadi turnamen amatir resmi pertama yang diadakan oleh MLBB khusus untuk mahasiswa di Indonesia. Mengunjungi 10 kota besar di Indonesia:&amp;nbsp;&lt;em&gt;Jabodetabek, Bandung, Semarang, Yogyakarta, Surabaya, Bali, Medan, Palembang, Pontianak,&lt;/em&gt;&amp;nbsp;dan&amp;nbsp;&lt;em&gt;Makassar&lt;/em&gt;. GoPay MLCC akan mengadakan offline qualifier terbuka di 32 universitas pilihan yang dapat dilihat di&amp;nbsp;&lt;a href=&quot;https://bit.ly/GOPAYMLCC2020&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;GOPAYMLCC2020&lt;/a&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Aswin Atonie&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Brand Director Moonton Indonesia&lt;/strong&gt;, menyatakan bahwa pihaknya telah menyiapkan tidak kurang dari Rp350juta sebagai total hadiah untuk GOPAY MLCC. &amp;ldquo;MLCC adalah turnamen amatir yang dibuat secara profesional, kami akan memastikan semua elemennya serupa dengan turnamen tingkat profesional&amp;rdquo;, ujar Aswin.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/974720191227040707.png&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Tidak hanya itu, delapan tim eSport Professional Mobile Legends yang tergabung dalam Franchis League&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/6add07cf50424b14fdf649da87843d01/akhiri-final-dramatis-evos-legends-juara-m1-2019&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Mobile Legends: Bang Bang Professional League (MPL)&lt;/a&gt;&amp;nbsp;sudah bersiap-siap untuk melakukan talent scouting selama GoPay MLCC.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;ldquo;Mereka (Pro tim) sudah pasti akan memperhatikan. Jadi tidak menutup kemungkinan peserta GoPay MLCC yang berpotensi bisa mendapatkan kesempatan kontrak dari pro team yang sudah ada&amp;rdquo;, kata Aswin. &amp;ldquo;Kami membuat GoPay MLCC dengan sebuah misi: untuk memperkenalkan industri game dan esport di kancah pendidikan tinggi di Indonesia. Kami ingin mahasiswa memahami kesempatan apa yang ada menunggu di industri game. Dibutuhkan banyak sekali tenaga dengan kemampuan pemasaran, management, broadcasting, event organizing, dan masih banyak lagi. Bahwa dunia game tidak selalu soal bermain&amp;rdquo;, tutup Aswin.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/839820191227034401.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;br /&gt;\r\n&lt;em&gt;Bersinar di MLCC, Tim MPL Siap Melirikmu!&lt;/em&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sebagai salah satu mobile game yang memiliki ekosistem komunitas yang sudah terintegrasi di Indonesia mulai dari&amp;nbsp;&lt;strong&gt;MP&lt;/strong&gt;L,&amp;nbsp;&lt;strong&gt;World Championship&lt;/strong&gt;, bahkan menjadi cabang olahraga dalam&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/12/2ad9e5e943e43cad612a7996c12a8796/timnas-mlbb-raih-perak-medali-pertama-di-esports-sea-games-2019&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;SEA Games 2019&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;di Filipina kemarin, MLBB menjadi salah satu pendobrak serta pelopor industri eSport di Indonesia.&amp;nbsp;&lt;strong&gt;Reza Putranta, Senior Marketing Manager GoPay&lt;/strong&gt;&amp;nbsp;mengatakan &amp;ldquo;Dengan semakin pesatnya perkembangan dunia eSport, Mobile Legends: Bang Bang Campus Championship memberikan kesempatan bagi para gamers mahasiswa agar berkompetisi lebih profesional. Kami pun selalu terbuka kepada setiap kesempatan kolaborasi dengan berbagai pihak yang memiliki kesamaan misi untuk memajukan industri game di Indonesia. Kolaborasi ini sekaligus menjadi bukti komitmen kami untuk terus mendukung talenta anak bangsa.&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;Ayo segera daftarkan tim kamu di&amp;nbsp;&lt;a href=&quot;https://bit.ly/GOPAYMLCC2020&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;GOPAYMLCC2020&lt;/a&gt;.&lt;/p&gt;\r\n', 'MLCC2020, Campus Championship, Event MLBB, Event Mobile Legends, GOPAYMLCC, GOPAYMLCC2020', 'mlbb-campus-championship,-ini-kesempatan-mahasiswa-untuk-jadi-pro!', 7, 14),
-(7, 'Pencipta PUBG Sibak Ambisi Besar Proyek Anyar Prologue', 'Rendy Anwar', 'pubg mobile', '2020-01-03', '5e0ec91e91b19.jpg', '&lt;p&gt;&lt;strong&gt;Brendan &amp;#39;PlayerUnknown&amp;#39; Greene&lt;/strong&gt;, sang pencipta gim fenomenal bergenre&amp;nbsp;&lt;em&gt;battle royale&lt;/em&gt;&amp;nbsp;&lt;strong&gt;PlayerUnknown&amp;#39;s Battlegrounds&amp;nbsp;&lt;/strong&gt;&lt;em&gt;(PUBG),&lt;/em&gt;&amp;nbsp;menunjukkan&amp;nbsp;&lt;em&gt;teaser&lt;/em&gt;&amp;nbsp;untuk proyek gim anyarnya pada&amp;nbsp;&lt;strong&gt;The Game Awards&lt;/strong&gt;. Namun, satu hal yang dapat dipastikan, gim ini bukanlah sekuel dari&amp;nbsp;&lt;strong&gt;PUBG&lt;/strong&gt;, ataupun memiliki&amp;nbsp;&lt;em&gt;genre shooter&lt;/em&gt;.&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;juga mengungkapkan bahwa dirinya memiliki ambisi yang jauh lebih besar dengan proyeknya kali ini.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;memang meninggalkan&amp;nbsp;&lt;strong&gt;PUBG&lt;/strong&gt;&amp;nbsp;pada awal tahun ini untuk membentuk&amp;nbsp;&lt;strong&gt;PlayerUnknown&amp;#39;s Production&lt;/strong&gt;, meski tim barunya masih merupakan bagian dari&amp;nbsp;&lt;strong&gt;PUBG Corp.&lt;/strong&gt;&amp;nbsp;Bersama dengan anggota barunya yang terdiri dari berbagai veteran gim hingga para peneliti di luar industi, termasuk ahli fisika nuklir, hingga gelar doktor dalam bidang sistem manajemen dan kecerdasan buatan (AI).&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;iframe allow=&quot;;&quot; allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/0lgQtGSliG4&quot; width=&quot;640&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sayangnya, dalam video&amp;nbsp;&lt;em&gt;teaser&lt;/em&gt;&amp;nbsp;awal sepanjang 30 detik, masih belum bisa di pastikan apakah&amp;nbsp;&lt;strong&gt;Prologue&lt;/strong&gt;&amp;nbsp;akan mengusung gaya permainan seperti apa. Walaupun, secara visual, gim terbaru ini tampak memiliki grafis yang sangat realistik. Selain itu,&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;juga memaparkan ambisi jangka panjang dari&lt;strong&gt;&amp;nbsp;PlayerUnknown&amp;#39;s Production&lt;/strong&gt;&amp;nbsp;yang ingin membangun dan menguji teknologi baru untuk sesuatu yang besar.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;quot;Ini adalah langkah pertama dari petualangan saya,&amp;quot; ungkap&amp;nbsp;&lt;a href=&quot;https://www.forbes.com/sites/davidthier/2019/12/12/playerunknown-on-prologue-why-it-isnt-pubg-2/#6f80d0f4b189&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Greene.&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;&amp;quot;Kami membangun studio, menentukan tujuan untuk bereksperimen dengan teknologi baru.&amp;quot;&amp;nbsp;&lt;strong&gt;Prologue&lt;/strong&gt;&amp;nbsp;merupakan awal bagi dunia baru, dan&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;ingin menggunakannya untuk menyampaikan sesuatu yang baru ke seluruh dunia.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;menyampaikan harapannya untuk dapat menciptakan sesuatu yang memiliki skala sangat besar, mencontohkan cakupan mencapai ratusan kilometer dan menampung ribuan orang (pemain) di dalamnya secara langsung.&lt;/p&gt;\r\n\r\n&lt;p&gt;Namun, mimpi dari&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;yang ingin dicapai olehnya masih terlalu besar dan dirinya pun belum sanggup untuk mendapatkannya saat ini. Perlu dukungan dari teknologi baru agar apa yang diimpikannya dapat teralisasikan secara sempurna.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;http://localhost/Git/portal_stream.id/public/assets/img/NewsGame/1894114147.jpg&quot; style=&quot;height:450px; width:800px&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Meskipun kita harus menunggu sedikit lebih lama untuk mengetahui apa yang ingin coba disajikan oleh&amp;nbsp;&lt;strong&gt;Greene&lt;/strong&gt;&amp;nbsp;melalui proyek&amp;nbsp;&lt;strong&gt;Prologue,&lt;/strong&gt;&amp;nbsp;tampaknya gim ini akan sangat layak ditunggu. Bagaimana pendapatmu Sobat Esports, apakah kamu bisa menebak kira-kira seperti apa tujuan akhir dari&amp;nbsp;&lt;strong&gt;Prologue?&lt;/strong&gt;&lt;/p&gt;\r\n', 'PUBGMobile, Prologue, Player Unknown\\ s Prologue, BrendanGreene, PUBG.CorpEsportsID, EsportsIndonesia', 'pencipta-pubg-sibak-ambisi-besar-proyek-anyar-prologue', 8, 0),
-(8, 'Dua Tahun Rilis, PUBG Mobile Raup 21 Triliun Rupiah!', 'Eric Soejatno', 'pubg mobile', '2020-01-03', '5e0ecb909938f.jpg', '&lt;p&gt;Dirilis dari Februari 2018,&amp;nbsp;&lt;strong&gt;PUBG Mobile&lt;/strong&gt;&amp;nbsp;berkembang pesat menjadi salah satu game mobile&amp;nbsp;&lt;em&gt;battle royale&lt;/em&gt;&amp;nbsp;yang populer di dunia. Baru-baru ini, mereka tercatat berhasil meraih pendapatan US$1,5 miliar (sekitar Rp21 triliun) berdasarkan laporan&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://sensortower.com/blog/pubg-mobile-revenue-one-point-five-billion&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Sensor Tower&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;Pemasukan PUBG Mobile meningkat drastis dari kuartal kedua 2018, dengan perolehan mencapai U$20 juta (ketika&amp;nbsp;&lt;em&gt;Royale Pass&lt;/em&gt;&amp;nbsp;diluncurkan untuk pertama kali) menjadi US$496 juta memasuki kuartal ketiga 2019.&lt;/p&gt;\r\n\r\n&lt;p&gt;Berbeda dengan negara-negara lain, Tencent rilis gim yang hampir sama dengan PUBG Mobile di Tiongkok, yaitu&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/pubg/news/2019/05/98b418276d571e623651fc1d471c7811/tencent-tutup-pubg-mobile-di-cina-demi-rasa-patriotisme&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Game For Peace&amp;nbsp;&lt;/a&gt;&lt;/strong&gt;pada bulan Mei 2019. Meski begitu, Tencent masih meraih pendapatan fantastis yaitu US$614 miliar, atau sekitar dari 40 persen pendapatan yang disumbangkan dari Negara Tirai Bambu tersebut. Pemasukan PUBG Mobile juga datang dari Amerika Serikat yang menyumbangkan US$293 juta dan Jepang dengan US$117 juta.&lt;/p&gt;\r\n\r\n&lt;p&gt;Saat ini, PUBG Mobile telah diunduh lebih dari 600 juta pemain di seluruh dunia. India menjadi negara yang paling banyak mengunduh PUBG Mobile dengan total 116 juta unduhan. Sedangkan Tiongkok menjadi negara terbanyak kedua dengan total 108 juta unduhan, dan selanjutnya Amerika Serikat dengan unduhan terbanyak dengan total 42 juta.&lt;/p&gt;\r\n\r\n&lt;p&gt;Raihan pendapatan PUBG Mobile berbanding jauh dari kompetitornya. Contohnya, Knives Out yang populer di Jepang dengan total pendapatan hingga US$915 juta sejak rilis. Fortnite Mobile mengantongi total US$813 juta dari&amp;nbsp;&lt;em&gt;Apple App Store&lt;/em&gt;. Menariknya, Fortnite Mobile sampai saat ini belum dirilis via Google Play Store.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/737020191217050227.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Bahkan memasuki 2020, Tencent selaku publisher dan developer PUBG Mobile akan mengadakan kompetisi bersifat liga yang menyediakan&amp;nbsp;&lt;a href=&quot;https://esports.id/pubg/news/2019/12/845f3cb43a07259b2e4724dfa5c5c0d1/tencent-ungkap-pubgm-esports-2020-siapkan-5-juta-usd-prize-pool&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;total hadiah&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;mencapai US$5 juta, di mana semua kalangan mulai dari amatir, semi pro, sampai profesional bisa menanjak naik untuk kompetisi yang lebih tinggi.&lt;/p&gt;\r\n\r\n&lt;p&gt;Tidak hanya itu, berbagai update juga akan hadir di PUBGM seperti kehadiran&amp;nbsp;&lt;em&gt;grappling hooks&lt;/em&gt;&amp;nbsp;dan mempunyai kemampuan&amp;nbsp;&lt;em&gt;sliding&lt;/em&gt;&amp;nbsp;sambil menembak. Menarik ditunggu apakah update maupun kompetisi esports dari PUBG Mobile ke depannya bakal lebih menjamin laba yang jauh lebih besar dari sekarang!&lt;/p&gt;\r\n', 'PUBG Mobile, PUBG Mobile Esports 2020, PUBGM, Esports Indonesia, Esports ID, Tencent PUBGM', 'dua-tahun-rilis,-pubg-mobile-raup-21-triliun-rupiah!', 1, 0),
-(9, 'Usung PUBG M, Dunia Games League 2020 Kucurkan 1,6 Miliar!', 'Michael', 'pubg mobile', '2020-01-03', '5e0ecc367258e.jpg', '&lt;p&gt;Setelah sukses di tahun lalu,&amp;nbsp;&lt;em&gt;&lt;strong&gt;Telkomsel&lt;/strong&gt;&lt;/em&gt;&amp;nbsp;melalui&amp;nbsp;&lt;strong&gt;Dunia Games&lt;/strong&gt;&amp;nbsp;akan menggelar kembali liga esports&amp;nbsp;&lt;strong&gt;Dunia Games League 2020&lt;/strong&gt;&amp;nbsp;dengan memperkenalkan format baru kualifikasi yang dibagi menjadi empat kategori, yaitu Amatir, Kampus, Profesional (Pro), dan Online.&amp;nbsp;&lt;strong&gt;PUBG Mobile&lt;/strong&gt;&amp;nbsp;adalah gim yang dipertandingkan dengan total hadiah untuk diperebutkan sungguh fantastis, yakni&amp;nbsp;&lt;strong&gt;Rp 1.6 Miliar&lt;/strong&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Dunia Games League 2020&lt;/strong&gt;&amp;nbsp;rencananya akan diikuti oleh lebih dari 25.000 peserta yang terbagi lebih dari 7.500 tim.&amp;nbsp;&lt;strong&gt;Kualifikasi Amatir&lt;/strong&gt;&amp;nbsp;akan diadakan secara serentak awal Januari di 122 kota, untuk mencari 4 tim terbaik menuju grand final. Sedangkan&amp;nbsp;&lt;strong&gt;Kualifikasi Kampus&lt;/strong&gt;&amp;nbsp;berlangsung di 64 kampus se-Indonesia untuk memperebutkan 4 slot tiket menuju babak utamanya (&lt;em&gt;grand final&lt;/em&gt;).&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/1020191213061745.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sebanyak 16 tim akan diundang dalam&amp;nbsp;&lt;strong&gt;Kualifikasi Pro&lt;/strong&gt;&amp;nbsp;yang akan mulai bertanding pertengahan Januari untuk mencari 8 tim terbaik. Sedangkan peserta&amp;nbsp;&lt;strong&gt;Kualifikasi Online&lt;/strong&gt;&amp;nbsp;diperkirakan sebanyak 1.000 tim yang akan berjuang merebut 4 tiket&amp;nbsp;&lt;em&gt;wild card&lt;/em&gt;&amp;nbsp;untuk bersaing rengkuh gelar juara pada&amp;nbsp;&lt;em&gt;grand final&lt;/em&gt;&amp;nbsp;yang akan berlangsung akhir Februari 2020. Registrasi Kualifikasi Online Dunia Games dimulai pada awal Januari 2020, dan mulai tanding di awal Februari 2020.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Direktur Marketing Telkomsel, Rachel Goh&lt;/strong&gt;, dalam&amp;nbsp;&lt;em&gt;press release&lt;/em&gt;&amp;nbsp;mengatakan, &amp;ldquo;Menghadapi perkembangan industri esport di Indonesia, Dunia Games hadir untuk menjadi pendukung utama bagi industri ini melalui ajang Dunia Games League. Ajang ini kami hadirkan untuk memberikan wadah bagi pelanggan yang mencintai game dan esport serta sebagai salah satu upaya untuk membangun ekosistem digital entertainment lifestyle bagi masyarakat Indonesia.&amp;quot;&lt;/p&gt;\r\n\r\n&lt;p&gt;Pada kesempatan yang sama,&amp;nbsp;&lt;strong&gt;Gaga Li,&amp;nbsp;&lt;/strong&gt;&lt;strong&gt;Head of E-sports PUBG Mobile for Southeast Asia&lt;/strong&gt;&amp;nbsp;menyampaikan, &amp;ldquo;Industri Esports di Indonesia sangat positif saat ini, kami telah membuat langkah-langkah signifikan untuk memastikan dapat memenuhi tantangan yang kompetitif dan memenuhi janji kami kepada para user PUBG Mobile. Kerjasama strategis dengan Telkomsel Dunia Games akan menjadi elemen penting dalam upaya kami untuk mendukung ekosistem esports Indonesia, khususnya PUBG Mobile.&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/832220191213061633.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sedangkan Kemenpora yang diwakili&amp;nbsp;&lt;strong&gt;Sekretaris Deputi Peningkatan Prestasi Olahraga&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Aris Subiyono&lt;/strong&gt;&amp;nbsp;menyambut baik dan memberikan apresiasi untuk Telkomsel dan Dunia Games dalam gelaran turnamen esports ini. &amp;ldquo;Kami tentu menyambut baik event esports ini, semoga dengan gelaran ini akan menjadi kejuaraan yang bisa melahirkan atlet-atlet bisa membanggakan Indonesia di ajang internasional.&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;Informasi dan Pendaftaran Dunia Games League 2020 sudah dapat diakses secara&amp;nbsp;&lt;em&gt;online&lt;/em&gt;&amp;nbsp;melalui&amp;nbsp;&lt;a href=&quot;https://dgl.duniagames.co.id/&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;\r\n', 'DG League 2020, Jadwal Dunia Games League, Dunia Games League 2020, DG League, Juara Dunia Games League, Daftar Dunia Games Leag', 'usung-pubg-m,-dunia-games-league-2020-kucurkan-1,6-miliar!', 2, 1),
-(10, 'AyamJAGO Resmi Berpisah dari RRQ Hoshi', 'Eric Soejatno', 'pubg mobile', '2020-01-03', '5e0eccfa85b73.jpg', '&lt;p&gt;Perubahan di&amp;nbsp;&lt;strong&gt;RRQ Hoshi&lt;/strong&gt;&amp;nbsp;yang juga divisi MLBB tidak hanya dari pelatih, namun juga pemain. Melalui pengumuman dari&amp;nbsp;&lt;em&gt;official fanpage&lt;/em&gt;&amp;nbsp;RRQ, mereka memutuskan untuk melepas&lt;strong&gt;&amp;nbsp;Try &amp;quot;AyamJAGO&amp;quot; Widyanto&lt;/strong&gt;&amp;nbsp;dari skuadnya. Berposisi sebagai midlaner, AyamJAGO sudah cukup lama membela tim ini, sejak Juli 2018.&lt;/p&gt;\r\n\r\n&lt;p&gt;Diboyong dari&amp;nbsp;&lt;strong&gt;XCN&lt;/strong&gt;, debut AyamJAGO bersama RRQ berjalan manis dengan sukses meraih juara&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/mobile-legends/news/2018/07/856fc81623da2150ba2210ba1b51d241/taklukkan-dua-musuh-abadi-rrq-rebut-gelar-bekraf-game-prime-2018&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;BEKRAF Game Prime 2018&lt;/a&gt;&lt;/strong&gt;, dan akhirnya mampu membawa RRQ raih juara MPL Season 2, usai mengalahkan musuh bebuyutannya, EVOS.&lt;/p&gt;\r\n\r\n&lt;p&gt;Memakai roster yang sama saat menjuarai MPL Season 2, RRQ berada di peringkat 5 regular season&amp;nbsp;&lt;strong&gt;MPL Season 3&lt;/strong&gt;. Raihan tersebut membuat RRQ harus berjuang dari&lt;em&gt;&amp;nbsp;lower bracket&lt;/em&gt;&amp;nbsp;menghadapi Bigetron Esports. Secara mengejutkan, RRQ harus angkat koper lebih awal usai takluk melawan Bigetron.&lt;/p&gt;\r\n\r\n&lt;p&gt;Masih dipertahankan di RRQ, AyamJAGO hanya dimainkan dua kali saat MPL Season 4 regular season. Dia juga tidak dimainkan saat RRQ Hoshi hanya mampu raih juara kedua&lt;strong&gt;&amp;nbsp;MPL Season 4&lt;/strong&gt;. Menariknya, dia menjadi salah satu dari 6 pemain yang ikut dalam roster RRQ di Mobile Legends World Championships M1.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/801820191220162235.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sukses membawa RRQ menjadi&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/67606d48e361ce176ca71fd54fcf4286/kuasai-grup-a-rrq-hoshi-dipastikan-lolos-playoff-m1&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;juara grup&lt;/a&gt;&amp;nbsp;&lt;/strong&gt;dan mengalahkan&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/c254e7753095807e1cca159e48eceb21/tundukkan-todak-rrq-siap-ladeni-evos-legends&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;Todak&lt;/strong&gt;&amp;nbsp;&lt;/a&gt;di&amp;nbsp;&lt;em&gt;upper bracket&lt;/em&gt;, AyamJAGO tidak dimainkan pada hari terakhir M1, usai kekalahan RRQ menghadapi EVOS Legends. Posisinya digantikan oleh&lt;strong&gt;&amp;nbsp;Diky &amp;quot;TUTURU&amp;quot;&lt;/strong&gt;. Tanpa AyamJAGO, RRQ Hoshi akhirnya harus puas berada di peringkat kedua usai kembali takluk dari EVOS Legends dengan skor sengit 3-4.&lt;/p&gt;\r\n\r\n&lt;p&gt;MPL Season 5 memang belum diumumkan kapan akan dimulai namun dengan&amp;nbsp; keluarnya AyamJAGO, RRQ Hoshi masih menyisakan 10 pemain, termasuk&amp;nbsp;&lt;strong&gt;I Gusti &amp;quot;Rocket&amp;quot; Ngurah Agung Duva&lt;/strong&gt;&amp;nbsp;yang sebelumnya bermain di RRQ Capcorn.&lt;/p&gt;\r\n\r\n&lt;p&gt;Belum diketahui apakah 10 pemain tadi akan tetap di dalam roster RRQ Hoshi, ataukah masih ada pergantian pemain kembali? Sobat Esports, bagaimana pendapatmu mengenai berpisahnya AyamJAGO dari RRQ Hoshi?&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n', 'RRQ Hoshi, AyamJAGO, RRQ MLBB, MPL Season 5, AyamJAGO RRQ, Lemon RRQ, Tuturu, MPL, Rex Regum Qeon', 'ayamjago-resmi-berpisah-dari-rrq-hoshi', 0, 0);
-INSERT INTO `news_game` (`id_news_game`, `judul`, `penulis`, `label`, `tanggal`, `gambar`, `isi`, `tag`, `url`, `views`, `komentar`) VALUES
-(11, 'Mau Cepat Panjat Rank di Season Baru Mobile Legends, Pelajari Ini!', 'Rendy Anwar', 'Mobile legends', '2020-01-03', '5e0ecd6b6ffb5.jpg', '&lt;p&gt;&lt;strong&gt;Mobile Legends&lt;/strong&gt;&amp;nbsp;baru saja memasuki musim baru yakni&amp;nbsp;&lt;strong&gt;Season 15&lt;/strong&gt;&amp;nbsp;dimana ini merupakan kesempatan untuk kamu menerapkan pelajaran dari berbagai pengalaman sebelumnya dan mengincar prestasi yang lebih tinggi. Namun, impian untuk bisa tampil lebih baik di season terbaru ini hanya bisa dicapai jika kamu mau menurunkan ego dan belajar bermain sebagai sebuah tim.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Kali ini, tim&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Esports.ID&amp;nbsp;&lt;/a&gt;&lt;/strong&gt;akan memberikan beberapa tips yang dapat kamu terapkan supaya bisa tampil maksimal dan lebih baik, terutama pada awal season baru seperti ini. Yuk kita simak bersama apa saja hal-hal yang mungkin belum kamu terapkan saat ini?&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Kuasai hero-hero untuk setiap role&lt;/strong&gt;&lt;br /&gt;\r\nTidak dipungkiri bahwa jika kamu bisa menguasai setiap&amp;nbsp;&lt;em&gt;role&lt;/em&gt;&amp;nbsp;hero, match akan terasa lebih nyaman karena dapat mengisi posisi yang kosong. Terutama pada&amp;nbsp;&lt;em&gt;solo rank&lt;/em&gt;&amp;nbsp;dimana cukup sering ditemukan tim yang memiliki dua&amp;nbsp;&lt;em&gt;mage, assassin,&lt;/em&gt;&amp;nbsp;ataupun&amp;nbsp;&lt;em&gt;marksman&lt;/em&gt;&amp;nbsp;tanpa ada&amp;nbsp;&lt;em&gt;backup&lt;/em&gt;&amp;nbsp;dari&amp;nbsp;&lt;em&gt;tank.&lt;/em&gt;&amp;nbsp;Hasilnya tentu bisa ditebak yakni tim tersebut tidak dapat tampil maksimal saat&amp;nbsp;&lt;em&gt;teamfight&lt;/em&gt;&amp;nbsp;dan berujung pada kekalahan.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Setidaknya, jika kamu bisa fleksibel untuk mengisi role yang diperlukan, kemungkinan untuk menang di&amp;nbsp;&lt;em&gt;match&lt;/em&gt;&amp;nbsp;tersebut dapat meningkat serta memberikan perlawanan yang maksimal dalam&amp;nbsp;&lt;em&gt;teamfight.&lt;/em&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/907020191227042426.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Pelajari counter untuk hero-hero meta&lt;/strong&gt;&lt;br /&gt;\r\nBisa dikatakan ini adalah poin paling krusial untuk memenangkan sebuah match. Secara garis besar, penentuan kemenanganmu dalam pertandingan bergantung pada fase&amp;nbsp;&lt;em&gt;pick&lt;/em&gt;&amp;nbsp;and&amp;nbsp;&lt;em&gt;banned.&lt;/em&gt;&amp;nbsp;Memilih hero yang hanya kamu kuasai tidak dapat terus menerus menjamin kemenanganmu. Namun, jika dapat menggunakan hero&amp;nbsp;&lt;em&gt;counter&lt;/em&gt;&amp;nbsp;untuk melawan musuh, kamu dipastikan dapat menghentikan strategi mereka dan menguasai pertandingan.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Kamu bisa menggunakan&amp;nbsp;&lt;strong&gt;Khufra&lt;/strong&gt;&amp;nbsp;untuk menghentikan mobilitas hero gesit seperti&amp;nbsp;&lt;strong&gt;Gusion&lt;/strong&gt;&amp;nbsp;hingga memilih&amp;nbsp;&lt;strong&gt;Lolita&lt;/strong&gt;&amp;nbsp;agar dapat mengurangi dampak dari&amp;nbsp;&lt;em&gt;marksman&lt;/em&gt;&amp;nbsp;yang memiliki&amp;nbsp;&lt;em&gt;attack speed&lt;/em&gt;&amp;nbsp;cepat ataupun&amp;nbsp;&lt;em&gt;ultimate&lt;/em&gt;&amp;nbsp;dari&amp;nbsp;&lt;strong&gt;Chang&amp;#39;e.&lt;/strong&gt;&amp;nbsp;Apa saja nih&amp;nbsp;&lt;em&gt;counter&lt;/em&gt;&amp;nbsp;hero yang kamu ketahui Sobat Esports?&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/254420191227042444.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Hindari sikap egois saat bermain&lt;/strong&gt;&lt;br /&gt;\r\nBerbagi&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;mungkin hal yang masih cukup sulit ditemukan oleh para pemain&amp;nbsp;&lt;strong&gt;Mobile Legends&lt;/strong&gt;&amp;nbsp;hingga saat ini, terutama saat bermain&amp;nbsp;&lt;em&gt;solo.&lt;/em&gt;&amp;nbsp;Meskipun kegunaan dari&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;&lt;strong&gt;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/12/20885c72ca35d75619d6a378edea9f76/kenali-khasiat-baru-buff-monster-di-mobile-legends&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;berbeda&amp;nbsp;&lt;/a&gt;&lt;/strong&gt;untuk setiap&amp;nbsp;&lt;em&gt;role&lt;/em&gt;&amp;nbsp;hero, pastinya kamu masih sering menemukan anggota tim yang menghabiskan semua&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;namun tidak berkontribusi banyak dalam&amp;nbsp;&lt;em&gt;teamfight&lt;/em&gt;&amp;nbsp;ataupun melakukan&amp;nbsp;&lt;em&gt;push objective.&lt;/em&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Padahal&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;tersebut sangat penting untuk beberapa&amp;nbsp;&lt;em&gt;role&lt;/em&gt;&amp;nbsp;hero, terutama di&amp;nbsp;&lt;em&gt;early&lt;/em&gt;&amp;nbsp;gim. Nah, sebisa mungkin biasakan untuk hindari mengambil&amp;nbsp;&lt;em&gt;buff&lt;/em&gt;&amp;nbsp;untuk seorang diri dan lebih memprioritaskan mereka yang menjadi&amp;nbsp;&lt;em&gt;main attacker&lt;/em&gt;&amp;nbsp;di timmu yah Sobat Esports.&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/334820191227042452.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Bermain bersama teman untuk mencegah masalah yang tidak diinginkan&lt;/strong&gt;&lt;br /&gt;\r\nKalibrasi ulang rank membuat mereka yang berada di rank&amp;nbsp;&lt;strong&gt;Mythic&lt;/strong&gt;&amp;nbsp;juga turun ke&amp;nbsp;&lt;strong&gt;Epic.&lt;/strong&gt;&amp;nbsp;Hal ini tentu menjadi kabar cukup buruk untuk kalian yang masih bergulat di rank&amp;nbsp;&lt;strong&gt;Epic&lt;/strong&gt;&amp;nbsp;saat ini, karena besar kemungkinan kamu bisa saja berhadapan dengan &amp;#39;bekas&amp;#39;&amp;nbsp;&lt;strong&gt;Mythic,&lt;/strong&gt;&amp;nbsp;namun dipasangkan dengan anggota yang baru menanjak ke&amp;nbsp;&lt;strong&gt;Epic.&lt;/strong&gt;&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;Bermain bersama teman di&amp;nbsp;&lt;em&gt;ranked&lt;/em&gt;&amp;nbsp;match mungkin bisa sedikit mengatasi masalah ini. Selain bisa menghindari mereka yang kurang dapat diajak bekerjasama, kamu bisa membagi role dengan setiap temanmu agar dapat tampil maksimal di&amp;nbsp;&lt;em&gt;match&lt;/em&gt;&amp;nbsp;tersebut. Kamu lebih senang bermain&amp;nbsp;&lt;em&gt;solo&lt;/em&gt;&amp;nbsp;atau tim nih Sobat Esports di awal musim baru seperti saat ini?&amp;nbsp;&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/793120191227042356.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Terakhir, percaya atau tidak, tim yang saling memahami satu sama lain mulai dari saat&amp;nbsp;&lt;strong&gt;&lt;em&gt;drafting&lt;/em&gt;&lt;/strong&gt;&amp;nbsp;akan menampilkan permainan lebih baik dari mereka yang bertengkar sejak awal pertandingan. Bagaimana pendapatmu Sobat Esports, apakah kamu masih terjebak di&amp;nbsp;&lt;em&gt;rank&lt;/em&gt;&amp;nbsp;&amp;#39;neraka&amp;#39;?&lt;/p&gt;\r\n', 'MLBBS15, MobileLegends, MLBBIndonesia, MobileLegends, Season15, EsportsID, EsportsIndonesia', 'mau-cepat-panjat-rank-di-season-baru-mobile-legends,-pelajari-ini!', 6, 0),
-(12, 'MLBB Campus Championship, Ini Kesempatan Mahasiswa untuk Jadi Pro!', 'Michael', 'Mobile legends', '2020-01-03', '5e0ecdc94f5b6.jpg', '&lt;p&gt;&lt;strong&gt;Moonton&lt;/strong&gt;, developer dan publisher game&amp;nbsp;&lt;strong&gt;Mobile Legends : Bang Bang (MLBB)&lt;/strong&gt;&amp;nbsp;nampaknya antusias menyambut Tahun 2020. Game &amp;ldquo;sejuta umat&amp;rdquo; ini sudah menyiapkan beberapa turnamen di awal tahun 2020:&amp;nbsp;&lt;strong&gt;Campus Championship&lt;/strong&gt;&amp;nbsp;dan&amp;nbsp;&lt;strong&gt;MPL Season 5&lt;/strong&gt;. Dua turnamen bergengsi ini merupakan komitmen Moonton untuk menjangkau semua kalangan dan menjawab kebutuhan peminat esports di Indonesia.&lt;/p&gt;\r\n\r\n&lt;p&gt;Didukung oleh&amp;nbsp;&lt;strong&gt;GoPay&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Mobile Legends: Bang Bang Campus Championship (GoPay MLCC)&lt;/strong&gt;&amp;nbsp;akan menjadi turnamen amatir resmi pertama yang diadakan oleh MLBB khusus untuk mahasiswa di Indonesia. Mengunjungi 10 kota besar di Indonesia:&amp;nbsp;&lt;em&gt;Jabodetabek, Bandung, Semarang, Yogyakarta, Surabaya, Bali, Medan, Palembang, Pontianak,&lt;/em&gt;&amp;nbsp;dan&amp;nbsp;&lt;em&gt;Makassar&lt;/em&gt;. GoPay MLCC akan mengadakan offline qualifier terbuka di 32 universitas pilihan yang dapat dilihat di&amp;nbsp;&lt;a href=&quot;https://bit.ly/GOPAYMLCC2020&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;GOPAYMLCC2020&lt;/a&gt;.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Aswin Atonie&lt;/strong&gt;,&amp;nbsp;&lt;strong&gt;Brand Director Moonton Indonesia&lt;/strong&gt;, menyatakan bahwa pihaknya telah menyiapkan tidak kurang dari Rp350juta sebagai total hadiah untuk GOPAY MLCC. &amp;ldquo;MLCC adalah turnamen amatir yang dibuat secara profesional, kami akan memastikan semua elemennya serupa dengan turnamen tingkat profesional&amp;rdquo;, ujar Aswin.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/974720191227040707.png&quot; style=&quot;width:100%&quot; /&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Tidak hanya itu, delapan tim eSport Professional Mobile Legends yang tergabung dalam Franchis League&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/11/6add07cf50424b14fdf649da87843d01/akhiri-final-dramatis-evos-legends-juara-m1-2019&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;Mobile Legends: Bang Bang Professional League (MPL)&lt;/a&gt;&amp;nbsp;sudah bersiap-siap untuk melakukan talent scouting selama GoPay MLCC.&lt;/p&gt;\r\n\r\n&lt;p&gt;&amp;ldquo;Mereka (Pro tim) sudah pasti akan memperhatikan. Jadi tidak menutup kemungkinan peserta GoPay MLCC yang berpotensi bisa mendapatkan kesempatan kontrak dari pro team yang sudah ada&amp;rdquo;, kata Aswin. &amp;ldquo;Kami membuat GoPay MLCC dengan sebuah misi: untuk memperkenalkan industri game dan esport di kancah pendidikan tinggi di Indonesia. Kami ingin mahasiswa memahami kesempatan apa yang ada menunggu di industri game. Dibutuhkan banyak sekali tenaga dengan kemampuan pemasaran, management, broadcasting, event organizing, dan masih banyak lagi. Bahwa dunia game tidak selalu soal bermain&amp;rdquo;, tutup Aswin.&lt;/p&gt;\r\n\r\n&lt;p&gt;&lt;img alt=&quot;&quot; src=&quot;https://esports.id/img/content/839820191227034401.jpg&quot; style=&quot;width:100%&quot; /&gt;&lt;br /&gt;\r\n&lt;em&gt;Bersinar di MLCC, Tim MPL Siap Melirikmu!&lt;/em&gt;&lt;/p&gt;\r\n\r\n&lt;p&gt;Sebagai salah satu mobile game yang memiliki ekosistem komunitas yang sudah terintegrasi di Indonesia mulai dari&amp;nbsp;&lt;strong&gt;MP&lt;/strong&gt;L,&amp;nbsp;&lt;strong&gt;World Championship&lt;/strong&gt;, bahkan menjadi cabang olahraga dalam&amp;nbsp;&lt;a href=&quot;https://esports.id/mobile-legends/news/2019/12/2ad9e5e943e43cad612a7996c12a8796/timnas-mlbb-raih-perak-medali-pertama-di-esports-sea-games-2019&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;SEA Games 2019&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;di Filipina kemarin, MLBB menjadi salah satu pendobrak serta pelopor industri eSport di Indonesia.&amp;nbsp;&lt;strong&gt;Reza Putranta, Senior Marketing Manager GoPay&lt;/strong&gt;&amp;nbsp;mengatakan &amp;ldquo;Dengan semakin pesatnya perkembangan dunia eSport, Mobile Legends: Bang Bang Campus Championship memberikan kesempatan bagi para gamers mahasiswa agar berkompetisi lebih profesional. Kami pun selalu terbuka kepada setiap kesempatan kolaborasi dengan berbagai pihak yang memiliki kesamaan misi untuk memajukan industri game di Indonesia. Kolaborasi ini sekaligus menjadi bukti komitmen kami untuk terus mendukung talenta anak bangsa.&amp;rdquo;&lt;/p&gt;\r\n\r\n&lt;p&gt;Ayo segera daftarkan tim kamu di&amp;nbsp;&lt;a href=&quot;https://bit.ly/GOPAYMLCC2020&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot;&gt;GOPAYMLCC2020&lt;/a&gt;.&lt;/p&gt;\r\n', 'MLCC2020, Campus Championship, Event MLBB, Event Mobile Legends, GOPAYMLCC, GOPAYMLCC2020', 'mlbb-campus-championship,-ini-kesempatan-mahasiswa-untuk-jadi-pro!', 13, 0);
+INSERT INTO `news_game` (`id_news_game`, `judul`, `penulis`, `label`, `gambar`, `isi`, `tag`, `url`, `views`, `komentar`, `created_at`, `updated_at`) VALUES
+('5e666242bc955', 'Update', 'ADM0001', '6', '5e666242bc36c.png', '&lt;p&gt;&lt;strong&gt;dawaw dwa dw awad&lt;/strong&gt;&lt;/p&gt;', 'dawaw dwa dw awad', 'update', 1, 0, '2020-03-09 22:35:30', '2020-03-09 23:08:59');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `news_like`
+--
+
+CREATE TABLE `news_like` (
+  `id` varchar(100) NOT NULL,
+  `news_id` varchar(100) NOT NULL,
+  `users_id` varchar(100) NOT NULL,
+  `date` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -8052,9 +8421,9 @@ CREATE TABLE `portal` (
 --
 
 INSERT INTO `portal` (`id`, `name`, `content`) VALUES
-(1, 'domain', 'http://localhost/Git/stream.id'),
-(2, 'base_url', 'http://localhost/Git/stream.id'),
-(3, 'portal', 'http://localhost/Git/portal_stream.id'),
+(1, 'domain', 'http://localhost/Github/stream.id'),
+(2, 'base_url', 'http://localhost/Github/stream.id'),
+(3, 'portal', 'http://localhost/Github/portal_stream.id'),
 (4, 'path_portal_NewsGame', 'public/assets/img/NewsGame/'),
 (5, 'path_portal_Kategori', 'public/assets/img/Kategori/'),
 (9, 'path_home_NewsGame', '../stream.id/public/assets/img/NewsGame/'),
@@ -8071,16 +8440,29 @@ INSERT INTO `portal` (`id`, `name`, `content`) VALUES
 (20, 'path_home_Banner_0', 'assets/img/tournament/banner_tournament/'),
 (21, 'path_portal_Users', '../portal_stream.id/public/assets/img/DataUsers/'),
 (22, 'path_home_Users', 'public/assets/img/DataUsers/'),
-(23, 'portal_wallet', 'http://localhost/Git/wallet_stream.id'),
-(24, 'path_home_Users_0', 'assets/img/DataUsers/'),
-(25, 'path_portal_Faqs', 'public/assets/img/AboutUs/Faqs/'),
-(26, 'path_home_Faqs', '../stream.id/public/assets/img/AboutUs/Faqs/'),
-(27, 'path_home_Faqs_0', 'assets/img/AboutUs/Faqs/'),
-(28, 'path_portal_Sponsors', 'public/assets/img/AboutUs/Sponsors/'),
-(29, 'path_home_Sponsors', '../stream.id/public/assets/img/AboutUs/Sponsors/'),
-(30, 'path_home_Sponsors_0', 'assets/img/AboutUs/Sponsors/'),
-(31, 'path_portal_Gamelist', 'public/assets/img/GameList/'),
-(32, 'path_home_Gamelist', '../stream.id/public/assets/img/GameList/');
+(23, 'portal_wallet', 'http://localhost/Github/wallet'),
+(24, 'real-payment', '0'),
+(25, 'path_home_Users_0', 'assets/img/DataUsers/'),
+(26, 'path_portal_Faqs', 'public/assets/img/AboutUs/Faqs/'),
+(27, 'path_home_Faqs', '../stream.id/public/assets/img/AboutUs/Faqs/'),
+(28, 'path_home_Faqs_0', 'assets/img/AboutUs/Faqs/'),
+(29, 'path_portal_Sponsors', 'public/assets/img/AboutUs/Sponsors/'),
+(30, 'path_home_Sponsors', '../stream.id/public/assets/img/AboutUs/Sponsors/'),
+(31, 'path_home_Sponsors_0', 'assets/img/AboutUs/Sponsors/'),
+(32, 'path_portal_Gamelist', 'public/assets/img/GameList/'),
+(33, 'path_home_Gamelist', '../stream.id/public/assets/img/GameList/'),
+(34, 'path_home_TeamLogo', 'public/assets/img/Team/'),
+(35, 'path_portal_TeamLogo', '../portal_stream.id/public/assets/img/Team/'),
+(36, 'path_portal_dataManagement', 'public/assets/img/Data_Management/'),
+(37, 'content_management', 'http://localhost/Github/Cmfg/'),
+(38, 'backup_news', 'public/content/news/'),
+(39, 'backup_gamelist', 'public/content/game/'),
+(40, 'backup_team', 'public/content/team/'),
+(41, 'backup_competition', 'public/content/tournament/competition/'),
+(42, 'backup_sponsors', 'public/content/sponsors/'),
+(43, 'backup_path', '../Cmfg/'),
+(44, 'backup_users', 'private/'),
+(45, 'backup_gallery', 'public/content/gallery/');
 
 -- --------------------------------------------------------
 
@@ -8152,9 +8534,126 @@ CREATE TABLE `sponsors` (
 --
 
 INSERT INTO `sponsors` (`id_sponsors`, `title`, `image`, `content`, `link`) VALUES
-(55372, 'INDIHOME', '5e52a717276ed.png', '&lt;p&gt;Indonesia&amp;nbsp;Digital&amp;nbsp;HOME&amp;nbsp;(disingkat&amp;nbsp;IndiHOME)&amp;nbsp;adalah&amp;nbsp;salah&amp;nbsp;satu&amp;nbsp;produk&amp;nbsp;layanan&amp;nbsp;dari&amp;nbsp;PT&amp;nbsp;Telekomunikasi&amp;nbsp;Indonesia&amp;nbsp;berupa&amp;nbsp;paket&amp;nbsp;layanan&amp;nbsp;komunikasi&amp;nbsp;dan&amp;nbsp;data&amp;nbsp;seperti&amp;nbsp;telepon&amp;nbsp;rumah&amp;nbsp;(voice),&amp;nbsp;internet&amp;nbsp;(Internet&amp;nbsp;on&amp;nbsp;Fiber&amp;nbsp;atau&amp;nbsp;High&amp;nbsp;Speed&amp;nbsp;Internet),&amp;nbsp;dan&amp;nbsp;layanan&amp;nbsp;televisi&amp;nbsp;interaktif&amp;nbsp;(USee&amp;nbsp;TV&amp;nbsp;Cable,&amp;nbsp;IP&amp;nbsp;TV).&lt;/p&gt;\r\n', 'WWW.INDIHOME.CO.ID'),
-(203577, 'STREAM UNIVERSE', '5e52a765bc547.png', '&lt;p&gt;Stream-Universe adalah kumpulan anak muda milenial Indonesia yang berdiri sejak tahun 2017 di Medan &amp;ndash; Sumatera Utara yang fokus dalam pengembangan komunitas milenial anak bangsa di seluruh Indonesia . Selain itu Stream-Universe juga berpengalaman dan aktif dalam mengadakan event yang berkatain dengan Gaming dan event J-Pop..&lt;/p&gt;\r\n', 'WWW.STREAM-UNIVERSE.ID'),
+(55372, 'INDIHOME', '5e52a717276ed.png', '&lt;p&gt;Indonesia&amp;nbsp;Digital&amp;nbsp;HOME&amp;nbsp;(disingkat&amp;nbsp;IndiHOME)&amp;nbsp;adalah&amp;nbsp;salah&amp;nbsp;satu&amp;nbsp;produk&amp;nbsp;layanan&amp;nbsp;dari&amp;nbsp;PT&amp;nbsp;Telekomunikasi&amp;nbsp;Indonesia&amp;nbsp;berupa&amp;nbsp;paket&amp;nbsp;layanan&amp;nbsp;komunikasi&amp;nbsp;dan&amp;nbsp;data&amp;nbsp;seperti&amp;nbsp;telepon&amp;nbsp;rumah&amp;nbsp;(voice),&amp;nbsp;internet&amp;nbsp;(Internet&amp;nbsp;on&amp;nbsp;Fiber&amp;nbsp;atau&amp;nbsp;High&amp;nbsp;Speed&amp;nbsp;Internet),&amp;nbsp;dan&amp;nbsp;layanan&amp;nbsp;televisi&amp;nbsp;interaktif&amp;nbsp;(USee&amp;nbsp;TV&amp;nbsp;Cable,&amp;nbsp;IP&amp;nbsp;TV).&lt;/p&gt;', 'www.indihome.co.id'),
+(203577, 'STREAM UNIVERSE', '5e52a765bc547.png', '&lt;p&gt;Stream-Universe adalah kumpulan anak muda milenial Indonesia yang berdiri sejak tahun 2017 di Medan &amp;ndash; Sumatera Utara yang fokus dalam pengembangan komunitas milenial anak bangsa di seluruh Indonesia . Selain itu Stream-Universe juga berpengalaman dan aktif dalam mengadakan event yang berkatain dengan Gaming dan event J-Pop..&lt;/p&gt;', 'www.stream-universe.id'),
 (303391, 'STREAM CASH', '5e52a79b09e56.png', '&lt;p&gt;Stream cash adalah matauang digital yang haya bisa digunakan pada stream&lt;/p&gt;\r\n', 'STREAM CASH');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `team`
+--
+
+CREATE TABLE `team` (
+  `team_id` varchar(100) NOT NULL,
+  `game_id` varchar(100) NOT NULL,
+  `leader_id` varchar(100) NOT NULL,
+  `team_name` varchar(100) NOT NULL,
+  `team_description` text NOT NULL,
+  `team_logo` varchar(100) NOT NULL,
+  `venue` varchar(100) NOT NULL,
+  `created_at` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `team`
+--
+
+INSERT INTO `team` (`team_id`, `game_id`, `leader_id`, `team_name`, `team_description`, `team_logo`, `venue`, `created_at`) VALUES
+('5e64fe50c8518', '501085427', '5e64d91ba6ade', 'A TEAM', 'A', '5e64fe509cf73.png', 'MEDAN', '2020-03-08 21:16:48');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `team_invite`
+--
+
+CREATE TABLE `team_invite` (
+  `invite_id` varchar(100) NOT NULL,
+  `team_id` varchar(100) NOT NULL,
+  `identity_id` varchar(100) NOT NULL,
+  `users_id` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0=ditolak,1=pending,2=setuju',
+  `created_at` varchar(30) NOT NULL,
+  `updated_at` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `team_invite`
+--
+
+INSERT INTO `team_invite` (`invite_id`, `team_id`, `identity_id`, `users_id`, `status`, `created_at`, `updated_at`) VALUES
+('5e650858412ed', '5e64fe50c8518', '5e65082a75e6a', '5e65043377612', 0, '2020-03-08 21:59:36', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `team_player`
+--
+
+CREATE TABLE `team_player` (
+  `team_id` varchar(100) NOT NULL,
+  `player_id` varchar(500) NOT NULL,
+  `substitute_id` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `team_player`
+--
+
+INSERT INTO `team_player` (`team_id`, `player_id`, `substitute_id`) VALUES
+('5e64fe50c8518', '5e64d91ba6ade', '');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `team_request`
+--
+
+CREATE TABLE `team_request` (
+  `request_id` varchar(100) NOT NULL,
+  `team_id` varchar(100) NOT NULL,
+  `users_id` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0=ditolak,1=pending,2=setuju',
+  `created_at` varchar(20) NOT NULL,
+  `updated_at` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `token`
+--
+
+CREATE TABLE `token` (
+  `users_id` varchar(100) NOT NULL,
+  `token` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `token`
+--
+
+INSERT INTO `token` (`users_id`, `token`) VALUES
+('5e64d91ba6ade', 'ZGIyZjRhOGNlZGIzMTZkNjQ0ODExNDBjY2UwNWRlNTM4ZTg3MGVjYjc3YTU2NzE2MmNlNDM5Yzc5MjNhOTVjZjM5ZjUzZmU3'),
+('5e65043377612', 'YzI1ZTUzYmQ3ZjZlZmM1N2EwZjYwNjc5MWY1ZGZmMjE3MjQyMzY3MDEyZmQ3ZTE3OWI2NDM2ZTZhYjZkMzUyYzE2ZmMxNmI4');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `topup_history`
+--
+
+CREATE TABLE `topup_history` (
+  `order_id` varchar(50) NOT NULL,
+  `users_id` varchar(30) NOT NULL,
+  `payment_type` varchar(50) NOT NULL,
+  `payment_method` varchar(30) NOT NULL,
+  `amount` varchar(20) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0=cancel,1=pending,2=paid',
+  `real_payment` int(11) NOT NULL COMMENT '0=sandbox,1=production',
+  `created_at` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -8185,9 +8684,8 @@ CREATE TABLE `tournament` (
 --
 
 INSERT INTO `tournament` (`id_tournament`, `tournament_name`, `date`, `created_at`, `kompetisi`, `nama_kota`, `alamat`, `tourname_type`, `banner`, `id_group`, `total_team`, `random`, `status`, `is_random`, `url`) VALUES
-('108abfa64ec6a2d3c397bb153e63f700fc9896ce', 'tournament Mobile legend3', '13-02-2020 07:04', 'Thursday, 13 February 2020 15:20', 'KPT0001', 'medan', 'jlanana', 'singgle', '5e4506bc0acfe.jpg', '22a3096dfaa192fab6d8c1de61771419f43011ac', '4', 1, 'pending', 0, 'tournament-Mobile-legend3'),
 ('1adbb511859249853e4c01fcb27e043cadf89bf3', 'Turnamen Mobile Legends - NEVER DIE SEASON 12', '03-02-2020 01:01', 'Monday, 03 February 2020 15:08', 'KPT0001', 'medan', 'Jl. Gatot Subroto No. 1 A', 'singgle', '5e37d5148107a.jpg', 'bd432846a84bd98fecf0700ca5cf4abdf6f36c1b', '16', 1, 'starting', 1, 'Turnamen-Mobile-Legends--NEVER-DIE-SEASON-12'),
-('50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Turnamen Mobile Legends - Rave Organizer Season 21', '02-02-2020 12:00', 'Monday, 03 February 2020 02:41', 'KPT0001', 'Medan', 'Jl. Iskandar Muda No.35 A', 'singgle', '5e3725e8b801d.jpg', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', '32', 1, 'complete', 1, 'Turnamen-Mobile-Legends--Rave-Organizer-Season-21');
+('50cdf916a29d1085dc390e869b3cc5bce6bdbe67', 'Turnamen Mobile Legends - Rave Organizer Season 21', '02-02-2020 12:00', 'Monday, 03 February 2020 02:41', 'KPT0001', 'Medan', 'Jl. Iskandar Muda No.35 A', 'singgle', '5e3725e8b801d.jpg', '38b61fe1971bdb0d579eff1cc06926088d9b3e9a', '32', 1, 'starting', 1, 'Turnamen-Mobile-Legends--Rave-Organizer-Season-21');
 
 -- --------------------------------------------------------
 
@@ -8347,10 +8845,10 @@ INSERT INTO `tournament_round16` (`id_round16`, `id_tournament`, `team1`, `team2
 ('Round160010', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0039', 'TEAM0033', 1, 2, 'TEAM0033', ''),
 ('Round160011', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0035', 'TEAM0045', 1, 2, 'TEAM0045', ''),
 ('Round160012', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0040', 'TEAM0037', 1, 2, 'TEAM0037', ''),
-('Round160013', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0044', 'TEAM0043', 3, 1, 'TEAM0044', ''),
-('Round160014', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0047', 'TEAM0034', 2, 5, 'TEAM0034', ''),
-('Round160015', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0041', 'TEAM0038', 5, 7, 'TEAM0038', ''),
-('Round160016', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0036', 'TEAM0042', 2, 1, 'TEAM0036', '');
+('Round160013', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0044', 'TEAM0043', NULL, NULL, NULL, ''),
+('Round160014', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0047', 'TEAM0034', NULL, NULL, NULL, ''),
+('Round160015', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0041', 'TEAM0038', NULL, NULL, NULL, ''),
+('Round160016', '1adbb511859249853e4c01fcb27e043cadf89bf3', 'TEAM0036', 'TEAM0042', NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -8441,20 +8939,20 @@ CREATE TABLE `tournament_winner` (
 --
 
 CREATE TABLE `users` (
-  `user_id` char(128) NOT NULL,
+  `user_id` varchar(256) NOT NULL,
   `username` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
   `jenis_kelamin` enum('laki-laki','perempuan') NOT NULL,
   `email` varchar(128) NOT NULL,
   `tgl_lahir` varchar(128) NOT NULL,
   `alamat` text NOT NULL,
-  `provinsi` varchar(128) NOT NULL,
-  `kota` varchar(128) NOT NULL,
-  `nomor_hp` int(11) DEFAULT NULL,
+  `provinsi` char(128) NOT NULL,
+  `kota` char(128) NOT NULL,
+  `nomor_hp` varchar(10) NOT NULL,
   `status` enum('guest','player') NOT NULL,
-  `is_verified` int(1) NOT NULL,
-  `created_at` varchar(128) NOT NULL,
-  `updated_at` varchar(128) NOT NULL
+  `is_verified` int(1) NOT NULL DEFAULT 0,
+  `created_at` varchar(30) NOT NULL,
+  `updated_at` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -8462,33 +8960,99 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `jenis_kelamin`, `email`, `tgl_lahir`, `alamat`, `provinsi`, `kota`, `nomor_hp`, `status`, `is_verified`, `created_at`, `updated_at`) VALUES
-('USER0001', 'riski', '$2y$10$InZplzvm5jVnrjKIAB0bN.YAYK1M4OzdZhl5V5TD.7bakZEYLMMaC', 'laki-laki', 'riski12@gmail.com', '16-04-1999', 'jalan-jalan', '12', '1271', 12312313, 'player', 1, '2020-02-17 17:48:00', '2020-02-18 17:06:57');
+('5e64d91ba6ade', 'zanemy', '$2y$10$R2OwbW19MWvmxllDjpM6quHmqp8SD.Ppr8ttl7CAnRF.R8uyDNa9O', 'laki-laki', 'mramadhan687@gmail.com', '07-12-2001', 'JL AR HAKIM GG.LANGGAR', '12', '1271', '', 'player', 1, '2020-03-08 18:38:03', '08-03-2020 18:58:08'),
+('5e65043377612', 'admin', '$2y$10$rf.0IN6noRjSZsz87OXgD.Ig13Q/Gg211Ihfdbt7PgXNcVQk9QqZy', 'laki-laki', 'mhdramadhanarvin7@gmail.com', '07-12-2001', 'JL', '12', '1214', '', 'guest', 1, '2020-03-08 21:41:55', '2020-03-08 23:54:38');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users_detail`
+--
+
+CREATE TABLE `users_detail` (
+  `user_id` varchar(100) NOT NULL,
+  `id_card` varchar(100) NOT NULL,
+  `id_card_number` varchar(20) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `id_status` int(11) DEFAULT NULL COMMENT '0=belum,1=cancel,2=pending,3=terima'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `users_detail`
+--
+
+INSERT INTO `users_detail` (`user_id`, `id_card`, `id_card_number`, `image`, `id_status`) VALUES
+('5e64d91ba6ade', '', '', '', NULL),
+('5e65043377612', '', '', '5e6522a6e20f8.png', 0);
 
 -- --------------------------------------------------------
 
 --
 -- Struktur dari tabel `users_docs`
 --
+-- Kesalahan membaca struktur untuk tabel stream.users_docs: #1932 - Table 'stream.users_docs' doesn't exist in engine
+-- Kesalahan membaca data untuk tabel stream.users_docs: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `stream`.`users_docs`' at line 1
 
-CREATE TABLE `users_docs` (
-  `user_id` char(128) NOT NULL,
-  `id_card` varchar(128) NOT NULL,
-  `image` varchar(128) NOT NULL,
-  `id_number` int(11) NOT NULL,
-  `username_game` varchar(128) NOT NULL,
-  `id` int(11) DEFAULT NULL
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users_game`
+--
+
+CREATE TABLE `users_game` (
+  `users_id` varchar(256) NOT NULL,
+  `game_id` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `users_docs`
+-- Dumping data untuk tabel `users_game`
 --
 
-INSERT INTO `users_docs` (`user_id`, `id_card`, `image`, `id_number`, `username_game`, `id`) VALUES
-('USER0001', '5e4bb741737d0.jpg', '5e4bb6b11bb8b.jpg', 2147483647, 'rizkydlbs_', NULL);
+INSERT INTO `users_game` (`users_id`, `game_id`) VALUES
+('5e64d91ba6ade', '501085427'),
+('5e65043377612', '501085427');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `withdraw_history`
+--
+
+CREATE TABLE `withdraw_history` (
+  `transaction_id` varchar(256) NOT NULL,
+  `users_id` varchar(256) NOT NULL,
+  `bank_name` varchar(5) NOT NULL,
+  `bank_account_number` varchar(50) NOT NULL,
+  `bank_account_name` varchar(256) NOT NULL,
+  `nominal` varchar(100) NOT NULL,
+  `charge` varchar(100) NOT NULL,
+  `information` text NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0=cancel,1=pending,2=on progress,3=done',
+  `created_at` varchar(30) NOT NULL,
+  `updated_at` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `authenticate`
+--
+ALTER TABLE `authenticate`
+  ADD PRIMARY KEY (`users_id`);
+
+--
+-- Indeks untuk tabel `balance_history`
+--
+ALTER TABLE `balance_history`
+  ADD PRIMARY KEY (`transactions_id`);
+
+--
+-- Indeks untuk tabel `bank`
+--
+ALTER TABLE `bank`
+  ADD PRIMARY KEY (`code`);
 
 --
 -- Indeks untuk tabel `contact`
@@ -8497,22 +9061,16 @@ ALTER TABLE `contact`
   ADD PRIMARY KEY (`id_contact`);
 
 --
--- Indeks untuk tabel `data_management`
---
-ALTER TABLE `data_management`
-  ADD PRIMARY KEY (`stream_id`);
-
---
--- Indeks untuk tabel `faqs`
---
-ALTER TABLE `faqs`
-  ADD PRIMARY KEY (`id_faqs`);
-
---
 -- Indeks untuk tabel `game_list`
 --
 ALTER TABLE `game_list`
   ADD PRIMARY KEY (`id_game_list`);
+
+--
+-- Indeks untuk tabel `identity_ingame`
+--
+ALTER TABLE `identity_ingame`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `kabupaten`
@@ -8551,16 +9109,16 @@ ALTER TABLE `kompetisi`
   ADD PRIMARY KEY (`id_kompetisi`);
 
 --
--- Indeks untuk tabel `member`
---
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`kode_member`);
-
---
 -- Indeks untuk tabel `news_game`
 --
 ALTER TABLE `news_game`
   ADD PRIMARY KEY (`id_news_game`);
+
+--
+-- Indeks untuk tabel `news_like`
+--
+ALTER TABLE `news_like`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `portal`
@@ -8575,10 +9133,16 @@ ALTER TABLE `provinsi`
   ADD PRIMARY KEY (`id_prov`);
 
 --
--- Indeks untuk tabel `sponsors`
+-- Indeks untuk tabel `team`
 --
-ALTER TABLE `sponsors`
-  ADD PRIMARY KEY (`id_sponsors`);
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`team_id`);
+
+--
+-- Indeks untuk tabel `topup_history`
+--
+ALTER TABLE `topup_history`
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indeks untuk tabel `tournament`
@@ -8635,6 +9199,18 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
+-- Indeks untuk tabel `users_game`
+--
+ALTER TABLE `users_game`
+  ADD PRIMARY KEY (`users_id`);
+
+--
+-- Indeks untuk tabel `withdraw_history`
+--
+ALTER TABLE `withdraw_history`
+  ADD PRIMARY KEY (`transaction_id`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -8642,25 +9218,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `komentar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT untuk tabel `news_game`
---
-ALTER TABLE `news_game`
-  MODIFY `id_news_game` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `komentar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `portal`
 --
 ALTER TABLE `portal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
