@@ -1,4 +1,4 @@
-<!-- Content
+<!--Content
 		================================================== -->
 		<div class="site-content">
     <div class="container">
@@ -16,23 +16,39 @@
         <!-- Album -->
         <div class="album row js-album-masonry">
 
-            <div class="album__item col-4 col-sm-6 col-lg-4">
+            <?php 
+            $i=1; 
+            foreach ($data['content'] as $row) : 
+                $ii = $i++;
+                $like = $this->db->table('gallery_like')->countRows('gallery_id', $row['gallery_id']);
+                $likeMe = [
+                    'gallery_id'    => $row['gallery_id'],
+                    'users_id'      => Session::get('users')
+                ];
+                $likeMe = $this->db->table('gallery_like')->countRows($likeMe);
+                ?>
+            <div class="album__item col-4 col-sm-6 <?php if($ii==2){echo 'col-lg-8';}else{echo 'col-lg-4';}?>">
                 <div class="album__item-holder">
-                    <a href="<?=asset('assets/images/esports/samples/team-album2.jpg');?>" class="album__item-link mp_gallery">
+                    <a href="<?=cdn(paths('backup_gallery')).$row['image'];?>" class="album__item-link mp_gallery">
                         <figure class="album__thumb">
-                            <img src="<?=asset('assets/images/esports/samples/team-album2.jpg');?>" alt="">
+                            <img src="<?=cdn(paths('backup_gallery')).$row['image'];?>" alt="">
                         </figure>
                         <div class="album__item-desc">
-                            <h4 class="album__item-title">Join the Game Huntress to try out the new missions and character</h4>
-                            <time class="album__item-date" datetime="2016-08-23"></time>
+                            <h4 class="album__item-title"><?=$row['caption'];?></h4>
+                            <time class="album__item-date" datetime="<?=date('Y-m-d H:i', strtotime($row['created_at']));?>"></time>
                         </div>
                     </a>
                     <ul class="album__item-meta meta">
-                        <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like meta-like--active icon-heart"></i> 26</a></li>
+                        <?php if ($likeMe > 0):?>
+                        <li class="meta__item meta__item--likes"><a href="javascript:void(0);"><i class="meta-like meta-like--active fas fa-heart"></i> <?=$like;?></a></li>
+                        <?php else:?>
+                        <li class="meta__item meta__item--likes"><a href="javascript:void(0);" class="like" data-id="<?=$row['gallery_id'];?>"><i class="meta-like meta-like--active icon-heart"></i> <?=$like;?></a></li>
+                        <?php endif;?>
                     </ul>
                 </div>
             </div>
-            <div class="album__item col-4 col-sm-6 col-lg-8">
+            <?php endforeach; ?>
+            <!-- <div class="album__item col-4 col-sm-6 col-lg-8">
                 <div class="album__item-holder">
                     <a href="<?=asset('assets/images/esports/samples/team-album1.jpg');?>" class="album__item-link mp_gallery">
                         <figure class="album__thumb">
@@ -191,7 +207,7 @@
                         <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like meta-like--active icon-heart"></i> 26</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
         </div>
         <!-- Gallery Album / End -->
@@ -205,4 +221,32 @@
     </div>
 </div>
 
-<!-- Content / End -->
+<!-- Content / End--->
+<script>
+    $('.like').click(function() {
+        var t = $(this);
+        var data = t.data('id');
+        $.ajax({
+            url : '<?=url('like-gallery/');?>' + data ,
+            method : 'POST',
+            dataType : 'json',
+            success: function (msg){
+                if (msg.status == true) {  
+                    t.removeClass('like'); 
+                    t.removeAttr('data-id');
+                    t.html('<i class="meta-like meta-like--active fas fa-heart"></i> ' + msg.content);
+                } else {
+                    var dialog = bootbox.dialog({
+                        message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+ msg.message +'</p>',
+                        closeButton: true
+                    });
+                    setTimeout(function(){
+                        dialog.modal('hide');
+                    }, 3000);
+                }
+                // console.log(msg);
+            }
+        });
+        // console.log(data);
+    });
+</script>

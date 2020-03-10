@@ -22,11 +22,11 @@
 
                             <div class="form-group">
                                 <label for="login-name">Your Email</label>
-                                <input type="email" name="email" id="login-name" class="form-control" placeholder="Enter your email address..." require="">
+                                <input type="email" name="email" id="login-name" class="form-control" placeholder="Enter your email address..." required>
                             </div>
                             <div class="form-group">
                                 <label for="login-password">Your Password</label>
-                                <input type="password" name="password" id="login-password" class="form-control" placeholder="Enter your password..."  require="">
+                                <input type="password" name="password" id="login-password" class="form-control" placeholder="Enter your password..."  required>
                             </div>
                             <div class="form-group form-group--password-forgot">
                                 <label class="checkbox checkbox-inline">

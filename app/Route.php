@@ -32,6 +32,8 @@
 	Route::get('/videos-list', 				'AboutsController@videos');
 	Route::get('/marchandise', 				'AboutsController@marchandise');
 
+	Route::post('/like-gallery/{id}', 		'AboutsController@likeGallery');
+
 	// Shopping
 	Route::get('/shop', 					'ShopController@Shopping');
 	
