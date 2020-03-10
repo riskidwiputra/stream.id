@@ -28,7 +28,7 @@
 	Route::get('/contact', 					'AboutsController@contact');
 	Route::get('/faqs', 					'AboutsController@faqs');
 	Route::get('/sponsors', 				'AboutsController@sponsors');
-	Route::get('/galery', 					'AboutsController@gallery');
+	Route::get('/gallery', 					'AboutsController@gallery');
 	Route::get('/videos-list', 				'AboutsController@videos');
 	Route::get('/marchandise', 				'AboutsController@marchandise');
 

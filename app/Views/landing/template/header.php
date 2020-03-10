@@ -178,7 +178,7 @@
                                         <li class=""><a href="<?= BASEURL ?>/contact">Contact</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/faqs">FAQs</a></li>
                                         <li class=""><a href="<?= BASEURL ?>/sponsors">Sponsors</a></li>
-                                        <li><a href="<?= BASEURL ?>/galery">Gallery</a></li>
+                                        <li><a href="<?= BASEURL ?>/gallery">Gallery</a></li>
                                         <li><a href="<?= BASEURL ?>/videos-list">Videos</a></li>
                                         <li><a href="<?= BASEURL ?>/marchandise">Merchandise</a></li>
                                     </ul>

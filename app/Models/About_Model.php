@@ -22,7 +22,7 @@ class About_Model extends Model
 
     public function gallery()
     {
-        $this->db->query('SELECT * FROM gallery ORDER BY created_at DESC');
+        $this->db->query('SELECT * FROM gallery ORDER BY position ASC');
         return $this->db->resultSet();
     }
 

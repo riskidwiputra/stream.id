@@ -9,7 +9,7 @@
                 <i class="icon-picture"></i>
             </div>
             <h2 class="album-heading__title">Galery Stream Gaming</h2>
-            <h6 class="album-heading__subtitle">Updated: March 12th, 2018</h6>
+            <h6 class="album-heading__subtitle">Updated: <?=$data['updated'];?></h6>
         </div>
         <!-- Album Heading / End -->
 
@@ -27,7 +27,7 @@
                 ];
                 $likeMe = $this->db->table('gallery_like')->countRows($likeMe);
                 ?>
-            <div class="album__item col-4 col-sm-6 <?php if($ii==2){echo 'col-lg-8';}else{echo 'col-lg-4';}?>">
+            <div class="album__item col-4 col-sm-6 <?php if($row['position']==2){echo 'col-lg-8';}else{echo 'col-lg-4';}?>">
                 <div class="album__item-holder">
                     <a href="<?=cdn(paths('backup_gallery')).$row['image'];?>" class="album__item-link mp_gallery">
                         <figure class="album__thumb">

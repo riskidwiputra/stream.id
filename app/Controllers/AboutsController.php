@@ -70,6 +70,9 @@
 			$data['game-list'] = $this->db->table('game_list')->all();
 			$data['game-list']	= $this->db->resultSet();
 			$data['content'] = $this->model('About_Model')->gallery(); 
+			$data['updated'] = $this->db->query('SELECT * FROM gallery ORDER BY created_at DESC LIMIT 1');
+			$data['updated'] = $this->db->single(); 
+			$data['updated'] = date('F d, Y', strtotime($data['updated']['created_at'])); 
 			$this->view('landing/template/header', $data);
 			$this->view('landing/about/gallery', $data);	
 			$this->view('landing/template/footer' , $data);	
