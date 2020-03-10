@@ -17,7 +17,6 @@
                             <ul class="nav nav-tabs nav-justified widget-tabbed__nav" role="tablist">
                                 <li class="nav-item"><a href="javascript:void(0);" class="nav-link active">PERSONAL INFORMATION</a></li>
                                 <li class="nav-item"><a href="#change-password" class="nav-link">CHANGE PASSWORD</a></li>
-                                <li class="nav-item"><a href="<?=url('my-team');?>" class="nav-link">MY TEAM</a></li>
                             </ul>
 
                             <!-- Widget Tab panes -->
