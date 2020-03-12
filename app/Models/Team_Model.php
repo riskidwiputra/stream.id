@@ -114,50 +114,63 @@ class Team_Model extends Model
 						}
 					}
 					if ($c == true) {
-						// jika gak punya 
-						$namaFileBaru = uniqid();
-						$namaFileBaru .= '.';
-						$namaFileBaru .= $ekstensiGambar; 
-
-						list($width, $height) = getimagesize($source);
-
-						if($ekstensiGambar == 'png'){
-							$new_image = imagecreatefrompng($source);
-						}
-
-						if($ekstensiGambar == 'jpg' || $ekstensiGambar == 'jpeg')  {  
-							$new_image = imagecreatefromjpeg($source);  
-						}
-
-						$new_width=700;
-						$new_height = ($height/$width)*700;
-						$tmp_image = imagecreatetruecolor($new_width, $new_height);
-						imagecopyresampled($tmp_image, $new_image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-						imagejpeg($tmp_image, $folder.$namaFileBaru, 100);
-						imagedestroy($new_image);
-						imagedestroy($tmp_image);
-						copy($folder.$namaFileBaru, $folder2.$namaFileBaru);
-						$logo = $namaFileBaru;
-						$uniq = uniqid();
-						$dataTeam = [
-							'team_id'	=> $uniq,
-							'game_id'	=> $this->ctr->post('game'),
-							'leader_id'	=> Session::get('users'),
-							'team_name'	=> $this->ctr->post('team_name'),
-							'team_description'	=> $this->ctr->post('team_description'),
-							'team_logo'	=> $logo,
-							'venue'		=> $this->ctr->post('venue'),
-							'created_at'	=> date('Y-m-d H:i:s')
+						$checkIdentity = [
+							'users_id'	=> Session::get('users'),
+							'game_id'	=> $this->ctr->post('game')
 						];
-						$dataPlayer = [
-							'team_id'	=> $uniq,
-							'player_id'	=> Session::get('users')
-						];
-						$this->db->table('team')->insert($dataTeam);
-						$this->db->table('team_player')->insert($dataPlayer);
-						echo json_encode([
-							'status'	=> true
-						]);
+						$checkIdentity = $this->db->table('identity_ingame')->where($checkIdentity);
+
+						if ($checkIdentity == false OR empty($checkIdentity['id_ingame']) OR empty($checkIdentity['username_ingame'])) {
+							echo json_encode([
+								'status'	=> false,
+								'message'	=> 'Please filled ID and username in this game. Go to <a href="'.url('my-game').'">MY GAME</a>'
+							]);
+						} else {
+							// jika gak punya 
+							$namaFileBaru = uniqid();
+							$namaFileBaru .= '.';
+							$namaFileBaru .= $ekstensiGambar; 
+
+							list($width, $height) = getimagesize($source);
+
+							if($ekstensiGambar == 'png'){
+								$new_image = imagecreatefrompng($source);
+							}
+
+							if($ekstensiGambar == 'jpg' || $ekstensiGambar == 'jpeg')  {  
+								$new_image = imagecreatefromjpeg($source);  
+							}
+
+							$new_width=700;
+							$new_height = ($height/$width)*700;
+							$tmp_image = imagecreatetruecolor($new_width, $new_height);
+							imagecopyresampled($tmp_image, $new_image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+							imagejpeg($tmp_image, $folder.$namaFileBaru, 100);
+							imagedestroy($new_image);
+							imagedestroy($tmp_image);
+							copy($folder.$namaFileBaru, $folder2.$namaFileBaru);
+							$logo = $namaFileBaru;
+							$uniq = uniqid();
+							$dataTeam = [
+								'team_id'	=> $uniq,
+								'game_id'	=> $this->ctr->post('game'),
+								'leader_id'	=> Session::get('users'),
+								'team_name'	=> $this->ctr->post('team_name'),
+								'team_description'	=> $this->ctr->post('team_description'),
+								'team_logo'	=> $logo,
+								'venue'		=> $this->ctr->post('venue'),
+								'created_at'	=> date('Y-m-d H:i:s')
+							];
+							$dataPlayer = [
+								'team_id'	=> $uniq,
+								'player_id'	=> Session::get('users')
+							];
+							$this->db->table('team')->insert($dataTeam);
+							$this->db->table('team_player')->insert($dataPlayer);
+							echo json_encode([
+								'status'	=> true
+							]);
+						}
 					}
 				}
 				die;
