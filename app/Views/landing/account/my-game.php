@@ -49,7 +49,7 @@
                                             <div class="btn-social-counter__icon">
                                                 <img class="card-img" src="<?= cdn(paths('backup_gamelist')).$game['logo'];?>" alt="" height="300px">
                                             </div>
-                                            <h6 class="btn-social-counter__title"><?=$game['name'];?></h6>
+                                            <h6 class="btn-social-counter__title">.</h6>
                                             <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Username : <?=$identity['username'];?></span>
                                             <span class="btn-social-counter__count"><span class="btn-social-counter__count-num"></span>Id Game : <?=$identity['id'];?></span>
                                             <span class="btn-social-counter__add-icon"></span>

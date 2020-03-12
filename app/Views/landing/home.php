@@ -382,33 +382,37 @@
                                     <div class="match-preview__date">Xeno League</div>
                                     <h3 class="match-preview__title match-preview__title--lg">Semifinals</h3>
                                 </header>
-                                <div class="match-preview__content">
+                                <div class="widget-game-result__main">
 
                                     <!-- 1st Team -->
-                                    <div class="match-preview__team match-preview__team--first">
-                                        <figure class="match-preview__team-logo">
+                                    <div class="widget-game-result__team widget-game-result__team--first">
+                                        <figure class="widget-game-result__team-logo">
                                             <img src="<?= cdn('v1/assets/images/esports/logos/alchemists-86x98.png');?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Alchemists</h5>
-                                        <div class="match-preview__team-info">United States</div>
+                                        <div class="widget-game-result__team-info">
+                                        <h5 class="widget-game-result__team-name">Alchemists</h5>
+                                        <div class="widget-game-result__team-desc">United States</div>
+                                        </div>
                                     </div>
                                     <!-- 1st Team / End -->
 
-                                    <div class="match-preview__vs">
-                                        <div class="match-preview__conj">VS</div>
-                                        <div class="match-preview__match-info">
+                                    <div class="widget-game-result__score-wrap">
+                                        <div class="widget-game-result__score">VS</div>
+                                        <div class="widget-game-result__score-label">
                                             <time class="match-preview__match-time" datetime="2017-08-12 09:00">9:00 PM</time>
-                                            <div class="match-preview__match-place">Madison Cube Stadium</div>
+                                            <div class="widget-game-result__score-sublabel">Madison Cube Stadium</div>
                                         </div>
                                     </div>
 
                                     <!-- 2nd Team -->
-                                    <div class="match-preview__team match-preview__team--second">
-                                        <figure class="match-preview__team-logo">
+                                    <div class="widget-game-result__team widget-game-result__team--second">
+                                        <figure class="widget-game-result__team-logo">
                                             <img src="<?= cdn('v1/assets/images/samples/logo-sharks--sm.png');?>" alt="">
                                         </figure>
-                                        <h5 class="match-preview__team-name">Sharks</h5>
-                                        <div class="match-preview__team-info">South Korea</div>
+                                        <div class="widget-game-result__team-info">
+                                        <h5 class="widget-game-result__team-name">Sharks</h5>
+                                        <div class="widget-game-result__team-desc">South Korea</div>
+                                        </div>
                                     </div>
                                     <!-- 2nd Team / End -->
 

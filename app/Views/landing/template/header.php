@@ -59,13 +59,14 @@
     <link href="<?= cdn('v1/assets/css/custom.css');?>" rel="stylesheet">
     <style>
         .dropdown-submenu {
-
+            
         }
 
         .dropdown-submenu .dropdown-menu {
             top: 0;
             left: 100%; 
-            margin-top: -1px;
+            margin-top: 0;
+            
         }
     </style>
     <script src="<?= cdn('v1/assets/vendor/jquery/jquery.min.js');?>"></script> 
@@ -161,8 +162,8 @@
                                 <li class=""><a href="#">Games</a>
                                     <ul class="main-nav__sub">
                                         <li class="dropdown-submenu">
-                                            <a class="test" tabindex="-1" href="#">Game List &nbsp;&nbsp;&nbsp;<i class="fas fa-angle-right"></i></a>
-                                            <ul class="dropdown-menu main-nav__sub">
+                                            <a class="test" tabindex="-1" href="#">Game List &nbsp;&nbsp;&nbsp;</a>
+                                            <ul class="main-nav__sub-2">
                                                 <?php foreach ($data['game-list'] as $game):?>
                                                     <li><a tabindex="-1" href="<?=url('game/'.$game['url']);?>"><?=$game['name'];?></a></li>
                                                 <?php endforeach; ?> 
