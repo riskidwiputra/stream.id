@@ -29,8 +29,15 @@
 	Route::get('/faqs', 					'AboutsController@faqs');
 	Route::get('/sponsors', 				'AboutsController@sponsors');
 	Route::get('/gallery', 					'AboutsController@gallery');
-	Route::get('/videos-list', 				'AboutsController@videos');
+	Route::get('/videos', 					'AboutsController@videos');
 	Route::get('/marchandise', 				'AboutsController@marchandise');
+
+	Route::get('/watch/{url}',				'VideosController@watch');
+	Route::post('/like-video/{id}',			'VideosController@like');
+	Route::post('/dislike-video/{id}',		'VideosController@dislike');
+	Route::post('/get-comment-video/{id}',	'VideosController@GetComment');
+	Route::post('/add-comment-video/{id}',	'VideosController@AddComment');
+	Route::post('/LoadMore/{id}',			'VideosController@LoadMore');
 
 	Route::post('/like-gallery/{id}', 		'AboutsController@likeGallery');
 
@@ -83,9 +90,11 @@
 	// account
 	Route::post('/update-account', 	'AccountController@Update');
 	// Komentar
-	Route::post('/ambil-komen/{id}', 		'NewsController@GetKomen');
+	Route::post('/ambil-komen/{url}', 		'NewsController@GetKomen');
 	Route::post('/tambah-komen/{id}', 		'NewsController@AddKomen'); 
 	Route::post('/add-like/{id_news}', 		'NewsController@like');
+
+	Route::post('/LoadComment/{id}', 		'NewsController@LoadComment');
 
 	// 
 	Route::post('/komen/{id}',				'NewsController@LoadMore');

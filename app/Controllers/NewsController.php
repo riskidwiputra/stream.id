@@ -42,6 +42,7 @@
 			$data['game-list']		= $this->db->resultSet();
 			$data['users'] 			= $this->Users;
 			$data['content'] 		= $this->model('News_Model')->select(); 
+			// var_dump($data);die;
 			$this->view('landing/template/header', $data);
 			$this->view('landing/news/view', $data);	
 			$this->view('landing/template/footer', $data);			
@@ -81,7 +82,7 @@
 		{ 	
 			$data['single'] 		= $this->db->table('news_game')->where('url', $id);
 			$data['single'] 		= $this->db->single();	
-			$data['comment'] 		= $this->db->table('komentar')->countRows('id_news_game', $data['single']['id_news_game']);
+			$data['comment'] 		= $this->db->table('komentar')->countRows('news_id', $data['single']['id_news_game']);
 			$data['newest'] 		= $this->db->query("SELECT * FROM news_game ORDER by id_news_game DESC LIMIT 5 ");
 			$data['newest'] 		= $this->db->resultSet();
 			$data['popular'] 		= $this->db->query("SELECT * FROM news_game ORDER by views DESC LIMIT 5 ");
@@ -118,8 +119,8 @@
 			} elseif ($label['color'] == 5) {
 				$data['label'] = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
 			}  
-			// $data['author'] = $this->db->table('data_management')->where('stream_id', $data['content']['penulis']);
-			// $data['author'] = $data['author']['fullname']; 
+			$data['author'] = $this->db->table('management_access')->where('stream_id', $data['content']['penulis']);
+			$data['author'] = $data['author']['fullname']; 
 			$data['game-list'] = $this->db->table('game_list')->all();
 			$data['game-list']	= $this->db->resultSet();
 			$view = [
@@ -133,11 +134,11 @@
 				'users_id'	=> Session::get('users')
 			];
 			$whereNews = [
-				'parent_komentar_id'	=> 0,
-				'id_news_game'	=> $data['single']['id_news_game']
+				'reply_comment_id'	=> 0,
+				'news_id'	=> $data['single']['id_news_game']
 			];
 			$data['like'] = $this->db->table('news_like')->countRows('news_id', $data['single']['id_news_game']);
-			$data['LikeMe'] = $this->db->table('news_like')->countRows($whereMe);
+			$data['LikeMe'] = $this->db->table('news_like')->countRows($whereMe); 
 			$data['comment_count'] = $this->db->table('komentar')->countRows($whereNews);
 
 			$this->db->table('news_game')->update($view, $view0);
@@ -160,13 +161,13 @@
 			$this->model('News_Model')->addkomen($id_news);
 			
 		}
-
-		public function GetKomen($id)
+		public function GetKomen($url)
 		{
-			$data['single'] = $this->db->table('news_game')->where('url', $id);
+			$data['single'] = $this->db->table('news_game')->where('url', $url);
 			$data['single'] = $this->db->single();
 			$id_news = $data['single']['id_news_game'];
-			echo $this->model('News_Model')->getkomen($id_news);
+			// echo $id_news;
+			$this->model('News_Model')->getkomen($id_news);
 		}
 		public function LoadMore($id)
 		{
@@ -175,7 +176,7 @@
 			$id_news = $data['single']['id_news_game'];
 			echo $this->model('News_Model')->getloadmore($id_news);
 		}
-
+		
 		public function like($news_id)
 		{
 			$news = $this->db->table('news_game')->where('id_news_game', $news_id);
