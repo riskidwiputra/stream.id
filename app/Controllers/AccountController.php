@@ -20,7 +20,7 @@
 				$data['content']   = $this->model('Account_Model')->select($id);
 				$data['game-list'] = $this->db->table('game_list')->all();
 				$data['game-list']	= $this->db->resultSet();
-				$data['my_game'] = $this->db->query("SELECT identity_ingame.id,identity_ingame.users_id,identity_ingame.game_id,identity_ingame.id_ingame,identity_ingame.username_ingame,game_list.id_game_list,game_list.name,game_list.logo FROM identity_ingame LEFT JOIN game_list ON identity_ingame.game_id = game_list.id_game_list LEFT JOIN team ON identity_ingame.game_id = team.game_id WHERE users_id = '$id' ");
+				$data['my_game'] = $this->db->query("SELECT identity_ingame.id,identity_ingame.users_id,identity_ingame.game_id,identity_ingame.id_ingame,identity_ingame.username_ingame,game_list.id_game_list,game_list.name,game_list.logo FROM identity_ingame LEFT JOIN game_list ON identity_ingame.game_id = game_list.id_game_list WHERE users_id = '$id' ");
 				$data['my_game'] = $this->db->resultSet();
 				$data['users'] = $this->db->query('
 					SELECT * FROM users 
