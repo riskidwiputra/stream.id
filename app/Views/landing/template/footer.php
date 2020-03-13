@@ -143,6 +143,7 @@
                                                     <div class="widget__content">
                                                         <ul class="widget__list">
                                                             <li><a href="index.php?page=login">Register/Login</a></li>
+                                                            <li><a href="<?= BASEURL ?>/termsandcondition">Terms And Condition</a></li>
                                                             <li><a href="index.php?page=privacy-policy">Privacy Policy</a></li>
                                                         </ul>
                                                     </div>

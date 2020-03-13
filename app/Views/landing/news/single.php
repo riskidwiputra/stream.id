@@ -82,8 +82,8 @@
                                 <!-- start foreach -->
                                 <?php foreach ($data['related'] as $related):
                                     // var_dump($related);
-                                    // $author = $this->db->table('data_management')->where('stream_id', $related['penulis']);
-                                    // $author = $author['fullname'];
+                                    $author = $this->db->table('management_access')->where('stream_id', $related['penulis']);
+                                    $author = $author['fullname'];
                                     $label = $this->db->table('kategori')->where('id_kategori', $related['label']); 
                                     if ($label['color'] == 1) { 
                                         $label = '<span class="label posts__cat-label posts__cat-label--category-3">'.$label['nama_kategori'].'</span>'; 
@@ -98,8 +98,8 @@
                                     }
                                     $like = $this->db->table('news_like')->countRows('news_id', $related['id_news_game']);
                                     $whereNews = [
-                                        'parent_komentar_id'    => 0,
-                                        'id_news_game'  => $related['id_news_game']
+                                        'reply_comment_id'  => 0,
+                                        'news_id'  => $related['id_news_game']
                                     ];                                    
                                     $comment = $this->db->table('komentar')->countRows($whereNews);
                                     $whereMe = [
@@ -159,16 +159,18 @@
                                             dataType : 'json',
                                             success: function (msg){
                                                 // console.log(msg);
+                                                var scroll = $(window).scrollTop(); 
                                                 if (msg.status == true) { 
                                                     t.html('<i class="fas fa-heart mr-1" style="font-size:12px;"></i> ' + msg.content);
                                                     t.removeClass('like');
                                                 } else {
                                                     var dialog = bootbox.dialog({
                                                         message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+ msg.message +'</p>',
-                                                        closeButton: false
+                                                        closeButton: true
                                                     });
                                                     setTimeout(function(){
                                                         dialog.modal('hide');
+                                                        $('html, body').animate({scrollTop : scroll},800);
                                                     }, 3000);
                                                 }
                                             }
@@ -198,7 +200,54 @@
                                 <div id="comment" data-id="<?= BASEURL ?>"></div>
                                 <div  id="display_comment" data-id="<?= $data['content']['url'];?>">
                                 <!-- comment -->
-
+                                    <div class="comments__inner">
+                                        <header class="comment__header">
+                                            <div class="comment__author">
+                                                <figure class="comment__author-avatar comment__author-avatar--md">
+                                                    <img src="" alt="">
+                                                    <div class="baris" id="'.$row['komentar_id'].'">
+                                                    </div>
+                                                </figure>
+                                            </div>
+                                        </header>
+                                        <div class="comment__inner-wrap">
+                                            <div class="comment__author-info">
+                                                <h5 class="comment__author-name">Madhan</h5>
+                                                <time class="comment__post-date" datetime="2017-08-23">2 Nov 2020</time>
+                                            </div>
+                                            <div class="comment__body">
+                                                Test
+                                            </div>
+                                            <div class="comment__reply" style="font-size:12px;">
+                                                <a href="javascript:void(0);" class="comment__reply-link reply" id="id-reply">Reply</a>
+                                                <span class="mx-1">|</span> 
+                                                <a href="javascript:void(0);" class="comment__reply-link reply">Lihat Balasan (0)</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="comments--children">
+                                        <li class="comments__item">
+                                            <div class="comments__inner">
+                                                <header class="comment__header">
+                                                    <div class="comment__author">
+                                                        <figure class="comment__author-avatar comment__author-avatar--md">
+                                                            <img src="" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </header>
+                                                <div class="comment__inner-wrap">
+                                                    <div class="comment__author-info">
+                                                        <h5 class="comment__author-name">Name</h5>
+                                                        <time class="comment__post-date" datetime="2017-08-23">2 Nov 2020</time>
+                                                    </div>
+                                                    <div class="comment__body">
+                                                        HAI JUGA
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                <!-- endcomment -->
                                 </div>
                             </li>
                             
@@ -206,6 +255,7 @@
                         </ul>
                     </div>
 
+                    <?php if ($comment > 5):?>
                     <footer class="card__footer post__comments-load-more">
                         <div class="row justify-content-center">
                             <div class="col-md-6">
@@ -213,6 +263,7 @@
                             </div>
                         </div>
                     </footer>
+                    <?php endif;?>
 
                 </div>
                 <!-- Post Comments / End -->
@@ -225,21 +276,6 @@
                     </header>
                     <div class="post-comment-form__content card__content">
                         <form method="post" id="form_komen"  >
-
-                            <!-- <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="input-name">Your Name <span class="required">*</span></label>
-                                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control" placeholder="Masukkan Name">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label" for="input-email">Your Email <span class="required">*</span></label>
-                                        <input type="email" id="email_pengirim" name="email_pengirim" class="form-control" placeholder="Masukkan Email">
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="form-group">
                                 <label class="control-label" for="textarea-comment">Your Comment <span class="required">*</span></label>
                                 <textarea name="komen" id="komen" rows="4" class="form-control"></textarea>
@@ -253,6 +289,10 @@
                     </div>
                 </div>
                 <!-- Post Comment Form / End -->
+                <?php else:?>
+                <div class="alert alert-info">
+                    Please <a href="<?=url('login');?>">LOGIN</a> before if you want to give the comment.
+                </div>
                 <?php endif ;?>
 
             </div>
@@ -300,13 +340,13 @@
                                            
                                         <li class="posts__item posts__item--category-1 posts__item--category-4 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                            <a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
+                                            <a href="javascript:void(0);" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
                                                     <?=$label;?>
                                                 </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
+                                                <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['created_at'])) ?></time>
                                             </div>
                                         </li>
@@ -337,13 +377,13 @@
                                         ?>
                                         <li class="posts__item posts__item--category-2 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>';"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
+                                                <a href="javascript:void(0);" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>';"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;"></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
                                                     <?=$label; ?>
                                                 </div>
-                                                <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
+                                                <h6 class="posts__title posts__title--color-hover"><a href="javascript:void(0);" data-id="<?= $row['id_news_game'] ?>" onclick="window.location.href = '<?=url('news/'.$row['url']);?>'"><?= strtoupper($row['judul']); ?></a></h6>
                                                 <time datetime="2018-09-27" class="posts__date"><?= date('j F Y | H:i', strtotime($row['created_at'])) ?></time>
                                             </div>
                                         </li>
@@ -372,7 +412,7 @@
                                             ?>
                                         <li class="posts__item posts__item--category-3 ">
                                             <figure class="posts__thumb posts__thumb--hover">
-                                                <a href="javascript:void(0);" class="berita" data-id="<?= $row['id_news_game'] ?>"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;" onclick="window.location.href = '<?=url('news/'.$row['url']);?>';"></a>
+                                                <a href="javascript:void(0);" data-id="<?= $row['id_news_game'] ?>"><img src="<?=cdn(paths('backup_news'));?><?= $row['gambar'] ?>" alt="" style="width:125px;height:70px;" onclick="window.location.href = '<?=url('news/'.$row['url']);?>';"></a>
                                             </figure>
                                             <div class="posts__inner">
                                                 <div class="posts__cat">
@@ -400,7 +440,83 @@
 
 <!-- Content / End -->
 <script> 
-    $('.berita').on('click', function (e) {
+
+    $(document).ready(function () { 
+        const id = $('#display_comment').data('id');
+
+        $("#komentar").click(function () { 
+            url = '<?=url('komen/');?>' + id;
+            var t = $(this); 
+            $.ajax({
+                type: "post",
+                url: url,
+                data: "urut=" + $(".baris:last").attr('id'),
+                dataType : 'json',
+                success: function (html) {
+                    if (html) { 
+                        $("#display_comment").append(html.result);
+                        if (html.count == 0) {
+                            t.remove();
+                        }      
+                    } 
+                }
+            });
+        }); 
+
+        $('#form_komen').on('submit', function (event) {
+            event.preventDefault();
+            var form_data = $(this).serialize();
+            var komen = $(this).find('#komen').val();
+            if (komen == '') {
+                $('#komen').focus();
+                return false;
+            } 
+            $.ajax({
+                url: '<?=url('tambah-komen/');?>' + id,
+                type: 'POST',
+                data: form_data,
+                success: function (data) {
+                    var scroll = $(window).scrollTop(); 
+                    load_comment();
+                    $('#form_komen')[0].reset();
+                    $('#komentar_id').val('0');
+                    var dialog = bootbox.dialog({
+                        message: '<p class="text-center mb-0"><i class="fa fa-check-circle"></i> Your comment has been post...</p>',
+                        closeButton: true,
+                        callback: function(){
+                        }
+                    });
+                    setTimeout(function(){
+                        dialog.modal('hide');
+                        $('html, body').animate({scrollTop : scroll},800);
+                    }, 3000);
+                }
+            });
+        });
+
+        load_comment();
+
+        function load_comment() { 
+            url = '<?=url('ambil-komen/');?>' + id;
+
+            $.ajax({
+                url: url,
+                method: "post",
+                dataType : 'json',
+                success: function (data) { 
+                    // console.log(data);
+                    $('#display_comment').html(data.result);
+                    if (data.count < 5) {
+                        $('#komentar').remove();
+                    }
+                }
+
+            });
+
+        }
+
+    });
+    $(document).on('click', '.berita', function (e) {
 
         e.preventDefault();
         const view = $(this).data('id');
@@ -418,78 +534,11 @@
 
     });
 
-    $(document).ready(function () { 
-        const id = $('#display_comment').data('id');
-
-        $("#komentar").click(function () {
-            url = $('#comment').data('id') + '/komen/' + id;
-            $.ajax({
-                type: "post",
-                url: url,
-                data: "urut=" + $(".baris:last").attr('id'),
-                success: function (html) {
-                    if (html) {
-                        $("#display_comment").append(html);     
-                    } 
-                }
-            });
-        });
-    });
-
-    $(document).ready(function () {
-        const BASEURL = $('#comment').data('id');
-        const id = $('#display_comment').data('id');
-        $('#form_komen').on('submit', function (event) {
-            event.preventDefault();
-            var form_data = $(this).serialize();
-            url = BASEURL + '/tambah-komen/' + id; 
-            if (komen == 0) {
-                $('#komen').focus();
-                return false;
-            }
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: form_data,
-                success: function (data) {
-                    $('#form_komen')[0].reset();
-                    $('#komentar_id').val('0');
-                    load_comment();
-                    var dialog = bootbox.dialog({
-                        message: '<p class="text-center mb-0"><i class="fa fa-check-circle"></i> Your comment has been post...</p>',
-                        closeButton: false
-                    });
-                    setTimeout(function(){
-                        dialog.modal('hide');
-                    }, 3000);
-                }
-            });
-        });
-
-        load_comment();
-
-        function load_comment() {
-            url = BASEURL + '/ambil-komen/' + id;
-
-            $.ajax({
-                url: url,
-                method: "post",
-                success: function (data) {
-                    $('#display_comment').html(data);
-                }
-
-            });
-
-        }
-
-        $(document).on('click', '.reply', function () {
-            var komentar_id = $(this).attr("id");
-            $('#komentar_id').val(komentar_id);
-            $('#komen').focus();
-
-        });
-    });
-
+    $(document).on('click', '.reply', function () {
+        var komentar_id = $(this).attr("id");
+        $('#komentar_id').val(komentar_id);
+        $('#komen').focus(); 
+    }); 
 
     $('.like').click(function() {
         var t = $(this);
@@ -498,17 +547,18 @@
             method : 'POST',
             dataType : 'json',
             success: function (msg){
-                // console.log(msg);
                 if (msg.status == true) { 
                     t.html('<i class="fas fa-heart"></i> ' + msg.content);
                     t.removeClass('like');
                 } else {
+                    var scroll = $(window).scrollTop(); 
                     var dialog = bootbox.dialog({
                         message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+ msg.message +'</p>',
-                        closeButton: false
+                        closeButton: true
                     });
                     setTimeout(function(){
                         dialog.modal('hide');
+                        $('html, body').animate({scrollTop : scroll},800);
                     }, 3000);
                 }
             }

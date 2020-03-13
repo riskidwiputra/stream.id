@@ -11,8 +11,8 @@
                     
                     <?php foreach ($data['content'] as $row):
                         $whereNews = [
-                            'parent_komentar_id'    => 0,
-                            'id_news_game'  => $row['id_news_game']
+                            'reply_comment_id'  => 0,
+                            'news_id'  => $row['id_news_game']
                         ];
                         $like = $this->db->table('news_like')->countRows('news_id', $row['id_news_game']);
                         $comment = $this->db->table('komentar')->countRows($whereNews);
@@ -28,8 +28,8 @@
                         } elseif ($label['color'] == 5) {
                             $label = '<span class="label posts__cat-label posts__cat-label--category-1">'.$label['nama_kategori'].'</span>'; 
                         } 
-                        // $penulis = $this->db->table('data_management')->where('stream_id', $row['penulis']);
-                        // $penulis = $penulis['fullname'];
+                        $penulis = $this->db->table('management_access')->where('stream_id', $row['penulis']);
+                        $penulis = $penulis['fullname'];
                         $whereMe = [
                             'news_id'   => $row['id_news_game'],
                             'users_id'  => Session::get('users')
@@ -65,7 +65,7 @@
                                         <img src="<?= BASEURL ?>/public/assets/images/samples/avatar-12-xs.jpg" alt="Post Author Avatar">
                                     </figure>
                                     <div class="post-author__info">
-                                        <h4 class="post-author__name"><?= $penulis; ?></h4>
+                                        <h4 class="post-author__name" style="margin-top:2px;"><?= $penulis; ?></h4>
                                     </div>
                                 </div>
                                 <ul class="post__meta meta">
@@ -95,15 +95,17 @@
                                 dataType : 'json',
                                 success: function (msg){
                                     // console.log(msg);
+                                    var scroll = $(window).scrollTop(); 
                                     if (msg.status == true) { 
                                         t.html('<i class="fas fa-heart mr-1" style="font-size:12px;"></i> ' + msg.content);
                                         t.removeClass('like');
                                     } else {
                                         var dialog = bootbox.dialog({
                                             message: '<p class="text-center mb-0"><i class="fa fa-times-circle"></i> '+ msg.message +'</p>',
-                                            closeButton: false
+                                            closeButton: true
                                         });
                                         setTimeout(function(){
+                                            $('html, body').animate({scrollTop : scroll},800);
                                             dialog.modal('hide');
                                         }, 3000);
                                     }

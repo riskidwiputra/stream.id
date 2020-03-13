@@ -26,6 +26,12 @@ class About_Model extends Model
         return $this->db->resultSet();
     }
 
+    public function videos()
+    {
+        $this->db->table('videos')->all();
+        return $this->db->resultSet();
+    }
+
     public function likeGallery($id)
     {
         $likeGallery = $this->db->table('gallery_like')->countRows('gallery_id', $id);

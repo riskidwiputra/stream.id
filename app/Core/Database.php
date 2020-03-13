@@ -132,7 +132,7 @@
 				$sql = rtrim($sql, 'AND');
 			} else {
 				$sql .= " ".$where1." = '".$where2."'";
-			}
+			} 
 			$this->query($sql);
 			if (is_array($where1)) {
 				foreach ($where1 as $field => $value) {
@@ -245,15 +245,20 @@
 		}
 
 
-		public function delete($id)
+		public function delete($data)
 		{
 			$sql = "DELETE FROM ";
-			$sql .= $this->table;
-			$sql .= " WHERE id = :id";
-
+			$sql .= $this->table. ' WHERE';
+			foreach($data as $field => $value){
+	            $sql .= " ".$field." = '".$value."' AND";
+	        } 
+			$sql = rtrim($sql, 'AND'); 
 			$this->query($sql);
-			$this->bind('id', $id);
+			foreach ($data as $field => $value) {
+				$this->bind($field, $value);
+			}
 			$this->execute(); 
+			return $this->rowCount();
 		}
 		
 		 
