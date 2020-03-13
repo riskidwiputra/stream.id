@@ -378,7 +378,6 @@
                         <?php 
                         $rowcount = count($data['my_game']); 
                         $row = $data['my_game'];
-                        $rowteam = $data['team'];
                      ?>
                         <div class="alc-achievements js-alc-achievements-carousel">
                             <?php for($i=0; $i < $rowcount; $i++){ ?>
@@ -390,46 +389,68 @@
                                     <h5 class="alc-achievements__event-title"><?= $row[$i]['name']; ?></h5>
                                     <div class="alc-achievements__event-date">
                                     <?php if($row[$i]['username_ingame'] != ""){
-                                            echo $row[$i]['username_ingame'];
-                                    }else{ echo " <font size='6'> - </font> "; } ?>
+                                          
+                                    }else{ 
+                                        echo " <font size='6'> - </font> ";
+                                     } ?>
                                     </div>
                                     <button
                                         class="btn btn-primary-inverse mt-3"
                                         data-toggle="modal"
-                                        data-target="#game<?= $row[$i]['game_id']; ?>">EDIT</button>
+                                        data-target="#game<?= $row[$i]['game_id']; ?>">EDIT DATA</button>
                                 </div>
                                 <div class="alc-achievements__meta">
                                     <div class="alc-achievements__meta-item">
-                                        <?php if($row[$i]['game_id'] == $rowteam[$i+1]['game_id']) { ?>
-                                        <h6 class="alc-achievements__meta-value"><?= $rowteam[$i]['team_name']; ?></h6>
-                                        <div class="alc-achievements__meta-name">
-                                        <?php if($rowteam[$i+1]['username_ingame'] != ""){
-                                            echo $rowteam[$i+1]['username_ingame'];
-                                        }else { echo "<font size='6'> - </font>"; } ?>
-                                        </div>
-                                    <?php } else{ ?>
-                                        <h6 class="alc-achievements__meta-value">
-                                            <font size='6'>
-                                                -
-                                            </font>
-                                        </h6>
-                                        <div class="alc-achievements__meta-name">-</div>
-                                        <?php } ?>
+                                        <div class="alc-achievements__meta-name">Team Info</div><br>
+                                       <?php
+                                       $id = $row[$i]['users_id']; 
+                                       $teamrow = $this->db->query("SELECT * FROM team_player LEFT JOIN team ON team_player.team_id = team.team_id WHERE player_id LIKE '%$id%' OR substitute_id LIKE '%$id%'");
+                                       $teamrow = $this->db->resultSet(); 
+                                       ?>
+                                      
+                                           
+                                               <?php for($b=0; $b < count($teamrow); $b++){ 
+                                                  if($teamrow[$b]['game_id'] == $row[$i]['game_id']){
+                                                      ?>
+                                                      <h6 class="alc-achievements__meta-value">
+                                                        <?= $teamrow[$b]['team_name']; ?>
+                                                        </h6>
+                                                        <div class="alc-achievements__meta-name">
+                                                        <?php
+                                                        $leaderid = $teamrow[$b]['leader_id'];
+                                                        $gameid = $teamrow[$b]['game_id'];
+                                                        $leader = $this->db->query("SELECT * FROM identity_ingame WHERE users_id = '$leaderid' AND game_id = '$gameid' ");
+                                                        $leader = $this->db->resultSet();
+                                                        
+                                                       echo $leader[0]['username_ingame'];
+                                                        ?></div>
+                                                  <?php    }else{ ?>
+                                                        
+                                                        <font size='6'>-</font>
+                                                        <div class="alc-achievements__meta-name"> <font size='6'>-</font></div>
+                                                        
+                                                <?php  } }  ?>
+                                                                                                                                                       
                                     </div>
                                     <!-- <div class="alc-achievements__meta-item"> <h6
                                     class="alc-achievements__meta-value">637</h6> <div
                                     class="alc-achievements__meta-name">Team Kills</div> </div> -->
                                     <div class="alc-achievements__meta-item">
-                                        <?php if($row[$i]['game_id'] == $rowteam[$i+1]['game_id']) { ?>
-                                        <h6 class="alc-achievements__meta-value"><?= count(explode(',',$rowteam[$i]['player_id'])); ?></h6>
-                                        <div class="alc-achievements__meta-name">Player User</div>
+                                    <div class="alc-achievements__meta-name">User Info</div><br>
+                                        <?php if($row[$i]['username_ingame'] != "") { ?>
+                                        <h6 class="alc-achievements__meta-value"> 
+                                        <?php 
+                                            echo $row[$i]['username_ingame'];
+                                            ?>
+                                            </h6>
+                                            <div class="alc-achievements__meta-name"><?php echo $row[$i]['id_ingame']; ?></div>
                                     <?php } else{ ?>
                                         <h6 class="alc-achievements__meta-value">
                                             <font size='6'>
                                                 -
                                             </font>
                                         </h6>
-                                        <div class="alc-achievements__meta-name">Player User</div>
+                                        <div class="alc-achievements__meta-name"> <font size='6'>-</font></div>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -496,12 +517,12 @@
                     </div>
                 </div>
                 <script>
-                    $('.form-identity<?=$row[$a][' game_id '];?>').submit(function (event) {
+                    $('.form-identity<?=$row[$a]['game_id'];?>').submit(function (event) {
                         event.stopPropagation();
                         event.preventDefault();
                         $('.create-team').html('Loading....');
                         $.ajax({
-                            url: '<?=url(' update - identity / '.$row[$a][' game_id ']);?>',
+                            url: "<?=url('update-identity/'.$row[$a]['game_id']);?>",
                             method: 'POST',
                             data: {
                                 id: $(this)
@@ -925,35 +946,6 @@
                 </aside>
                 <!-- Widget: Featured Player - Alternative Extended / End -->
 
-                <div class="w3-content w3-display-container">
-  <img class="mySlides" src="img_snowtops.jpg" style="width:100%">
-  <img class="mySlides" src="img_lights.jpg" style="width:100%">
-  <img class="mySlides" src="img_mountains.jpg" style="width:100%">
-  <img class="mySlides" src="img_forest.jpg" style="width:100%">
-
-  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-  <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-</div>
-
-<script>
-var slideIndex = 1;
-showDivs(slideIndex);
-
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-</script>
                 <!-- Widget: Featured Player - Alternative without Image -->
                 <aside class="widget card widget--sidebar widget-player widget-player--alt">
                     <div class="widget__title card__header">
