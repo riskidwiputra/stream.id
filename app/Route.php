@@ -93,3 +93,6 @@
 
 	// Leaderboard
 	Route::get('/leaderboard', 				'LeaderboardController@Leaderboard');
+
+	// Terms and Condition
+	Route::get('/termsandcondition', 		'TermsandconditionController@Termsandcondition');
