@@ -20,6 +20,11 @@
 				$data['content']   = $this->model('Account_Model')->select($id);
 				$data['game-list'] = $this->db->table('game_list')->all();
 				$data['game-list']	= $this->db->resultSet();
+				$data['my_game'] = $this->db->query("SELECT * FROM identity_ingame LEFT JOIN game_list ON identity_ingame.game_id = game_list.id_game_list LEFT JOIN team ON identity_ingame.game_id = team.game_id WHERE users_id = '$id' ");
+				$data['my_game'] = $this->db->resultSet();
+				$countrow = count(data['my_game']);
+				$data['team'] = $this->db->query("SELECT * FROM team LEFT JOIN identity_ingame ON team.leader_id = identity_ingame.users_id LEFT JOIN team_player ON team.team_id = team_player.team_id WHERE player_id LIKE '%$id%' ");
+				$data['team'] = $this->db->resultSet();
 				$data['users'] = $this->db->query('
 					SELECT * FROM users 
 					JOIN users_detail

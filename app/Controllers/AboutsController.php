@@ -84,8 +84,9 @@
 			$data['users'] = $this->Users;  
 			$data['game-list'] = $this->db->table('game_list')->all();
 			$data['game-list']	= $this->db->resultSet();
+			$data['content'] = $this->model('About_Model')->videos(); 
 			$this->view('landing/template/header', $data);
-			$this->view('landing/about/videos');	
+			$this->view('landing/about/videos', $data);	
 			$this->view('landing/template/footer' , $data);			
 		}
 		public function marchandise()
