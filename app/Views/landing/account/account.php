@@ -404,7 +404,8 @@
                                         <div class="alc-achievements__meta-name">Team Info</div><br>
                                        <?php
                                        $id = $row[$i]['users_id']; 
-                                       $teamrow = $this->db->query("SELECT * FROM team_player LEFT JOIN team ON team_player.team_id = team.team_id WHERE player_id LIKE '%$id%' OR substitute_id LIKE '%$id%'");
+                                       $gameid = $row[$i]['game_id'];
+                                       $teamrow = $this->db->query("SELECT * FROM team_player LEFT JOIN team ON team_player.team_id = team.team_id WHERE player_id LIKE '%$id%' OR substitute_id LIKE '%$id%' AND game_id = '$game_id' ");
                                        $teamrow = $this->db->resultSet(); 
                                        ?>
                                       
@@ -423,6 +424,7 @@
                                                         $leader = $this->db->resultSet();
                                                         
                                                        echo $leader[0]['username_ingame'];
+                                              
                                                         ?></div>
                                                   <?php    }else{ ?>
                                                         
