@@ -407,6 +407,7 @@
                                        $gameid = $row[$i]['game_id'];
                                        $teamrow = $this->db->query("SELECT * FROM team_player LEFT JOIN team ON team_player.team_id = team.team_id WHERE player_id LIKE '%$id%' OR substitute_id LIKE '%$id%' AND game_id = '$game_id' ");
                                        $teamrow = $this->db->resultSet(); 
+                                       $isTeam = 0;
                                        ?>
                                       
                                            
@@ -424,15 +425,13 @@
                                                         $leader = $this->db->resultSet();
                                                         
                                                        echo $leader[0]['username_ingame'];
-                                              
+                                                        
                                                         ?></div>
-                                                  <?php    }else{ ?>
-                                                        
-                                                        <font size='6'>-</font>
-                                                        <div class="alc-achievements__meta-name"> <font size='6'>-</font></div>
-                                                        
-                                                <?php  } }  ?>
-                                                                                                                                                       
+                                                  <?php  $isTeam++; } } ?>   
+                                                <?php if($isTeam == 0) { ?>
+                                                  <font size='6'>-</font>
+                                                <div class="alc-achievements__meta-name"> <font size='6'>-</font></div>
+                                                <?php } ?>                                                                                               
                                     </div>
                                     <!-- <div class="alc-achievements__meta-item"> <h6
                                     class="alc-achievements__meta-value">637</h6> <div
