@@ -380,7 +380,8 @@
                         $row = $data['my_game'];
                      ?>
                         <div class="alc-achievements js-alc-achievements-carousel">
-                            <?php for($i=0; $i < $rowcount; $i++){ ?>
+                                                
+                            <?php if($rowcount > 0 ){ for($i=0; $i < $rowcount; $i++){ ?>
                             <div class="alc-achievements__item">
                                 <div class="alc-achievements__content">
                                     <div class="alc-achievements__icon alc-icon alc-icon--xl">
@@ -388,11 +389,7 @@
                                     </div>
                                     <h5 class="alc-achievements__event-title"><?= $row[$i]['name']; ?></h5>
                                     <div class="alc-achievements__event-date">
-                                    <?php if($row[$i]['username_ingame'] != ""){
-                                          
-                                    }else{ 
-                                        echo " <font size='6'> - </font> ";
-                                     } ?>
+                                   
                                     </div>
                                     <button
                                         class="btn btn-primary-inverse mt-3"
@@ -453,6 +450,39 @@
                                         </h6>
                                         <div class="alc-achievements__meta-name"> <font size='6'>-</font></div>
                                         <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } }else{ ?>
+                                <div class="alc-achievements__item">
+                                <div class="alc-achievements__content">
+                                    <div class="alc-achievements__icon alc-icon alc-icon--xl">
+                                    <font size='6'>-</font>
+                                    </div>
+                                    <h5 class="alc-achievements__event-title"><font size='6'>-</font></h5>
+                                    <div class="alc-achievements__event-date">                                
+                                    </div>
+                                </div>
+                                <div class="alc-achievements__meta">
+                                    <div class="alc-achievements__meta-item">
+                                        <div class="alc-achievements__meta-name">Team Info</div><br>
+                                                                    
+                                        <font size='6'>-</font>
+                                        <div class="alc-achievements__meta-name"> <font size='6'>-</font></div>
+                                                                                                         
+                                    </div>
+                                    <!-- <div class="alc-achievements__meta-item"> <h6
+                                    class="alc-achievements__meta-value">637</h6> <div
+                                    class="alc-achievements__meta-name">Team Kills</div> </div> -->
+                                    <div class="alc-achievements__meta-item">
+                                    <div class="alc-achievements__meta-name">User Info</div><br>
+                                        <h6 class="alc-achievements__meta-value">
+                                            <font size='6'>
+                                                -
+                                            </font>
+                                        </h6>
+                                        <div class="alc-achievements__meta-name"> <font size='6'>-</font></div>
+                                        
                                     </div>
                                 </div>
                             </div>
